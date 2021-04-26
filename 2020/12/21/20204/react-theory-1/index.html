@@ -1,0 +1,1177 @@
+
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      react原理-1-使用 | 陈立林的个人网站
+    
+  </title>
+  <meta name="author" content="来者可追">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+
+  <!-- css -->
+  
+<link rel="stylesheet" href="../../../../../css/Annie.css">
+
+  
+  <!-- jquery -->
+	
+<script src="../../../../../plugin/jquery/jquery.min.js"></script>
+
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'normal',
+      normalSrc: '../../../../../https:/source.unsplash.com/collection/954550/1920x1080',
+      randomYouMax: 110,
+      randomYouSrc: '../../../../../https:/sariay.github.io/Random-img/',
+	  randomOtherSrc: '../../../../../https:/api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: false
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: false,
+	  appId: 'AU8...',
+	  appKey: '4cU...',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+	<body>
+		<!-- Preloader -->
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">获取中...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			「react原理-1-使用」
+		
+	</p>
+
+	
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="../../../../../img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="../../../../../index.html" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="../../../../../archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="../../../../../categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="../../../../../tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="../../../../../about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="../../../../../gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-zhihu"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-sina-weibo "></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-pinterest2"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+<script src="../../../../../plugin/toc/katelog.min.js"></script>
+
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+		<div class="article-title">
+			
+	<a href="" itemprop="url">
+		react原理-1-使用
+	</a>
+
+		</div>
+
+		<div class="article-meta">
+			<span>
+				<i class="icon-calendar1"></i>
+				
+				
+
+
+
+
+	更新于
+
+	<a href="" itemprop="url">
+		<time datetime="2020-12-21T07:19:22.000Z" itemprop="dateUpdated">
+	  		2021-04-23
+	  </time>
+	</a> 
+
+
+
+			</span>
+			<span>
+				
+	<i class="icon-price-tags"></i>
+	
+		<a href="../../../../../tags/react/" class=" ">
+			react
+		</a>
+	
+		
+			</span>
+			
+			
+
+
+
+		</div>
+
+		<div class="article-content" id="article-content">
+			<p>react原理-1-使用</p>
+<a id="more"></a>
+<h1 id="第七章"><a href="#第七章" class="headerlink" title="第七章"></a>第七章</h1><h2 id="7-1、React使用-考点串讲"><a href="#7-1、React使用-考点串讲" class="headerlink" title="7-1、React使用-考点串讲"></a>7-1、React使用-考点串讲</h2><p><strong>React vs Vue</strong></p>
+<ul>
+<li>React 和 Vue 一样重要，力求两者都会</li>
+<li>React 和 Vue 有很多相通之处，而且正在趋于一致</li>
+<li>React 比 Vue 学习成本高，尤其对于初学者</li>
+</ul>
+<p><strong>React使用</strong></p>
+<ul>
+<li>基本使用 – 常用，必须回</li>
+<li>高级特性 – 不常用，但体现深度</li>
+<li>Redux 和 React-router 使用</li>
+</ul>
+<p><strong>回顾之前的React面试题</strong></p>
+<ul>
+<li>React 组件如何通讯</li>
+<li>JSX 本质是什么</li>
+<li>context是是什么，有何用途？</li>
+<li>shouldComponentUpdate 的用途</li>
+<li>描述 redux 单项数据流</li>
+<li>setState 是同步还是异步？（场景图，见下方）</li>
+</ul>
+<p><img src="/images/20204/react-theory-01.png" alt="setState"></p>
+<h2 id="7-2、JSX基本知识点串讲"><a href="#7-2、JSX基本知识点串讲" class="headerlink" title="7-2、JSX基本知识点串讲"></a>7-2、JSX基本知识点串讲</h2><ul>
+<li>变量、表达式</li>
+<li>class style</li>
+<li>子元素和组件</li>
+</ul>
+<p>代码演示：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'./style.css'</span></span><br><span class="line"><span class="keyword">import</span> List <span class="keyword">from</span> <span class="string">'../List'</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">JSXBaseDemo</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">        <span class="keyword">super</span>(props)</span><br><span class="line">        <span class="keyword">this</span>.state = &#123;</span><br><span class="line">            name: <span class="string">'双越'</span>,</span><br><span class="line">            imgUrl: <span class="string">'https://img1.mukewang.com/5a9fc8070001a82402060220-140-140.jpg'</span>,</span><br><span class="line">            flag: <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">      ......</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> JSXBaseDemo</span><br></pre></td></tr></table></figure>
+<p>获取变量 插值、表达式</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const pElem = <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;this.state.name&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">return pElem</span><br><span class="line"></span><br><span class="line">const exprElem = <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;this.state.flag ? 'yes' : 'no'&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">return exprElem</span><br></pre></td></tr></table></figure>
+<p>子元素、class。class是保留字，所以要用className</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const imgElem = <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>我的头像<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"xxxx.png"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&#123;this.state.imgUrl&#125;/</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">return imgElem</span><br><span class="line"></span><br><span class="line">const classElem = <span class="tag">&lt;<span class="name">p</span> <span class="attr">className</span>=<span class="string">"title"</span>&gt;</span>设置 css class<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">return classElem</span><br></pre></td></tr></table></figure>
+<p>style</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const styleData = &#123; fontSize: '30px',  color: 'blue' &#125;</span><br><span class="line">const styleElem = <span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&#123;styleData&#125;</span>&gt;</span>设置 style<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">// 内联写法，注意 &#123;&#123; 和 &#125;&#125;</span><br><span class="line">const styleElem = <span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">fontSize:</span> '<span class="attr">30px</span>',  <span class="attr">color:</span> '<span class="attr">blue</span>' &#125;&#125;&gt;</span>设置 style<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">return styleElem</span><br></pre></td></tr></table></figure>
+<p>原生 html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const rawHtml = '<span class="tag">&lt;<span class="name">span</span>&gt;</span>富文本内容<span class="tag">&lt;<span class="name">i</span>&gt;</span>斜体<span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>加粗<span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>'</span><br><span class="line">const rawHtmlData = &#123;</span><br><span class="line">    __html: rawHtml // 注意，必须是这种格式</span><br><span class="line">&#125;</span><br><span class="line">const rawHtmlElem = <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">dangerouslySetInnerHTML</span>=<span class="string">&#123;rawHtmlData&#125;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span>  // 需要使用这个定义</span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;rawHtml&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span>  // 如果直接写不能展示</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">return rawHtmlElem</span><br></pre></td></tr></table></figure>
+<p>加载组件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const componentElem = <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>JSX 中加载一个组件<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">List</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">return componentElem</span><br></pre></td></tr></table></figure>
+<p>以上是一些最基本应用，需要知道。</p>
+<h2 id="7-3-JSX如何判断条件和渲染列表"><a href="#7-3-JSX如何判断条件和渲染列表" class="headerlink" title="7-3 JSX如何判断条件和渲染列表"></a>7-3 JSX如何判断条件和渲染列表</h2><p><strong>判断条件</strong></p>
+<ul>
+<li>if else</li>
+<li>三元表达式</li>
+<li>逻辑运算符 &amp;&amp; ||</li>
+</ul>
+<p>和vue的模板差不多，vue会有v-if  v-else这种指令，JSX中这些更好理解。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import React from 'react'</span><br><span class="line">import './style.css'</span><br><span class="line"></span><br><span class="line">class ConditionDemo extends React.Component &#123;</span><br><span class="line">    constructor(props) &#123;</span><br><span class="line">        super(props)</span><br><span class="line">        this.state = &#123;</span><br><span class="line">            theme: 'black'</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">        const blackBtn = <span class="tag">&lt;<span class="name">button</span> <span class="attr">className</span>=<span class="string">"btn-black"</span>&gt;</span>black btn<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        const whiteBtn = <span class="tag">&lt;<span class="name">button</span> <span class="attr">className</span>=<span class="string">"btn-white"</span>&gt;</span>white btn<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        // if else</span><br><span class="line">        if (this.state.theme === 'black') &#123;</span><br><span class="line">            return blackBtn</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return whiteBtn</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // 三元运算符</span><br><span class="line">        return <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            &#123; this.state.theme === 'black' ? blackBtn : whiteBtn &#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        // &amp;&amp;</span><br><span class="line">        return <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            &#123; this.state.theme === 'black' &amp;&amp; blackBtn &#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default ConditionDemo</span><br></pre></td></tr></table></figure>
+<p>以上指令也比较常用。</p>
+<p><strong>渲染列表</strong></p>
+<ul>
+<li>map</li>
+<li>key</li>
+</ul>
+<p>代码演示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">import React from 'react'</span><br><span class="line"></span><br><span class="line">class ListDemo extends React.Component &#123;</span><br><span class="line">    constructor(props) &#123;</span><br><span class="line">        super(props)</span><br><span class="line">        this.state = &#123;</span><br><span class="line">            list: [</span><br><span class="line">                &#123;</span><br><span class="line">                    id: 'id-1',</span><br><span class="line">                    title: '标题1'</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    id: 'id-2',</span><br><span class="line">                    title: '标题2'</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    id: 'id-3',</span><br><span class="line">                    title: '标题3'</span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">        return <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">            &#123; /* vue v-for  map可以返回新的数组，不改变原数组 */  </span><br><span class="line">                this.state.list.map(</span><br><span class="line">                    (item, index) =&gt; &#123;</span><br><span class="line">                        // 这里的 key 和 Vue 的 key 类似，必填，不能是 index 或 random</span><br><span class="line">                        return <span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;item.id&#125;</span>&gt;</span></span><br><span class="line">                            index &#123;index&#125;; id &#123;item.id&#125;; title &#123;item.title&#125;</span><br><span class="line">                        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                    &#125;</span><br><span class="line">                )</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default ListDemo</span><br></pre></td></tr></table></figure>
+<h2 id="7-4-React事件如何bind-this"><a href="#7-4-React事件如何bind-this" class="headerlink" title="7-4 React事件如何bind this"></a>7-4 React事件如何bind this</h2><p><strong>事件</strong></p>
+<ul>
+<li>bind this</li>
+<li>关于event参数</li>
+<li>传递自定义参数</li>
+</ul>
+<blockquote>
+<p>这一块的考点较多，比较重要，bind、this这一块可能考点不多，但是每天都要用。所以这一节都是重点。</p>
+</blockquote>
+<p>代码演示：eventDemo.js:</p>
+<p><strong>使用bind</strong></p>
+<p>this 默认是 undefined。定义完函数的时候，要通过bind修改函数的指向</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">constructor(props) &#123;</span><br><span class="line">    super(props)</span><br><span class="line">    this.state = &#123;</span><br><span class="line">        name: 'zhangsan',</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 修改方法的 this 指向</span><br><span class="line">    this.clickHandler1 = this.clickHandler1.bind(this)</span><br><span class="line">&#125;</span><br><span class="line">render() &#123;</span><br><span class="line">    // this - 使用 bind ：onClick=&#123;this.clickHandler1&#125;.bind(this)。</span><br><span class="line">    </span><br><span class="line">    return <span class="tag">&lt;<span class="name">p</span> <span class="attr">onClick</span>=<span class="string">&#123;this.clickHandler1&#125;</span>&gt;</span></span><br><span class="line">        &#123;this.state.name&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">clickHandler1() &#123;</span><br><span class="line">    // console.log('this....', this) // this 默认是 undefined</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">        name: 'lisi'</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如上代码，也可以直接把bind写在事件里面，但这个写法不推荐。</p>
+<p>若写在constructor里，只需执行一次bind函数；如果在点击事件上写，每点击一次都要执行bind()，影响效率。</p>
+<p><strong>使用静态方法</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> render() &#123;</span><br><span class="line">    // this - 使用静态方法</span><br><span class="line">    return <span class="tag">&lt;<span class="name">p</span> <span class="attr">onClick</span>=<span class="string">&#123;this.clickHandler2&#125;</span>&gt;</span></span><br><span class="line">        clickHandler2 &#123;this.state.name&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 静态方法，this 指向当前实例</span><br><span class="line">clickHandler2 = () =&gt; &#123;</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">        name: 'lisi'</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如上，clickHandler2使用了静态方法定义，而clickHandler1是用普通的class定义的。、</p>
+<p>静态方法的this 永远都会指向当前实例。推荐使用静态方法。</p>
+<p><strong>event</strong></p>
+<p>点击上面链接，调用</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// event</span><br><span class="line">return <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://imooc.com/"</span> <span class="attr">onClick</span>=<span class="string">&#123;this.clickHandler3&#125;</span>&gt;</span></span><br><span class="line">    click me</span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>点击上面链接，调用clickHandler3：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 获取 event</span></span><br><span class="line">    clickHandler3 = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">        event.preventDefault() <span class="comment">// 阻止默认行为</span></span><br><span class="line">        event.stopPropagation() <span class="comment">// 阻止冒泡</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'target'</span>, event.target) <span class="comment">// 指向当前元素，即当前元素触发</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'current target'</span>, event.currentTarget) <span class="comment">// 指向当前元素，假象！！！</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 注意，event 其实是 React 封装的。可以看 __proto__.constructor 是 SyntheticEvent 组合事件</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'event'</span>, event) <span class="comment">// 不是原生的 Event ，原生的 MouseEvent</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'event.__proto__.constructor'</span>, event.__proto__.constructor)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 1. event 是 SyntheticEvent ，模拟出来 DOM 事件所有能力</span></span><br><span class="line">        <span class="comment">// 2. event.nativeEvent 是原生事件对象</span></span><br><span class="line">        <span class="comment">// 3. 所有的事件，都被挂载到 document 上</span></span><br><span class="line">        <span class="comment">// 4. 和 DOM 事件不一样，和 Vue 事件也不一样</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>如上，首先，如果你调用方法的时候什么都不传，那么默认的一个参数就是<code>event</code>参数。可以先阻止默认行为（a标签的跳转）、阻止冒泡。这样这个链接就无法跳转了。</p>
+<p>其他的特性：<code>target</code>和 <code>current target</code>。为什么说<code>event.currentTarget</code>是假象呢？我们可以先<code>console.log(&#39;event&#39;, event)</code>试试看：</p>
+<p><img src="/images/20204/react-theory-02.png" alt="event.currentTarget"></p>
+<p>展开之后，在原型里面可以找到一个<code>SyntheticEvent</code>，翻译过来叫组合事件。所以我们获取到的<code>Event</code>,不是原生的Event，是 <code>SyntheticEvent</code> （组合事件）。 </p>
+<p>那么原生的<code>Event</code>是什么呢，我们可以拿<code>vue</code>的例子作对比，试一下</p>
+<h2 id="7-5-React事件和DOM事件的区别"><a href="#7-5-React事件和DOM事件的区别" class="headerlink" title="7-5 React事件和DOM事件的区别"></a>7-5 React事件和DOM事件的区别</h2><p>接上一节。我们打印出来<code>event.__proto__.constructor</code>，<code>constructor</code>是个<code>Class</code>。</p>
+<p>回顾之前vue的例子，他的<code>event</code>是<code>MouseEvent</code>，是原生的。</p>
+<p>所以说，我们有必要怀疑，React组件里面的事件，是否真的挂载到了当前的元素上。</p>
+<p>我们有一个方法可以获取原生的：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 原生 event 如下。其 __proto__.constructor 是 MouseEvent</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'nativeEvent'</span>, event.nativeEvent)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'nativeEvent target'</span>, event.nativeEvent.target)  <span class="comment">// 指向当前元素，即当前元素触发</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'nativeEvent current target'</span>, event.nativeEvent.currentTarget) <span class="comment">// 指向 document ！！！</span></span><br></pre></td></tr></table></figure>
+<p>此处的<code>event.nativeEvent</code>就是原生事件。</p>
+<p>需要注意他的<code>currentTarget</code>是绑定事件的元素，是 <code>#document</code>，这一点就和Vue完全不一样了。</p>
+<p><code>Vue</code>：触发的节点和绑定的节点是一样的。</p>
+<p><code>React</code>：触发的节点是原来的，绑定的节点都是<code>#document</code></p>
+<p><strong>总结：</strong></p>
+<ol>
+<li>event 是 SyntheticEvent ，模拟出来 DOM 事件所有能力</li>
+<li>event.nativeEvent 是原生事件对象</li>
+<li>所有的事件，都被挂载到 document 上</li>
+<li>和 DOM 事件不一样，和 Vue 事件也不一样</li>
+</ol>
+<p><strong>传递参数</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">    // 传递参数 - 用 bind(this, a, b)</span><br><span class="line">    return <span class="tag">&lt;<span class="name">ul</span>&gt;</span>&#123;this.state.list.map((item, index) =&gt; &#123;</span><br><span class="line">        return <span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;item.id&#125;</span> <span class="attr">onClick</span>=<span class="string">&#123;this.clickHandler4.bind(this,</span> <span class="attr">item.id</span>, <span class="attr">item.title</span>)&#125;&gt;</span></span><br><span class="line">            index &#123;index&#125;; title &#123;item.title&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    &#125;)&#125;<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 接收参数</span><br><span class="line">clickHandler4(id, title, event) &#123;</span><br><span class="line">    console.log(id, title)</span><br><span class="line">    console.log('event', event) // 最后追加一个参数，即可接收 event</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>传入了<code>id</code>、<code>title</code>。接收的时候，最后会追加一个<code>event</code></p>
+<h2 id="7-6-React表单知识点串讲"><a href="#7-6-React表单知识点串讲" class="headerlink" title="7-6 React表单知识点串讲"></a>7-6 React表单知识点串讲</h2><ul>
+<li>受控组件</li>
+<li>input textarea select 用 value</li>
+<li>checkbox radio 用 checken</li>
+</ul>
+<blockquote>
+<p>知识点：1、受控组件概念；2、如何实现类似双向绑定；3、非受控组件</p>
+</blockquote>
+<p>代码演示，FormDemo.js：</p>
+<p><strong>受控组件</strong></p>
+<p>若在vue中，我们可以使用 v-model实现双向绑定。 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props)</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">        name: <span class="string">'双越'</span>,</span><br><span class="line">        info: <span class="string">'个人信息'</span>,</span><br><span class="line">        city: <span class="string">'beijing'</span>,</span><br><span class="line">        flag: <span class="literal">true</span>,</span><br><span class="line">        gender: <span class="string">'male'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">    return <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;this.state.name&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span> <span class="attr">htmlFor</span>=<span class="string">"inputName"</span>&gt;</span>姓名：<span class="tag">&lt;/<span class="name">label</span>&gt;</span> &#123;/* 用 htmlFor 代替 for */&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"inputName"</span> <span class="attr">value</span>=<span class="string">&#123;this.state.name&#125;</span> <span class="attr">onChange</span>=<span class="string">&#123;this.onInputChange&#125;/</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#125;</span><br><span class="line">onInputChange = (e) =&gt; &#123;</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">        name: e.target.value</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如上。我们通过<code>onChange</code>事件，让<code>input</code>的值实时变化。 这就产生了一个类似于<code>v-model</code>的效果。</p>
+<p>何为受控？我们把input和state的值关联起来，就可以通过控制state来控制input的值。– 值受state控制</p>
+<p><strong>textarea、select、checkbox radio</strong> 和input类似。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">    // textarea - 使用 value</span><br><span class="line">    return <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">value</span>=<span class="string">&#123;this.state.info&#125;</span> <span class="attr">onChange</span>=<span class="string">&#123;this.onTextareaChange&#125;/</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;this.state.info&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    // select - 使用 value</span><br><span class="line">    return <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">select</span> <span class="attr">value</span>=<span class="string">&#123;this.state.city&#125;</span> <span class="attr">onChange</span>=<span class="string">&#123;this.onSelectChange&#125;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"beijing"</span>&gt;</span>北京<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"shanghai"</span>&gt;</span>上海<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"shenzhen"</span>&gt;</span>深圳<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;this.state.city&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    // checkbox</span><br><span class="line">    return <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">checked</span>=<span class="string">&#123;this.state.flag&#125;</span> <span class="attr">onChange</span>=<span class="string">&#123;this.onCheckboxChange&#125;/</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;this.state.flag.toString()&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    // radio</span><br><span class="line">    return <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        male <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"gender"</span> <span class="attr">value</span>=<span class="string">"male"</span> <span class="attr">checked</span>=<span class="string">&#123;this.state.gender</span> === <span class="string">'male'</span>&#125; <span class="attr">onChange</span>=<span class="string">&#123;this.onRadioChange&#125;/</span>&gt;</span></span><br><span class="line">        female <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"gender"</span> <span class="attr">value</span>=<span class="string">"female"</span> <span class="attr">checked</span>=<span class="string">&#123;this.state.gender</span> === <span class="string">'female'</span>&#125; <span class="attr">onChange</span>=<span class="string">&#123;this.onRadioChange&#125;/</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;this.state.gender&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">onTextareaChange = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        info: e.target.value</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">onSelectChange = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        city: e.target.value</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">onCheckboxChange = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        flag: !<span class="keyword">this</span>.state.flag</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">onRadioChange = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        gender: e.target.value</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="7-7-React父子组件通讯"><a href="#7-7-React父子组件通讯" class="headerlink" title="7-7 React父子组件通讯"></a>7-7 React父子组件通讯</h2><p>组件使用：</p>
+<ul>
+<li>props传递数据</li>
+<li>props传递函数</li>
+<li>props类型检查</li>
+</ul>
+<blockquote>
+<p>传递数据、类型检查和Vue类似，但 传递函数和Vue不同。</p>
+</blockquote>
+<p>vue中，如果传递函数，是用了@事件传递和$emit的方式。</p>
+<p>代码演示：PropsDemo.js，实现简单的todoList功能。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line">import React from 'react'</span><br><span class="line">import PropTypes from 'prop-types'</span><br><span class="line"></span><br><span class="line">class Input extends React.Component &#123;</span><br><span class="line">    constructor(props) &#123;</span><br><span class="line">        super(props)</span><br><span class="line">        this.state = &#123;</span><br><span class="line">            title: ''</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">        return <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">value</span>=<span class="string">&#123;this.state.title&#125;</span> <span class="attr">onChange</span>=<span class="string">&#123;this.onTitleChange&#125;/</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;this.onSubmit&#125;</span>&gt;</span>提交<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    &#125;</span><br><span class="line">    onTitleChange = (e) =&gt; &#123;</span><br><span class="line">        this.setState(&#123;</span><br><span class="line">            title: e.target.value</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    onSubmit = () =&gt; &#123;</span><br><span class="line">         // 子组件接收函数，执行</span><br><span class="line">        const &#123; submitTitle &#125; = this.props</span><br><span class="line">        submitTitle(this.state.title) // 'abc'</span><br><span class="line"></span><br><span class="line">        this.setState(&#123;</span><br><span class="line">            title: ''</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// props 类型检查</span><br><span class="line">Input.propTypes = &#123;</span><br><span class="line">    submitTitle: PropTypes.func.isRequired</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class List extends React.Component &#123;</span><br><span class="line">    constructor(props) &#123;</span><br><span class="line">        super(props)</span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">        // 子组件接收参数</span><br><span class="line">        const &#123; list &#125; = this.props</span><br><span class="line"></span><br><span class="line">        return <span class="tag">&lt;<span class="name">ul</span>&gt;</span>&#123;list.map((item, index) =&gt; &#123;</span><br><span class="line">            return <span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;item.id&#125;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;item.title&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        &#125;)&#125;<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// props 类型检查。接收一个数组，里面是对象。我们需要安装prop-types插件</span><br><span class="line">List.propTypes = &#123;</span><br><span class="line">    list: PropTypes.arrayOf(PropTypes.object).isRequired</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class TodoListDemo extends React.Component &#123;</span><br><span class="line">    constructor(props) &#123;</span><br><span class="line">        super(props)</span><br><span class="line">        // 状态（数据）提升：把数据放到父组件（层级最高的组件）中管理。</span><br><span class="line">        // 若是低层组件（如List），则只负责提交。</span><br><span class="line">        this.state = &#123;</span><br><span class="line">            list: [</span><br><span class="line">                &#123;</span><br><span class="line">                    id: 'id-1',</span><br><span class="line">                    title: '标题1'</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    id: 'id-2',</span><br><span class="line">                    title: '标题2'</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    id: 'id-3',</span><br><span class="line">                    title: '标题3'</span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            footerInfo: '底部文字'</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">        return <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            &#123;/* 父向子传函数 ，子  执行这个事件，父 负责把数据处理好*/&#125;</span><br><span class="line">            <span class="tag">&lt;<span class="name">Input</span> <span class="attr">submitTitle</span>=<span class="string">&#123;this.onSubmitTitle&#125;/</span>&gt;</span></span><br><span class="line">            &#123;/* 父向子传参数 */&#125;</span><br><span class="line">            <span class="tag">&lt;<span class="name">List</span> <span class="attr">list</span>=<span class="string">&#123;this.state.list&#125;/</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    &#125;</span><br><span class="line">    onSubmitTitle = (title) =&gt; &#123;</span><br><span class="line">        this.setState(&#123;</span><br><span class="line">            list: this.state.list.concat(&#123;</span><br><span class="line">                id: `id-$&#123;Date.now()&#125;`,</span><br><span class="line">                title</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default TodoListDemo</span><br></pre></td></tr></table></figure>
+<p>上面代码主要讲了 <code>属性传递</code>、<code>属性验证</code>、<code>父子组件传递事件通讯</code></p>
+<h2 id="7-8-setState为何使用不可变值"><a href="#7-8-setState为何使用不可变值" class="headerlink" title="7-8 setState为何使用不可变值"></a>7-8 setState为何使用不可变值</h2><blockquote>
+<p>这部分非常重要，肯定会考察，比上面的基础，比下面的高级特性、原理都要重要。setState一定要搞明白。</p>
+</blockquote>
+<ul>
+<li>不可变值   不可变值    不可变值</li>
+<li>可能是异步更新</li>
+<li>可能会被合并</li>
+</ul>
+<p><strong>不可变值</strong></p>
+<p>代码演示：StateDemo.js。此代码功能为累加，点击就+1</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">constructor(props) &#123;</span><br><span class="line">    super(props)</span><br><span class="line"></span><br><span class="line">    // 第一，state 要在构造函数中定义</span><br><span class="line">    this.state = &#123;</span><br><span class="line">        count: 0</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">render() &#123;</span><br><span class="line">    return <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;this.state.count&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;this.increase&#125;</span>&gt;</span>累加<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>设置state</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">increase = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 第二，不要直接修改 state ，使用不可变值 ----------------------------</span></span><br><span class="line">    <span class="comment">// this.state.count++ // 错误</span></span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        count: <span class="keyword">this</span>.state.count + <span class="number">1</span> <span class="comment">// SCU</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// 操作数组、对象的的常用形式</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第三，setState 可能是异步更新（有可能是同步更新） ----------------------------</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        count: <span class="keyword">this</span>.state.count + <span class="number">1</span></span><br><span class="line">    &#125;, () =&gt; &#123;</span><br><span class="line">        <span class="comment">// 联想 Vue $nextTick - DOM</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'count by callback'</span>, <span class="keyword">this</span>.state.count) <span class="comment">// 回调函数中可以拿到最新的 state</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// console.log('count', this.state.count) // 异步的，拿不到最新值</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// setTimeout 中 setState 是同步的</span></span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">            count: <span class="keyword">this</span>.state.count + <span class="number">1</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'count in setTimeout'</span>, <span class="keyword">this</span>.state.count)</span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 自己定义的 DOM 事件，setState 是同步的。再 componentDidMount 中</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第四，state 异步更新的话，更新前会被合并 ----------------------------</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 传入对象，会被合并（类似 Object.assign ）。执行结果只一次 +1</span></span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        count: <span class="keyword">this</span>.state.count + <span class="number">1</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        count: <span class="keyword">this</span>.state.count + <span class="number">1</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        count: <span class="keyword">this</span>.state.count + <span class="number">1</span></span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 传入函数，不会被合并。执行结果是 +3</span></span><br><span class="line">    <span class="keyword">this</span>.setState(<span class="function">(<span class="params">prevState, props</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            count: prevState.count + <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">this</span>.setState(<span class="function">(<span class="params">prevState, props</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            count: prevState.count + <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">this</span>.setState(<span class="function">(<span class="params">prevState, props</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            count: prevState.count + <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有state的基本上是Class组件，如果是函数组件（后面会讲），默认没有 state。</p>
+<ul>
+<li>第一，state 要在构造函数中定义</li>
+<li>第二，不要直接修改 state ，使用不可变值</li>
+<li>第三，setState 可能是异步更新（有可能是同步更新）</li>
+<li>第四，state 异步更新的话，更新前会被合并</li>
+</ul>
+<hr>
+<p><strong>如果不可变值是对象或数组</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 不可变值（函数式编程，纯函数） - 数组</span></span><br><span class="line"><span class="keyword">const</span> list5Copy = <span class="keyword">this</span>.state.list5.slice() <span class="comment">// 创建副本，类似深拷贝</span></span><br><span class="line">list5Copy.splice(<span class="number">2</span>, <span class="number">0</span>, <span class="string">'a'</span>) <span class="comment">// 中间插入/删除</span></span><br><span class="line"><span class="keyword">this</span>.setState(&#123;</span><br><span class="line">    list1: <span class="keyword">this</span>.state.list1.concat(<span class="number">100</span>), <span class="comment">// 追加</span></span><br><span class="line">    list2: [...this.state.list2, <span class="number">100</span>], <span class="comment">// 追加  （解构的方式）</span></span><br><span class="line">    list3: <span class="keyword">this</span>.state.list3.slice(<span class="number">0</span>, <span class="number">3</span>), <span class="comment">// 截取</span></span><br><span class="line">    list4: <span class="keyword">this</span>.state.list4.filter(<span class="function"><span class="params">item</span> =&gt;</span> item &gt; <span class="number">100</span>), <span class="comment">// 筛选</span></span><br><span class="line">    list5: list5Copy <span class="comment">// 其他操作</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 注意，不能直接对 this.state.list 进行 push pop splice 等，这样违反不可变值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 不可变值 - 对象</span></span><br><span class="line"><span class="keyword">this</span>.setState(&#123;</span><br><span class="line">    obj1: <span class="built_in">Object</span>.assign(&#123;&#125;, <span class="keyword">this</span>.state.obj1, &#123;<span class="attr">a</span>: <span class="number">100</span>&#125;),  <span class="comment">// 不修改旧值</span></span><br><span class="line">    obj2: &#123;...this.state.obj2, <span class="attr">a</span>: <span class="number">100</span>&#125; <span class="comment">// （解构的方式）</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 注意，不能直接对 this.state.obj 进行属性设置，这样违反不可变值</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>不可变值，就是不能改变原来的值。</li>
+<li>setState之前，不能修改state里面的值，只能在setState里面修改。</li>
+</ul>
+<h2 id="7-9-setState是同步还是异步"><a href="#7-9-setState是同步还是异步" class="headerlink" title="7-9 setState是同步还是异步"></a>7-9 setState是同步还是异步</h2><p><strong>可能是异步更新</strong></p>
+<p>接上一节的代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">increase = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第三，setState 可能是异步更新（有可能是同步更新） ----------------------------</span></span><br><span class="line">        </span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        count: <span class="keyword">this</span>.state.count + <span class="number">1</span></span><br><span class="line">    &#125;, () =&gt; &#123;</span><br><span class="line">        <span class="comment">// 联想 Vue $nextTick - DOM</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'count by callback'</span>, <span class="keyword">this</span>.state.count) <span class="comment">// 回调函数中可以拿到最新的 state</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// console.log('count', this.state.count) // 异步的，拿不到最新值</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// setTimeout 中 setState 是同步的</span></span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">            count: <span class="keyword">this</span>.state.count + <span class="number">1</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'count in setTimeout'</span>, <span class="keyword">this</span>.state.count)</span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 自己定义的 DOM 事件，setState 是同步的。再 componentDidMount 中</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 第四，state 异步更新的话，更新前会被合并 ----------------------------</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 传入对象，会被合并（类似 Object.assign ）。执行结果只一次 +1</span></span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        count: <span class="keyword">this</span>.state.count + <span class="number">1</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        count: <span class="keyword">this</span>.state.count + <span class="number">1</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        count: <span class="keyword">this</span>.state.count + <span class="number">1</span></span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 传入函数，不会被合并。执行结果是 +3</span></span><br><span class="line">    <span class="keyword">this</span>.setState(<span class="function">(<span class="params">prevState, props</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            count: prevState.count + <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">this</span>.setState(<span class="function">(<span class="params">prevState, props</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            count: prevState.count + <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">this</span>.setState(<span class="function">(<span class="params">prevState, props</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            count: prevState.count + <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bodyClickHandler = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        count: <span class="keyword">this</span>.state.count + <span class="number">1</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'count in body event'</span>, <span class="keyword">this</span>.state.count)</span><br><span class="line">&#125;</span><br><span class="line">componentDidMount() &#123;</span><br><span class="line">    <span class="comment">// 自己定义的 DOM 事件，setState 是同步的</span></span><br><span class="line">    <span class="built_in">document</span>.body.addEventListener(<span class="string">'click'</span>, <span class="keyword">this</span>.bodyClickHandler)</span><br><span class="line">&#125;</span><br><span class="line">componentWillUnmount() &#123;</span><br><span class="line">    <span class="comment">// 及时销毁自定义 DOM 事件 和vue类似，beforeDestroy</span></span><br><span class="line">    <span class="built_in">document</span>.body.removeEventListener(<span class="string">'click'</span>, <span class="keyword">this</span>.bodyClickHandler)</span><br><span class="line">    <span class="comment">// clearTimeout </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>回调函数中可以拿到最新的 state</li>
+<li>setTimeout 中 setState 是同步的</li>
+<li>自己定义的 DOM 事件，setState 是同步的。再 componentDidMount 中</li>
+</ul>
+<h2 id="7-10-setState何时会合并state"><a href="#7-10-setState何时会合并state" class="headerlink" title="7-10 setState何时会合并state"></a>7-10 setState何时会合并state</h2><p><strong>可能会被合并</strong></p>
+<p>接上一节的代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">increase = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第四，state 异步更新的话，更新前会被合并 ----------------------------</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 传入对象，会被合并（类似 Object.assign ）。执行结果只一次 +1</span></span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        count: <span class="keyword">this</span>.state.count + <span class="number">1</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        count: <span class="keyword">this</span>.state.count + <span class="number">1</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        count: <span class="keyword">this</span>.state.count + <span class="number">1</span></span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 传入函数，不会被合并。执行结果是 +3</span></span><br><span class="line">    <span class="keyword">this</span>.setState(<span class="function">(<span class="params">prevState, props</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            count: prevState.count + <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">this</span>.setState(<span class="function">(<span class="params">prevState, props</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            count: prevState.count + <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">this</span>.setState(<span class="function">(<span class="params">prevState, props</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            count: prevState.count + <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>多次this.setState，会被合并</li>
+</ul>
+<h2 id="7-11-React组件生命周期"><a href="#7-11-React组件生命周期" class="headerlink" title="7-11 React组件生命周期"></a>7-11 React组件生命周期</h2><blockquote>
+<p>重要</p>
+</blockquote>
+<p><strong>单组件生命周期</strong></p>
+<p>React 组件生命周期图示：  <a href="http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/" target="_blank" rel="noopener">http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/</a></p>
+<p><img src="/images/20204/react-theory-03.png" alt="组件生命周期图示"></p>
+<p>也可以对比一下vue的生命周期：  <a href="https://cn.vuejs.org/images/lifecycle.png" target="_blank" rel="noopener">https://cn.vuejs.org/images/lifecycle.png</a></p>
+<p><img src="/images/20204/react-theory-04.png" alt="vue的生命周期"></p>
+<ul>
+<li>挂载时：<ul>
+<li>constructor：初始化，类似于vue的beforeCreate</li>
+<li>render：渲染界面的时候。render在Vue中是没有的，因为Vue的模板时直接写在template里面的，没有函数去返回模板，</li>
+<li>componentDidMount：和vue的mounted是对应的。vue里面的beforeMounted、created这些，React里面是没有的，也不是那么常用。之前说，Vue的ajax请求一般是在mounted里面，对应React里面，应该放在 componentDidMount里。</li>
+</ul>
+</li>
+<li>更新时：<ul>
+<li>componentDidUpdate：对应Vue的updated。也是要触发setState()，再触发render，会触发componentDidUpdate</li>
+<li>shouldComponentUpdate (不常用)：可以控制它更新的时候是否继续渲染，有点时候是没有必要继续渲染的</li>
+</ul>
+</li>
+<li>销毁时。<ul>
+<li>componentWillUnmount：对应Vue的beforeDestroy。可以在里面做一些如销毁自定义事件、销毁DOM事件、定时器等。</li>
+</ul>
+</li>
+</ul>
+<p>其他的生命周期不常用，应用场景不多。最好可以把图画出来，两者可以结合起来看。</p>
+<p><strong>父子组件生命周期，和Vue的一样</strong></p>
+<h2 id="7-12-React基本使用-知识点总结和复习"><a href="#7-12-React基本使用-知识点总结和复习" class="headerlink" title="7-12 React基本使用-知识点总结和复习"></a>7-12 React基本使用-知识点总结和复习</h2><ul>
+<li>JSX基本使用</li>
+<li>条件</li>
+<li>列表</li>
+<li>事件（和vue不同，）</li>
+<li>表单（受控组件、如何实现v-model）</li>
+<li>组件和props</li>
+<li>setState（最重点！！！）</li>
+<li>生命周期</li>
+</ul>
+<p>日常的使用，必须掌握。</p>
+<p>可以和<code>Vue</code>对比一下。</p>
+<p>知道<code>setState</code>和不可变值，<code>React</code>基石</p>
+	
+		</div>
+		
+		<div id="current-post-cover" data-scr="../../../../../img/cart_cover.jpg"></div>
+
+		<!-- relate post, comment...-->
+		<div class="investment-container">
+			<div class="investment-header">
+				<div class="investment-title-1">
+					<div class="on">相关文章</div>
+					<div>评论</div>
+					<div>分享</div>
+				</div>
+				<div class="investment-title-2">	            
+					
+	<span>
+		<a id="totop-post-page">返回顶部</a>
+		
+			<a href="../react-theory-2/" title="react原理-2-高级特性" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="../../../06/20204/vue-theory-3/" title="vue底层-3-题目、vue3" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+				</div>	
+			</div>
+			
+			<div class="investment-content">
+				<div class="investment-content-list">
+					
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2021/04/23/20184/markdown/" title="MD测试语法">
+								MD测试语法			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 23日, 2021				
+							</p>
+							<p class="relate-post-content">
+								主要是 hexo 写博客时常用的语法
+
+一级标题二级标题三级标题四级标题五级标题六级标题Qt 开源社区提供的下载地址
+
+。
+这是一段测试 加粗 _倾斜_Lorem ipsum dolor sit amet, consectetur a...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2021/04/23/20184/markdown/" title="MD测试语法">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="MD测试语法"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2021/04/23/20183/first-month/" title="遇到的问题">
+								遇到的问题			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 23日, 2021				
+							</p>
+							<p class="relate-post-content">
+								记录一下项目中相关的的问题
+
+用CANVAS绘制水印1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2021/04/23/20183/first-month/" title="遇到的问题">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="遇到的问题"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2021/01/13/20211/typescript-1/" title="typescript入门">
+								typescript入门			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								一月 13日, 2021				
+							</p>
+							<p class="relate-post-content">
+								Any 类型、数组和元组、interface 、类型推论 联合类型 类型断言、Class、类和接口、Enum、Generics、类型别名，字面量，交叉类型、声明文件、内置类型
+慕课网视频地址：https://coding.imooc....
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2021/01/13/20211/typescript-1/" title="typescript入门">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="typescript入门"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2021/01/04/20204/problem/" title="其他前端问题（一）">
+								其他前端问题（一）			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								一月 4日, 2021				
+							</p>
+							<p class="relate-post-content">
+								其他前端问题（一）
+ 
+关于async/await、promise和setTimeout执行顺序 1234567891011121314151617181920 async function async1() &#123;	conso...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2021/01/04/20204/problem/" title="其他前端问题（一）">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="其他前端问题（一）"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../28/20204/webpack-babel-2/" title="webpack-babel-2 构建速度优化、产出代码优化、babel">
+								webpack-babel-2 构建速度优化、产出代码优化、babel			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十二月 28日, 2020				
+							</p>
+							<p class="relate-post-content">
+								构建速度优化、产出代码优化、babel
+
+10-9 webpack优化构建速度-知识点串讲（性能优化）
+热议话题
+优化打包构建速度 - 优化开发体验和效率
+优化产出代码 - 优化产品性能 
+
+一般会让你聊一聊性能优化，可以从上面两个方...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../28/20204/webpack-babel-2/" title="webpack-babel-2 构建速度优化、产出代码优化、babel">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="webpack-babel-2 构建速度优化、产出代码优化、babel"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../28/20204/webpack-babel-1/" title="webpack-babel-1  基础配置、高级配置">
+								webpack-babel-1  基础配置、高级配置			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十二月 28日, 2020				
+							</p>
+							<p class="relate-post-content">
+								基础配置、高级配置
+
+1、webpack考点梳理webpack
+
+webpack 已是前端打包构建的不二选择
+前端已经不再是单纯的写页面的了。现在都是一个app，像android项目等。webpack是比较规范的。
+
+
+每日必用，面试...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../28/20204/webpack-babel-1/" title="webpack-babel-1  基础配置、高级配置">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="webpack-babel-1  基础配置、高级配置"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../28/20204/vue3-learn/" title="vue3学习">
+								vue3学习			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十二月 28日, 2020				
+							</p>
+							<p class="relate-post-content">
+								vue-cli配置、ref 、reactive、响应式对象、生命周期、watch、compositionAPI、模块化、泛型改造、setup()、Teleprot 、Suspense 、Global API 
+慕课网视频地址：http...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../28/20204/vue3-learn/" title="vue3学习">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="vue3学习"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../react-theory-2/" title="react原理-2-高级特性">
+								react原理-2-高级特性			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十二月 21日, 2020				
+							</p>
+							<p class="relate-post-content">
+								react原理-2-高级特性
+
+7-13 React函数组件和class组件有何区别 （下面开始讲高级特性）高级特性可以拉开差距，主要包括：
+
+函数组件
+非受控组件
+Portals
+context
+异步组件
+性能优化
+高阶组件 HOC...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../react-theory-2/" title="react原理-2-高级特性">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="react原理-2-高级特性"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../06/20204/vue-theory-3/" title="vue底层-3-题目、vue3">
+								vue底层-3-题目、vue3			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十二月 6日, 2020				
+							</p>
+							<p class="relate-post-content">
+								慕课网视频地址：https://coding.imooc.com/class/419.html
+
+
+第五章、面试真题题目来源：重点内容、网上收集整理、热门知识点
+大约30个题目。
+5.1、v-for为何使用keyv-show和v-if...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../06/20204/vue-theory-3/" title="vue底层-3-题目、vue3">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="vue底层-3-题目、vue3"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../06/20204/vue-theory-2/" title="vue底层-2-原理">
+								vue底层-2-原理			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十二月 6日, 2020				
+							</p>
+							<p class="relate-post-content">
+								vue原理   慕课网视频地址：https://coding.imooc.com/class/419.html
+
+
+第四章、Vue原理（大厂必考）4-1、vue原理原理不等于源码，源码很枯燥，原理很有意思。
+面试为何考察原理？又用不到...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../06/20204/vue-theory-2/" title="vue底层-2-原理">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="vue底层-2-原理"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
+	
+</div>	
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-comment">
+
+	
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
+	
+
+</div>
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- show math formula -->
+
+
+
+	 
+	
+<script src="../../../../../plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="../../../../../plugin/fancybox/jquery.fancybox.css">
+
+
+<script src="../../../../../plugin/fancybox/jquery.fancybox.js"></script>
+
+
+<script type="text/javascript">
+	(function gallerySet(){
+		let titleID = $('.article-title a'),
+			imageID = $('.article-content img'),
+			videoID = $('.article-content video');
+		
+		let postTitle = titleID.text() ? titleID.text() : "No post title!";
+		
+		imageID.each(function() {
+			let imgPath = $(this).attr('src'),
+				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
+		});
+		
+		videoID.each(function() {
+			let videoPath = $(this).attr('src');
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+		});
+		
+		//TODO：支持html5 video
+
+		if($('#layout-post').length) {
+			$('[data-fancybox="gallery"]').fancybox({
+				loop: true,
+				buttons: [
+					"zoom",
+					"share",
+					"slideShow",
+					"fullScreen",
+					//"download",
+					"thumbs",
+					"close"
+				],
+				protect: true
+			});
+		}
+	})();
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="../../../../../index.html" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="../../../../../archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="../../../../../categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="../../../../../tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="../../../../../about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="../../../../../gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2018 - 2021, content by chenlilin. All Rights Reserved.
+			
+			
+				<!-- <a href="../../../../../http:/hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="../../../../../https:/github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. -->
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+
+	
+<script src="../../../../../plugin/motto/motto.js"></script>
+
+	
+	<script type="text/javascript">
+		(function motto(){
+			let mottoText = getMingYanContent().split('</br> - </br>'),
+			
+			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
+			
+			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
+			
+			mottoTextContent = mottoTextContent.trim().substring(0, 100);
+		
+			$("#motto-content").html( mottoTextContent);
+			$("#motto-author").html( mottoTextFrom  );
+		})();	
+	</script>	
+
+
+
+<!-- love effect -->
+
+	
+<script src="../../../../../plugin/love/love.js"></script>
+
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+  
+
+	<!--
+	时间：2018-10-3
+	描述：
+		插件名称：hexo-generator-search-zip
+		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
+		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
+-->
+<div class="popup search-popup local-search-popup scrollbar" >
+	<div class="local-search-container">
+		<span class="popup-btn-close">
+      		ESC
+   		</span>
+		<div class="local-search-header">
+			<div class="input-prompt">				
+			</div>
+			<input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+		</div>
+		<div class="local-search-body">
+			<div id="local-search-output"></div>
+		</div>
+		<div class="local-search-footer">
+			<div class="topN-post">				
+				
+								
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="../../../../../plugin/search/ziploader.js"></script>
+<script src="../../../../../js/search.js"></script>
+
+
+<script type="text/javascript">
+	var search_path = 'search.json',
+		zip_Path = '/search.zip',
+		version_Path = '/searchVersion.txt',
+		input_Trigger = 'auto',
+		top_N = '2';
+
+	themeLocalSearch({
+		search_path, 
+		zip_Path, 
+		version_Path, 
+		input_Trigger, 
+		top_N
+	});
+</script>
+
+
+
+<script src="../../../../../plugin/chinese/chinese.js"></script>
+<script src="../../../../../plugin/imagelazyloader/yall.min.js"></script>
+<script src="../../../../../plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="../../../../../plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="../../../../../plugin/resizediv/resizediv.js"></script>
+<script src="../../../../../js/main.js"></script>
+
+	</body>	
+</html>

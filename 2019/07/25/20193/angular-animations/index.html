@@ -1,0 +1,1017 @@
+
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      angular中动画的使用简介 | 陈立林的个人网站
+    
+  </title>
+  <meta name="author" content="来者可追">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+
+  <!-- css -->
+  
+<link rel="stylesheet" href="../../../../../css/Annie.css">
+
+  
+  <!-- jquery -->
+	
+<script src="../../../../../plugin/jquery/jquery.min.js"></script>
+
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'normal',
+      normalSrc: '../../../../../https:/source.unsplash.com/collection/954550/1920x1080',
+      randomYouMax: 110,
+      randomYouSrc: '../../../../../https:/sariay.github.io/Random-img/',
+	  randomOtherSrc: '../../../../../https:/api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: false
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: false,
+	  appId: 'AU8...',
+	  appKey: '4cU...',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+	<body>
+		<!-- Preloader -->
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">获取中...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			「angular中动画的使用简介」
+		
+	</p>
+
+	
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="../../../../../img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="../../../../../index.html" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="../../../../../archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="../../../../../categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="../../../../../tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="../../../../../about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="../../../../../gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-zhihu"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-sina-weibo "></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-pinterest2"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+<script src="../../../../../plugin/toc/katelog.min.js"></script>
+
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+		<div class="article-title">
+			
+	<a href="" itemprop="url">
+		angular中动画的使用简介
+	</a>
+
+		</div>
+
+		<div class="article-meta">
+			<span>
+				<i class="icon-calendar1"></i>
+				
+				
+
+
+
+
+	更新于
+
+	<a href="" itemprop="url">
+		<time datetime="2019-07-25T09:13:59.000Z" itemprop="dateUpdated">
+	  		2021-04-23
+	  </time>
+	</a> 
+
+
+
+			</span>
+			<span>
+				
+	<i class="icon-price-tags"></i>
+	
+		<a href="../../../../../tags/angular/" class=" ">
+			angular
+		</a>
+	
+		
+			</span>
+			
+			
+
+
+
+		</div>
+
+		<div class="article-content" id="article-content">
+			<p>angular animations 的使用，详见<a href="https://angular.cn/guide/animations" target="_blank" rel="noopener">官方文档</a></p>
+<a id="more"></a>
+<h2 id="快速上手"><a href="#快速上手" class="headerlink" title="快速上手"></a>快速上手</h2><ul>
+<li>1、启用动画模块</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/app/app.module.ts</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; NgModule &#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; BrowserModule &#125; <span class="keyword">from</span> <span class="string">"@angular/platform-browser"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; BrowserAnimationsModule &#125; <span class="keyword">from</span> <span class="string">"@angular/platform-browser/animations"</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@NgModule</span>(&#123;</span><br><span class="line">  imports: [BrowserModule, BrowserAnimationsModule],</span><br><span class="line">  declarations: [],</span><br><span class="line">  bootstrap: []</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppModule &#123;&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>2、把动画功能导入组件文件中</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/app/commons/animations/collaspse-translate.animation.ts</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  trigger,</span><br><span class="line">  state,</span><br><span class="line">  style,</span><br><span class="line">  transition,</span><br><span class="line">  animate,</span><br><span class="line">  AnimationTriggerMetadata,</span><br><span class="line">  AUTO_STYLE,</span><br><span class="line">  query,</span><br><span class="line">  animateChild,</span><br><span class="line">  group,</span><br><span class="line">  keyframes</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">"@angular/animations"</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>3、添加动画的元数据属性</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/app/containers/home/home.components.ts</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// import &#123; slideInOutAnimation, collapseTranslateAnimation &#125; from '../../commons/animations';</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'app-root'</span>,</span><br><span class="line">  templateUrl: <span class="string">'app.component.html'</span>,</span><br><span class="line">  styleUrls: [<span class="string">'app.component.css'</span>],</span><br><span class="line">  animations: [</span><br><span class="line">    <span class="comment">// 4.1、把定义动画附加到 HTML 模板中</span></span><br><span class="line">    <span class="comment">// collapseTranslateAnimation</span></span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="简单转场动画"><a href="#简单转场动画" class="headerlink" title="简单转场动画"></a>简单转场动画</h2><h3 id="1、动画状态和样式"><a href="#1、动画状态和样式" class="headerlink" title="1、动画状态和样式"></a>1、动画状态和样式</h3><p>state() 函数定义不同的状态，供每次转场结束时调用，该函数接受两个参数：一个唯一的名字，比如 1 或 0 和一个 style() 函数。<br>使用 style() 函数来定义一组与指定的状态名相关的样式。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/app/commons/animations/collaspse-translate.animation.ts</span></span><br><span class="line"></span><br><span class="line">  state(<span class="string">'1'</span>, style(&#123;</span><br><span class="line">    width: <span class="string">'calc(100vw - 20.29166%)'</span>,</span><br><span class="line">    left: <span class="string">'19.6%'</span>,</span><br><span class="line">    opacity: <span class="number">1</span>,</span><br><span class="line">    overflow: <span class="string">'hidden'</span>,</span><br><span class="line">    border: <span class="string">'1px solid #3276c6'</span></span><br><span class="line">  &#125;), &#123; params: &#123; zoomStartWidth: <span class="string">'100%'</span>, zoomStartHeight: <span class="string">'100%'</span> &#125; &#125;),</span><br></pre></td></tr></table></figure>
+<h3 id="2、转场与时序"><a href="#2、转场与时序" class="headerlink" title="2、转场与时序"></a>2、转场与时序</h3><p>transition() 接受两个参数：第一个参数接受一个表达式，它定义两个转场状态之间的方向( &lt;=&gt; 表示双向转场)；第二个参数接受一个 animate() 函数。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/app/commons/animations/collaspse-translate.animation.ts</span></span><br><span class="line">  transition(<span class="string">'1=&gt;0'</span>, [</span><br><span class="line">    group([</span><br><span class="line">      query(<span class="string">'@*'</span>, animateChild(), &#123; optional: <span class="literal">true</span> &#125;),</span><br><span class="line">      <span class="comment">// animate() 函数（作为转场函数的第二个参数）可以接受 timings 和 styles 参数。</span></span><br><span class="line">      <span class="comment">// timings 参数接受一个由三部分组成的字符串。 （持续时间）ms  （等待时间）ms 如何进行加速和减速 https://easings.net/</span></span><br><span class="line">      animate(<span class="string">'&#123;&#123; duration &#125;&#125;ms &#123;&#123; delay &#125;&#125;ms &#123;&#123; ease &#125;&#125;'</span>, keyframes([</span><br><span class="line">        <span class="comment">// 前一半时间不变，后一半时间宽度变为0</span></span><br><span class="line">        style(&#123; width: AUTO_STYLE, offset: <span class="number">.5</span> &#125;),</span><br><span class="line">        <span class="comment">// style(&#123; width: '0', left: '100%', offset: .9 &#125;),</span></span><br><span class="line">        style(&#123; width: <span class="string">'0'</span>, border: <span class="string">'0px'</span>, offset: <span class="number">1</span> &#125;),</span><br><span class="line">      ]))</span><br><span class="line">    ])</span><br><span class="line">  ], &#123; params: &#123; duration: <span class="number">500</span>, delay: <span class="string">'0'</span>, ease: <span class="string">'ease-in'</span>, zoomEndWidth: <span class="number">200</span>, zoomEndHeight: <span class="number">200</span> &#125; &#125;),</span><br></pre></td></tr></table></figure>
+<h3 id="3、触发器"><a href="#3、触发器" class="headerlink" title="3、触发器"></a>3、触发器</h3><p>动画需要触发器，以便知道该在何时开始。trigger() 函数会把一些状态和转场组合在一起，并为这个动画命名。<br>trigger() 函数描述了监听变化时要使用的触发器名称。当这个触发器名称所绑定的值发生了变化时，触发器就会启动它所定义的操作。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/app/commons/animations/collaspse-translate.animation.ts</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> collapseTranslateAnimation: AnimationTriggerMetadata = trigger(</span><br><span class="line">  <span class="string">"collapseTranslateAnimation"</span>,</span><br><span class="line">  []</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="4、定义动画，并把它们附加到-HTML-模板中"><a href="#4、定义动画，并把它们附加到-HTML-模板中" class="headerlink" title="4、定义动画，并把它们附加到 HTML 模板中"></a>4、定义动画，并把它们附加到 HTML 模板中</h3><p>在 @Component() 装饰器的 animations: 属性下用代码定义你要用的动画。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/app/containers/home/home.components.ts</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; slideInOutAnimation, collapseTranslateAnimation &#125; <span class="keyword">from</span> <span class="string">'../../commons/animations'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'app-root'</span>,</span><br><span class="line">  templateUrl: <span class="string">'app.component.html'</span>,</span><br><span class="line">  styleUrls: [<span class="string">'app.component.css'</span>],</span><br><span class="line">  animations: [</span><br><span class="line">    <span class="comment">// 4.1、把定义动画附加到 HTML 模板中</span></span><br><span class="line">    collapseTranslateAnimation</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>给触发器名称加上 @ 前缀并包在方括号里，来把它附加到组件模板中的元素上。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- src/app/containers/home/home.components.html --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 把动画触发器绑定到模板表达式上 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- &lt;div [@triggerName]="expression"&gt;...&lt;/div&gt;;</span></span><br><span class="line"><span class="comment"> expression 的求值结果是前面定义过的动画状态之一。 当该表达式的值变成了新的状态时，动画就会执行或者叫触发。 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span></span></span><br><span class="line"><span class="tag">  [<span class="attr">ngClass</span>]=<span class="string">"&#123;</span></span></span><br><span class="line"><span class="tag"><span class="string">    'home__content': true,</span></span></span><br><span class="line"><span class="tag"><span class="string">    'home__content--expand': sidenav.isCollapsed</span></span></span><br><span class="line"><span class="tag"><span class="string">  &#125;"</span></span></span><br><span class="line"><span class="tag">  [@<span class="attr">collapseTranslateAnimation</span>]=<span class="string">"&#123;</span></span></span><br><span class="line"><span class="tag"><span class="string">    value: zoomState1&#125;"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">i</span></span></span><br><span class="line"><span class="tag">      (<span class="attr">click</span>)=<span class="string">"closeBtnHandler()"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">nz-icon</span></span></span><br><span class="line"><span class="tag">      <span class="attr">nzType</span>=<span class="string">"close"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">"btn-close"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">nzTheme</span>=<span class="string">"outline"</span></span></span><br><span class="line"><span class="tag">    &gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">router-outlet</span>&gt;</span><span class="tag">&lt;/<span class="name">router-outlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="动画转场与触发器"><a href="#动画转场与触发器" class="headerlink" title="动画转场与触发器"></a>动画转场与触发器</h2><h3 id="通配符状态"><a href="#通配符状态" class="headerlink" title="通配符状态"></a>通配符状态</h3><p>星号 <code>*</code> 或者叫通配符可以匹配任何一个动画状态。</p>
+<p><img src="/images/20193/angular-animations02.png" alt="通配符"></p>
+<h3 id="void-状态"><a href="#void-状态" class="headerlink" title="void 状态"></a>void 状态</h3><p>可以使用 <code>void</code>状态来为进入或离开页面的元素配置转场;:enter 和 :leave 分别是 void =&gt; _ 和 _ =&gt; void 的别名。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">animations: [</span><br><span class="line">  trigger(<span class="string">"flyInOut"</span>, [</span><br><span class="line">    state(<span class="string">"in"</span>, style(&#123; transform: <span class="string">"translateX(0)"</span> &#125;)),</span><br><span class="line">    transition(<span class="string">"void =&gt; *"</span>, [</span><br><span class="line">      style(&#123; transform: <span class="string">"translateX(-100%)"</span> &#125;),</span><br><span class="line">      animate(<span class="number">100</span>)</span><br><span class="line">    ]),</span><br><span class="line">    transition(<span class="string">"* =&gt; void"</span>, [</span><br><span class="line">      animate(<span class="number">100</span>, style(&#123; transform: <span class="string">"translateX(100%)"</span> &#125;))</span><br><span class="line">    ])</span><br><span class="line">  ])</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+<h3 id="动画回调"><a href="#动画回调" class="headerlink" title="动画回调"></a>动画回调</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/app/open-close.component.ts</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">"app-open-close"</span>,</span><br><span class="line">  animations: [</span><br><span class="line">    trigger(<span class="string">"openClose"</span>, [</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    ])</span><br><span class="line">  ],</span><br><span class="line">  templateUrl: <span class="string">"open-close.component.html"</span>,</span><br><span class="line">  styleUrls: [<span class="string">"open-close.component.css"</span>]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> OpenCloseComponent &#123;</span><br><span class="line">  onAnimationEvent(event: AnimationEvent) &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- src/app/open-close.component.ts --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">  [@<span class="attr">openClose</span>]=<span class="string">"isOpen ? 'open' : 'closed'"</span></span></span><br><span class="line"><span class="tag">  (@<span class="attr">openClose.start</span>)=<span class="string">"onAnimationEvent($event)"</span></span></span><br><span class="line"><span class="tag">  (@<span class="attr">openClose.done</span>)=<span class="string">"onAnimationEvent($event)"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">class</span>=<span class="string">"open-close-container"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="关键帧动画"><a href="#关键帧动画" class="headerlink" title="关键帧动画"></a>关键帧动画</h3><p>keyframe() 函数类似于 CSS 中的关键帧。关键帧允许在单个时间段内进行多种样式更改。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">animate(</span><br><span class="line">   <span class="string">"&#123;&#123; duration &#125;&#125;ms &#123;&#123; delay &#125;&#125;ms &#123;&#123; ease &#125;&#125;"</span>,</span><br><span class="line">   keyframes([</span><br><span class="line">     style(&#123;</span><br><span class="line">       width: AUTO_STYLE,</span><br><span class="line">       offset: <span class="number">0.5</span></span><br><span class="line">     &#125;),</span><br><span class="line">     style(&#123;</span><br><span class="line">       width: <span class="string">"calc(100vw - 20.29166%)"</span>,</span><br><span class="line">       border: <span class="string">"1px solid #3276c6"</span>,</span><br><span class="line">       offset: <span class="number">1</span></span><br><span class="line">     &#125;)</span><br><span class="line">   ])</span><br><span class="line"> )</span><br><span class="line"> ...</span><br></pre></td></tr></table></figure>
+<h2 id="复杂动画序列"><a href="#复杂动画序列" class="headerlink" title="复杂动画序列"></a>复杂动画序列</h2><ul>
+<li><p><code>query()</code> 用于查找一个或多个内部 HTML 元素。</p>
+</li>
+<li><p><code>stagger()</code> 用于为多元素动画应用级联延迟。</p>
+</li>
+<li><p><code>group()</code> 用于并行执行多个动画步骤。</p>
+</li>
+<li><p><code>sequence()</code> 用于逐个顺序执行多个动画步骤。</p>
+</li>
+</ul>
+<h2 id="可复用动画"><a href="#可复用动画" class="headerlink" title="可复用动画"></a>可复用动画</h2><p>要想创建可复用的动画，请使用 animation() 方法来在独立的 .ts 文件中定义动画，并把该动画的定义声明为一个导出的 const 变量。然后你就可以在应用的组件代码中通过 useAnimation() 来导入并复用它了。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/app/animations.ts</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  animation,</span><br><span class="line">  trigger,</span><br><span class="line">  animateChild,</span><br><span class="line">  group,</span><br><span class="line">  transition,</span><br><span class="line">  animate,</span><br><span class="line">  style,</span><br><span class="line">  query</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">"@angular/animations"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> transAnimation = animation([</span><br><span class="line">  style(&#123;</span><br><span class="line">    height: <span class="string">"&#123;&#123; height &#125;&#125;"</span>,</span><br><span class="line">    opacity: <span class="string">"&#123;&#123; opacity &#125;&#125;"</span>,</span><br><span class="line">    backgroundColor: <span class="string">"&#123;&#123; backgroundColor &#125;&#125;"</span></span><br><span class="line">  &#125;),</span><br><span class="line">  animate(<span class="string">"&#123;&#123; time &#125;&#125;"</span>)</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/app/open-close.component.ts</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; Component &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useAnimation, transition, trigger, style, animate &#125; <span class="keyword">from</span> <span class="string">'@angular/animations'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; transAnimation &#125; <span class="keyword">from</span> <span class="string">'./animations'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">    trigger(<span class="string">'openClose'</span>, [</span><br><span class="line">      transition(<span class="string">'open =&gt; closed'</span>, [</span><br><span class="line">        useAnimation(transAnimation, &#123;</span><br><span class="line">          params: &#123;</span><br><span class="line">            height: <span class="number">0</span>,</span><br><span class="line">            opacity: <span class="number">1</span>,</span><br><span class="line">            backgroundColor: <span class="string">'red'</span>,</span><br><span class="line">            time: <span class="string">'1s'</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">      ])</span><br><span class="line">    ])</span><br><span class="line">  ],</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="路由转场动画"><a href="#路由转场动画" class="headerlink" title="路由转场动画"></a>路由转场动画</h2><p>……</p>
+<h2 id="代码回顾"><a href="#代码回顾" class="headerlink" title="代码回顾"></a>代码回顾</h2><ul>
+<li><code>src/app/app.module.ts</code></li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; NgModule &#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; BrowserModule &#125; <span class="keyword">from</span> <span class="string">"@angular/platform-browser"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; BrowserAnimationsModule &#125; <span class="keyword">from</span> <span class="string">"@angular/platform-browser/animations"</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@NgModule</span>(&#123;</span><br><span class="line">  imports: [BrowserModule, BrowserAnimationsModule],</span><br><span class="line">  declarations: [],</span><br><span class="line">  bootstrap: []</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppModule &#123;&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>src/app/commons/animations/collaspse-translate.animation.ts</code></li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 把动画功能导入组件文件中</span></span><br><span class="line"><span class="comment">// tslint:disable-next-line:max-line-length</span></span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  trigger,</span><br><span class="line">  state,</span><br><span class="line">  style,</span><br><span class="line">  transition,</span><br><span class="line">  animate,</span><br><span class="line">  AnimationTriggerMetadata,</span><br><span class="line">  AUTO_STYLE,</span><br><span class="line">  query,</span><br><span class="line">  animateChild,</span><br><span class="line">  group,</span><br><span class="line">  keyframes</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">"@angular/animations"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// #### 3、触发器</span></span><br><span class="line"><span class="comment">// 动画需要触发器，以便知道该在何时开始。trigger() 函数会把一些状态和转场组合在一起，并为这个动画命名。</span></span><br><span class="line"><span class="comment">// trigger() 函数描述了监听变化时要使用的触发器名称。当这个触发器名称所绑定的值发生了变化时，触发器就会启动它所定义的操作。</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> collapseTranslateAnimation: AnimationTriggerMetadata = trigger(</span><br><span class="line">  <span class="string">"collapseTranslateAnimation"</span>,</span><br><span class="line">  [</span><br><span class="line">    <span class="comment">// #### 1、动画状态和样式</span></span><br><span class="line">    <span class="comment">//  state() 函数定义不同的状态，供每次转场结束时调用，该函数接受两个参数：一个唯一的名字，比如 1 或 0  和一个 style() 函数。</span></span><br><span class="line">    <span class="comment">// 使用 style() 函数来定义一组与指定的状态名相关的样式。</span></span><br><span class="line">    state(</span><br><span class="line">      <span class="string">"1"</span>,</span><br><span class="line">      style(&#123;</span><br><span class="line">        width: <span class="string">"calc(100vw - 20.29166%)"</span>,</span><br><span class="line">        left: <span class="string">"19.6%"</span>,</span><br><span class="line">        opacity: <span class="number">1</span>,</span><br><span class="line">        overflow: <span class="string">"hidden"</span>,</span><br><span class="line">        border: <span class="string">"1px solid #3276c6"</span></span><br><span class="line">      &#125;),</span><br><span class="line">      &#123; params: &#123; zoomStartWidth: <span class="string">"100%"</span>, zoomStartHeight: <span class="string">"100%"</span> &#125; &#125;</span><br><span class="line">    ),</span><br><span class="line">    state(</span><br><span class="line">      <span class="string">"0"</span>,</span><br><span class="line">      style(&#123;</span><br><span class="line">        width: <span class="string">"0"</span>,</span><br><span class="line">        left: <span class="string">"19.6%"</span>,</span><br><span class="line">        right: <span class="string">"10px"</span>,</span><br><span class="line">        <span class="comment">// opacity: 0,</span></span><br><span class="line">        overflow: <span class="string">"hidden"</span>,</span><br><span class="line">        border: <span class="string">"0px"</span></span><br><span class="line">      &#125;),</span><br><span class="line">      &#123; params: &#123; zoomEndWidth: <span class="number">200</span>, zoomEndHeight: <span class="number">200</span> &#125; &#125;</span><br><span class="line">    ),</span><br><span class="line"></span><br><span class="line">    <span class="comment">// #### 2、转场与时序</span></span><br><span class="line">    <span class="comment">// transition() 接受两个参数：第一个参数接受一个表达式，它定义两个转场状态之间的方向( &lt;=&gt; 表示双向转场)；第二个参数接受一个 animate() 函数。</span></span><br><span class="line">    transition(</span><br><span class="line">      <span class="string">"1=&gt;0"</span>,</span><br><span class="line">      [</span><br><span class="line">        group([</span><br><span class="line">          query(<span class="string">"@*"</span>, animateChild(), &#123; optional: <span class="literal">true</span> &#125;),</span><br><span class="line">          <span class="comment">// animate() 函数（作为转场函数的第二个参数）可以接受 timings 和 styles 参数。</span></span><br><span class="line">          <span class="comment">// timings 参数接受一个由三部分组成的字符串。 （持续时间）ms  （等待时间）ms 如何进行加速和减速 https://easings.net/</span></span><br><span class="line">          animate(</span><br><span class="line">            <span class="string">"&#123;&#123; duration &#125;&#125;ms &#123;&#123; delay &#125;&#125;ms &#123;&#123; ease &#125;&#125;"</span>,</span><br><span class="line">            keyframes([</span><br><span class="line">              <span class="comment">// 前一半时间不变，后一半时间宽度变为0</span></span><br><span class="line">              style(&#123; width: AUTO_STYLE, offset: <span class="number">0.5</span> &#125;),</span><br><span class="line">              <span class="comment">// style(&#123; width: '0', left: '100%', offset: .9 &#125;),</span></span><br><span class="line">              style(&#123; width: <span class="string">"0"</span>, border: <span class="string">"0px"</span>, offset: <span class="number">1</span> &#125;)</span><br><span class="line">            ])</span><br><span class="line">          )</span><br><span class="line">        ])</span><br><span class="line">      ],</span><br><span class="line">      &#123;</span><br><span class="line">        params: &#123;</span><br><span class="line">          duration: <span class="number">500</span>,</span><br><span class="line">          delay: <span class="string">"0"</span>,</span><br><span class="line">          ease: <span class="string">"ease-in"</span>,</span><br><span class="line">          zoomEndWidth: <span class="number">200</span>,</span><br><span class="line">          zoomEndHeight: <span class="number">200</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ),</span><br><span class="line">    transition(</span><br><span class="line">      <span class="string">"0=&gt;1"</span>,</span><br><span class="line">      [</span><br><span class="line">        group([</span><br><span class="line">          query(<span class="string">"@*"</span>, animateChild(), &#123; optional: <span class="literal">true</span> &#125;),</span><br><span class="line">          animate(</span><br><span class="line">            <span class="string">"&#123;&#123; duration &#125;&#125;ms &#123;&#123; delay &#125;&#125;ms &#123;&#123; ease &#125;&#125;"</span>,</span><br><span class="line">            keyframes([</span><br><span class="line">              style(&#123; width: AUTO_STYLE, offset: <span class="number">0.5</span> &#125;),</span><br><span class="line">              style(&#123;</span><br><span class="line">                width: <span class="string">"calc(100vw - 20.29166%)"</span>,</span><br><span class="line">                border: <span class="string">"1px solid #3276c6"</span>,</span><br><span class="line">                offset: <span class="number">1</span></span><br><span class="line">              &#125;)</span><br><span class="line">            ])</span><br><span class="line">          )</span><br><span class="line">        ])</span><br><span class="line">      ],</span><br><span class="line">      &#123;</span><br><span class="line">        params: &#123;</span><br><span class="line">          duration: <span class="number">500</span>,</span><br><span class="line">          delay: <span class="string">"0"</span>,</span><br><span class="line">          ease: <span class="string">"ease-in"</span>,</span><br><span class="line">          zoomStartWidth: <span class="string">"100%"</span>,</span><br><span class="line">          zoomStartHeight: <span class="string">"100%"</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    )</span><br><span class="line">  ]</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>src/app/containers/home/home.components.html</code></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 把动画触发器绑定到模板表达式上 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- &lt;div [@triggerName]="expression"&gt;...&lt;/div&gt;;</span></span><br><span class="line"><span class="comment"> expression 的求值结果是前面定义过的动画状态之一。 当该表达式的值变成了新的状态时，动画就会执行或者叫触发。 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span></span></span><br><span class="line"><span class="tag">  [<span class="attr">ngClass</span>]=<span class="string">"&#123;</span></span></span><br><span class="line"><span class="tag"><span class="string">    'home__content': true,</span></span></span><br><span class="line"><span class="tag"><span class="string">    'home__content--expand': sidenav.isCollapsed</span></span></span><br><span class="line"><span class="tag"><span class="string">  &#125;"</span></span></span><br><span class="line"><span class="tag">  [@<span class="attr">collapseTranslateAnimation</span>]=<span class="string">"&#123;</span></span></span><br><span class="line"><span class="tag"><span class="string">    value: zoomState1&#125;"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">i</span></span></span><br><span class="line"><span class="tag">      (<span class="attr">click</span>)=<span class="string">"closeBtnHandler()"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">nz-icon</span></span></span><br><span class="line"><span class="tag">      <span class="attr">nzType</span>=<span class="string">"close"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">"btn-close"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">nzTheme</span>=<span class="string">"outline"</span></span></span><br><span class="line"><span class="tag">    &gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">router-outlet</span>&gt;</span><span class="tag">&lt;/<span class="name">router-outlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- &lt;div (click)="clickHandler()" style="width: 50px; height: 50px; position: absolute; top: 0px; left: 0px; background-color: #a1f0eb; z-index: 99;"&gt;&lt;/div&gt; --&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>src/app/commons/animations/collaspse-translate.animation.ts</code></li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  Component,</span><br><span class="line">  OnInit,</span><br><span class="line">  ViewEncapsulation,</span><br><span class="line">  OnDestroy,</span><br><span class="line">  AfterViewInit,</span><br><span class="line">  ViewChild,</span><br><span class="line">  ComponentRef,</span><br><span class="line">  ElementRef,</span><br><span class="line">  forwardRef</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; HeaderToggleButtonService &#125; <span class="keyword">from</span> <span class="string">"../../commons/services"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; MediaChange, ObservableMedia &#125; <span class="keyword">from</span> <span class="string">"@angular/flex-layout"</span>;</span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> fromRootStore <span class="keyword">from</span> <span class="string">"../../store"</span>;</span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> fromAuthStore <span class="keyword">from</span> <span class="string">"../../auth/store"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Store, select &#125; <span class="keyword">from</span> <span class="string">"@ngrx/store"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Observable, Subject, merge, fromEvent &#125; <span class="keyword">from</span> <span class="string">"rxjs"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; map, takeUntil, tap &#125; <span class="keyword">from</span> <span class="string">"rxjs/operators"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; SidenavComponent &#125; <span class="keyword">from</span> <span class="string">"../../components"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; RouterReducerState &#125; <span class="keyword">from</span> <span class="string">"@ngrx/router-store"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; ActivatedRoute, Router &#125; <span class="keyword">from</span> <span class="string">"@angular/router"</span>;</span><br><span class="line"><span class="comment">// import &#123;slideInOutAnimation&#125; from '../../commons/animations';</span></span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  slideInOutAnimation,</span><br><span class="line">  collapseTranslateAnimation</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">"../../commons/animations"</span>;</span><br><span class="line"><span class="comment">// import &#123;zoomAnimation&#125; from '../../commons/animations/zoom/zoom.animation';</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">"app-home"</span>,</span><br><span class="line">  templateUrl: <span class="string">"./home.component.html"</span>,</span><br><span class="line">  styleUrls: [<span class="string">"./home.component.scss"</span>],</span><br><span class="line">  host: &#123;</span><br><span class="line">    <span class="keyword">class</span>: <span class="string">"app-home"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  encapsulation: ViewEncapsulation.None,</span><br><span class="line">  <span class="comment">// 添加动画的元数据属性</span></span><br><span class="line">  animations: [</span><br><span class="line">    <span class="comment">// 4.1、把定义动画附加到 HTML 模板中</span></span><br><span class="line">    slideInOutAnimation,</span><br><span class="line">    <span class="comment">// zoomAnimation</span></span><br><span class="line">    collapseTranslateAnimation</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> HomeComponent <span class="keyword">implements</span> OnInit, OnDestroy, AfterViewInit &#123;&#125;</span><br></pre></td></tr></table></figure>
+	
+		</div>
+		
+		<div id="current-post-cover" data-scr="../../../../../img/cart_cover.jpg"></div>
+
+		<!-- relate post, comment...-->
+		<div class="investment-container">
+			<div class="investment-header">
+				<div class="investment-title-1">
+					<div class="on">相关文章</div>
+					<div>评论</div>
+					<div>分享</div>
+				</div>
+				<div class="investment-title-2">	            
+					
+	<span>
+		<a id="totop-post-page">返回顶部</a>
+		
+			<a href="../../../26/20193/pdfjs/" title="pdfjs的使用" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="../../../24/20193/echarts02/" title="echarts中geo(地理坐标系组件)的使用" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+				</div>	
+			</div>
+			
+			<div class="investment-content">
+				<div class="investment-content-list">
+					
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2021/04/23/20184/letcount/" title="let 与 const 的用法">
+								let 与 const 的用法			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 23日, 2021				
+							</p>
+							<p class="relate-post-content">
+								ES6 新增了两个声明两个声明标识符的方式： let 和 const。
+
+
+let 用来声明变量，并且会在当前作用域形成 代码块
+conts 用来声明常量，所谓常量就是物理指针不可以更改的变量。
+
+1、let使用 let 声明的变量，...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2021/04/23/20184/letcount/" title="let 与 const 的用法">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/cover/architecture-black-building.jpg" alt="let 与 const 的用法"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2020/03/18/20201/uniapp1/" title="uniapp遇到的问题">
+								uniapp遇到的问题			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 18日, 2020				
+							</p>
+							<p class="relate-post-content">
+								uniapp遇到的问题。uniapp虽然使用vue编写，但是还有不少不同的地方，需要详细阅读官网。
+
+运行报错uniapp真机运行报错问题：
+1request:fail abort
+解决方法：
+
+ip从localhost换成本机的ip...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2020/03/18/20201/uniapp1/" title="uniapp遇到的问题">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="uniapp遇到的问题"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../11/13/20194/echarts-map/" title="echarts 绘制地图">
+								echarts 绘制地图			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 13日, 2019				
+							</p>
+							<p class="relate-post-content">
+								Echarts提供了全国省市县的json文件，但是无法精确到区、县级一下的区域，本文讲如何自己画地图。
+
+比如最近这个项目需要长春市朝阳区各个街道的区域图。
+
+在官方文档API中，echarts 有一个registerMap(mapN...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../11/13/20194/echarts-map/" title="echarts 绘制地图">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="echarts 绘制地图"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../08/02/20193/js-dorp/" title="javascript拖拽事件">
+								javascript拖拽事件			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								八月 2日, 2019				
+							</p>
+							<p class="relate-post-content">
+								需求：点击 div 拖拽到指定位置，鼠标松开后回到原位。
+
+12345678910111213&lt;!-- html --&gt;&lt;div  class="qyflfj"  (mousedown)="rightChartsMo...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../08/02/20193/js-dorp/" title="javascript拖拽事件">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="javascript拖拽事件"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../26/20193/pdfjs/" title="pdfjs的使用">
+								pdfjs的使用			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 26日, 2019				
+							</p>
+							<p class="relate-post-content">
+								pdf.js 可以实现在 html 下直接浏览 pdf 文档,而不是使用浏览器自带的阅读器
+
+https://github.com/mozilla/pdf.js
+最近项目需要做禁止下载 pdf 的功能，然而浏览器自带的预览功能都可以下...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../26/20193/pdfjs/" title="pdfjs的使用">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="pdfjs的使用"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../24/20193/echarts02/" title="echarts中geo(地理坐标系组件)的使用">
+								echarts中geo(地理坐标系组件)的使用			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 24日, 2019				
+							</p>
+							<p class="relate-post-content">
+								angular 项目中的。
+
+一、示例官方社区中有很多示例，可以在这里寻找
+这位网友提供了所有省市县的 Json 文件
+二、代码配置
+默认情况下，map series 会自己生成内部专用的 geo 组件。但是也可以用这个 geoInd...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../24/20193/echarts02/" title="echarts中geo(地理坐标系组件)的使用">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="echarts中geo(地理坐标系组件)的使用"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../18/20193/phone-meta/" title="手机端meta分别是什么意思">
+								手机端meta分别是什么意思			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 18日, 2019				
+							</p>
+							<p class="relate-post-content">
+								手机端 meta 分别是什么意思
+
+meta 指元素可提供有关页面的元信息（meta-information），比如针对搜索引擎和更新频度的描述和关键词。 标签位于文档的头部，不包含任何内容。 标签的属性定义了与
+文档相关联的名称/值...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../18/20193/phone-meta/" title="手机端meta分别是什么意思">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="手机端meta分别是什么意思"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../08/20193/ionic-build-error/" title="ionic cordova build 报错解决 （ionic 4.3.0 Cordova 9.0.0）">
+								ionic cordova build 报错解决 （ionic 4.3.0 Cordova 9.0.0）			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 8日, 2019				
+							</p>
+							<p class="relate-post-content">
+								昨天更新了 ionic 和 cordova，发现编译的时候又出问题了。问题原因好像是新版本的 cordova 需要使用 gradle。遂记录下来，以便下次遇到时查阅。
+
+下面是当前配置和build成功后的图片
+123456789101...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../08/20193/ionic-build-error/" title="ionic cordova build 报错解决 （ionic 4.3.0 Cordova 9.0.0）">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="ionic cordova build 报错解决 （ionic 4.3.0 Cordova 9.0.0）"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../04/20193/node-sass-install-failed/" title="node-sass安装失败的n中解决方法">
+								node-sass安装失败的n中解决方法			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 4日, 2019				
+							</p>
+							<p class="relate-post-content">
+								node-sass 安装时有时会出现各种问题，本文介绍我自己遇到的问题和可行的解决方法。
+
+解决方案 1、切换淘宝镜像1 卸载 node-sass
+1npm uninstall node-sass
+2 安装 node-sass
+1np...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../04/20193/node-sass-install-failed/" title="node-sass安装失败的n中解决方法">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="node-sass安装失败的n中解决方法"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../04/24/20192/typescript1/" title="typescript快速入门">
+								typescript快速入门			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 24日, 2019				
+							</p>
+							<p class="relate-post-content">
+								5分钟学会typescript
+视频地址：https://www.imooc.com/video/13525
+想什么呢，怎么可能只要5分钟
+TypeScript简介微软开发  、 JavaScript的超集   、 遵循ES6
+本质上...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../04/24/20192/typescript1/" title="typescript快速入门">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="typescript快速入门"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
+	
+</div>	
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-comment">
+
+	
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
+	
+
+</div>
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- show math formula -->
+
+
+
+	 
+	
+<script src="../../../../../plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="../../../../../plugin/fancybox/jquery.fancybox.css">
+
+
+<script src="../../../../../plugin/fancybox/jquery.fancybox.js"></script>
+
+
+<script type="text/javascript">
+	(function gallerySet(){
+		let titleID = $('.article-title a'),
+			imageID = $('.article-content img'),
+			videoID = $('.article-content video');
+		
+		let postTitle = titleID.text() ? titleID.text() : "No post title!";
+		
+		imageID.each(function() {
+			let imgPath = $(this).attr('src'),
+				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
+		});
+		
+		videoID.each(function() {
+			let videoPath = $(this).attr('src');
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+		});
+		
+		//TODO：支持html5 video
+
+		if($('#layout-post').length) {
+			$('[data-fancybox="gallery"]').fancybox({
+				loop: true,
+				buttons: [
+					"zoom",
+					"share",
+					"slideShow",
+					"fullScreen",
+					//"download",
+					"thumbs",
+					"close"
+				],
+				protect: true
+			});
+		}
+	})();
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="../../../../../index.html" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="../../../../../archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="../../../../../categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="../../../../../tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="../../../../../about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="../../../../../gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2018 - 2021, content by chenlilin. All Rights Reserved.
+			
+			
+				<!-- <a href="../../../../../http:/hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="../../../../../https:/github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. -->
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+
+	
+<script src="../../../../../plugin/motto/motto.js"></script>
+
+	
+	<script type="text/javascript">
+		(function motto(){
+			let mottoText = getMingYanContent().split('</br> - </br>'),
+			
+			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
+			
+			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
+			
+			mottoTextContent = mottoTextContent.trim().substring(0, 100);
+		
+			$("#motto-content").html( mottoTextContent);
+			$("#motto-author").html( mottoTextFrom  );
+		})();	
+	</script>	
+
+
+
+<!-- love effect -->
+
+	
+<script src="../../../../../plugin/love/love.js"></script>
+
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+  
+
+	<!--
+	时间：2018-10-3
+	描述：
+		插件名称：hexo-generator-search-zip
+		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
+		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
+-->
+<div class="popup search-popup local-search-popup scrollbar" >
+	<div class="local-search-container">
+		<span class="popup-btn-close">
+      		ESC
+   		</span>
+		<div class="local-search-header">
+			<div class="input-prompt">				
+			</div>
+			<input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+		</div>
+		<div class="local-search-body">
+			<div id="local-search-output"></div>
+		</div>
+		<div class="local-search-footer">
+			<div class="topN-post">				
+				
+								
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="../../../../../plugin/search/ziploader.js"></script>
+<script src="../../../../../js/search.js"></script>
+
+
+<script type="text/javascript">
+	var search_path = 'search.json',
+		zip_Path = '/search.zip',
+		version_Path = '/searchVersion.txt',
+		input_Trigger = 'auto',
+		top_N = '2';
+
+	themeLocalSearch({
+		search_path, 
+		zip_Path, 
+		version_Path, 
+		input_Trigger, 
+		top_N
+	});
+</script>
+
+
+
+<script src="../../../../../plugin/chinese/chinese.js"></script>
+<script src="../../../../../plugin/imagelazyloader/yall.min.js"></script>
+<script src="../../../../../plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="../../../../../plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="../../../../../plugin/resizediv/resizediv.js"></script>
+<script src="../../../../../js/main.js"></script>
+
+	</body>	
+</html>

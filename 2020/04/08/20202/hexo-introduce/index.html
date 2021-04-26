@@ -1,0 +1,1059 @@
+
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      Hexo博客框架介绍 | 陈立林的个人网站
+    
+  </title>
+  <meta name="author" content="来者可追">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+
+  <!-- css -->
+  
+<link rel="stylesheet" href="../../../../../css/Annie.css">
+
+  
+  <!-- jquery -->
+	
+<script src="../../../../../plugin/jquery/jquery.min.js"></script>
+
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'normal',
+      normalSrc: '../../../../../https:/source.unsplash.com/collection/954550/1920x1080',
+      randomYouMax: 110,
+      randomYouSrc: '../../../../../https:/sariay.github.io/Random-img/',
+	  randomOtherSrc: '../../../../../https:/api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: false
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: false,
+	  appId: 'AU8...',
+	  appKey: '4cU...',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+	<body>
+		<!-- Preloader -->
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">获取中...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			「Hexo博客框架介绍」
+		
+	</p>
+
+	
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="../../../../../img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="../../../../../index.html" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="../../../../../archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="../../../../../categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="../../../../../tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="../../../../../about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="../../../../../gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-zhihu"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-sina-weibo "></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-pinterest2"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+<script src="../../../../../plugin/toc/katelog.min.js"></script>
+
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+		<div class="article-title">
+			
+	<a href="" itemprop="url">
+		Hexo博客框架介绍
+	</a>
+
+		</div>
+
+		<div class="article-meta">
+			<span>
+				<i class="icon-calendar1"></i>
+				
+				
+
+
+
+
+	更新于
+
+	<a href="" itemprop="url">
+		<time datetime="2020-04-08T08:33:41.000Z" itemprop="dateUpdated">
+	  		2021-04-23
+	  </time>
+	</a> 
+
+
+
+			</span>
+			<span>
+				
+	<i class="icon-price-tags"></i>
+	
+		<a href="../../../../../tags/%E6%9D%82%E8%AE%B0/" class=" ">
+			杂记
+		</a>
+	
+		
+			</span>
+			
+			
+
+
+
+		</div>
+
+		<div class="article-content" id="article-content">
+			<p>Hexo博客框架使用详细</p>
+<a id="more"></a>
+<h1 id="一、-简介及安装"><a href="#一、-简介及安装" class="headerlink" title="一、    简介及安装"></a>一、    简介及安装</h1><h2 id="1-什么是-Hexo？"><a href="#1-什么是-Hexo？" class="headerlink" title="1.    什么是 Hexo？"></a>1.    什么是 Hexo？</h2><p>官方文档： <a href="https://hexo.io/zh-cn//。" target="_blank" rel="noopener">https://hexo.io/zh-cn//。</a></p>
+<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<h2 id="2-特点"><a href="#2-特点" class="headerlink" title="2.    特点"></a>2.    特点</h2><h3 id="一-超快速度"><a href="#一-超快速度" class="headerlink" title="(一)    超快速度"></a>(一)    超快速度</h3><p>Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。</p>
+<h3 id="二-支持-Markdown"><a href="#二-支持-Markdown" class="headerlink" title="(二)    支持 Markdown"></a>(二)    支持 Markdown</h3><p>Hexo 支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件。</p>
+<h3 id="三-一键部署"><a href="#三-一键部署" class="headerlink" title="(三)    一键部署"></a>(三)    一键部署</h3><p>只需一条指令即可部署到 GitHub Pages, Heroku 或其他平台。</p>
+<h3 id="四-插件和可扩展性"><a href="#四-插件和可扩展性" class="headerlink" title="(四)    插件和可扩展性"></a>(四)    插件和可扩展性</h3><p>强大的 API 带来无限的可能，与数种模板引擎（EJS，Pug，Nunjucks）和工具（Babel，PostCSS，Less/Sass）轻易集成</p>
+<h2 id="3-安装前提"><a href="#3-安装前提" class="headerlink" title="3.    安装前提"></a>3.    安装前提</h2><p>Node.js (Node.js 版本需不低于 8.10，建议使用 Node.js 10.0 及以上版本)</p>
+<p>Git</p>
+<h2 id="4-安装-Hexo"><a href="#4-安装-Hexo" class="headerlink" title="4.    安装 Hexo"></a>4.    安装 Hexo</h2><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
+<h1 id="二、-建站"><a href="#二、-建站" class="headerlink" title="二、    建站"></a>二、    建站</h1><p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo init &lt;folder&gt;</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> &lt;folder&gt;</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install</span></span><br></pre></td></tr></table></figure>
+<p>新建完成后，指定文件夹的目录如下：</p>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">├── <span class="variable">_config</span>.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── <span class="variable">_drafts</span></span><br><span class="line">|   └── <span class="variable">_posts</span></span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
+<h2 id="1-目录简介"><a href="#1-目录简介" class="headerlink" title="1.    目录简介"></a>1.    目录简介</h2><h3 id="一-config-yml"><a href="#一-config-yml" class="headerlink" title="(一)    _config.yml"></a>(一)    _config.yml</h3><p>网站的 配置 信息，您可以在此配置大部分的参数。</p>
+<h3 id="二-package-json"><a href="#二-package-json" class="headerlink" title="(二)    package.json"></a>(二)    package.json</h3><p>应用程序的信息。EJS, Stylus 和 Markdown renderer 已默认安装，您可以自由移除。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">package</span>.<span class="title">json</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"hexo-site"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"0.0.0"</span>,</span><br><span class="line">  <span class="string">"private"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"hexo"</span>: &#123;</span><br><span class="line">    <span class="string">"version"</span>: <span class="string">""</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"hexo"</span>: <span class="string">"^3.8.0"</span>,</span><br><span class="line">    <span class="string">"hexo-generator-archive"</span>: <span class="string">"^0.1.5"</span>,</span><br><span class="line">    <span class="string">"hexo-generator-category"</span>: <span class="string">"^0.1.3"</span>,</span><br><span class="line">    <span class="string">"hexo-generator-index"</span>: <span class="string">"^0.2.1"</span>,</span><br><span class="line">    <span class="string">"hexo-generator-tag"</span>: <span class="string">"^0.2.0"</span>,</span><br><span class="line">    <span class="string">"hexo-renderer-ejs"</span>: <span class="string">"^0.3.1"</span>,</span><br><span class="line">    <span class="string">"hexo-renderer-stylus"</span>: <span class="string">"^0.3.3"</span>,</span><br><span class="line">    <span class="string">"hexo-renderer-marked"</span>: <span class="string">"^0.3.2"</span>,</span><br><span class="line">    <span class="string">"hexo-server"</span>: <span class="string">"^0.3.3"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="三-scaffolds"><a href="#三-scaffolds" class="headerlink" title="(三)    scaffolds"></a>(三)    scaffolds</h3><h3 id="四-source"><a href="#四-source" class="headerlink" title="(四)    source"></a>(四)    source</h3><p>资源文件夹是存放用户资源的地方。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。</p>
+<h3 id="五-themes"><a href="#五-themes" class="headerlink" title="(五)    themes"></a>(五)    themes</h3><p>主题 文件夹。Hexo 会根据主题来生成静态页面。</p>
+<h2 id="2-配置"><a href="#2-配置" class="headerlink" title="2.    配置"></a>2.    配置</h2><p>官网：<a href="https://hexo.io/zh-cn/docs/configuration" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/configuration</a></p>
+<h2 id="3-常用指令"><a href="#3-常用指令" class="headerlink" title="3.    常用指令"></a>3.    常用指令</h2><p>官方文档：<a href="https://hexo.io/zh-cn/docs/commands" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/commands</a></p>
+<h1 id="三、-基本操作"><a href="#三、-基本操作" class="headerlink" title="三、    基本操作"></a>三、    基本操作</h1><h2 id="1-Front-matter"><a href="#1-Front-matter" class="headerlink" title="1.    Front-matter"></a>1.    Front-matter</h2><p>Front-matter 是文件最上方以 — 分隔的区域，用于指定个别文件的变量<br>以下是预先定义的参数，您可在模板中使用这些参数值并加以利用。</p>
+<h2 id="2-分类和标签"><a href="#2-分类和标签" class="headerlink" title="2.    分类和标签"></a>2.    分类和标签</h2><p>只有文章支持分类和标签，您可以在 Front-matter 中设置。在其他系统中，分类和标签听起来很接近，但是在 Hexo 中两者有着明显的差别：分类具有顺序性和层次性，也就是说 Foo, Bar 不等于 Bar, Foo；而标签没有顺序和层次。</p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">categories:</span><br><span class="line">- Diary</span><br><span class="line"><span class="keyword">tags:</span></span><br><span class="line">- PS3</span><br><span class="line">- Games</span><br></pre></td></tr></table></figure>
+<h2 id="3-MarkDown语法"><a href="#3-MarkDown语法" class="headerlink" title="3.    MarkDown语法"></a>3.    MarkDown语法</h2><p>Markdown 是一种「电子邮件」风格的「标记语言」<br>(一)    优点<br>•  纯文本，所以兼容性极强，可以用所有文本编辑器打开。<br>•  让你专注于文字而不是排版。<br>•  格式转换方便，Markdown 的文本你可以轻松转换为 html、电子书等。<br>•  Markdown 的标记语法有极好的可读性。</p>
+<p>基本语法<br><a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">https://www.runoob.com/markdown/md-tutorial.html</a></p>
+<h1 id="四、-部署"><a href="#四、-部署" class="headerlink" title="四、    部署"></a>四、    部署</h1><p>在本教程中，我们将会使用 Travis CI 将 Hexo 博客部署到 GitHub Pages 上。</p>
+<p>GitHub个人网站项目是免费的，有一些限制。总体来说，完全够用。 </p>
+<ul>
+<li><p>单个仓库大小不超过1GB，上传单个文件大小不能超过100MB，如果通过浏览器上传不能超过25MB</p>
+</li>
+<li><p>个人网站项目也不例外，最大空间1GB</p>
+</li>
+<li><p>个人网站项目每个月访问请求数不能超过10万次，总流量不能超过100GB</p>
+</li>
+<li><p>个人网站项目一小时创建数量不能超过10个</p>
+</li>
+</ul>
+<p>当然了，这些政策可能随时改变，可以通过此网页查看最新政策。 <a href="https://help.github.com/articles/what-is-github-pages/#recommended-limits" target="_blank" rel="noopener">https://help.github.com/articles/what-is-github-pages/#recommended-limits</a></p>
+<h2 id="1-新建一个-repository。"><a href="#1-新建一个-repository。" class="headerlink" title="1.    新建一个 repository。"></a>1.    新建一个 repository。</h2><p>如果你希望你的站点能通过 &lt;你的 GitHub 用户名&gt;.github.io 域名访问，你的 repository 应该直接命名为 &lt;你的 GitHub 用户名&gt;.github.io。（要和你登录的那个用户名一致）</p>
+<h2 id="2-使用-SSH-连接到-GitHub"><a href="#2-使用-SSH-连接到-GitHub" class="headerlink" title="2.    使用 SSH 连接到 GitHub"></a>2.    使用 SSH 连接到 GitHub</h2><p>Github帮助文档：<a href="https://help.github.com/cn/github/authenticating-to-github/connecting-to-github-with-ssh" target="_blank" rel="noopener">https://help.github.com/cn/github/authenticating-to-github/connecting-to-github-with-ssh</a></p>
+<h3 id="一-关于-SSH"><a href="#一-关于-SSH" class="headerlink" title="(一)    关于 SSH"></a>(一)    关于 SSH</h3><p>使用 SSH 协议可以连接远程服务器和服务并向它们验证。 利用 SSH 密钥可以连接 GitHub，而无需在每次访问时提供用户名或密码。</p>
+<h3 id="二-检查现有-SSH-密钥"><a href="#二-检查现有-SSH-密钥" class="headerlink" title="(二)    检查现有 SSH 密钥"></a>(二)    检查现有 SSH 密钥</h3><p>在生成 SSH 密钥之前，您可以检查是否有任何现有的 SSH 密钥。</p>
+<p>打开 Git Bash终端。输入 ls -al ~/.ssh 以查看是否存在现有 SSH 密钥：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ls -al ~/.ssh</span><br><span class="line"><span class="comment"># 列出 .ssh 目录中的文件（如果有）</span></span><br></pre></td></tr></table></figure>
+<h3 id="三-生成新-SSH-密钥并添加到-ssh-agent"><a href="#三-生成新-SSH-密钥并添加到-ssh-agent" class="headerlink" title="(三)    生成新 SSH 密钥并添加到 ssh-agent"></a>(三)    生成新 SSH 密钥并添加到 ssh-agent</h3><p>检查现有 SSH 密钥后，您可以生成新 SSH 密钥以用于身份验证，然后将其添加到 ssh-agent。</p>
+<p>打开 Git Bash终端。粘贴下面的文本（替换为您的 GitHub 电子邮件地址）。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -b 4096 -C your_email@example.com</span><br><span class="line"><span class="comment"># 后面提示直接按Enter</span></span><br></pre></td></tr></table></figure>
+<p>确保 ssh-agent 正在运行，将 SSH 私钥添加到 ssh-agent。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">eval</span> $(ssh-agent -s)</span><br><span class="line"></span><br><span class="line">$ ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+<h3 id="四-新增-SSH-密钥到-GitHub-帐户"><a href="#四-新增-SSH-密钥到-GitHub-帐户" class="headerlink" title="(四)    新增 SSH 密钥到 GitHub 帐户"></a>(四)    新增 SSH 密钥到 GitHub 帐户</h3><p>要配置 GitHub 帐户使用新的（或现有）SSH 密钥，您还需要将其添加到 GitHub 帐户。</p>
+<p>将 SSH 密钥复制到剪贴板。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clip &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p> 点击github网站的头像，选择Settings，点击右侧SSH and GPG keys，单击 New SSH key（新 SSH 密钥）</p>
+<p> <img src="/images/20202/hexo-intro-1.png" alt="postman"></p>
+<h3 id="五-测试-SSH-连接"><a href="#五-测试-SSH-连接" class="headerlink" title="(五)    测试 SSH 连接"></a>(五)    测试 SSH 连接</h3><p>设置 SSH 密钥并将其添加到您的 GitHub 帐户后，您可以测试连接。</p>
+<h2 id="3-一键部署"><a href="#3-一键部署" class="headerlink" title="3.    一键部署"></a>3.    一键部署</h2><p>Hexo 提供了快速方便的一键部署功能，让您只需一条命令就能将网站部署到服务器上。</p>
+<p>官方文档：<a href="https://hexo.io/zh-cn/docs/one-command-deployment" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/one-command-deployment</a></p>
+<h3 id="一-安装-hexo-deployer-git。"><a href="#一-安装-hexo-deployer-git。" class="headerlink" title="(一)    安装 hexo-deployer-git。"></a>(一)    安装 hexo-deployer-git。</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<h3 id="二-配置-config-yml"><a href="#二-配置-config-yml" class="headerlink" title="(二)    配置_config.yml"></a>(二)    配置_config.yml</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span>    </span><br><span class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:chen10221122/chen10221122.github.io</span>   <span class="comment">#e.g.:https：//bitbucket.org/JohnSmith/johnsmith.bitbucket.io </span></span><br><span class="line"><span class="attr">  branch:</span>  <span class="comment">#e.g.:published </span></span><br><span class="line"><span class="attr">  message:</span>   <span class="comment">#e.g.:leave this blank</span></span><br></pre></td></tr></table></figure>
+<h3 id="三-部署"><a href="#三-部署" class="headerlink" title="(三)    部署"></a>(三)    部署</h3><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo deploy</span><br><span class="line"><span class="comment"># 简写 hexo d</span></span><br></pre></td></tr></table></figure>
+<h1 id="五、-更换主题"><a href="#五、-更换主题" class="headerlink" title="五、    更换主题"></a>五、    更换主题</h1><p>官网文档：<a href="https://hexo.io/zh-cn/docs/themes" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/themes</a></p>
+<p>创建 Hexo 主题非常容易，您只要在 themes 文件夹内，新增一个任意名称的文件夹，并修改 _config.yml 内的 theme 设定，即可切换主题。一个主题可能会有以下的结构：</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── languages</span><br><span class="line">├── <span class="keyword">layout</span></span><br><span class="line">├── scripts</span><br><span class="line">└── <span class="keyword">source</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-使用官网主题"><a href="#1-使用官网主题" class="headerlink" title="1.    使用官网主题"></a>1.    使用官网主题</h2><p><a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></p>
+<p>主题推荐：</p>
+<ul>
+<li><a href="https://github.com/tufu9441/maupassant-hexo" target="_blank" rel="noopener">https://github.com/tufu9441/maupassant-hexo</a></li>
+<li><a href="https://github.com/Sariay/hexo-theme-Annie" target="_blank" rel="noopener">https://github.com/Sariay/hexo-theme-Annie</a></li>
+<li><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia</a></li>
+<li><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">https://github.com/iissnan/hexo-theme-next</a></li>
+<li><a href="https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak" target="_blank" rel="noopener">https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak</a></li>
+</ul>
+<h2 id="2-自定义主题"><a href="#2-自定义主题" class="headerlink" title="2.    自定义主题"></a>2.    自定义主题</h2><h1 id="六、-购买域名（非必须）"><a href="#六、-购买域名（非必须）" class="headerlink" title="六、    购买域名（非必须）"></a>六、    购买域名（非必须）</h1><p>我是在阿里买的，后缀不同，费用也不同。流程就跟淘宝购物一样了，只需要买域名。</p>
+<p><a href="https://wanwang.aliyun.com/domain/searchresult/#/?keyword=chenlilin&amp;suffix=com" target="_blank" rel="noopener">https://wanwang.aliyun.com/domain/searchresult/#/?keyword=chenlilin&amp;suffix=com</a></p>
+<p> <img src="/images/20202/hexo-intro-2.png" alt="postman"></p>
+<h2 id="1-域名解析"><a href="#1-域名解析" class="headerlink" title="1.    域名解析"></a>1.    域名解析</h2><p>通俗来讲也就是本地与服务器做映射。</p>
+<p>进入控制台<a href="https://homenew.console.aliyun.com/" target="_blank" rel="noopener">https://homenew.console.aliyun.com/</a></p>
+<p> <img src="/images/20202/hexo-intro-3.png" alt="postman"></p>
+<p><img src="/images/20202/hexo-intro-4.png" alt="postman"></p>
+<h2 id="2-域名配置"><a href="#2-域名配置" class="headerlink" title="2.    域名配置"></a>2.    域名配置</h2><p>Hexo目录下的source中建一个CNAME命名的文件夹，输入你购买的域名</p>
+<p><img src="/images/20202/hexo-intro-5.png" alt="postman"></p>
+<p>新建之后要把代码提交到git仓库</p>
+<h2 id="3-绑定域名"><a href="#3-绑定域名" class="headerlink" title="3.    绑定域名"></a>3.    绑定域名</h2><p>在github页面，进入你仓库的设置页面</p>
+<p><img src="/images/20202/hexo-intro-6.png" alt="postman"></p>
+<p>在这里填入你购买的域名</p>
+<p><img src="/images/20202/hexo-intro-7.png" alt="postman"></p>
+<h1 id="七、-备份博客源码"><a href="#七、-备份博客源码" class="headerlink" title="七、    备份博客源码"></a>七、    备份博客源码</h1><p>个人使用gitee备份 <a href="https://gitee.com/icll/projects" target="_blank" rel="noopener">https://gitee.com/icll/projects</a></p>
+<p>防止代码丢失（如换电脑了）</p>
+<p>可以在其他地方编辑</p>
+<p><img src="/images/20202/hexo-intro-8.png" alt="postman"></p>
+<h1 id="八、-添加其他功能"><a href="#八、-添加其他功能" class="headerlink" title="八、    添加其他功能"></a>八、    添加其他功能</h1><p>官网的主题可能有的功能不是很全面，或者你喜欢的这个主题功能太少了，就可以添加其他功能</p>
+<ul>
+<li><ol>
+<li>评论功能</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>相册功能</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>访客统计功能</li>
+</ol>
+</li>
+</ul>
+<h1 id="九、-Bug记录"><a href="#九、-Bug记录" class="headerlink" title="九、    Bug记录"></a>九、    Bug记录</h1><p><strong>复制后，运行显示no layout:index.html</strong></p>
+<p>解决方法：下载主题目录，并放在themes文件夹下</p>
+	
+		</div>
+		
+		<div id="current-post-cover" data-scr="../../../../../img/cart_cover.jpg"></div>
+
+		<!-- relate post, comment...-->
+		<div class="investment-container">
+			<div class="investment-header">
+				<div class="investment-title-1">
+					<div class="on">相关文章</div>
+					<div>评论</div>
+					<div>分享</div>
+				</div>
+				<div class="investment-title-2">	            
+					
+	<span>
+		<a id="totop-post-page">返回顶部</a>
+		
+			<a href="../../../../05/14/20202/js-prototype/" title="javascript继承和原型链" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="../../../../03/18/20201/uniapp1/" title="uniapp遇到的问题" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+				</div>	
+			</div>
+			
+			<div class="investment-content">
+				<div class="investment-content-list">
+					
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2021/04/23/20184/markdown/" title="MD测试语法">
+								MD测试语法			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 23日, 2021				
+							</p>
+							<p class="relate-post-content">
+								主要是 hexo 写博客时常用的语法
+
+一级标题二级标题三级标题四级标题五级标题六级标题Qt 开源社区提供的下载地址
+
+。
+这是一段测试 加粗 _倾斜_Lorem ipsum dolor sit amet, consectetur a...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2021/04/23/20184/markdown/" title="MD测试语法">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="MD测试语法"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2019/01/10/20191/qt/" title="qt入门">
+								qt入门			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								一月 10日, 2019				
+							</p>
+							<p class="relate-post-content">
+								Qt 是一个1991年由Qt Company开发的跨平台C++图形用户界面应用程序开发框架。它既可以开发GUI程序，也可用于开发非GUI程序，比如控制台工具和服务器。Qt是面向对象的框架，使用特殊的代码生成扩展（称为元对象编译器(Me...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2019/01/10/20191/qt/" title="qt入门">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="qt入门"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2018/12/07/20184/pcoperation/" title="电脑常用操作">
+								电脑常用操作			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十二月 7日, 2018				
+							</p>
+							<p class="relate-post-content">
+								一些常用操作，杀进程、快捷键、装软件…
+
+Windows 中杀死占用某个端口的进程123netstat -ano | findstr 80 //列出进程极其占用的端口，且包含 80tasklist | findstr 9268task...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2018/12/07/20184/pcoperation/" title="电脑常用操作">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="电脑常用操作"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2018/08/06/20183/pushToGitee/" title="如何搭建本网站-详细步骤">
+								如何搭建本网站-详细步骤			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								八月 6日, 2018				
+							</p>
+							<p class="relate-post-content">
+								关于本网站如何搭建的
+
+搭建步骤
+1 创建仓库  https://blog.csdn.net/tzs_1041218129/article/details/53214497  https://www.cnblogs.com/Dream...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2018/08/06/20183/pushToGitee/" title="如何搭建本网站-详细步骤">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="如何搭建本网站-详细步骤"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2021/04/23/20184/letcount/" title="let 与 const 的用法">
+								let 与 const 的用法			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 23日, 2021				
+							</p>
+							<p class="relate-post-content">
+								ES6 新增了两个声明两个声明标识符的方式： let 和 const。
+
+
+let 用来声明变量，并且会在当前作用域形成 代码块
+conts 用来声明常量，所谓常量就是物理指针不可以更改的变量。
+
+1、let使用 let 声明的变量，...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2021/04/23/20184/letcount/" title="let 与 const 的用法">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/cover/architecture-black-building.jpg" alt="let 与 const 的用法"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2021/04/23/20183/first-month/" title="遇到的问题">
+								遇到的问题			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 23日, 2021				
+							</p>
+							<p class="relate-post-content">
+								记录一下项目中相关的的问题
+
+用CANVAS绘制水印1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2021/04/23/20183/first-month/" title="遇到的问题">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="遇到的问题"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2021/01/13/20211/typescript-1/" title="typescript入门">
+								typescript入门			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								一月 13日, 2021				
+							</p>
+							<p class="relate-post-content">
+								Any 类型、数组和元组、interface 、类型推论 联合类型 类型断言、Class、类和接口、Enum、Generics、类型别名，字面量，交叉类型、声明文件、内置类型
+慕课网视频地址：https://coding.imooc....
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2021/01/13/20211/typescript-1/" title="typescript入门">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="typescript入门"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2021/01/04/20204/problem/" title="其他前端问题（一）">
+								其他前端问题（一）			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								一月 4日, 2021				
+							</p>
+							<p class="relate-post-content">
+								其他前端问题（一）
+ 
+关于async/await、promise和setTimeout执行顺序 1234567891011121314151617181920 async function async1() &#123;	conso...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2021/01/04/20204/problem/" title="其他前端问题（一）">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="其他前端问题（一）"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../12/28/20204/webpack-babel-2/" title="webpack-babel-2 构建速度优化、产出代码优化、babel">
+								webpack-babel-2 构建速度优化、产出代码优化、babel			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十二月 28日, 2020				
+							</p>
+							<p class="relate-post-content">
+								构建速度优化、产出代码优化、babel
+
+10-9 webpack优化构建速度-知识点串讲（性能优化）
+热议话题
+优化打包构建速度 - 优化开发体验和效率
+优化产出代码 - 优化产品性能 
+
+一般会让你聊一聊性能优化，可以从上面两个方...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../12/28/20204/webpack-babel-2/" title="webpack-babel-2 构建速度优化、产出代码优化、babel">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="webpack-babel-2 构建速度优化、产出代码优化、babel"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../12/28/20204/webpack-babel-1/" title="webpack-babel-1  基础配置、高级配置">
+								webpack-babel-1  基础配置、高级配置			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十二月 28日, 2020				
+							</p>
+							<p class="relate-post-content">
+								基础配置、高级配置
+
+1、webpack考点梳理webpack
+
+webpack 已是前端打包构建的不二选择
+前端已经不再是单纯的写页面的了。现在都是一个app，像android项目等。webpack是比较规范的。
+
+
+每日必用，面试...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../12/28/20204/webpack-babel-1/" title="webpack-babel-1  基础配置、高级配置">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="webpack-babel-1  基础配置、高级配置"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
+	
+</div>	
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-comment">
+
+	
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
+	
+
+</div>
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- show math formula -->
+
+
+
+	 
+	
+<script src="../../../../../plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="../../../../../plugin/fancybox/jquery.fancybox.css">
+
+
+<script src="../../../../../plugin/fancybox/jquery.fancybox.js"></script>
+
+
+<script type="text/javascript">
+	(function gallerySet(){
+		let titleID = $('.article-title a'),
+			imageID = $('.article-content img'),
+			videoID = $('.article-content video');
+		
+		let postTitle = titleID.text() ? titleID.text() : "No post title!";
+		
+		imageID.each(function() {
+			let imgPath = $(this).attr('src'),
+				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
+		});
+		
+		videoID.each(function() {
+			let videoPath = $(this).attr('src');
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+		});
+		
+		//TODO：支持html5 video
+
+		if($('#layout-post').length) {
+			$('[data-fancybox="gallery"]').fancybox({
+				loop: true,
+				buttons: [
+					"zoom",
+					"share",
+					"slideShow",
+					"fullScreen",
+					//"download",
+					"thumbs",
+					"close"
+				],
+				protect: true
+			});
+		}
+	})();
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="../../../../../index.html" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="../../../../../archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="../../../../../categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="../../../../../tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="../../../../../about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="../../../../../gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2018 - 2021, content by chenlilin. All Rights Reserved.
+			
+			
+				<!-- <a href="../../../../../http:/hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="../../../../../https:/github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. -->
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+
+	
+<script src="../../../../../plugin/motto/motto.js"></script>
+
+	
+	<script type="text/javascript">
+		(function motto(){
+			let mottoText = getMingYanContent().split('</br> - </br>'),
+			
+			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
+			
+			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
+			
+			mottoTextContent = mottoTextContent.trim().substring(0, 100);
+		
+			$("#motto-content").html( mottoTextContent);
+			$("#motto-author").html( mottoTextFrom  );
+		})();	
+	</script>	
+
+
+
+<!-- love effect -->
+
+	
+<script src="../../../../../plugin/love/love.js"></script>
+
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+  
+
+	<!--
+	时间：2018-10-3
+	描述：
+		插件名称：hexo-generator-search-zip
+		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
+		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
+-->
+<div class="popup search-popup local-search-popup scrollbar" >
+	<div class="local-search-container">
+		<span class="popup-btn-close">
+      		ESC
+   		</span>
+		<div class="local-search-header">
+			<div class="input-prompt">				
+			</div>
+			<input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+		</div>
+		<div class="local-search-body">
+			<div id="local-search-output"></div>
+		</div>
+		<div class="local-search-footer">
+			<div class="topN-post">				
+				
+								
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="../../../../../plugin/search/ziploader.js"></script>
+<script src="../../../../../js/search.js"></script>
+
+
+<script type="text/javascript">
+	var search_path = 'search.json',
+		zip_Path = '/search.zip',
+		version_Path = '/searchVersion.txt',
+		input_Trigger = 'auto',
+		top_N = '2';
+
+	themeLocalSearch({
+		search_path, 
+		zip_Path, 
+		version_Path, 
+		input_Trigger, 
+		top_N
+	});
+</script>
+
+
+
+<script src="../../../../../plugin/chinese/chinese.js"></script>
+<script src="../../../../../plugin/imagelazyloader/yall.min.js"></script>
+<script src="../../../../../plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="../../../../../plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="../../../../../plugin/resizediv/resizediv.js"></script>
+<script src="../../../../../js/main.js"></script>
+
+	</body>	
+</html>

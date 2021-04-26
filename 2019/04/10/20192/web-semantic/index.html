@@ -1,0 +1,980 @@
+
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      web语义化 | 陈立林的个人网站
+    
+  </title>
+  <meta name="author" content="来者可追">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+
+  <!-- css -->
+  
+<link rel="stylesheet" href="../../../../../css/Annie.css">
+
+  
+  <!-- jquery -->
+	
+<script src="../../../../../plugin/jquery/jquery.min.js"></script>
+
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'normal',
+      normalSrc: '../../../../../https:/source.unsplash.com/collection/954550/1920x1080',
+      randomYouMax: 110,
+      randomYouSrc: '../../../../../https:/sariay.github.io/Random-img/',
+	  randomOtherSrc: '../../../../../https:/api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: false
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: false,
+	  appId: 'AU8...',
+	  appKey: '4cU...',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+	<body>
+		<!-- Preloader -->
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">获取中...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			「web语义化」
+		
+	</p>
+
+	
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="../../../../../img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="../../../../../index.html" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="../../../../../archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="../../../../../categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="../../../../../tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="../../../../../about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="../../../../../gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-zhihu"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-sina-weibo "></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-pinterest2"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+<script src="../../../../../plugin/toc/katelog.min.js"></script>
+
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+		<div class="article-title">
+			
+	<a href="" itemprop="url">
+		web语义化
+	</a>
+
+		</div>
+
+		<div class="article-meta">
+			<span>
+				<i class="icon-calendar1"></i>
+				
+				
+
+
+
+
+	更新于
+
+	<a href="" itemprop="url">
+		<time datetime="2019-04-10T08:26:51.000Z" itemprop="dateUpdated">
+	  		2021-04-23
+	  </time>
+	</a> 
+
+
+
+			</span>
+			<span>
+				
+	<i class="icon-price-tags"></i>
+	
+		<a href="../../../../../tags/html/" class=" ">
+			html
+		</a>
+	
+		
+			</span>
+			
+			
+
+
+
+		</div>
+
+		<div class="article-content" id="article-content">
+			<p>ss<br><a id="more"></a><br> web语义化</p>
+<h2 id="一、什么是Web语义化"><a href="#一、什么是Web语义化" class="headerlink" title="一、什么是Web语义化"></a>一、什么是Web语义化</h2><blockquote>
+<p>Web语义化是指用合理HTML标记以及其特有的属性去格式化文档内容。通俗地讲,就是对数据和信息进行处理,使得机器可以理解。</p>
+</blockquote>
+<p>就是不要全都用<code>div</code>+<code>span</code>撸完整个网页，那么多标签偏偏都用这两个干嘛；</p>
+<h2 id="二、Web语义化的由来"><a href="#二、Web语义化的由来" class="headerlink" title="二、Web语义化的由来"></a>二、Web语义化的由来</h2><pre><code>内容的语义表达能力和 AI 的智能程度决定了机器分析处理 Web 内容能力的高低，所以语义化的发展其实就是语义规范的发展以及人工智能的发展结合的产物。
+</code></pre><p><img src="/images/20192/websemantic1_compressed.png" alt="“ websemantic1”"><br>`</p>
+<h2 id="三、Web语义化的优势和劣势"><a href="#三、Web语义化的优势和劣势" class="headerlink" title="三、Web语义化的优势和劣势"></a>三、Web语义化的优势和劣势</h2><p>1、清晰的页面结构，加载更快。<br>2、支持更多的设备。<br>3、有利于SEO。<br>4、便于团队开发和维护。</p>
+<h2 id="四、Web语义化应用"><a href="#四、Web语义化应用" class="headerlink" title="四、Web语义化应用"></a>四、Web语义化应用</h2><h3 id="1、布局"><a href="#1、布局" class="headerlink" title="1、布局"></a>1、布局</h3><p><img src="/images/20192/websemantic2.png" alt="“ websemantic1”">  </p>
+<p><code>&lt;header&gt;</code> 页眉，一组介绍性描述或导航信息，目录 / 搜索框 / logo 。<br><code>&lt;h1-h6&gt;</code> 标题，提纲信息。<br><code>&lt;nav&gt;</code> 导航、菜单，可以帮助读屏器迅速获得导航内容，可以省去很多渲染直接跳到导航位置。<br><code>&lt;article&gt;</code>独立的文档、页面、应用、站点。<br>可以单独发布、重用，一般应用于帖子、评论、文章等<br><code>&lt;section&gt;</code> 用于区分相同主题的不同内容，屏幕阅读器以此梳理出提纲。<br><code>&lt;address&gt;</code> 代表与最近父级<code>&lt;article&gt;</code>或整个文档关联的联系人信息，比如作者信息、内容主人公原型等。<br><code>&lt;aside&gt;</code> 表示与周围内容关系不太密切的内容，通常表现为侧边栏内容或引述内容，比如广告，或是嵌在文章内部的名人名言，悬浮的聊天窗口等。<br><code>&lt;footer&gt;</code> 页脚，一般用来描述作者信息、相关文档、版权信息。</p>
+<p><img src="/images/20192/websemantic3.png" alt="“ websemantic1”"><br><img src="/images/20192/websemantic5.png" alt="“ websemantic1”">  </p>
+<h3 id="2、内容"><a href="#2、内容" class="headerlink" title="2、内容"></a>2、内容</h3><p><code>&lt;main&gt;</code> 文档的主内容 / 应用的核心功能，全页面唯一。<br><code>&lt;div&gt;</code> 无语义，任何情况都适用，也是页面容器优先级最低的选择。<br><code>&lt;figure&gt;</code> 比较独立的、被主要内容引用的部分。如插图 / 图表 / 照片 / 代码 ,通常搭配<code>&lt;figcaption&gt;</code>做标题<br><code>&lt;ol&gt;</code> <code>&lt;ul&gt;</code> 有序 / 无序列表，以行的方式展现内容，选择的依据是 <code>&lt;li&gt;</code> 的出现顺序是否影响语义的表达</p>
+<p><code>&lt;li&gt;</code> 元素的 value 属性代表该列表项的序号值<br><code>&lt;details&gt;</code> 标签用于描述文档或文档某个部分的细节，其标题用<code>&lt;summary&gt;</code> 标签。<br><code>&lt;blockquote&gt;</code> 引用的来自其他来源的内容，cite属性代表引用url，署名要放在外面，一般配合<code>&lt;cite&gt;</code>标签。<br><code>&lt;pre&gt;</code> 表示已排版的内容，空格、换行都会完整呈现。<br><code>&lt;hr&gt;</code> 不同主题内容间的分隔符，比如故事场景的转换。<br><code>&lt;p&gt;</code> 段落，用来展现内容的最低优先级选择。<br><code>&lt;dl&gt;</code> 名值对的集合。<code>&lt;dt&gt;</code>是名，<code>&lt;dd&gt;</code>是值。一般用于术语定义表、元数据定义表、FAQ、商品信息等等。</p>
+<p><code>&lt;form&gt;</code> 表单的容器。<br><code>&lt;input&gt;</code> 除了div，最被人熟知的标签。可用类型达20种之多。<br><code>&lt;label&gt;</code> 标签为 input 元素定义标签（label）。label 元素不会呈现特殊的样式，但如果点击 label 元素内的文本，会切换到控件本身。<code>&lt;label&gt;</code> 标签的 for 属性等于相关元素的 id 元素。<br><code>&lt;datalist&gt;</code>标签定义选项列表。使用 input 元素的 list 属性来绑定 datalist，定义 input 可能的值。简易版comboBox。</p>
+<p><code>&lt;form&gt;</code> 表单的容器。<br><code>&lt;input&gt;</code> 除了div，最被人熟知的标签。可用类型达20种之多。<br><code>&lt;label&gt;</code> 标签为 input 元素定义标签（label）。label 元素不会呈现特殊的样式，但如果点击 label 元素内的文本，会切换到控件本身。<code>&lt;label&gt;</code> 标签的 for 属性等于相关元素的 id 元素。<br><code>&lt;datalist&gt;</code> 标签定义选项列表。使用 input 元素的 list 属性来绑定 datalist，定义 input 可能的值。简易版comboBox。</p>
+<p><code>&lt;table&gt;</code> 标签定义 HTML 表格。<br>一个简单的 HTML 表格包括 table 元素，一个或多个 tr、th 以及 td 元素。<br>更复杂的 HTML 表格也可能包含 colgroup, col, caption, thead, tfoot, tbody 等元素。<br><code>&lt;tr&gt;</code> 标签定义表格中的行。<br><code>&lt;th&gt;</code>、<code>&lt;td&gt;</code> 标签定义 HTML 表格中的单元格。<br>HTML 表格有两种单元格类型：<br><code>&lt;th&gt;</code>标签定义 HTML 表格中的表头单元格（包含头部信息），其文本呈现为粗体并且居中。<br><code>&lt;td&gt;</code>标签定义 HTML 表格中的标准单元格（包含数据），其文本是普通的左对齐文本。<br><code>&lt;colgroup&gt;</code> 标签用于对表格中的列进行组合，以便对其进行格式化。<br><code>&lt;col&gt;</code> 标签为表格中的一个或多个列定义属性值。<br><code>&lt;caption&gt;</code> 标签定义表格的标题。<br>每个表格只能定义一个标题，通常标题居中显示在表格上方。<br>thead、tfoot 以及 tbody 元素对表格中的行进行分组。（内部必须拥有 <code>&lt;tr&gt;</code> 标签）<br><code>&lt;thead&gt;</code> 定义表格的表头。<br><code>&lt;tbody&gt;</code> 定义表格的主体。<br><code>&lt;tfooter&gt;</code> 定义表格的页脚。<br>如果使用 thead、tfoot、tbody 元素，必须使用全部的元素。且必须在 table 元素内部使用这些标签。</p>
+<h3 id="3、文本"><a href="#3、文本" class="headerlink" title="3、文本"></a>3、文本</h3><p><code>&lt;em&gt;</code> 表示侧重点的强调，强调级别由 em 的嵌套个数决定。em 的位置不同，文本本身含义不同(能穿多少穿多少)，屏幕阅读器解析为斜体。<br><code>&lt;stong&gt;</code> 表示内容的重要性，重要程度由 strong 的嵌套个数决定。strong 的位置不同，文本本身含义不变(把我妈和媳妇救上来)，屏幕阅读器解析为粗体。<br><code>&lt;i&gt;</code> 表示另一种叙述方式。画外音 / 分类学名词 / 外来语片段 / 舞台指示 / 船名。(室友交了女朋友，我们全寝室都喜(nei)大(xin)普(beng)奔(kui))<br><code>&lt;b&gt;</code> 不再只是「粗体」，表示某种需要引起注意却又没有其他额外语义的内容，摘要中的关键词 / 评介中的产品名称 / 文章的开篇内容。<br><code>&lt;small&gt;</code> 不再只是「小字」，用来描述必须作出说明但又不想占过多篇幅的内容(请以实物为准，图片仅供参考)，免责声明 / 许可证声明 / 注意事项。<br><code>&lt;s&gt;</code> 不再只是「带删除线的文字」，表示不再准确或不再相关的内容(打折50，原价100)，与 del 元素含义不同。<br><code>&lt;u&gt;</code> 不再只是「带下划线的文字」，表示中文专名 / 拼写检查的错误内容 如人名、地名、朝代名、国名、机构名等。<br><code>&lt;del&gt;</code> 标签定义文档中已删除的文本。<br><code>&lt;ins&gt;</code> 标签定义文档的其余部分之外的插入文本。<br><code>&lt;cite&gt;</code> 引述的作品标题，书 / 论文 / 散文 / 电影 / 歌曲 / 电视节目 / 画作。<br><code>&lt;q&gt;</code> 引用的来自其他来源的段内内容，cite 属性表示该来源的 URL，比如名人名句，座右铭，伟人诗词等有来头的话语。<br><code>&lt;abbr&gt;</code> 定义缩写，其 title 属性为全称。</p>
+<h3 id="4、微格式"><a href="#4、微格式" class="headerlink" title="4、微格式"></a>4、微格式</h3><p><code>&lt;dfn&gt;</code> 用来展现一个术语的定义实例。<br><code>&lt;time&gt;</code> 为表述的内容增加一个机器可读的时间数据，datetime 属性值必须是预定义的几种时间格式之一，如果不含 datetime 属性，则会解析其文本内容值作为时间数据。<br><code>&lt;code&gt;</code> 代码片段。<code>&lt;kbd&gt;</code> 用户输入的内容 / 按键。<code>&lt;samp&gt;</code> 程序输出。<br><code>&lt;span&gt;</code> 本身无语义，用来展现文本样式的最低优先级选择。<br><code>&lt;mark&gt;</code> 在引用的文字中使用，表示在当前文档中需要引起注意但原文中并没有强调的含义，或表示与用户当前的行为相关的内容。比如对一篇文章的分析中对原文的标注或者按照关键字搜索出的文章中对该关键字的强调。<br><img src="/images/20192/websemantic4.png" alt="“ websemantic1”"><br><code>&lt;ruby&gt;</code> 注音标示。<br><code>&lt;rp&gt;</code> 标签在 ruby 注释中使用，以定义不支持 ruby 元素的浏览器所显示的内容。<br><code>&lt;rt&gt;</code> 标签定义字符（中文注音或字符）的解释或发音。<br>主要用于东亚国家的文字注音。中日韩等。<br><img src="/images/20192/websemantic6.png" alt="“ websemantic1”">  </p>
+<p>用 HTML 已有的元素 / 属性，配合对属性值语义的扩展 (主要针对 class 属性) 以及对文档结构的约定来增强 HTML 的语义表达能力。Microformats 的规范本质上就是对一系列常用类型数据 HTML 格式的约定。</p>
+<p><img src="/images/20192/websemantic7.png" alt="“ websemantic1”">  </p>
+<p><code>&lt;hCard&gt;</code> 用来在 Web 上发布人物 / 公司 / 组织机构信息的格式。</p>
+<p><img src="/images/20192/websemantic8.png" alt="“ websemantic1”"><br><code>&lt;hCalendar&gt;</code> 发布事件<br><code>&lt;hReview&gt;</code> 发布书评 / 影评 / 产品评价 </p>
+<h3 id="5、语义化建议"><a href="#5、语义化建议" class="headerlink" title="5、语义化建议"></a>5、语义化建议</h3><ul>
+<li>（1）、尽可能少的使用没有语义的div和span元素。</li>
+<li>（2）、在对语义要求不明显时，既能使用div也能使用p,那就使用p，因为p默认有上下边距，可以兼容特殊终端。</li>
+<li>（3）、不要使用无语义的纯样式标签，如：b、font、u等，改用css设置。</li>
+<li>（4）、需要强调的文本，可以包含在strong或者em标签中（浏览器预设样式，能用CSS指定就不用他们），strong默认样式是加粗（不要用b，因为没语义），em是斜体（不用i同b）；</li>
+<li>（5）、使用表格时，标题要用caption，表头用thead，主体部分用tbody包围，尾部用tfoot包围。表头和一般单元格要区分开，表头标题用th，内容单元格用td；</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>规范：</p>
+<p>H5最新规范：<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element</a><br>H5的扩展微格式：<a href="http://microformats.org/" target="_blank" rel="noopener">http://microformats.org/</a><br>走进H5：<a href="https://diveintohtml5.info/index.html" target="_blank" rel="noopener">https://diveintohtml5.info/index.html</a></p>
+<p>学习：</p>
+<p>老牌前端基础学习网站：<a href="http://www.w3school.com.cn/" target="_blank" rel="noopener">http://www.w3school.com.cn/</a>  </p>
+	
+		</div>
+		
+		<div id="current-post-cover" data-scr="../../../../../img/cart_cover.jpg"></div>
+
+		<!-- relate post, comment...-->
+		<div class="investment-container">
+			<div class="investment-header">
+				<div class="investment-title-1">
+					<div class="on">相关文章</div>
+					<div>评论</div>
+					<div>分享</div>
+				</div>
+				<div class="investment-title-2">	            
+					
+	<span>
+		<a id="totop-post-page">返回顶部</a>
+		
+			<a href="../../../11/20192/css-core-concepts/" title="CSS核心概念" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="../js-core-concept/" title="javascript核心概念" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+				</div>	
+			</div>
+			
+			<div class="investment-content">
+				<div class="investment-content-list">
+					
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../10/08/20194/wechat-app-issue2/" title="微信小程序相关问题汇总(二)">
+								微信小程序相关问题汇总(二)			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十月 8日, 2019				
+							</p>
+							<p class="relate-post-content">
+								汇总微信小程序相关问题
+
+一、Taro的本身生命周期生命周期componentWillMount在微信小程序中这一生命周期方法对应页面的onLoad或入口文件app中的onLaunchcomponentDidMount在微信小程序中这...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../10/08/20194/wechat-app-issue2/" title="微信小程序相关问题汇总(二)">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="微信小程序相关问题汇总(二)"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../09/12/20194/wechat-app-issue/" title="微信小程序相关问题汇总(一)">
+								微信小程序相关问题汇总(一)			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								九月 12日, 2019				
+							</p>
+							<p class="relate-post-content">
+								汇总微信小程序相关问题
+
+一、地图加号放大减号缩小12345678910111213141516171819setScale(e) &#123;        let scale = this.state.scale;        ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../09/12/20194/wechat-app-issue/" title="微信小程序相关问题汇总(一)">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="微信小程序相关问题汇总(一)"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../06/24/20192/ztree1/" title="ztree常用技巧">
+								ztree常用技巧			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 24日, 2019				
+							</p>
+							<p class="relate-post-content">
+								ztree 常用技巧
+
+涉及的功能：点击请求，默认选中，单一路径展开
+异步加载123456789101112131415161718192021222324252627282930313233343536373839404142434...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../06/24/20192/ztree1/" title="ztree常用技巧">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="ztree常用技巧"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../05/28/20192/angular-problems/" title="从0开始记录angular使用过程中遇到的问题">
+								从0开始记录angular使用过程中遇到的问题			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 28日, 2019				
+							</p>
+							<p class="relate-post-content">
+								从 0 开始记录 angular 使用过程中遇到的问题.
+
+常用命令12ng g component group/containers/page-name --skip-import
+1、node-sass 安装失败 win32-x6...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../05/28/20192/angular-problems/" title="从0开始记录angular使用过程中遇到的问题">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="从0开始记录angular使用过程中遇到的问题"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../17/20192/jsbase/" title="javascript基础知识">
+								javascript基础知识			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 17日, 2019				
+							</p>
+							<p class="relate-post-content">
+								javascript基础知识
+一、js对象设置成员对象12person.age = 45person['name']['last'] = 'Cratchit'
+
+点表示法只能接受字面量的成员的名字，不接受变量作为名字
+
+123var ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../17/20192/jsbase/" title="javascript基础知识">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="javascript基础知识"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../11/20192/css-core-concepts/" title="CSS核心概念">
+								CSS核心概念			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 11日, 2019				
+							</p>
+							<p class="relate-post-content">
+								本主要内容是介绍CSS一些主要概念，并通过代码来演示具体的使用用例，然后提供学习指南链接供课后自学。适合：Web开发新手、具有一定的CSS基础的Web开发对象。
+1、Web标准概述
+
+结构、表现和行为分别对应于3种非常常用的技术，即 ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../11/20192/css-core-concepts/" title="CSS核心概念">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="CSS核心概念"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../js-core-concept/" title="javascript核心概念">
+								javascript核心概念			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 10日, 2019				
+							</p>
+							<p class="relate-post-content">
+								将JavaScript语言中的一些重要和难以理解的概念进行了罗列基于原型编程、多范式的动态脚本语言支持面向对象、命令式和声明式风格
+https://mp.weixin.qq.com/s/I7A1iC8Et6uOGZ234DsTlA
+
+...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../js-core-concept/" title="javascript核心概念">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="javascript核心概念"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../03/07/20191/git-error/" title="git报错解决">
+								git报错解决			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 7日, 2019				
+							</p>
+							<p class="relate-post-content">
+								记录 git 报错信息、原因、解决方法
+
+1、error: failed to push some refs to
+错误信息：
+
+12345error: failed to push some refs to 'git@gitee.c...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../03/07/20191/git-error/" title="git报错解决">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="git报错解决"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../02/19/20191/mooc-vue-start/" title="慕课网vue2.5入门 学习笔记">
+								慕课网vue2.5入门 学习笔记			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								二月 19日, 2019				
+							</p>
+							<p class="relate-post-content">
+								慕课网学习笔记；视频地址demo地址
+
+一、Vue 基础语法模板、实例、挂载点数据、事件、方法
+指令 :
+
+1234567&#123;&#123;&#125;&#125;v-textv-htmlcontent
+
+v-on:click ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../02/19/20191/mooc-vue-start/" title="慕课网vue2.5入门 学习笔记">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="慕课网vue2.5入门 学习笔记"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2018/12/14/20184/httpcache/" title="http缓存详解">
+								http缓存详解			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十二月 14日, 2018				
+							</p>
+							<p class="relate-post-content">
+								浏览器是如何知道使用缓存的，其实这都是通过http中，浏览器将最后修改时间发送请求给web服务器，web服务器收到请求后跟服务器上的文档最后修改的时间对比，如果web服务器上最新文档修改时间小于或者等于浏览器发送过来的，则发送304给...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2018/12/14/20184/httpcache/" title="http缓存详解">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="http缓存详解"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
+	
+</div>	
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-comment">
+
+	
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
+	
+
+</div>
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- show math formula -->
+
+
+
+	 
+	
+<script src="../../../../../plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="../../../../../plugin/fancybox/jquery.fancybox.css">
+
+
+<script src="../../../../../plugin/fancybox/jquery.fancybox.js"></script>
+
+
+<script type="text/javascript">
+	(function gallerySet(){
+		let titleID = $('.article-title a'),
+			imageID = $('.article-content img'),
+			videoID = $('.article-content video');
+		
+		let postTitle = titleID.text() ? titleID.text() : "No post title!";
+		
+		imageID.each(function() {
+			let imgPath = $(this).attr('src'),
+				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
+		});
+		
+		videoID.each(function() {
+			let videoPath = $(this).attr('src');
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+		});
+		
+		//TODO：支持html5 video
+
+		if($('#layout-post').length) {
+			$('[data-fancybox="gallery"]').fancybox({
+				loop: true,
+				buttons: [
+					"zoom",
+					"share",
+					"slideShow",
+					"fullScreen",
+					//"download",
+					"thumbs",
+					"close"
+				],
+				protect: true
+			});
+		}
+	})();
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="../../../../../index.html" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="../../../../../archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="../../../../../categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="../../../../../tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="../../../../../about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="../../../../../gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2018 - 2021, content by chenlilin. All Rights Reserved.
+			
+			
+				<!-- <a href="../../../../../http:/hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="../../../../../https:/github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. -->
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+
+	
+<script src="../../../../../plugin/motto/motto.js"></script>
+
+	
+	<script type="text/javascript">
+		(function motto(){
+			let mottoText = getMingYanContent().split('</br> - </br>'),
+			
+			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
+			
+			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
+			
+			mottoTextContent = mottoTextContent.trim().substring(0, 100);
+		
+			$("#motto-content").html( mottoTextContent);
+			$("#motto-author").html( mottoTextFrom  );
+		})();	
+	</script>	
+
+
+
+<!-- love effect -->
+
+	
+<script src="../../../../../plugin/love/love.js"></script>
+
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+  
+
+	<!--
+	时间：2018-10-3
+	描述：
+		插件名称：hexo-generator-search-zip
+		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
+		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
+-->
+<div class="popup search-popup local-search-popup scrollbar" >
+	<div class="local-search-container">
+		<span class="popup-btn-close">
+      		ESC
+   		</span>
+		<div class="local-search-header">
+			<div class="input-prompt">				
+			</div>
+			<input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+		</div>
+		<div class="local-search-body">
+			<div id="local-search-output"></div>
+		</div>
+		<div class="local-search-footer">
+			<div class="topN-post">				
+				
+								
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="../../../../../plugin/search/ziploader.js"></script>
+<script src="../../../../../js/search.js"></script>
+
+
+<script type="text/javascript">
+	var search_path = 'search.json',
+		zip_Path = '/search.zip',
+		version_Path = '/searchVersion.txt',
+		input_Trigger = 'auto',
+		top_N = '2';
+
+	themeLocalSearch({
+		search_path, 
+		zip_Path, 
+		version_Path, 
+		input_Trigger, 
+		top_N
+	});
+</script>
+
+
+
+<script src="../../../../../plugin/chinese/chinese.js"></script>
+<script src="../../../../../plugin/imagelazyloader/yall.min.js"></script>
+<script src="../../../../../plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="../../../../../plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="../../../../../plugin/resizediv/resizediv.js"></script>
+<script src="../../../../../js/main.js"></script>
+
+	</body>	
+</html>

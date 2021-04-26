@@ -1,0 +1,950 @@
+
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      js图片预览：放大缩小旋转简单实现 | 陈立林的个人网站
+    
+  </title>
+  <meta name="author" content="来者可追">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+
+  <!-- css -->
+  
+<link rel="stylesheet" href="../../../../../css/Annie.css">
+
+  
+  <!-- jquery -->
+	
+<script src="../../../../../plugin/jquery/jquery.min.js"></script>
+
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'normal',
+      normalSrc: '../../../../../https:/source.unsplash.com/collection/954550/1920x1080',
+      randomYouMax: 110,
+      randomYouSrc: '../../../../../https:/sariay.github.io/Random-img/',
+	  randomOtherSrc: '../../../../../https:/api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: false
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: false,
+	  appId: 'AU8...',
+	  appKey: '4cU...',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+	<body>
+		<!-- Preloader -->
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">获取中...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			「js图片预览：放大缩小旋转简单实现」
+		
+	</p>
+
+	
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="../../../../../img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="../../../../../index.html" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="../../../../../archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="../../../../../categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="../../../../../tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="../../../../../about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="../../../../../gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-zhihu"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-sina-weibo "></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-pinterest2"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+		<div class="article-title">
+			
+	<a href="" itemprop="url">
+		js图片预览：放大缩小旋转简单实现
+	</a>
+
+		</div>
+
+		<div class="article-meta">
+			<span>
+				<i class="icon-calendar1"></i>
+				
+				
+
+
+
+
+	更新于
+
+	<a href="" itemprop="url">
+		<time datetime="2020-10-22T06:03:17.000Z" itemprop="dateUpdated">
+	  		2021-04-23
+	  </time>
+	</a> 
+
+
+
+			</span>
+			<span>
+				
+	<i class="icon-price-tags"></i>
+	
+		<a href="../../../../../tags/javascript/" class=" ">
+			javascript
+		</a>
+	
+		
+			</span>
+			
+			
+
+
+
+		</div>
+
+		<div class="article-content" id="article-content">
+			<p>js简单实现图片预览：放大缩小旋转</p>
+<a id="more"></a>
+<p>效果图：</p>
+<p><img src="/images/20203/img-view-1.png" alt="效果图"></p>
+<p>本项目使用fly.js，代码还待优化。</p>
+<p>html:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">&lt;!--图片蒙版--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pic-bg imgArea"</span> <span class="attr">style</span>=<span class="string">"display: none;"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- scale放大区域 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"picDiv"</span> <span class="attr">class</span>=<span class="string">"pic-warpper "</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 保持局中的div --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"svg-warp"</span> <span class="attr">id</span>=<span class="string">"svgWarp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">style</span>=<span class="string">" transform: 'rotate(0deg) ' ;position:absolute; left: 50%;top: 50%;"</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 拖动定位的区域 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">svg</span> <span class="attr">x</span>=<span class="string">"0"</span> <span class="attr">y</span>=<span class="string">"0"</span> <span class="attr">id</span>=<span class="string">"svgId"</span> <span class="attr">style</span>=<span class="string">"transform: 'rotate(0deg) ';position:absolute; left:0   "</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">image</span> <span class="attr">x</span>=<span class="string">"0"</span> <span class="attr">y</span>=<span class="string">"0"</span> <span class="attr">id</span>=<span class="string">"imagesId"</span> <span class="attr">class</span>=<span class="string">"svg-img disImg"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn-warp "</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn-img-close"</span> <span class="attr">data-bind</span>=<span class="string">"click:leftRotate"</span>&gt;</span>左旋转<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn-img-close"</span> <span class="attr">data-bind</span>=<span class="string">"click:rightRotate"</span>&gt;</span>右旋转<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn-img-close"</span> <span class="attr">data-bind</span>=<span class="string">"click:fade"</span>&gt;</span>关闭<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>css:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.pic-bg</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#000</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(0, 0, 0, 0.6);</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">999998</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>:  <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.pic-warpper</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">user-select</span>: none;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">999999</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.pic-warpper</span> <span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">800px</span>;</span><br><span class="line">  <span class="attribute">height</span>: auto;</span><br><span class="line">  <span class="attribute">max-height</span>: <span class="number">500px</span>;</span><br><span class="line">  <span class="attribute">width</span>: auto;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">5px</span> solid <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.btn-warp</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">justify-content</span>: flex-end;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">1000000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.btn-img-close</span> &#123;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">9999999</span>;</span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">7px</span>;</span><br><span class="line">  <span class="attribute">margin-right</span>: <span class="number">7px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: white;</span><br><span class="line">  <span class="attribute">color</span>: black;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">3px</span> <span class="number">25px</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">5px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>js:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> vm = fly.observable(&#123;</span><br><span class="line">    rotate: <span class="number">0</span>,</span><br><span class="line">    curState: &#123;</span><br><span class="line">      scale: <span class="number">1</span>,</span><br><span class="line">      firstScale: <span class="number">1</span>,</span><br><span class="line">      width: <span class="number">0</span>,</span><br><span class="line">      height: <span class="number">0</span>,</span><br><span class="line">      disX: <span class="number">0</span>,</span><br><span class="line">      disY: <span class="number">0</span>,</span><br><span class="line">      top: <span class="number">0</span>,</span><br><span class="line">      left: <span class="number">0</span>,</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line">    bigImg: <span class="function"><span class="keyword">function</span> (<span class="params">e, srcIndex</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> theImage = <span class="keyword">new</span> Image();</span><br><span class="line">      <span class="keyword">if</span> (srcIndex) &#123;</span><br><span class="line">        <span class="keyword">var</span> url = srcIndex;</span><br><span class="line">        theImage.src = url;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> screenImage = $(e.currentTarget);</span><br><span class="line">        <span class="keyword">var</span> url = screenImage.attr(<span class="string">"src"</span>);</span><br><span class="line">        theImage.src = screenImage.attr(<span class="string">"src"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//获取当前图片的路径</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// //获取图片的原始尺寸</span></span><br><span class="line">      <span class="keyword">var</span> imageWidth = theImage.width;</span><br><span class="line">      <span class="keyword">var</span> imageHeight = theImage.height;</span><br><span class="line">      <span class="keyword">if</span> (imageWidth &gt; <span class="number">800</span>) &#123;</span><br><span class="line">        imageHeight = (<span class="number">800</span> / imageWidth) * imageHeight;</span><br><span class="line">        imageWidth = <span class="number">800</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (imageHeight &gt; <span class="number">500</span>) &#123;</span><br><span class="line">        imageWidth = (<span class="number">500</span> / imageHeight) * imageWidth;</span><br><span class="line">        imageHeight = <span class="number">500</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// //将装图片的蒙层和图片淡入</span></span><br><span class="line">      <span class="built_in">window</span>.parent.$(<span class="string">".imgArea"</span>).fadeIn();</span><br><span class="line">      <span class="comment">//   // //将图片的路径放入</span></span><br><span class="line">      <span class="comment">//   window.parent.$(".disImg").attr("src", url);</span></span><br><span class="line">      <span class="comment">//   // //将图片水平居中垂直居中</span></span><br><span class="line">      <span class="comment">//   window.parent.$(".disImg").css(&#123;"marginTop": -(imageHeight / 2), "marginLeft": -(imageWidth / 2)&#125;);</span></span><br><span class="line">      <span class="comment">//   // // window.parent.vm.set("src",src);</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">let</span> img = <span class="keyword">new</span> Image();</span><br><span class="line">      img.src = theImage.src;</span><br><span class="line">      img.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> svg = <span class="built_in">document</span>.getElementById(<span class="string">"svgId"</span>);</span><br><span class="line">        <span class="keyword">if</span> (svg == <span class="literal">null</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> svgWarp = <span class="built_in">document</span>.getElementById(<span class="string">"svgWarp"</span>);</span><br><span class="line">        svgWarp.style.marginLeft = <span class="string">"-"</span> + img.width / <span class="number">2</span> + <span class="string">"px"</span>;</span><br><span class="line">        svgWarp.style.marginTop = <span class="string">"-"</span> + img.height / <span class="number">2</span> + <span class="string">"px"</span>;</span><br><span class="line">        svgWarp.style.width = img.width + <span class="string">"px"</span>;</span><br><span class="line">        svgWarp.style.height = img.height + <span class="string">"px"</span>;</span><br><span class="line">        <span class="comment">// 设置svg居中</span></span><br><span class="line">        svg.setAttribute(<span class="string">"width"</span>, img.width);</span><br><span class="line">        svg.setAttribute(<span class="string">"height"</span>, img.height);</span><br><span class="line">        <span class="keyword">let</span> imageObj = <span class="built_in">document</span>.getElementById(<span class="string">"imagesId"</span>);</span><br><span class="line">        imageObj.setAttribute(<span class="string">"width"</span>, img.width);</span><br><span class="line">        imageObj.setAttribute(<span class="string">"height"</span>, img.height);</span><br><span class="line">        imageObj.setAttribute(<span class="string">"href"</span>, url);</span><br><span class="line">        <span class="keyword">let</span> picDiv = <span class="built_in">document</span>.getElementById(<span class="string">"picDiv"</span>);</span><br><span class="line">        <span class="keyword">let</span> newScaleNum = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">let</span> cWidth = picDiv.offsetWidth;</span><br><span class="line">        <span class="keyword">let</span> cHeight = picDiv.offsetHeight;</span><br><span class="line">        <span class="keyword">if</span> (img.height) &#123;</span><br><span class="line">          <span class="keyword">if</span> (cWidth / img.width &lt; cHeight / img.height) &#123;</span><br><span class="line">            newScaleNum = cWidth / img.width;</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            newScaleNum = cHeight / img.height;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">if</span> (newScaleNum &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            newScaleNum = <span class="number">1</span>;</span><br><span class="line">          &#125;</span><br><span class="line">          picDiv.style.transform = <span class="string">"scale("</span> + newScaleNum + <span class="string">")"</span>;</span><br><span class="line">          vm.set(<span class="string">"curState.scale"</span>, newScaleNum);</span><br><span class="line">          vm.set(<span class="string">"curState.firstScale"</span>, newScaleNum);</span><br><span class="line">          vm.set(<span class="string">"curState.width"</span>, img.width * vm.curState.scale);</span><br><span class="line">          vm.set(<span class="string">"curState.height"</span>, img.height * vm.curState.scale);</span><br><span class="line"></span><br><span class="line">          <span class="comment">// that.curState.scale = newScaleNum;</span></span><br><span class="line">          <span class="comment">// that.curState.firstScale = newScaleNum;</span></span><br><span class="line">          <span class="comment">// that.curState.width = img.width * that.curState.scale;</span></span><br><span class="line">          <span class="comment">// that.curState.height = img.height * that.curState.scale;</span></span><br><span class="line">          <span class="keyword">let</span> rWidth = img.width * newScaleNum;</span><br><span class="line">          <span class="keyword">let</span> rHeight = img.height * newScaleNum;</span><br><span class="line">          <span class="keyword">let</span> leftNum = (cWidth - rWidth) / <span class="number">2</span> + <span class="string">"px"</span>;</span><br><span class="line">          <span class="keyword">let</span> topNum = (cHeight - rHeight) / <span class="number">2</span> + <span class="string">"px"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        svg.removeEventListener(<span class="string">"mousewheel"</span>, vm._onMouseWheel);</span><br><span class="line">        svg.removeEventListener(<span class="string">"mousedown"</span>, vm._onMouseDown);</span><br><span class="line">        svg.removeEventListener(<span class="string">"mouseover"</span>, vm._onMouseOver);</span><br><span class="line">        svg.addEventListener(<span class="string">"mousewheel"</span>, vm._onMouseWheel);</span><br><span class="line">        svg.addEventListener(<span class="string">"mousedown"</span>, vm._onMouseDown);</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    _onMouseDown: <span class="function">(<span class="params">ev</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> svg = <span class="built_in">document</span>.getElementById(<span class="string">"svgId"</span>);</span><br><span class="line">      <span class="keyword">let</span> oEvent = ev;</span><br><span class="line">      <span class="comment">// 浏览器有一些默认事件,这里要阻止</span></span><br><span class="line">      oEvent.preventDefault();</span><br><span class="line">      <span class="keyword">let</span> disX = oEvent.clientX;</span><br><span class="line">      <span class="keyword">let</span> disY = oEvent.clientY;</span><br><span class="line"></span><br><span class="line">      vm.set(<span class="string">"curState.disX"</span>, disX);</span><br><span class="line">      vm.set(<span class="string">"curState.disY"</span>, disY);</span><br><span class="line">      vm.set(<span class="string">"curState.top"</span>, <span class="built_in">Number</span>(svg.style.top.replace(<span class="string">"px"</span>, <span class="string">""</span>)));</span><br><span class="line">      vm.set(<span class="string">"curState.left"</span>, <span class="built_in">Number</span>(svg.style.left.replace(<span class="string">"px"</span>, <span class="string">""</span>)));</span><br><span class="line">      <span class="comment">// this.curState.disX = disX;</span></span><br><span class="line">      <span class="comment">// this.curState.disY = disY;</span></span><br><span class="line">      <span class="comment">// this.curState.top = Number(svg.style.top.replace("px", ""));</span></span><br><span class="line">      <span class="comment">// this.curState.left = Number(svg.style.left.replace("px", ""));</span></span><br><span class="line">      svg.onmousemove = vm._onMouseMove;</span><br><span class="line">      <span class="comment">// 图形移出父盒子取消移动事件,防止移动过快触发鼠标移出事件,导致鼠标弹起事件失效</span></span><br><span class="line">      svg.onmouseleave = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        svg.onmousemove = <span class="literal">null</span>;</span><br><span class="line">        svg.onmouseup = <span class="literal">null</span>;</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="comment">// 鼠标弹起后停止移动</span></span><br><span class="line">      svg.onmouseup = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        svg.onmousemove = <span class="literal">null</span>;</span><br><span class="line">        svg.onmouseup = <span class="literal">null</span>;</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    _onMouseMove: <span class="function">(<span class="params">ev</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> oEvent = ev;</span><br><span class="line">      <span class="keyword">let</span> svg = <span class="built_in">document</span>.getElementById(<span class="string">"svgId"</span>);</span><br><span class="line">      oEvent.preventDefault();</span><br><span class="line">      <span class="keyword">let</span> x = oEvent.clientX - vm.curState.disX;</span><br><span class="line">      <span class="keyword">let</span> y = oEvent.clientY - vm.curState.disY;</span><br><span class="line">      svg.style.top = vm.curState.top + y + <span class="string">"px"</span>;</span><br><span class="line">      svg.style.left = vm.curState.left + x + <span class="string">"px"</span>;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    _onMouseWheel: <span class="function">(<span class="params">ev</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 监听滚轮事件</span></span><br><span class="line">      ev = ev || <span class="built_in">window</span>.event;</span><br><span class="line">      <span class="keyword">let</span> down = ev.wheelDelta ? ev.wheelDelta &lt; <span class="number">0</span> : ev.detail &gt; <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">if</span> (down) &#123;</span><br><span class="line">        vm._zoomInEvent();</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        vm._zoomOutEvent();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (ev.preventDefault) &#123;</span><br><span class="line">        ev.preventDefault(); <span class="comment">// 阻止默认事件</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    beforeCenterPointer: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 缩放之前的中心点</span></span><br><span class="line">      <span class="keyword">let</span> svg = <span class="built_in">document</span>.getElementById(<span class="string">"svgId"</span>);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">let</span> x = svg.style.left.replace(<span class="string">"px"</span>, <span class="string">""</span>);</span><br><span class="line">      <span class="keyword">if</span> (!<span class="built_in">isNaN</span>(x)) &#123;</span><br><span class="line">        x = <span class="built_in">Number</span>(x);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        x = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">let</span> y = svg.style.top.replace(<span class="string">"px"</span>, <span class="string">""</span>);</span><br><span class="line">      <span class="keyword">if</span> (!<span class="built_in">isNaN</span>(y)) &#123;</span><br><span class="line">        y = <span class="built_in">Number</span>(y);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        x = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> &#123; <span class="attr">x</span>: x, <span class="attr">y</span>: y &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    setNewCenterPointer: <span class="function">(<span class="params">x, y</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 设置新的中心点</span></span><br><span class="line">      <span class="keyword">let</span> svg = <span class="built_in">document</span>.getElementById(<span class="string">"svgId"</span>);</span><br><span class="line">      svg.style.left = x + <span class="string">"px"</span>;</span><br><span class="line">      svg.style.top = y + <span class="string">"px"</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    _zoomInEvent: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 缩小</span></span><br><span class="line">      <span class="keyword">let</span> picDiv = <span class="built_in">document</span>.getElementById(<span class="string">"picDiv"</span>);</span><br><span class="line">      <span class="keyword">let</span> svg = <span class="built_in">document</span>.getElementById(<span class="string">"svgId"</span>);</span><br><span class="line">      <span class="keyword">if</span> (svg == <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">let</span> obj = vm.beforeCenterPointer();</span><br><span class="line">      <span class="keyword">let</span> scale = vm.curState.scale;</span><br><span class="line">      <span class="keyword">let</span> newScaleNum = scale - <span class="number">0.05</span>;</span><br><span class="line">      picDiv.style.transform = <span class="string">"scale("</span> + newScaleNum + <span class="string">")"</span>;</span><br><span class="line">      <span class="keyword">if</span> (newScaleNum &lt; vm.curState.firstScale) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      vm.set(<span class="string">"curState.scale"</span>, newScaleNum);</span><br><span class="line">      <span class="comment">// this.curState.scale = newScaleNum;</span></span><br><span class="line">      obj.x += vm.curState.width * <span class="number">0.025</span>;</span><br><span class="line">      obj.y += vm.curState.height * <span class="number">0.025</span>;</span><br><span class="line">      <span class="comment">// this.curState.width *= 1 - 0.05;</span></span><br><span class="line">      <span class="comment">// this.curState.height *= 1 - 0.05;</span></span><br><span class="line">      vm.set(<span class="string">"curState.width"</span>, vm.curState.width * <span class="number">1</span> - <span class="number">0.05</span>);</span><br><span class="line">      vm.set(<span class="string">"curState.height"</span>, vm.curState.height * <span class="number">1</span> - <span class="number">0.05</span>);</span><br><span class="line">      vm.setNewCenterPointer(obj.x, obj.y);</span><br><span class="line">    &#125;,</span><br><span class="line">    _zoomOutEvent: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 放大</span></span><br><span class="line">      <span class="keyword">let</span> picDiv = <span class="built_in">document</span>.getElementById(<span class="string">"picDiv"</span>);</span><br><span class="line">      <span class="keyword">let</span> svg = <span class="built_in">document</span>.getElementById(<span class="string">"svgId"</span>);</span><br><span class="line">      <span class="keyword">let</span> obj = vm.beforeCenterPointer();</span><br><span class="line">      <span class="keyword">let</span> scale = vm.curState.scale;</span><br><span class="line">      <span class="keyword">let</span> newScaleNum = scale + <span class="number">0.05</span>;</span><br><span class="line">      picDiv.style.transform = <span class="string">"scale("</span> + newScaleNum + <span class="string">")"</span>;</span><br><span class="line">      <span class="comment">// this.curState.scale = newScaleNum;</span></span><br><span class="line">      vm.set(<span class="string">"curState.scale"</span>, newScaleNum);</span><br><span class="line">      obj.x -= vm.curState.width * <span class="number">0.025</span>;</span><br><span class="line">      obj.y -= vm.curState.height * <span class="number">0.025</span>;</span><br><span class="line">      <span class="comment">// this.curState.width *= 1 + 0.05;</span></span><br><span class="line">      <span class="comment">// this.curState.height *= 1 + 0.05;</span></span><br><span class="line">      vm.set(<span class="string">"curState.width"</span>, vm.curState.width * <span class="number">1</span> + <span class="number">0.05</span>);</span><br><span class="line">      vm.set(<span class="string">"curState.height"</span>, vm.curState.height * <span class="number">1</span> + <span class="number">0.05</span>);</span><br><span class="line">      vm.setNewCenterPointer(obj.x, obj.y);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    bindFunlist: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">//在初始化时调用</span></span><br><span class="line">      $(<span class="string">".columnsImglist"</span>).on(</span><br><span class="line">        &#123;</span><br><span class="line">          click: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> thisSrc = $(<span class="keyword">this</span>).attr(<span class="string">"src"</span>);</span><br><span class="line">            vm.bigImg(<span class="string">""</span>, thisSrc);</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">".thisImgList"</span></span><br><span class="line">      );</span><br><span class="line"></span><br><span class="line">      $(<span class="string">".columnsImglist"</span>).on(</span><br><span class="line">        &#123;</span><br><span class="line">          click: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            $(<span class="keyword">this</span>).parents(<span class="string">".z_addImg"</span>).remove();</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">".delBtn"</span></span><br><span class="line">      );</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">//左旋转</span></span><br><span class="line">    leftRotate: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">let</span> svgId = <span class="built_in">document</span>.getElementById(<span class="string">"svgId"</span>);</span><br><span class="line">      <span class="keyword">let</span> rotate = vm.rotate;</span><br><span class="line">      rotate -= <span class="number">90</span>;</span><br><span class="line">      vm.set(<span class="string">"rotate"</span>, rotate);</span><br><span class="line">      svgId.style.transform = <span class="string">"rotate("</span> + rotate + <span class="string">"deg) "</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//右旋转</span></span><br><span class="line">    rightRotate: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">let</span> svgId = <span class="built_in">document</span>.getElementById(<span class="string">"svgId"</span>);</span><br><span class="line">      <span class="keyword">let</span> rotate = vm.rotate;</span><br><span class="line">      rotate += <span class="number">90</span>;</span><br><span class="line">      vm.set(<span class="string">"rotate"</span>, rotate);</span><br><span class="line">      svgId.style.transform = <span class="string">"rotate("</span> + rotate + <span class="string">"deg) "</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//大图消失</span></span><br><span class="line">    fade: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">let</span> svgId = <span class="built_in">document</span>.getElementById(<span class="string">"svgId"</span>);</span><br><span class="line">      vm.set(<span class="string">"rotate"</span>, <span class="number">0</span>);</span><br><span class="line">      svgId.style.transform = <span class="string">"rotate("</span> + vm.rotate + <span class="string">"deg) "</span>;</span><br><span class="line">      $(<span class="string">".imgArea"</span>).fadeOut();</span><br><span class="line">      <span class="comment">// let svg = document.getElementById("svg");</span></span><br><span class="line">      svgId.style.top = <span class="string">"0 "</span>;</span><br><span class="line">      svgId.style.left = <span class="string">"0 "</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>	
+		</div>
+		
+		<div id="current-post-cover" data-scr="../../../../../img/cart_cover.jpg"></div>
+
+		<!-- relate post, comment...-->
+		<div class="investment-container">
+			<div class="investment-header">
+				<div class="investment-title-1">
+					<div class="on">相关文章</div>
+					<div>评论</div>
+					<div>分享</div>
+				</div>
+				<div class="investment-title-2">	            
+					
+	<span>
+		<a id="totop-post-page">返回顶部</a>
+		
+			<a href="../../../../11/05/20204/react-learn-1/" title="react16电商后台-1-页面加载\es6\本地存储" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="../../../20/20203/react-learn-1/" title="万科工地大屏-react项目中常用方法记录" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+				</div>	
+			</div>
+			
+			<div class="investment-content">
+				<div class="investment-content-list">
+					
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2021/01/04/20204/problem/" title="其他前端问题（一）">
+								其他前端问题（一）			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								一月 4日, 2021				
+							</p>
+							<p class="relate-post-content">
+								其他前端问题（一）
+ 
+关于async/await、promise和setTimeout执行顺序 1234567891011121314151617181920 async function async1() &#123;	conso...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2021/01/04/20204/problem/" title="其他前端问题（一）">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="其他前端问题（一）"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../11/19/20204/js-base-3/" title="web基础-3-总结、题目">
+								web基础-3-总结、题目			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 19日, 2020				
+							</p>
+							<p class="relate-post-content">
+								总结、视频中的面试题、网络上的面试题、其他
+慕课网视频地址：https://coding.imooc.com/class/400.html
+
+第十三章、课程总结。13-1、课程总结知识点
+题目
+13-2、面试技巧关于简历
+
+简洁明了，...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../11/19/20204/js-base-3/" title="web基础-3-总结、题目">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="web基础-3-总结、题目"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../11/19/20204/js-base-2/" title="web基础-2-web api、开发环境、运行环境">
+								web基础-2-web api、开发环境、运行环境			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 19日, 2020				
+							</p>
+							<p class="relate-post-content">
+								DOM、BOM、时间、ajax、存储、开发环境、运行环境
+慕课网视频地址：https://coding.imooc.com/class/400.html
+
+第九章、DOM9-1、从js基础知识到 JS Web API
+有哪些内容？
+
+...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../11/19/20204/js-base-2/" title="web基础-2-web api、开发环境、运行环境">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="web基础-2-web api、开发环境、运行环境"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../11/10/20204/js-base-1/" title="web基础-1-js基础知识">
+								web基础-1-js基础知识			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 10日, 2020				
+							</p>
+							<p class="relate-post-content">
+								变量类型、原型、作用域、闭包、异步
+慕课网视频地址：https://coding.imooc.com/class/400.html
+
+第二章 准备第三章 CSS部分3-1、html\css面试介绍HTML面试题
+
+如何理解HTML语义...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../11/10/20204/js-base-1/" title="web基础-1-js基础知识">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="web基础-1-js基础知识"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../05/14/20202/js-prototype/" title="javascript继承和原型链">
+								javascript继承和原型链			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 14日, 2020				
+							</p>
+							<p class="relate-post-content">
+								javascript继承和原型链
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+
+一、一切都是对...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../05/14/20202/js-prototype/" title="javascript继承和原型链">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="javascript继承和原型链"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2019/08/02/20193/js-dorp/" title="javascript拖拽事件">
+								javascript拖拽事件			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								八月 2日, 2019				
+							</p>
+							<p class="relate-post-content">
+								需求：点击 div 拖拽到指定位置，鼠标松开后回到原位。
+
+12345678910111213&lt;!-- html --&gt;&lt;div  class="qyflfj"  (mousedown)="rightChartsMo...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2019/08/02/20193/js-dorp/" title="javascript拖拽事件">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="javascript拖拽事件"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2019/07/26/20193/pdfjs/" title="pdfjs的使用">
+								pdfjs的使用			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 26日, 2019				
+							</p>
+							<p class="relate-post-content">
+								pdf.js 可以实现在 html 下直接浏览 pdf 文档,而不是使用浏览器自带的阅读器
+
+https://github.com/mozilla/pdf.js
+最近项目需要做禁止下载 pdf 的功能，然而浏览器自带的预览功能都可以下...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2019/07/26/20193/pdfjs/" title="pdfjs的使用">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="pdfjs的使用"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2019/07/18/20193/phone-meta/" title="手机端meta分别是什么意思">
+								手机端meta分别是什么意思			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 18日, 2019				
+							</p>
+							<p class="relate-post-content">
+								手机端 meta 分别是什么意思
+
+meta 指元素可提供有关页面的元信息（meta-information），比如针对搜索引擎和更新频度的描述和关键词。 标签位于文档的头部，不包含任何内容。 标签的属性定义了与
+文档相关联的名称/值...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2019/07/18/20193/phone-meta/" title="手机端meta分别是什么意思">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="手机端meta分别是什么意思"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2019/06/24/20192/ztree1/" title="ztree常用技巧">
+								ztree常用技巧			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 24日, 2019				
+							</p>
+							<p class="relate-post-content">
+								ztree 常用技巧
+
+涉及的功能：点击请求，默认选中，单一路径展开
+异步加载123456789101112131415161718192021222324252627282930313233343536373839404142434...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2019/06/24/20192/ztree1/" title="ztree常用技巧">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="ztree常用技巧"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2019/04/17/20192/jsbase/" title="javascript基础知识">
+								javascript基础知识			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 17日, 2019				
+							</p>
+							<p class="relate-post-content">
+								javascript基础知识
+一、js对象设置成员对象12person.age = 45person['name']['last'] = 'Cratchit'
+
+点表示法只能接受字面量的成员的名字，不接受变量作为名字
+
+123var ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2019/04/17/20192/jsbase/" title="javascript基础知识">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="javascript基础知识"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
+	
+</div>	
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-comment">
+
+	
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
+	
+
+</div>
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- show math formula -->
+
+
+
+	 
+	
+<script src="../../../../../plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="../../../../../plugin/fancybox/jquery.fancybox.css">
+
+
+<script src="../../../../../plugin/fancybox/jquery.fancybox.js"></script>
+
+
+<script type="text/javascript">
+	(function gallerySet(){
+		let titleID = $('.article-title a'),
+			imageID = $('.article-content img'),
+			videoID = $('.article-content video');
+		
+		let postTitle = titleID.text() ? titleID.text() : "No post title!";
+		
+		imageID.each(function() {
+			let imgPath = $(this).attr('src'),
+				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
+		});
+		
+		videoID.each(function() {
+			let videoPath = $(this).attr('src');
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+		});
+		
+		//TODO：支持html5 video
+
+		if($('#layout-post').length) {
+			$('[data-fancybox="gallery"]').fancybox({
+				loop: true,
+				buttons: [
+					"zoom",
+					"share",
+					"slideShow",
+					"fullScreen",
+					//"download",
+					"thumbs",
+					"close"
+				],
+				protect: true
+			});
+		}
+	})();
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="../../../../../index.html" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="../../../../../archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="../../../../../categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="../../../../../tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="../../../../../about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="../../../../../gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2018 - 2021, content by chenlilin. All Rights Reserved.
+			
+			
+				<!-- <a href="../../../../../http:/hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="../../../../../https:/github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. -->
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+
+	
+<script src="../../../../../plugin/motto/motto.js"></script>
+
+	
+	<script type="text/javascript">
+		(function motto(){
+			let mottoText = getMingYanContent().split('</br> - </br>'),
+			
+			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
+			
+			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
+			
+			mottoTextContent = mottoTextContent.trim().substring(0, 100);
+		
+			$("#motto-content").html( mottoTextContent);
+			$("#motto-author").html( mottoTextFrom  );
+		})();	
+	</script>	
+
+
+
+<!-- love effect -->
+
+	
+<script src="../../../../../plugin/love/love.js"></script>
+
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+  
+
+	<!--
+	时间：2018-10-3
+	描述：
+		插件名称：hexo-generator-search-zip
+		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
+		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
+-->
+<div class="popup search-popup local-search-popup scrollbar" >
+	<div class="local-search-container">
+		<span class="popup-btn-close">
+      		ESC
+   		</span>
+		<div class="local-search-header">
+			<div class="input-prompt">				
+			</div>
+			<input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+		</div>
+		<div class="local-search-body">
+			<div id="local-search-output"></div>
+		</div>
+		<div class="local-search-footer">
+			<div class="topN-post">				
+				
+								
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="../../../../../plugin/search/ziploader.js"></script>
+<script src="../../../../../js/search.js"></script>
+
+
+<script type="text/javascript">
+	var search_path = 'search.json',
+		zip_Path = '/search.zip',
+		version_Path = '/searchVersion.txt',
+		input_Trigger = 'auto',
+		top_N = '2';
+
+	themeLocalSearch({
+		search_path, 
+		zip_Path, 
+		version_Path, 
+		input_Trigger, 
+		top_N
+	});
+</script>
+
+
+
+<script src="../../../../../plugin/chinese/chinese.js"></script>
+<script src="../../../../../plugin/imagelazyloader/yall.min.js"></script>
+<script src="../../../../../plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="../../../../../plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="../../../../../plugin/resizediv/resizediv.js"></script>
+<script src="../../../../../js/main.js"></script>
+
+	</body>	
+</html>

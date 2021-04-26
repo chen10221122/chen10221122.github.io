@@ -1,0 +1,1115 @@
+
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      css3动画入门-语法篇 | 陈立林的个人网站
+    
+  </title>
+  <meta name="author" content="来者可追">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+
+  <!-- css -->
+  
+<link rel="stylesheet" href="../../../../../css/Annie.css">
+
+  
+  <!-- jquery -->
+	
+<script src="../../../../../plugin/jquery/jquery.min.js"></script>
+
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'normal',
+      normalSrc: '../../../../../https:/source.unsplash.com/collection/954550/1920x1080',
+      randomYouMax: 110,
+      randomYouSrc: '../../../../../https:/sariay.github.io/Random-img/',
+	  randomOtherSrc: '../../../../../https:/api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: false
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: false,
+	  appId: 'AU8...',
+	  appKey: '4cU...',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+	<body>
+		<!-- Preloader -->
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">获取中...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			「css3动画入门-语法篇」
+		
+	</p>
+
+	
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="../../../../../img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="../../../../../index.html" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="../../../../../archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="../../../../../categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="../../../../../tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="../../../../../about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="../../../../../gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-zhihu"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-sina-weibo "></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-pinterest2"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+<script src="../../../../../plugin/toc/katelog.min.js"></script>
+
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+		<div class="article-title">
+			
+	<a href="" itemprop="url">
+		css3动画入门-语法篇
+	</a>
+
+		</div>
+
+		<div class="article-meta">
+			<span>
+				<i class="icon-calendar1"></i>
+				
+				
+
+
+
+
+	更新于
+
+	<a href="" itemprop="url">
+		<time datetime="2020-10-09T06:27:26.000Z" itemprop="dateUpdated">
+	  		2021-04-23
+	  </time>
+	</a> 
+
+
+
+			</span>
+			<span>
+				
+	<i class="icon-price-tags"></i>
+	
+		<a href="../../../../../tags/css/" class=" ">
+			css
+		</a>
+	
+		
+			</span>
+			
+			
+
+
+
+		</div>
+
+		<div class="article-content" id="article-content">
+			<p>主要介绍了详细的语法</p>
+<a id="more"></a>     
+<h1 id="一、动画"><a href="#一、动画" class="headerlink" title="一、动画"></a>一、动画</h1><p>CSS animations 使得可以将从一个CSS样式配置转换到另一个CSS样式配置。动画包括两个部分:描述动画的样式规则和用于指定动画开始、结束以及中间点样式的关键帧。</p>
+<p>相较于传统的脚本实现动画技术，使用CSS动画有三个主要优点：</p>
+<ul>
+<li>能够非常容易地创建简单动画，你甚至不需要了解JavaScript就能创建动画。</li>
+<li>动画运行效果良好，甚至在低性能的系统上。渲染引擎会使用跳帧或者其他技术以保证动画表现尽可能的流畅。而使用JavaScript实现的动画通常表现不佳（除非经过很好的设计）。</li>
+<li>让浏览器控制动画序列，允许浏览器优化性能和效果，如降低位于隐藏选项卡中的动画更新频率。</li>
+</ul>
+<p>创建动画序列，需要使用<code>animation</code>属性或其子属性，该属性允许配置动画时间、时长以及其他动画细节，但该属性不能配置动画的实际表现，动画的实际表现是由 <code>@keyframes</code>规则实现，具体情况参见使用keyframes定义动画序列小节部分。</p>
+<h2 id="一、语法"><a href="#一、语法" class="headerlink" title="一、语法"></a>一、语法</h2><h3 id="（一）animation"><a href="#（一）animation" class="headerlink" title="（一）animation"></a>（一）animation</h3><p>CSS animation 属性是 <code>animation-name</code>，<code>animation-duration</code>, <code>animation-timing-function</code>，<code>animation-delay</code>，<code>animation-iteration-count</code>，<code>animation-direction</code>，<code>animation-fill-mode</code> 和 <code>animation-play-state</code> 属性的一个简写属性形式。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">animation</span>: <span class="selector-tag">name</span> <span class="selector-tag">duration</span> <span class="selector-tag">timing-function</span> <span class="selector-tag">delay</span> <span class="selector-tag">iteration-count</span> <span class="selector-tag">direction</span> <span class="selector-tag">fill-mode</span> <span class="selector-tag">play-state</span>;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>animation-name</td>
+<td>指定由@keyframes描述的关键帧名称。</td>
+</tr>
+<tr>
+<td>animation-duration</td>
+<td>设置动画一个周期的时长。</td>
+</tr>
+<tr>
+<td>animation-timing-function</td>
+<td>设置动画速度， 即通过建立加速度曲线，设置动画在关键帧之间是如何变化。</td>
+</tr>
+<tr>
+<td>animation-delay</td>
+<td>设置动画在启动前的延迟间隔。</td>
+</tr>
+<tr>
+<td>animation-iteration-count</td>
+<td>设置动画重复次数， 可以指定infinite无限次重复动画</td>
+</tr>
+<tr>
+<td>animation-direction</td>
+<td>指定是否应该轮流反向播放动画。</td>
+</tr>
+<tr>
+<td>animation-fill-mode</td>
+<td>指定动画执行前后如何为目标元素应用样式。</td>
+</tr>
+<tr>
+<td>animation-play-state</td>
+<td>允许暂停和恢复动画。</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://www.cllli.xyz/webdemo/css3-index1.html" target="_blank" rel="noopener">animation</a>：<a href="https://www.cllli.xyz/webdemo/css3-index1.html" target="_blank" rel="noopener">https://www.cllli.xyz/webdemo/css3-index1.html</a></p>
+<h4 id="1、animation-name"><a href="#1、animation-name" class="headerlink" title="1、animation-name"></a>1、animation-name</h4><p>animation-name属性指定应用的一系列动画，每个名称代表一个由@keyframes定义的动画序列。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Single animation */</span></span><br><span class="line"><span class="selector-tag">animation-name</span>: <span class="selector-tag">none</span>; </span><br><span class="line"><span class="selector-tag">animation-name</span>: <span class="selector-tag">test_05</span>;</span><br><span class="line"><span class="selector-tag">animation-name</span>: <span class="selector-tag">-specific</span>;</span><br><span class="line"><span class="selector-tag">animation-name</span>: <span class="selector-tag">sliding-vertically</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Multiple animations */</span></span><br><span class="line"><span class="selector-tag">animation-name</span>: <span class="selector-tag">test1</span>, <span class="selector-tag">animation4</span>;</span><br><span class="line"><span class="selector-tag">animation-name</span>: <span class="selector-tag">none</span>, <span class="selector-tag">-moz-specific</span>, <span class="selector-tag">sliding</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Global values */</span></span><br><span class="line"><span class="selector-tag">animation-name</span>: <span class="selector-tag">initial</span></span><br><span class="line"><span class="selector-tag">animation-name</span>: <span class="selector-tag">inherit</span></span><br><span class="line"><span class="selector-tag">animation-name</span>: <span class="selector-tag">unset</span></span><br></pre></td></tr></table></figure>
+<p><strong>值</strong></p>
+<ul>
+<li>none</li>
+</ul>
+<p>特殊关键字，表示无关键帧。可以不改变其他标识符的顺序而使动画失效，或者使层叠的动画样式失效。</p>
+<ul>
+<li>IDENT</li>
+</ul>
+<p>标识动画的字符串，由大小写敏感的字母a-z、数字0-9、下划线(_)和/或横线(-)组成。第一个非横线字符必须是字母，数字不能在字母前面，不允许两个横线出现在开始位置。</p>
+<h4 id="2、animation-duration"><a href="#2、animation-duration" class="headerlink" title="2、animation-duration"></a>2、animation-duration</h4><p><code>animation-duration</code>属性指定一个动画周期的时长。默认值为0s，表示无动画。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">animation-duration</span>: 6<span class="selector-tag">s</span></span><br><span class="line"><span class="selector-tag">animation-duration</span>: 120<span class="selector-tag">ms</span></span><br><span class="line"><span class="selector-tag">animation-duration</span>: 1<span class="selector-tag">s</span>, 15<span class="selector-tag">s</span></span><br><span class="line"><span class="selector-tag">animation-duration</span>: 10<span class="selector-tag">s</span>, 30<span class="selector-tag">s</span>, 230<span class="selector-tag">ms</span></span><br></pre></td></tr></table></figure>
+<p><strong>值</strong></p>
+<ul>
+<li>time</li>
+</ul>
+<p>一个动画周期的时长，单位为秒(s)或者毫秒(ms)，无单位值无效。</p>
+<h4 id="3、animation-timing-function"><a href="#3、animation-timing-function" class="headerlink" title="3、animation-timing-function"></a>3、animation-timing-function</h4><p><code>animation-timing-function</code>属性定义CSS动画在每一动画周期中执行的节奏。可能值为一或多个<br><code>timing-function</code>。</p>
+<p>对于关键帧动画来说，timing function作用于一个关键帧周期而非整个动画周期，即从关键帧开始开始，到关键帧结束结束。</p>
+<p>定义于一个关键帧区块的缓动函数(animation timing function)应用到改关键帧；另外，若该关键帧没有定义缓动函数，则使用定义于整个动画的缓动函数。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Keyword values */</span></span><br><span class="line"><span class="selector-tag">animation-timing-function</span>: <span class="selector-tag">ease</span>;</span><br><span class="line"><span class="selector-tag">animation-timing-function</span>: <span class="selector-tag">ease-in</span>;</span><br><span class="line"><span class="selector-tag">animation-timing-function</span>: <span class="selector-tag">ease-out</span>;</span><br><span class="line"><span class="selector-tag">animation-timing-function</span>: <span class="selector-tag">ease-in-out</span>;</span><br><span class="line"><span class="selector-tag">animation-timing-function</span>: <span class="selector-tag">linear</span>;</span><br><span class="line"><span class="selector-tag">animation-timing-function</span>: <span class="selector-tag">step-start</span>;</span><br><span class="line"><span class="selector-tag">animation-timing-function</span>: <span class="selector-tag">step-end</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Function values */</span></span><br><span class="line"><span class="selector-tag">animation-timing-function</span>: <span class="selector-tag">cubic-bezier</span>(0<span class="selector-class">.1</span>, 0<span class="selector-class">.7</span>, 1<span class="selector-class">.0</span>, 0<span class="selector-class">.1</span>);</span><br><span class="line"><span class="selector-tag">animation-timing-function</span>: <span class="selector-tag">steps</span>(4, <span class="selector-tag">end</span>);</span><br><span class="line"><span class="selector-tag">animation-timing-function</span>: <span class="selector-tag">frames</span>(10);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Multiple animations */</span></span><br><span class="line"><span class="selector-tag">animation-timing-function</span>: <span class="selector-tag">ease</span>, <span class="selector-tag">step-start</span>, <span class="selector-tag">cubic-bezier</span>(0<span class="selector-class">.1</span>, 0<span class="selector-class">.7</span>, 1<span class="selector-class">.0</span>, 0<span class="selector-class">.1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Global values */</span></span><br><span class="line"><span class="selector-tag">animation-timing-function</span>: <span class="selector-tag">inherit</span>;</span><br><span class="line"><span class="selector-tag">animation-timing-function</span>: <span class="selector-tag">initial</span>;</span><br><span class="line"><span class="selector-tag">animation-timing-function</span>: <span class="selector-tag">unset</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>值</strong></p>
+<ul>
+<li>timingfunction</li>
+</ul>
+<p>每个 <code>timing-function</code>代表了应用于动画的timing function，定义于animation-property.</p>
+<p><strong>timing-function</strong></p>
+<p>表示一个数学函数，它描述了在一个过渡或动画中一维数值的改变速度。这实质上让你可以自己定义一个加速度曲线，以便动画的速度在动画的过程中可以进行改变。这些函数通常被称为缓动函数。</p>
+<p>这是一个表示时间输出比率的函数，表示为<number>，0, 0 代表初始状态，1, 1 代表终止状态。</p>
+<p>输出比可以大于1.0（或者小于0.0）。这是因为在一种反弹效果中，动画是可以比最后的状态走的更远的，然后再回到最终状态。</p>
+<p>不过，如果输出值超过了它允许的范围，比如组成一个颜色的值大于了255或者小于了0，这个值会被修改为允许范围内的最接近的值（在颜色值这个例子中分别为255和0）。一些贝塞尔曲线展示了这些性质。</p>
+<h4 id="4、animation-delay"><a href="#4、animation-delay" class="headerlink" title="4、animation-delay"></a>4、animation-delay</h4><p><code>animation-delay</code>CSS属性定义动画于何时开始，即从动画应用在元素上到动画开始的这段时间的长度</p>
+<p>0s是该属性的默认值，代表动画在应用到元素上后立即开始执行。否则，该属性的值代表动画样式应用到元素上后到开始执行前的时间长度；</p>
+<p>定义一个负值会让动画立即开始。但是动画会从它的动画序列中某位置开始。例如，如果设定值为-1s，动画会从它的动画序列的第1秒位置处立即开始。</p>
+<p>如果为动画延迟指定了一个负值，但起始值是隐藏的，则从动画应用于元素的那一刻起就获取起始值。</p>
+<p><strong>值</strong></p>
+<ul>
+<li>time</li>
+</ul>
+<p>从动画样式应用到元素上到元素开始执行动画的时间差。该值可用单位为秒(s)和毫秒(ms)。如果未设置单位，定义无效。</p>
+<h4 id="5、animation-iteration-count"><a href="#5、animation-iteration-count" class="headerlink" title="5、animation-iteration-count"></a>5、animation-iteration-count</h4><p><code>animation-iteration-count</code> CSS 属性   定义动画在结束前运行的次数 可以是1次 无限循环.</p>
+<p>如果指定了多个值，每次播放动画时，将使用列表中的下一个值，在使用最后一个值后循环回第一个值。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 值为关键字 */</span></span><br><span class="line"><span class="selector-tag">animation-iteration-count</span>: <span class="selector-tag">infinite</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 值为数字 */</span></span><br><span class="line"><span class="selector-tag">animation-iteration-count</span>: 3;</span><br><span class="line"><span class="selector-tag">animation-iteration-count</span>: 2<span class="selector-class">.4</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 指定多个值 */</span></span><br><span class="line"><span class="selector-tag">animation-iteration-count</span>: 2, 0, <span class="selector-tag">infinite</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>值</strong></p>
+<ul>
+<li>infinite</li>
+</ul>
+<p>无限循环播放动画.</p>
+<ul>
+<li>number</li>
+</ul>
+<p>动画播放的次数；默认值为1。可以用小数定义循环，来播放动画周期的一部分：例如，0.5 将播放到动画周期的一半。不可为负值。</p>
+<h4 id="6、animation-direction"><a href="#6、animation-direction" class="headerlink" title="6、animation-direction"></a>6、animation-direction</h4><p><code>animation-direction</code> CSS 属性指示动画是否反向播放</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">animation-direction</span>: <span class="selector-tag">normal</span></span><br><span class="line"><span class="selector-tag">animation-direction</span>: <span class="selector-tag">reverse</span></span><br><span class="line"><span class="selector-tag">animation-direction</span>: <span class="selector-tag">alternate</span></span><br><span class="line"><span class="selector-tag">animation-direction</span>: <span class="selector-tag">alternate-reverse</span></span><br><span class="line"><span class="selector-tag">animation-direction</span>: <span class="selector-tag">normal</span>, <span class="selector-tag">reverse</span></span><br><span class="line"><span class="selector-tag">animation-direction</span>: <span class="selector-tag">alternate</span>, <span class="selector-tag">reverse</span>, <span class="selector-tag">normal</span></span><br></pre></td></tr></table></figure>
+<p><strong>值</strong></p>
+<ul>
+<li>normal</li>
+</ul>
+<p>每个循环内动画向前循环，换言之，每个动画循环结束，动画重置到起点重新开始，这是默认属性。</p>
+<ul>
+<li>alternate</li>
+</ul>
+<p>动画交替反向运行，反向运行时，动画按步后退，同时，带时间功能的函数也反向，比如，ease-in 在反向时成为ease-out。计数取决于开始时是奇数迭代还是偶数迭代</p>
+<ul>
+<li>reverse</li>
+</ul>
+<p>反向运行动画，每周期结束动画由尾到头运行。</p>
+<ul>
+<li>alternate-reverse</li>
+</ul>
+<p>反向交替， 反向开始交替</p>
+<p>动画第一次运行时是反向的，然后下一次是正向，后面依次循环。决定奇数次或偶数次的计数从1开始。</p>
+<h4 id="7、animation-fill-mode"><a href="#7、animation-fill-mode" class="headerlink" title="7、animation-fill-mode"></a>7、animation-fill-mode</h4><p> <code>animation-fill-mode</code> 设置CSS动画在执行之前和之后如何将样式应用于其目标。</p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/* Single animation */</span></span><br><span class="line"><span class="selector-tag">animation-fill-mode</span>: <span class="selector-tag">none</span>;</span><br><span class="line"><span class="selector-tag">animation-fill-mode</span>: <span class="selector-tag">forwards</span>;</span><br><span class="line"><span class="selector-tag">animation-fill-mode</span>: <span class="selector-tag">backwards</span>;</span><br><span class="line"><span class="selector-tag">animation-fill-mode</span>: <span class="selector-tag">both</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Multiple animations */</span></span><br><span class="line"><span class="selector-tag">animation-fill-mode</span>: <span class="selector-tag">none</span>, <span class="selector-tag">backwards</span>;</span><br><span class="line"><span class="selector-tag">animation-fill-mode</span>: <span class="selector-tag">both</span>, <span class="selector-tag">forwards</span>, <span class="selector-tag">none</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="8、animation-play-state"><a href="#8、animation-play-state" class="headerlink" title="8、animation-play-state"></a>8、animation-play-state</h4><p><code>animation-play-state</code> CSS 属性定义一个动画是否运行或者暂停。可以通过查询它来确定动画是否正在运行。另外，它的值可以被设置为暂停和恢复的动画的重放。</p>
+<p>恢复一个已暂停的动画，将从它开始暂停的时候，而不是从动画序列的起点开始在动画。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Single animation */</span></span><br><span class="line"><span class="selector-tag">animation-play-state</span>: <span class="selector-tag">running</span>;</span><br><span class="line"><span class="selector-tag">animation-play-state</span>: <span class="selector-tag">paused</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Multiple animations */</span></span><br><span class="line"><span class="selector-tag">animation-play-state</span>: <span class="selector-tag">paused</span>, <span class="selector-tag">running</span>, <span class="selector-tag">running</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Global values */</span></span><br><span class="line"><span class="selector-tag">animation-play-state</span>: <span class="selector-tag">inherit</span>;</span><br><span class="line"><span class="selector-tag">animation-play-state</span>: <span class="selector-tag">initial</span>;</span><br><span class="line"><span class="selector-tag">animation-play-state</span>: <span class="selector-tag">unset</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>值</strong></p>
+<ul>
+<li>running</li>
+</ul>
+<p>当前动画正在运行。</p>
+<ul>
+<li>paused</li>
+</ul>
+<p>当前动画已被停止。</p>
+<h3 id="二）使用keyframes定义动画序列"><a href="#二）使用keyframes定义动画序列" class="headerlink" title="(二）使用keyframes定义动画序列"></a>(二）使用keyframes定义动画序列</h3><p>一旦完成动画的时间设置， 接下来就需要定义动画的表现。通过使用@keyframes建立两个或两个以上关键帧来实现。每一个关键帧都描述了动画元素在给定的时间点上应该如何渲染。</p>
+<p>因为动画的时间设置是通过CSS样式定义的，关键帧使用percentage来指定动画发生的时间点。0%表示动画的第一时刻，100%表示动画的最终时刻。因为这两个时间点十分重要，所以还有特殊的别名：from和to。这两个都是可选的，若from/0%或to/100%未指定，则浏览器使用计算值开始或结束动画。</p>
+<p>也可包含额外可选的关键帧，描述动画开始和结束之间的状态。</p>
+<p>关键帧 @keyframes at-rule 规则通过在动画序列中定义关键帧（或waypoints）的样式来控制CSS动画序列中的中间步骤。和 转换 transition 相比，关键帧 keyframes 可以控制动画序列的中间步骤。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">keyframes</span> slidein &#123;</span><br><span class="line">  <span class="selector-tag">from</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateX</span>(0%); </span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">to</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateX</span>(100%);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以按任意顺序列出关键帧百分比；它们将按照其应该发生的顺序来处理。</p>
+<p>关键帧中出现的 !important 将会被忽略。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">keyframes</span> important1 &#123;</span><br><span class="line">  <span class="selector-tag">from</span> &#123; <span class="attribute">margin-top</span>: <span class="number">50px</span>; &#125;</span><br><span class="line">  50%  &#123; <span class="attribute">margin-top</span>: <span class="number">150px</span> <span class="meta">!important</span>; &#125; <span class="comment">/* 忽略 */</span></span><br><span class="line">  <span class="selector-tag">to</span>   &#123; <span class="attribute">margin-top</span>: <span class="number">100px</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">keyframes</span> important2 &#123;</span><br><span class="line">  <span class="selector-tag">from</span> &#123; <span class="attribute">margin-top</span>: <span class="number">50px</span>;</span><br><span class="line">         <span class="attribute">margin-bottom</span>: <span class="number">100px</span>; &#125;</span><br><span class="line">  <span class="selector-tag">to</span>   &#123; <span class="attribute">margin-top</span>: <span class="number">150px</span> <span class="meta">!important</span>; <span class="comment">/* 忽略 */</span></span><br><span class="line">         <span class="attribute">margin-bottom</span>: <span class="number">50px</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.cllli.xyz/webdemo/css3-index2.html" target="_blank" rel="noopener">太阳系</a>：<a href="https://www.cllli.xyz/webdemo/css3-index2.html" target="_blank" rel="noopener">https://www.cllli.xyz/webdemo/css3-index2.html</a></p>
+<p><strong>设置所有属性：</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attribute">animation-name</span>: myfirst;</span><br><span class="line">    <span class="attribute">animation-duration</span>: <span class="number">5s</span>;</span><br><span class="line">    <span class="attribute">animation-timing-function</span>: linear;</span><br><span class="line">    <span class="attribute">animation-delay</span>: <span class="number">2s</span>;</span><br><span class="line">    <span class="attribute">animation-iteration-count</span>: infinite;</span><br><span class="line">    <span class="attribute">animation-direction</span>: alternate;</span><br><span class="line">    <span class="attribute">animation-play-state</span>: running;</span><br><span class="line">    <span class="comment">/* Safari 与 Chrome: */</span></span><br><span class="line">    <span class="attribute">-webkit-animation-name</span>: myfirst;</span><br><span class="line">    <span class="attribute">-webkit-animation-duration</span>: <span class="number">5s</span>;</span><br><span class="line">    <span class="attribute">-webkit-animation-timing-function</span>: linear;</span><br><span class="line">    <span class="attribute">-webkit-animation-delay</span>: <span class="number">2s</span>;</span><br><span class="line">    <span class="attribute">-webkit-animation-iteration-count</span>: infinite;</span><br><span class="line">    <span class="attribute">-webkit-animation-direction</span>: alternate;</span><br><span class="line">    <span class="attribute">-webkit-animation-play-state</span>: running;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 简写 */</span></span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    <span class="attribute">animation</span>: myfirst <span class="number">5s</span> linear <span class="number">2s</span> infinite alternate;</span><br><span class="line">    <span class="comment">/* Safari 与 Chrome: */</span></span><br><span class="line">    <span class="attribute">-webkit-animation</span>: myfirst <span class="number">5s</span> linear <span class="number">2s</span> infinite alternate;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.cllli.xyz/webdemo/css3-index4.html" target="_blank" rel="noopener">设置所有属性：</a>：<a href="https://www.cllli.xyz/webdemo/css3-index4.html" target="_blank" rel="noopener">https://www.cllli.xyz/webdemo/css3-index4.html</a></p>
+<h1 id="二、transform属性"><a href="#二、transform属性" class="headerlink" title="二、transform属性"></a>二、transform属性</h1><p>CSStransform属性允许你旋转，缩放，倾斜或平移给定元素。这是通过修改CSS视觉格式化模型的坐标空间来实现的。</p>
+<blockquote>
+<p>只能转换由盒模型定位的元素。根据经验，如果元素具有display: block，则由盒模型定位元素。</p>
+</blockquote>
+<h3 id="1、语法"><a href="#1、语法" class="headerlink" title="1、语法"></a>1、语法</h3><p>transform属性可以指定为关键字值none 或一个或多个<transform-function>值。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Keyword values */</span></span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">none</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Function values */</span></span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">matrix</span>(1<span class="selector-class">.0</span>, 2<span class="selector-class">.0</span>, 3<span class="selector-class">.0</span>, 4<span class="selector-class">.0</span>, 5<span class="selector-class">.0</span>, 6<span class="selector-class">.0</span>);</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">translate</span>(12<span class="selector-tag">px</span>, 50%);</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">translateX</span>(2<span class="selector-tag">em</span>);</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">translateY</span>(3<span class="selector-tag">in</span>);</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">scale</span>(2, 0<span class="selector-class">.5</span>);</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">scaleX</span>(2);</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">scaleY</span>(0<span class="selector-class">.5</span>);</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">rotate</span>(0<span class="selector-class">.5turn</span>);</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">skew</span>(30<span class="selector-tag">deg</span>, 20<span class="selector-tag">deg</span>);</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">skewX</span>(30<span class="selector-tag">deg</span>);</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">skewY</span>(1<span class="selector-class">.07rad</span>);</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">matrix3d</span>(1<span class="selector-class">.0</span>, 2<span class="selector-class">.0</span>, 3<span class="selector-class">.0</span>, 4<span class="selector-class">.0</span>, 5<span class="selector-class">.0</span>, 6<span class="selector-class">.0</span>, 7<span class="selector-class">.0</span>, 8<span class="selector-class">.0</span>, 9<span class="selector-class">.0</span>, 10<span class="selector-class">.0</span>, 11<span class="selector-class">.0</span>, 12<span class="selector-class">.0</span>, 13<span class="selector-class">.0</span>, 14<span class="selector-class">.0</span>, 15<span class="selector-class">.0</span>, 16<span class="selector-class">.0</span>);</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">translate3d</span>(12<span class="selector-tag">px</span>, 50%, 3<span class="selector-tag">em</span>);</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">translateZ</span>(2<span class="selector-tag">px</span>);</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">scale3d</span>(2<span class="selector-class">.5</span>, 1<span class="selector-class">.2</span>, 0<span class="selector-class">.3</span>);</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">scaleZ</span>(0<span class="selector-class">.3</span>);</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">rotate3d</span>(1, 2<span class="selector-class">.0</span>, 3<span class="selector-class">.0</span>, 10<span class="selector-tag">deg</span>);</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">rotateX</span>(10<span class="selector-tag">deg</span>);</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">rotateY</span>(10<span class="selector-tag">deg</span>);</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">rotateZ</span>(10<span class="selector-tag">deg</span>);</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">perspective</span>(17<span class="selector-tag">px</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Multiple function values */</span></span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">translateX</span>(10<span class="selector-tag">px</span>) <span class="selector-tag">rotate</span>(10<span class="selector-tag">deg</span>) <span class="selector-tag">translateY</span>(5<span class="selector-tag">px</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Global values */</span></span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">inherit</span>;</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">initial</span>;</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">unset</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="2、transform-function"><a href="#2、transform-function" class="headerlink" title="2、transform-function"></a>2、transform-function</h3><p> <code>transform-function</code> CSS数据类型用于对元素的显示做变换。通常，这种变换可以由矩阵表示，并且可以使用每个点上的矩阵乘法来确定所得到的图像。</p>
+<p> <a href="https://c.runoob.com/codedemo/3391" target="_blank" rel="noopener">Css3 Transform 各种变形旋转</a></p>
+<p><a href="https://www.cllli.xyz/webdemo/css3-index3.html" target="_blank" rel="noopener">transform-function</a>：<a href="https://www.cllli.xyz/webdemo/css3-index3.html" target="_blank" rel="noopener">https://www.cllli.xyz/webdemo/css3-index3.html</a></p>
+	
+		</div>
+		
+		<div id="current-post-cover" data-scr="../../../../../img/cart_cover.jpg"></div>
+
+		<!-- relate post, comment...-->
+		<div class="investment-container">
+			<div class="investment-header">
+				<div class="investment-title-1">
+					<div class="on">相关文章</div>
+					<div>评论</div>
+					<div>分享</div>
+				</div>
+				<div class="investment-title-2">	            
+					
+	<span>
+		<a id="totop-post-page">返回顶部</a>
+		
+			<a href="../../../19/20203/css3-animation2/" title="css3动画入门-详解篇" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="../../../../05/26/20202/nginx1/" title="nginx本地代理使用" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+				</div>	
+			</div>
+			
+			<div class="investment-content">
+				<div class="investment-content-list">
+					
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../19/20203/css3-animation2/" title="css3动画入门-详解篇">
+								css3动画入门-详解篇			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十月 19日, 2020				
+							</p>
+							<p class="relate-post-content">
+								语法详解
+   
+一、简介
+学习CSS3动画的意义
+先带大家了解下学习CSS3动画的意义，我这里列了有3条。
+项目中也有很多用到动画的地方，比如图片的无缝轮播，图表的旋转，页面的其他特效等。用动画实现，代码比较简短，
+接下来我会介绍动...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../19/20203/css3-animation2/" title="css3动画入门-详解篇">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="css3动画入门-详解篇"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2019/04/11/20192/css-core-concepts/" title="CSS核心概念">
+								CSS核心概念			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 11日, 2019				
+							</p>
+							<p class="relate-post-content">
+								本主要内容是介绍CSS一些主要概念，并通过代码来演示具体的使用用例，然后提供学习指南链接供课后自学。适合：Web开发新手、具有一定的CSS基础的Web开发对象。
+1、Web标准概述
+
+结构、表现和行为分别对应于3种非常常用的技术，即 ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2019/04/11/20192/css-core-concepts/" title="CSS核心概念">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="CSS核心概念"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2018/12/14/20184/flex/" title="flex布局详解">
+								flex布局详解			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十二月 14日, 2018				
+							</p>
+							<p class="relate-post-content">
+								布局的传统解决方案，基于盒状模型，依赖 display 属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。
+
+2009年，W3C 提出了一种新的方案—-Flex 布局，可以简...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2018/12/14/20184/flex/" title="flex布局详解">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="flex布局详解"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2018/10/06/20184/html5&css3/" title="html5和css3基础知识">
+								html5和css3基础知识			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十月 6日, 2018				
+							</p>
+							<p class="relate-post-content">
+								HTML5是HTML最新的修订版本，2014年10月由万维网联盟（W3C）完成标准制定。
+html5新元素新属性完全支持 CSS3Video 和 Audio2D/3D 制图本地存储本地 SQL 数据Web 应用
+浏览器支持
+
+将 HT...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2018/10/06/20184/html5&css3/" title="html5和css3基础知识">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="html5和css3基础知识"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2021/04/23/20184/letcount/" title="let 与 const 的用法">
+								let 与 const 的用法			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 23日, 2021				
+							</p>
+							<p class="relate-post-content">
+								ES6 新增了两个声明两个声明标识符的方式： let 和 const。
+
+
+let 用来声明变量，并且会在当前作用域形成 代码块
+conts 用来声明常量，所谓常量就是物理指针不可以更改的变量。
+
+1、let使用 let 声明的变量，...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2021/04/23/20184/letcount/" title="let 与 const 的用法">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/images/cover/architecture-black-building.jpg" alt="let 与 const 的用法"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2021/04/23/20184/markdown/" title="MD测试语法">
+								MD测试语法			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 23日, 2021				
+							</p>
+							<p class="relate-post-content">
+								主要是 hexo 写博客时常用的语法
+
+一级标题二级标题三级标题四级标题五级标题六级标题Qt 开源社区提供的下载地址
+
+。
+这是一段测试 加粗 _倾斜_Lorem ipsum dolor sit amet, consectetur a...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2021/04/23/20184/markdown/" title="MD测试语法">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="MD测试语法"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2021/04/23/20183/first-month/" title="遇到的问题">
+								遇到的问题			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 23日, 2021				
+							</p>
+							<p class="relate-post-content">
+								记录一下项目中相关的的问题
+
+用CANVAS绘制水印1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2021/04/23/20183/first-month/" title="遇到的问题">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="遇到的问题"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2021/01/13/20211/typescript-1/" title="typescript入门">
+								typescript入门			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								一月 13日, 2021				
+							</p>
+							<p class="relate-post-content">
+								Any 类型、数组和元组、interface 、类型推论 联合类型 类型断言、Class、类和接口、Enum、Generics、类型别名，字面量，交叉类型、声明文件、内置类型
+慕课网视频地址：https://coding.imooc....
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2021/01/13/20211/typescript-1/" title="typescript入门">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="typescript入门"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2021/01/04/20204/problem/" title="其他前端问题（一）">
+								其他前端问题（一）			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								一月 4日, 2021				
+							</p>
+							<p class="relate-post-content">
+								其他前端问题（一）
+ 
+关于async/await、promise和setTimeout执行顺序 1234567891011121314151617181920 async function async1() &#123;	conso...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2021/01/04/20204/problem/" title="其他前端问题（一）">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="其他前端问题（一）"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../12/28/20204/webpack-babel-2/" title="webpack-babel-2 构建速度优化、产出代码优化、babel">
+								webpack-babel-2 构建速度优化、产出代码优化、babel			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十二月 28日, 2020				
+							</p>
+							<p class="relate-post-content">
+								构建速度优化、产出代码优化、babel
+
+10-9 webpack优化构建速度-知识点串讲（性能优化）
+热议话题
+优化打包构建速度 - 优化开发体验和效率
+优化产出代码 - 优化产品性能 
+
+一般会让你聊一聊性能优化，可以从上面两个方...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../12/28/20204/webpack-babel-2/" title="webpack-babel-2 构建速度优化、产出代码优化、babel">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="webpack-babel-2 构建速度优化、产出代码优化、babel"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
+	
+</div>	
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-comment">
+
+	
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
+	
+
+</div>
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- show math formula -->
+
+
+
+	 
+	
+<script src="../../../../../plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="../../../../../plugin/fancybox/jquery.fancybox.css">
+
+
+<script src="../../../../../plugin/fancybox/jquery.fancybox.js"></script>
+
+
+<script type="text/javascript">
+	(function gallerySet(){
+		let titleID = $('.article-title a'),
+			imageID = $('.article-content img'),
+			videoID = $('.article-content video');
+		
+		let postTitle = titleID.text() ? titleID.text() : "No post title!";
+		
+		imageID.each(function() {
+			let imgPath = $(this).attr('src'),
+				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
+		});
+		
+		videoID.each(function() {
+			let videoPath = $(this).attr('src');
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+		});
+		
+		//TODO：支持html5 video
+
+		if($('#layout-post').length) {
+			$('[data-fancybox="gallery"]').fancybox({
+				loop: true,
+				buttons: [
+					"zoom",
+					"share",
+					"slideShow",
+					"fullScreen",
+					//"download",
+					"thumbs",
+					"close"
+				],
+				protect: true
+			});
+		}
+	})();
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="../../../../../index.html" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="../../../../../archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="../../../../../categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="../../../../../tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="../../../../../about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="../../../../../gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2018 - 2021, content by chenlilin. All Rights Reserved.
+			
+			
+				<!-- <a href="../../../../../http:/hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="../../../../../https:/github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. -->
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+
+	
+<script src="../../../../../plugin/motto/motto.js"></script>
+
+	
+	<script type="text/javascript">
+		(function motto(){
+			let mottoText = getMingYanContent().split('</br> - </br>'),
+			
+			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
+			
+			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
+			
+			mottoTextContent = mottoTextContent.trim().substring(0, 100);
+		
+			$("#motto-content").html( mottoTextContent);
+			$("#motto-author").html( mottoTextFrom  );
+		})();	
+	</script>	
+
+
+
+<!-- love effect -->
+
+	
+<script src="../../../../../plugin/love/love.js"></script>
+
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+  
+
+	<!--
+	时间：2018-10-3
+	描述：
+		插件名称：hexo-generator-search-zip
+		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
+		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
+-->
+<div class="popup search-popup local-search-popup scrollbar" >
+	<div class="local-search-container">
+		<span class="popup-btn-close">
+      		ESC
+   		</span>
+		<div class="local-search-header">
+			<div class="input-prompt">				
+			</div>
+			<input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+		</div>
+		<div class="local-search-body">
+			<div id="local-search-output"></div>
+		</div>
+		<div class="local-search-footer">
+			<div class="topN-post">				
+				
+								
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="../../../../../plugin/search/ziploader.js"></script>
+<script src="../../../../../js/search.js"></script>
+
+
+<script type="text/javascript">
+	var search_path = 'search.json',
+		zip_Path = '/search.zip',
+		version_Path = '/searchVersion.txt',
+		input_Trigger = 'auto',
+		top_N = '2';
+
+	themeLocalSearch({
+		search_path, 
+		zip_Path, 
+		version_Path, 
+		input_Trigger, 
+		top_N
+	});
+</script>
+
+
+
+<script src="../../../../../plugin/chinese/chinese.js"></script>
+<script src="../../../../../plugin/imagelazyloader/yall.min.js"></script>
+<script src="../../../../../plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="../../../../../plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="../../../../../plugin/resizediv/resizediv.js"></script>
+<script src="../../../../../js/main.js"></script>
+
+	</body>	
+</html>

@@ -1,0 +1,1032 @@
+
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      微信小程序相关问题汇总(二) | 陈立林的个人网站
+    
+  </title>
+  <meta name="author" content="来者可追">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+
+  <!-- css -->
+  
+<link rel="stylesheet" href="../../../../../css/Annie.css">
+
+  
+  <!-- jquery -->
+	
+<script src="../../../../../plugin/jquery/jquery.min.js"></script>
+
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'normal',
+      normalSrc: '../../../../../https:/source.unsplash.com/collection/954550/1920x1080',
+      randomYouMax: 110,
+      randomYouSrc: '../../../../../https:/sariay.github.io/Random-img/',
+	  randomOtherSrc: '../../../../../https:/api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: false
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: false,
+	  appId: 'AU8...',
+	  appKey: '4cU...',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+	<body>
+		<!-- Preloader -->
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">获取中...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			「微信小程序相关问题汇总(二)」
+		
+	</p>
+
+	
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="../../../../../img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="../../../../../index.html" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="../../../../../archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="../../../../../categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="../../../../../tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="../../../../../about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="../../../../../gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-zhihu"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-sina-weibo "></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-pinterest2"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+<script src="../../../../../plugin/toc/katelog.min.js"></script>
+
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+		<div class="article-title">
+			
+	<a href="" itemprop="url">
+		微信小程序相关问题汇总(二)
+	</a>
+
+		</div>
+
+		<div class="article-meta">
+			<span>
+				<i class="icon-calendar1"></i>
+				
+				
+
+
+
+
+	更新于
+
+	<a href="" itemprop="url">
+		<time datetime="2019-10-08T02:29:35.000Z" itemprop="dateUpdated">
+	  		2021-04-23
+	  </time>
+	</a> 
+
+
+
+			</span>
+			<span>
+				
+	<i class="icon-price-tags"></i>
+	
+		<a href="../../../../../tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class=" ">
+			小程序
+		</a>
+	
+		
+			</span>
+			
+			
+
+
+
+		</div>
+
+		<div class="article-content" id="article-content">
+			<p>汇总微信小程序相关问题</p>
+<a id="more"></a>
+<h3 id="一、Taro的本身生命周期"><a href="#一、Taro的本身生命周期" class="headerlink" title="一、Taro的本身生命周期"></a>一、Taro的本身生命周期</h3><p>生命周期<br>componentWillMount<br>在微信小程序中这一生命周期方法对应页面的onLoad或入口文件app中的onLaunch<br>componentDidMount<br>在微信小程序中这一生命周期方法对应页面的onReady或入口文件app中的onLaunch，在 componentWillMount后执行<br>componentDidShow<br>在微信小程序中这一生命周期方法对应 onShow<br>componentDidHide<br>在微信小程序中这一生命周期方法对应 onHide<br>componentDidCatchError<br>错误监听函数，在微信小程序中这一生命周期方法对应 onError<br>componentDidNotFound<br>页面不存在监听函数，在微信小程序中这一生命周期方法对应 onPageNotFound<br>shouldComponentUpdate<br>页面是否需要更新<br>componentWillUpdate<br>页面即将更新<br>componentDidUpdate<br>页面更新完毕<br>componentWillUnmount<br>页面退出，在微信小程序中这一生命周期方法对应 onUnload</p>
+<h3 id="二、Taro在微信小程序开发中特有的生命周期"><a href="#二、Taro在微信小程序开发中特有的生命周期" class="headerlink" title="二、Taro在微信小程序开发中特有的生命周期"></a>二、Taro在微信小程序开发中特有的生命周期</h3><ol>
+<li>onPullDownRefresh： 页面相关事件处理函数–监听用户下拉动作</li>
+<li>onReachBottom： 页面上拉触底事件的处理函数</li>
+<li>onShareAppMessage： 用户点击右上角转发</li>
+<li>onPageScroll： 页面滚动触发事件的处理函数</li>
+<li>onTabItemTap： 当前是 tab 页时，点击 tab 时触发</li>
+<li>componentWillPreload： 预加载，只在微信小程序中可用</li>
+</ol>
+<h3 id="三、小程序发布"><a href="#三、小程序发布" class="headerlink" title="三、小程序发布"></a>三、小程序发布</h3><p>小程序提供了两种发布模式：</p>
+<p>1.全量发布：是指当点击发布之后，所有用户访问小程序时都会使用当前最新的发布版本</p>
+<p>2.分阶段发布：是指分不同时间段来控制部分用户使用最新的发布版本，分阶段发布我们也称为灰 度发布。</p>
+<p>3.一般来说，普通小程序发布时采用全量发布即可，当小程序承载的功能越来越多，使用的用户数越来越多时，采用分阶段发布是一个非常好的控制风险的办法。因为随着程序的复杂度提高以及影响面的扩大，新版本的代码改动或多或少会带来Bug，作为服务方当然不希望异常的服务状态一下子扩散到整个用户群体，此时应该通过分阶段发布来逐步观察服务的稳定性，再决定是否进行全量发布。</p>
+<p>还需要留意一点，并非全量发布之后，用户就会立即使用到最新版的小程序，这是因为微信客户端存有旧版本小程序包缓存。用户在使用小程序时会优先打开本地的小程序包，微信客户端在某些特定的时机异步去更新最新的小程序包。<strong>一般我们认为全量发布的24小时后，所有用户才会真正使用到最新版的小程序</strong></p>
+<h3 id="四、如何分包"><a href="#四、如何分包" class="headerlink" title="四、如何分包"></a>四、如何分包</h3><p> 1、打包原则</p>
+<ul>
+<li>声明 subpackages 后，将按 subpackages 配置路径进行打包，subpackages 配置路径外的目录将被打包到 app（主包） 中</li>
+<li>app（主包）也可以有自己的 pages（即最外层的 pages 字段）</li>
+<li>subpackage 的根目录不能是另外一个 subpackage 内的子目录</li>
+<li>tabBar 页面必须在 app（主包）内  <strong>tabBat页面与pages同级
+</strong><br>more：<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/subpackages/basic.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/framework/subpackages/basic.html</a><br><a href="https://www.cnblogs.com/zhuanzhuanfe/p/9107661.html" target="_blank" rel="noopener">https://www.cnblogs.com/zhuanzhuanfe/p/9107661.html</a></li>
+</ul>
+<p>2、引用原则</p>
+<ul>
+<li>packageA 无法 require packageB JS 文件，但可以 require app、自己 package 内的 JS 文件</li>
+<li>packageA 无法 import packageB 的 template，但可以 require app、自己 package 内的 template</li>
+<li>packageA 无法使用 packageB 的资源，但可以使用 app、自己 package 内的资源</li>
+</ul>
+<p>即：<strong>子包能用主包的资源，主包不能用子包的资源，一个包内的资源可以互相调用。</strong></p>
+<p>优点：</p>
+<ul>
+<li>打开小程序，默认先加载主包</li>
+<li>进入分包页面时，再加载对应分包</li>
+</ul>
+<h3 id="五、微信小程序返回上一页的方法并传参"><a href="#五、微信小程序返回上一页的方法并传参" class="headerlink" title="五、微信小程序返回上一页的方法并传参"></a>五、微信小程序返回上一页的方法并传参</h3><p><strong>第一步</strong>，在子页面点击上一步或者保存数据请求成功以后添加如下代码、</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pages = getCurrentPages();</span><br><span class="line"><span class="keyword">var</span> prevPage = pages[pages.length - <span class="number">2</span>]; <span class="comment">//上一个页面</span></span><br><span class="line"> <span class="comment">//直接调用上一个页面的setData()方法，把数据存到上一个页面中去</span></span><br><span class="line">prevPage.setData(&#123;</span><br><span class="line">     mydata: &#123;</span><br><span class="line">       id:<span class="number">1</span>,</span><br><span class="line">       b: <span class="number">125</span></span><br><span class="line">     &#125;</span><br><span class="line">   &#125;)</span><br><span class="line">   wx.navigateBack(&#123;<span class="comment">//返回</span></span><br><span class="line">     delta: <span class="number">1</span></span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure>
+<p><strong>第二步</strong>，在父组件里的onshow生命周期里获取参数，对了，前提是需要你在data里建一个<code>mydata</code>对象，如果传过来的是字符串，mydata建立为字符串，就是对应一下会比较好</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pages = getCurrentPages();</span><br><span class="line"><span class="keyword">var</span> currPage = pages[pages.length - <span class="number">1</span>]; <span class="comment">//当前页面</span></span><br><span class="line"><span class="keyword">let</span> json = currPage.data.mydata;</span><br><span class="line"><span class="built_in">console</span>.log(json)<span class="comment">//为传过来的值</span></span><br></pre></td></tr></table></figure>
+<p>至此，子–&gt;父传值就结束了，如果你使用wx.navigateTo和wx.setStorageSync结合来实现返回上一页以及存取参数的话，会遇到一个问题，就是微信自带页面的返回会一直返回这几个页面，造成路由紊乱</p>
+<p>这里顺便提一下父–&gt;子传值，很简单就是跳转的时候把参数拼接在链接后面，然后在下一个页面的onload里通过option获取，这其实也不算父-子</p>
+<p><img src="/images/20194/wechat-issue-12.png" alt="微信小程序返回上一页的方法并传参"></p>
+<h3 id="六、一些动画"><a href="#六、一些动画" class="headerlink" title="六、一些动画"></a>六、一些动画</h3><p>初始：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.select_wrap &#123;</span><br><span class="line">    transform: translateY(<span class="number">100</span>%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从下向上弹出：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> that = <span class="keyword">this</span>, animation;</span><br><span class="line">    animation = wx.createAnimation(&#123;</span><br><span class="line">        transformOrigin: <span class="string">"-100% -100%"</span>,</span><br><span class="line">        duration: <span class="number">500</span>,</span><br><span class="line">        timingFunction: <span class="string">'ease'</span></span><br><span class="line">    &#125;)</span><br><span class="line">    animation.translateY(<span class="number">0</span>).step()</span><br><span class="line">    that.setState(&#123;</span><br><span class="line">        animaData: animation.export(),</span><br><span class="line">    &#125;)</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        that.setState(&#123;</span><br><span class="line">            animaData: animation.export()</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;, <span class="number">600</span>)</span><br></pre></td></tr></table></figure>
+<p>相反方向：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> animation;</span><br><span class="line">    animation = wx.createAnimation(&#123;</span><br><span class="line">        transformOrigin: <span class="string">"100% 100%"</span>,</span><br><span class="line">        duration: <span class="number">500</span>,</span><br><span class="line">        timingFunction: <span class="string">'ease'</span></span><br><span class="line">    &#125;)</span><br><span class="line">    animation.translateY(<span class="number">1000</span>).step();</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        animaData: animation.export()</span><br><span class="line">    &#125;)</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.props.onhideAddMap();</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">            animaData: animation.export()</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">    &#125;.bind(<span class="keyword">this</span>), <span class="number">600</span>)</span><br></pre></td></tr></table></figure>
+<p>动画结束后执行操作，要<code>bind(this)</code>，闭包类似于</p>
+<h3 id="七、滚动穿透"><a href="#七、滚动穿透" class="headerlink" title="七、滚动穿透"></a>七、滚动穿透</h3><p>小程序，弹出层的滚动穿透，即弹出层滚动，那么被弹出层覆盖的下面的内容区域也会进行滚动。</p>
+<ul>
+<li>1、当弹出层里面无滚动的时候：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">catchtouchmove=&#123;<span class="keyword">this</span>.moveFn&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/20194/wechat-issue-13.png" alt="微信小程序返回上一页的方法并传参"></p>
+<ul>
+<li>二、当弹出层有滚动的时候：</li>
+</ul>
+<p>在小程序里面一般滚动组件使用的是scroll-view，这个时候我们只需要在打开遮罩的时候给最外层的view标签加上一个nowarp的标签，关闭弹出层的时候吧class移除掉就可以了。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.noscroll</span> &#123;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0px</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="八、路径简写配置"><a href="#八、路径简写配置" class="headerlink" title="八、路径简写配置"></a>八、路径简写配置</h3><p>用来配置目录别名，从而方便书写代码引用路径。例如，使用相对路径书写文件引用如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> A <span class="keyword">from</span> <span class="string">'../../componnets/A'</span></span><br><span class="line"><span class="keyword">import</span> Utils <span class="keyword">from</span> <span class="string">'../../utils'</span></span><br><span class="line"><span class="keyword">import</span> packageJson <span class="keyword">from</span> <span class="string">'../../package.json'</span></span><br><span class="line"><span class="keyword">import</span> projectConfig <span class="keyword">from</span> <span class="string">'../../project.config.json'</span></span><br></pre></td></tr></table></figure>
+<p>为了避免书写多级相对路径，我们可以如下配置 alias：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)  <span class="comment">// 加在最上面</span></span><br><span class="line">alias: &#123;</span><br><span class="line">  <span class="string">'@/components'</span>: path.resolve(__dirname, <span class="string">'..'</span>, <span class="string">'src/components'</span>),</span><br><span class="line">  <span class="string">'@/utils'</span>: path.resolve(__dirname, <span class="string">'..'</span>, <span class="string">'src/utils'</span>),</span><br><span class="line">  <span class="string">'@/package'</span>: path.resolve(__dirname, <span class="string">'..'</span>, <span class="string">'package.json'</span>),</span><br><span class="line">  <span class="string">'@/project'</span>: path.resolve(__dirname, <span class="string">'..'</span>, <span class="string">'project.config.json'</span>),</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过上述配置，可以将<code>src/components</code> 和 <code>src/utils</code> 目录配置成别名，将根目录下的 <code>package.json</code> 和 <code>project.config.json</code> 文件配置成别名，则代码中的引用改写如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> A <span class="keyword">from</span> <span class="string">'@/components/A'</span></span><br><span class="line"><span class="keyword">import</span> Utils <span class="keyword">from</span> <span class="string">'@/utils'</span></span><br><span class="line"><span class="keyword">import</span> packageJson <span class="keyword">from</span> <span class="string">'@/package'</span></span><br><span class="line"><span class="keyword">import</span> projectConfig <span class="keyword">from</span> <span class="string">'@/project'</span></span><br></pre></td></tr></table></figure>
+<p>为了让编辑器（VS Code）不报错，并继续使用自动路径补全的功能，需要在项目根目录下的 <code>jsconfig.json</code> 或者 <code>tsconfig.json</code> 中配置 <code>paths</code> 让编辑器认得我们的别名，形式如下：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"compilerOptions"</span>: &#123;</span><br><span class="line">    <span class="attr">"baseUrl"</span>: <span class="string">"."</span>,</span><br><span class="line">    <span class="attr">"paths"</span>: &#123;</span><br><span class="line">      <span class="attr">"@/components/*"</span>: [<span class="string">"./src/components/*"</span>],</span><br><span class="line">      <span class="attr">"@/utils/*"</span>: [<span class="string">"./src/utils/*"</span>],</span><br><span class="line">      <span class="attr">"@/package"</span>: [<span class="string">"./package.json"</span>],</span><br><span class="line">      <span class="attr">"@/project"</span>: [<span class="string">"./project.config.json"</span>],</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>配置好后重新编译：<code>npm run build:weapp -- --watch</code></p>
+<p>more：<a href="https://nervjs.github.io/taro/docs/config-detail.html#alias" target="_blank" rel="noopener">https://nervjs.github.io/taro/docs/config-detail.html#alias</a></p>
+<h3 id="九、性能优化"><a href="#九、性能优化" class="headerlink" title="九、性能优化"></a>九、性能优化</h3><h4 id="1、预加载"><a href="#1、预加载" class="headerlink" title="1、预加载"></a>1、预加载</h4><p>在微信小程序、支付宝小程序、字节跳动小程序和QQ轻应用中，从调用 Taro.navigateTo、Taro.redirectTo 或 Taro.switchTab 后，到页面触发 componentWillMount 会有一定延时。因此一些网络请求可以提前到发起跳转前一刻去请求。</p>
+<p>Taro 提供了 componentWillPreload 钩子，它接收页面跳转的参数作为参数。可以把需要预加载的内容通过 return 返回，然后在页面触发 componentWillMount 后即可通过 this.$preloadData 获取到预加载的内容。<br>注意：调用跳转方法时需要使用绝对路径，相对路径不会触发此钩子。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Index</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  componentWillMount () &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'isFetching: '</span>, <span class="keyword">this</span>.isFetching)</span><br><span class="line">    <span class="keyword">this</span>.$preloadData</span><br><span class="line">      .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'res: '</span>, res)</span><br><span class="line">        <span class="keyword">this</span>.isFetching = <span class="literal">false</span></span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentWillPreload (params) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.fetchData(params.url)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  fetchData () &#123;</span><br><span class="line">    <span class="keyword">this</span>.isFetching = <span class="literal">true</span></span><br><span class="line">    ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2、在小程序中，可以使用-this-preload-函数进行页面跳转传参"><a href="#2、在小程序中，可以使用-this-preload-函数进行页面跳转传参" class="headerlink" title="2、在小程序中，可以使用 this.$preload 函数进行页面跳转传参"></a>2、在小程序中，可以使用 this.$preload 函数进行页面跳转传参</h4><p>用法：<code>this.$preload(key: String | Object, [ value: Any ])</code></p>
+<p>之所以命名为 $preload，因为它也有一点预加载数据的意味。</p>
+<p>如果觉得每次页面跳转传参时，需要先把参数 stringify 后加到 url 的查询字符串中很繁琐，可以利用 <code>this.$preload</code> 进行传参。</p>
+<p>另外如果传入的是下一个页面的数据请求 promise，也有上一点提到的“预加载”功能，也能够绕过 componentWillMount 延时。不同点主要在于代码管理，开发者可酌情使用。</p>
+<p>例子:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 传入单个参数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// A 页面</span></span><br><span class="line"><span class="comment">// 调用跳转方法前使用 this.$preload</span></span><br><span class="line"><span class="keyword">this</span>.$preload(<span class="string">'key'</span>, <span class="string">'val'</span>)</span><br><span class="line">Taro.navigateTo(&#123; <span class="attr">url</span>: <span class="string">'/pages/B/B'</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// B 页面</span></span><br><span class="line"><span class="comment">// 可以于 this.$router.preload 中访问到 this.$preload 传入的参数</span></span><br><span class="line">componentWillMount () &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'preload: '</span>, <span class="keyword">this</span>.$router.preload.key)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 传入多个参数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// A 页面</span></span><br><span class="line"><span class="keyword">this</span>.$preload(&#123;</span><br><span class="line">  x: <span class="number">1</span>,</span><br><span class="line">  y: <span class="number">2</span></span><br><span class="line">&#125;)</span><br><span class="line">Taro.navigateTo(&#123; <span class="attr">url</span>: <span class="string">'/pages/B/B'</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// B 页面</span></span><br><span class="line">componentWillMount () &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'preload: '</span>, <span class="keyword">this</span>.$router.preload)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="3、shouldComponentUpdate"><a href="#3、shouldComponentUpdate" class="headerlink" title="3、shouldComponentUpdate"></a>3、shouldComponentUpdate</h4><p>当你清楚在某些情况下组件不需要被重新渲染时，可以通过在 <code>shouldComponentUpdate</code> 钩子里返回 <code>false</code> 来跳过本次渲染流程。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">shouldComponentUpdate (nextProps, nextState) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.props.color !== nextProps.color) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.state.count !== nextState.count) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/20194/wechat-issue-14.png" alt="微信小程序返回上一页的方法并传参"></p>
+<p><img src="/images/20194/wechat-issue-15.png" alt="微信小程序返回上一页的方法并传参"></p>
+	
+		</div>
+		
+		<div id="current-post-cover" data-scr="../../../../../img/cart_cover.jpg"></div>
+
+		<!-- relate post, comment...-->
+		<div class="investment-container">
+			<div class="investment-header">
+				<div class="investment-title-1">
+					<div class="on">相关文章</div>
+					<div>评论</div>
+					<div>分享</div>
+				</div>
+				<div class="investment-title-2">	            
+					
+	<span>
+		<a id="totop-post-page">返回顶部</a>
+		
+			<a href="../../../../11/13/20194/echarts-map/" title="echarts 绘制地图" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="../../../../09/12/20194/wechat-app-issue/" title="微信小程序相关问题汇总(一)" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+				</div>	
+			</div>
+			
+			<div class="investment-content">
+				<div class="investment-content-list">
+					
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../09/12/20194/wechat-app-issue/" title="微信小程序相关问题汇总(一)">
+								微信小程序相关问题汇总(一)			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								九月 12日, 2019				
+							</p>
+							<p class="relate-post-content">
+								汇总微信小程序相关问题
+
+一、地图加号放大减号缩小12345678910111213141516171819setScale(e) &#123;        let scale = this.state.scale;        ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../09/12/20194/wechat-app-issue/" title="微信小程序相关问题汇总(一)">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="微信小程序相关问题汇总(一)"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../06/24/20192/ztree1/" title="ztree常用技巧">
+								ztree常用技巧			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 24日, 2019				
+							</p>
+							<p class="relate-post-content">
+								ztree 常用技巧
+
+涉及的功能：点击请求，默认选中，单一路径展开
+异步加载123456789101112131415161718192021222324252627282930313233343536373839404142434...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../06/24/20192/ztree1/" title="ztree常用技巧">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="ztree常用技巧"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../05/28/20192/angular-problems/" title="从0开始记录angular使用过程中遇到的问题">
+								从0开始记录angular使用过程中遇到的问题			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 28日, 2019				
+							</p>
+							<p class="relate-post-content">
+								从 0 开始记录 angular 使用过程中遇到的问题.
+
+常用命令12ng g component group/containers/page-name --skip-import
+1、node-sass 安装失败 win32-x6...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../05/28/20192/angular-problems/" title="从0开始记录angular使用过程中遇到的问题">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="从0开始记录angular使用过程中遇到的问题"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../04/17/20192/jsbase/" title="javascript基础知识">
+								javascript基础知识			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 17日, 2019				
+							</p>
+							<p class="relate-post-content">
+								javascript基础知识
+一、js对象设置成员对象12person.age = 45person['name']['last'] = 'Cratchit'
+
+点表示法只能接受字面量的成员的名字，不接受变量作为名字
+
+123var ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../04/17/20192/jsbase/" title="javascript基础知识">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="javascript基础知识"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../04/11/20192/css-core-concepts/" title="CSS核心概念">
+								CSS核心概念			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 11日, 2019				
+							</p>
+							<p class="relate-post-content">
+								本主要内容是介绍CSS一些主要概念，并通过代码来演示具体的使用用例，然后提供学习指南链接供课后自学。适合：Web开发新手、具有一定的CSS基础的Web开发对象。
+1、Web标准概述
+
+结构、表现和行为分别对应于3种非常常用的技术，即 ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../04/11/20192/css-core-concepts/" title="CSS核心概念">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="CSS核心概念"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../04/10/20192/web-semantic/" title="web语义化">
+								web语义化			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 10日, 2019				
+							</p>
+							<p class="relate-post-content">
+								ss web语义化
+一、什么是Web语义化
+Web语义化是指用合理HTML标记以及其特有的属性去格式化文档内容。通俗地讲,就是对数据和信息进行处理,使得机器可以理解。
+
+就是不要全都用div+span撸完整个网页，那么多标签偏偏都用这...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../04/10/20192/web-semantic/" title="web语义化">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="web语义化"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../04/10/20192/js-core-concept/" title="javascript核心概念">
+								javascript核心概念			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 10日, 2019				
+							</p>
+							<p class="relate-post-content">
+								将JavaScript语言中的一些重要和难以理解的概念进行了罗列基于原型编程、多范式的动态脚本语言支持面向对象、命令式和声明式风格
+https://mp.weixin.qq.com/s/I7A1iC8Et6uOGZ234DsTlA
+
+...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../04/10/20192/js-core-concept/" title="javascript核心概念">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="javascript核心概念"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../03/07/20191/git-error/" title="git报错解决">
+								git报错解决			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 7日, 2019				
+							</p>
+							<p class="relate-post-content">
+								记录 git 报错信息、原因、解决方法
+
+1、error: failed to push some refs to
+错误信息：
+
+12345error: failed to push some refs to 'git@gitee.c...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../03/07/20191/git-error/" title="git报错解决">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="git报错解决"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../02/19/20191/mooc-vue-start/" title="慕课网vue2.5入门 学习笔记">
+								慕课网vue2.5入门 学习笔记			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								二月 19日, 2019				
+							</p>
+							<p class="relate-post-content">
+								慕课网学习笔记；视频地址demo地址
+
+一、Vue 基础语法模板、实例、挂载点数据、事件、方法
+指令 :
+
+1234567&#123;&#123;&#125;&#125;v-textv-htmlcontent
+
+v-on:click ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../02/19/20191/mooc-vue-start/" title="慕课网vue2.5入门 学习笔记">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="慕课网vue2.5入门 学习笔记"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2018/12/14/20184/httpcache/" title="http缓存详解">
+								http缓存详解			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十二月 14日, 2018				
+							</p>
+							<p class="relate-post-content">
+								浏览器是如何知道使用缓存的，其实这都是通过http中，浏览器将最后修改时间发送请求给web服务器，web服务器收到请求后跟服务器上的文档最后修改的时间对比，如果web服务器上最新文档修改时间小于或者等于浏览器发送过来的，则发送304给...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2018/12/14/20184/httpcache/" title="http缓存详解">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="http缓存详解"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
+	
+</div>	
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-comment">
+
+	
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
+	
+
+</div>
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- show math formula -->
+
+
+
+	 
+	
+<script src="../../../../../plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="../../../../../plugin/fancybox/jquery.fancybox.css">
+
+
+<script src="../../../../../plugin/fancybox/jquery.fancybox.js"></script>
+
+
+<script type="text/javascript">
+	(function gallerySet(){
+		let titleID = $('.article-title a'),
+			imageID = $('.article-content img'),
+			videoID = $('.article-content video');
+		
+		let postTitle = titleID.text() ? titleID.text() : "No post title!";
+		
+		imageID.each(function() {
+			let imgPath = $(this).attr('src'),
+				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
+		});
+		
+		videoID.each(function() {
+			let videoPath = $(this).attr('src');
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+		});
+		
+		//TODO：支持html5 video
+
+		if($('#layout-post').length) {
+			$('[data-fancybox="gallery"]').fancybox({
+				loop: true,
+				buttons: [
+					"zoom",
+					"share",
+					"slideShow",
+					"fullScreen",
+					//"download",
+					"thumbs",
+					"close"
+				],
+				protect: true
+			});
+		}
+	})();
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="../../../../../index.html" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="../../../../../archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="../../../../../categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="../../../../../tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="../../../../../about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="../../../../../gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2018 - 2021, content by chenlilin. All Rights Reserved.
+			
+			
+				<!-- <a href="../../../../../http:/hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="../../../../../https:/github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. -->
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+
+	
+<script src="../../../../../plugin/motto/motto.js"></script>
+
+	
+	<script type="text/javascript">
+		(function motto(){
+			let mottoText = getMingYanContent().split('</br> - </br>'),
+			
+			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
+			
+			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
+			
+			mottoTextContent = mottoTextContent.trim().substring(0, 100);
+		
+			$("#motto-content").html( mottoTextContent);
+			$("#motto-author").html( mottoTextFrom  );
+		})();	
+	</script>	
+
+
+
+<!-- love effect -->
+
+	
+<script src="../../../../../plugin/love/love.js"></script>
+
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+  
+
+	<!--
+	时间：2018-10-3
+	描述：
+		插件名称：hexo-generator-search-zip
+		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
+		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
+-->
+<div class="popup search-popup local-search-popup scrollbar" >
+	<div class="local-search-container">
+		<span class="popup-btn-close">
+      		ESC
+   		</span>
+		<div class="local-search-header">
+			<div class="input-prompt">				
+			</div>
+			<input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+		</div>
+		<div class="local-search-body">
+			<div id="local-search-output"></div>
+		</div>
+		<div class="local-search-footer">
+			<div class="topN-post">				
+				
+								
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="../../../../../plugin/search/ziploader.js"></script>
+<script src="../../../../../js/search.js"></script>
+
+
+<script type="text/javascript">
+	var search_path = 'search.json',
+		zip_Path = '/search.zip',
+		version_Path = '/searchVersion.txt',
+		input_Trigger = 'auto',
+		top_N = '2';
+
+	themeLocalSearch({
+		search_path, 
+		zip_Path, 
+		version_Path, 
+		input_Trigger, 
+		top_N
+	});
+</script>
+
+
+
+<script src="../../../../../plugin/chinese/chinese.js"></script>
+<script src="../../../../../plugin/imagelazyloader/yall.min.js"></script>
+<script src="../../../../../plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="../../../../../plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="../../../../../plugin/resizediv/resizediv.js"></script>
+<script src="../../../../../js/main.js"></script>
+
+	</body>	
+</html>

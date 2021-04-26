@@ -1,0 +1,1186 @@
+
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      Ionic3 多平台开发企业级问答社区 | 陈立林的个人网站
+    
+  </title>
+  <meta name="author" content="来者可追">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+
+  <!-- css -->
+  
+<link rel="stylesheet" href="../../../../../css/Annie.css">
+
+  
+  <!-- jquery -->
+	
+<script src="../../../../../plugin/jquery/jquery.min.js"></script>
+
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'normal',
+      normalSrc: '../../../../../https:/source.unsplash.com/collection/954550/1920x1080',
+      randomYouMax: 110,
+      randomYouSrc: '../../../../../https:/sariay.github.io/Random-img/',
+	  randomOtherSrc: '../../../../../https:/api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: false
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: false,
+	  appId: 'AU8...',
+	  appKey: '4cU...',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+	<body>
+		<!-- Preloader -->
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">获取中...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			「Ionic3 多平台开发企业级问答社区」
+		
+	</p>
+
+	
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="../../../../../img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="../../../../../index.html" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="../../../../../archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="../../../../../categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="../../../../../tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="../../../../../about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="../../../../../gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-zhihu"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-sina-weibo "></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-pinterest2"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+<script src="../../../../../plugin/toc/katelog.min.js"></script>
+
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+		<div class="article-title">
+			
+	<a href="" itemprop="url">
+		Ionic3 多平台开发企业级问答社区
+	</a>
+
+		</div>
+
+		<div class="article-meta">
+			<span>
+				<i class="icon-calendar1"></i>
+				
+				
+
+
+
+
+	更新于
+
+	<a href="" itemprop="url">
+		<time datetime="2019-06-27T02:05:28.000Z" itemprop="dateUpdated">
+	  		2021-04-23
+	  </time>
+	</a> 
+
+
+
+			</span>
+			<span>
+				
+	<i class="icon-price-tags"></i>
+	
+		<a href="../../../../../tags/ionic/" class=" ">
+			ionic
+		</a>
+	
+		
+			</span>
+			
+			
+
+
+
+		</div>
+
+		<div class="article-content" id="article-content">
+			<p>混合式开发 app。原视频为 ionic3，我使用的是 ionic4。</p>
+<p>源码地址<a href="https://gitee.com/icll/ionic-demo" target="_blank" rel="noopener">https://gitee.com/icll/ionic-demo</a></p>
+<p>某云地址：<a href="https://pan.baidu.com/s/1kNFRwNhKqw-uN5WkdM2KIQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1kNFRwNhKqw-uN5WkdM2KIQ</a><br>提取码：n27n</p>
+<a id="more"></a>
+<p>源码地址：<a href="https://gitee.com/icll/ionic-demo" target="_blank" rel="noopener">https://gitee.com/icll/ionic-demo</a></p>
+<h2 id="第-2-章-Ionic-框架介绍"><a href="#第-2-章-Ionic-框架介绍" class="headerlink" title="第 2 章 Ionic 框架介绍"></a>第 2 章 Ionic 框架介绍</h2><h3 id="2-4-Ionic-官方-Slack、博客论坛介绍"><a href="#2-4-Ionic-官方-Slack、博客论坛介绍" class="headerlink" title="2-4 Ionic 官方 Slack、博客论坛介绍"></a>2-4 Ionic 官方 Slack、博客论坛介绍</h3><ul>
+<li>ionic 官方博客 :<a href="https://blog.ionicframework.com/" target="_blank" rel="noopener">https://blog.ionicframework.com/</a></li>
+</ul>
+<p>经常做一些分析，英文。</p>
+<ul>
+<li><p>ionic 讨论社群 ：<a href="https://ionic-worldwide.slack.com/" target="_blank" rel="noopener">https://ionic-worldwide.slack.com/</a></p>
+</li>
+<li><p>ionic 查问题：<a href="https://forum.ionicframework.com/" target="_blank" rel="noopener">https://forum.ionicframework.com/</a></p>
+</li>
+</ul>
+<p><img src="/images/20192/ionic1-2-1_compressed.png" alt="查问题："></p>
+<h3 id="2-5-Ionic-组件简介"><a href="#2-5-Ionic-组件简介" class="headerlink" title="2-5 Ionic 组件简介"></a>2-5 Ionic 组件简介</h3><p>混合开发的基本组件，简单理解为使用 HTML 写手机端的呈现组件</p>
+<ul>
+<li>提供了很多组件，如按钮，列表等</li>
+</ul>
+<p><a href="https://ionicframework.com/docs/api/header" target="_blank" rel="noopener">https://ionicframework.com/docs/api/header</a></p>
+<p><img src="/images/20192/ionic1-2-2_compressed.png" alt="组件简介"></p>
+<h3 id="2-6-Ionic-Native-框架简介"><a href="#2-6-Ionic-Native-框架简介" class="headerlink" title="2-6 Ionic Native 框架简介"></a>2-6 Ionic Native 框架简介</h3><p>与<strong>系统底层</strong>有交互的组件框架</p>
+<ul>
+<li>提供了手机操作，如 3D Touch，蓝牙，图片，文件，闪光灯，</li>
+</ul>
+<p><a href="https://ionicframework.com/docs/native" target="_blank" rel="noopener">https://ionicframework.com/docs/native</a></p>
+<p>学习方法与组件类似，会用两三个之后，其他的也都会用了。</p>
+<h2 id="第-3-章-项目实战—必备前置知识点"><a href="#第-3-章-项目实战—必备前置知识点" class="headerlink" title="第 3 章 项目实战—必备前置知识点"></a>第 3 章 项目实战—必备前置知识点</h2><h3 id="3-1-课程使用的思维导图软件介绍"><a href="#3-1-课程使用的思维导图软件介绍" class="headerlink" title="3-1 课程使用的思维导图软件介绍"></a>3-1 课程使用的思维导图软件介绍</h3><p>可以整理知识点，有两个不错的软件</p>
+<ul>
+<li><p>ithoughtsx <a href="https://www.toketaware.com/" target="_blank" rel="noopener">https://www.toketaware.com/</a></p>
+</li>
+<li><p>xmind <a href="https://www.xmind.cn/" target="_blank" rel="noopener">https://www.xmind.cn/</a></p>
+</li>
+</ul>
+<h3 id="3-2-Node-js-框架介绍"><a href="#3-2-Node-js-框架介绍" class="headerlink" title="3-2 Node.js 框架介绍"></a>3-2 Node.js 框架介绍</h3><p>可以简单理解为用来跑 javascript 的框架</p>
+<p><img src="/images/20192/ionic1-3-1_compressed.png" alt="框架介绍"></p>
+<p>node.js 中文网<a href="http://nodejs.cn/" target="_blank" rel="noopener">http://nodejs.cn/</a></p>
+<p><strong>npm 的概念</strong>.</p>
+<p>可以打包，可以用别人打好的包。防止重复造轮子：如果有人写好了，可以直接复用别人的。<br>是一套非常好的生态系统，不需要自己写很多代码。</p>
+<p>npm 官网<a href="https://www.npmjs.com/" target="_blank" rel="noopener">https://www.npmjs.com/</a><br>npm 中文网：<a href="https://www.npmjs.cn/" target="_blank" rel="noopener">https://www.npmjs.cn/</a></p>
+<p><img src="/images/20192/ionic1-3-2_compressed.png" alt="npm中搜索ionic"></p>
+<h3 id="3-3-Mac-与-Windows-环境下的-Node-js-指定版本安装实战演示"><a href="#3-3-Mac-与-Windows-环境下的-Node-js-指定版本安装实战演示" class="headerlink" title="3-3 Mac 与 Windows 环境下的 Node.js 指定版本安装实战演示"></a>3-3 Mac 与 Windows 环境下的 Node.js 指定版本安装实战演示</h3><p><strong>Mac</strong>.</p>
+<p>视频中为 6.11.3。如果不一样，可能会出现问题</p>
+<p><strong>Windows</strong>.</p>
+<p>都是狂点下一步。</p>
+<p><strong>其他版本</strong> <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download/</a></p>
+<blockquote>
+<p>命令行工具最好“以管理员身份运行”</p>
+</blockquote>
+<h3 id="3-4-网络问题解决办法与此实战课程指定版本-Ionic-安装实战演示"><a href="#3-4-网络问题解决办法与此实战课程指定版本-Ionic-安装实战演示" class="headerlink" title="3-4 网络问题解决办法与此实战课程指定版本 Ionic 安装实战演示"></a>3-4 网络问题解决办法与此实战课程指定版本 Ionic 安装实战演示</h3><p><strong>解决国内网络的终极办法</strong>.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 临时使用淘宝源</span></span><br><span class="line">npm --registry https://registry.npm.taobao.org install node-red-contrib-composer@latest</span><br><span class="line"><span class="comment"># 全局配置切换到淘宝源</span></span><br><span class="line"> npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br><span class="line"><span class="comment"># 全局配置切换到官方源</span></span><br><span class="line"> npm config <span class="built_in">set</span> registry http://www.npmjs.org</span><br><span class="line"><span class="comment">#  检测是否切换到了淘宝源</span></span><br><span class="line">npm info underscore</span><br><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
+<p><strong>ionic 安装</strong>.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">npm install -g ionic</span><br><span class="line"><span class="comment"># 安装指定版本</span></span><br><span class="line">npm install -g ionic@1.6.5</span><br><span class="line"><span class="comment"># 安装最新版</span></span><br><span class="line">npm install -g ionic latest</span><br><span class="line"><span class="comment"># 删除</span></span><br><span class="line">npm uninstall ionic -g</span><br><span class="line"><span class="comment"># 查看信息</span></span><br><span class="line">ionic info</span><br></pre></td></tr></table></figure>
+<h3 id="3-5-课程编写代码使用的-VSCode-介绍、安装实战演示"><a href="#3-5-课程编写代码使用的-VSCode-介绍、安装实战演示" class="headerlink" title="3-5 课程编写代码使用的 VSCode 介绍、安装实战演示"></a>3-5 课程编写代码使用的 VSCode 介绍、安装实战演示</h3><h3 id="3-6-VSCode-开发-Ionic-必备的插件介绍与安装演示"><a href="#3-6-VSCode-开发-Ionic-必备的插件介绍与安装演示" class="headerlink" title="3-6 VSCode 开发 Ionic 必备的插件介绍与安装演示"></a>3-6 VSCode 开发 Ionic 必备的插件介绍与安装演示</h3><ul>
+<li>vscode-icons ：改变项目文件的图标</li>
+<li>TSLint ：ts 检测</li>
+<li>Path Intellisense ：提示导入文件的路径</li>
+<li>OneDark-Pro ：主题</li>
+<li>ESLint ：js 代码检测</li>
+<li>beautify ：代码美化</li>
+</ul>
+<h3 id="3-7-Android-开发环境安装实战演示"><a href="#3-7-Android-开发环境安装实战演示" class="headerlink" title="3-7 Android 开发环境安装实战演示"></a>3-7 Android 开发环境安装实战演示</h3><p>Android Studio <a href="http://www.android-studio.org/" target="_blank" rel="noopener">http://www.android-studio.org/</a>,用来打包</p>
+<p>Standalone SDK manager</p>
+<ul>
+<li>管理与更新本地的 SDK</li>
+<li>需要自己解决的网络问题</li>
+<li>双击：/user/yourAccount/library/android/sdk/tools —mac 路径</li>
+<li>C:\productivity\android-sdks\tools —win 路径</li>
+</ul>
+<h3 id="3-8-Android-模拟器-GenyMotion-安装实战演示"><a href="#3-8-Android-模拟器-GenyMotion-安装实战演示" class="headerlink" title="3-8 Android 模拟器 GenyMotion 安装实战演示"></a>3-8 Android 模拟器 GenyMotion 安装实战演示</h3><p>网址：<a href="https://www.genymotion.com/" target="_blank" rel="noopener">https://www.genymotion.com/</a> <a href="mailto:isyslhi@gmail.com">isyslhi@gmail.com</a> Chen..</p>
+<p>需要先注册一下，</p>
+<h3 id="3-9-Xcode-简介与使用注意点"><a href="#3-9-Xcode-简介与使用注意点" class="headerlink" title="3-9 Xcode 简介与使用注意点"></a>3-9 Xcode 简介与使用注意点</h3><ul>
+<li><p>mac 平台下使用。如果需要打包发布，系统和 Xcode 就不要安装 beta 版本（不方便提交到 AppStore）。</p>
+</li>
+<li><p>注意目录权限问题。</p>
+</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取Ionic目录的最高权限</span></span><br><span class="line">sudo chmod -R 777 Ionic</span><br></pre></td></tr></table></figure>
+<h3 id="3-10-Ionic-使用的-TypeScript-语言简介"><a href="#3-10-Ionic-使用的-TypeScript-语言简介" class="headerlink" title="3-10 Ionic 使用的 TypeScript 语言简介"></a>3-10 Ionic 使用的 TypeScript 语言简介</h3><h2 id="第-4-章-项目实战—开发环境初始化"><a href="#第-4-章-项目实战—开发环境初始化" class="headerlink" title="第 4 章 项目实战—开发环境初始化"></a>第 4 章 项目实战—开发环境初始化</h2><h3 id="4-1-使用-Ionic-CLI-进行项目的初始化构建"><a href="#4-1-使用-Ionic-CLI-进行项目的初始化构建" class="headerlink" title="4-1 使用 Ionic CLI 进行项目的初始化构建"></a>4-1 使用 Ionic CLI 进行项目的初始化构建</h3><p>使用 ionic-cli <a href="https://ionicframework.com/docs/cli" target="_blank" rel="noopener">https://ionicframework.com/docs/cli</a><br>命令页面 <a href="https://ionicframework.com/getting-started#cli" target="_blank" rel="noopener">https://ionicframework.com/getting-started#cli</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Install Ionic</span></span><br><span class="line">npm install -g ionic</span><br><span class="line"><span class="comment"># Start an app</span></span><br><span class="line">ionic start myApp tabs</span><br><span class="line"><span class="comment"># Run your app</span></span><br><span class="line"><span class="built_in">cd</span> myApp</span><br><span class="line">ionic serve</span><br></pre></td></tr></table></figure>
+<p>可视化：<a href="https://dashboard.ionicframework.com/personal/hub" target="_blank" rel="noopener">https://dashboard.ionicframework.com/personal/hub</a>,</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ionic link</span><br><span class="line"><span class="comment"># 之后输入账户和密码</span></span><br></pre></td></tr></table></figure>
+<p>启动后页面:</p>
+<p><img src="/images/20192/ionic1-4-1_compressed.png" alt="启动后页面"></p>
+<h3 id="4-2-Ionic-CLI-初始化失败时的另一种构建项目方案"><a href="#4-2-Ionic-CLI-初始化失败时的另一种构建项目方案" class="headerlink" title="4-2 Ionic CLI 初始化失败时的另一种构建项目方案"></a>4-2 Ionic CLI 初始化失败时的另一种构建项目方案</h3><p>如：网络问题。</p>
+<p>可以直接拉源码运行。</p>
+<h3 id="4-3-VSCode-打开项目插件初始化设置"><a href="#4-3-VSCode-打开项目插件初始化设置" class="headerlink" title="4-3 VSCode 打开项目插件初始化设置"></a>4-3 VSCode 打开项目插件初始化设置</h3><p>插件：</p>
+<ul>
+<li>Project Manager</li>
+<li>Bracket Pair Colorizer ，括号增强插件：配对的括号用彩色标注</li>
+</ul>
+<h3 id="4-4-编译项目的方法并在-iOS-环境下体验"><a href="#4-4-编译项目的方法并在-iOS-环境下体验" class="headerlink" title="4-4 编译项目的方法并在 iOS 环境下体验"></a>4-4 编译项目的方法并在 iOS 环境下体验</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#命令如果不全会给出提示</span></span><br><span class="line">ionic cordova</span><br><span class="line"><span class="comment">#如果没有权限，这句会报错：</span></span><br><span class="line">ionic cordova platform</span><br><span class="line"><span class="comment">#mac下需要在代码前面添加sudo</span></span><br><span class="line"><span class="comment">#win下需要以管理员身份运行</span></span><br><span class="line">sudo ionic cordova platform</span><br></pre></td></tr></table></figure>
+<p>运行后如下：列出当前已有的平台（Installed platforms）和可用的平台（Available platform）<br><img src="/images/20192/ionic1-4-2_compressed.png" alt="ionic cordova platform"></p>
+<p>添加<code>ios</code>平台，等待安装完成</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic cordova platform add ios</span><br></pre></td></tr></table></figure>
+<p>之后项目根目录中的<code>platforms</code>里会多出一个<code>ios</code>目录，存放打包后的 ios 文件。如下图</p>
+<p><img src="/images/20192/ionic1-4-4_compressed.png" alt="`platforms`里会多出一个`ios`目录"></p>
+<p><strong>注意目录权限问题</strong>.</p>
+<p>在 xCode 中打开<code>ios</code>目录中用于 xCode 打开的文件<code>MyApp.xcodeproj</code>, 会提示没有权限</p>
+<p><img src="/images/20192/ionic1-4-3_compressed.png" alt="没有权限"></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 回到上一层目录</span></span><br><span class="line">..</span><br><span class="line">ls</span><br><span class="line"><span class="comment"># 使用命令获取权限</span></span><br><span class="line">sudo chmod -R 777 04-01</span><br></pre></td></tr></table></figure>
+<p>之后继续用 xCode 打开，选择模拟器，启动。</p>
+<p><strong>ionic view</strong>.</p>
+<p>官方开发者工具。无需上架、审核，就可以给预览。现在好像不行了。</p>
+<p><strong>可能会遇到的错误</strong>.</p>
+<p>参考官方文档：<a href="https://ionicframework.com/docs/building/running" target="_blank" rel="noopener">https://ionicframework.com/docs/building/running</a></p>
+<p><strong>真机调试与发布需要 Apple 开发者账号</strong>.</p>
+<h3 id="4-5-编译项目的方法并在-Android-环境下体验"><a href="#4-5-编译项目的方法并在-Android-环境下体验" class="headerlink" title="4-5 编译项目的方法并在 Android 环境下体验"></a>4-5 编译项目的方法并在 Android 环境下体验</h3><blockquote>
+<p>需要 Java JDK 和 Android SDK 新版的 cordova 需要先安装 gradle.</p>
+</blockquote>
+<ul>
+<li>1、手动下载 gradle<br>gradle-x.x-bin.zip （x.x 代表版本）<br>根据需要下载某一版本<br>地址： <a href="https://services.gradle.org/distributions" target="_blank" rel="noopener">https://services.gradle.org/distributions</a><br>我下载的是 gradle-3.5</li>
+</ul>
+<p>下载完成后，解压到任意文件夹下</p>
+<ul>
+<li><p>2、添加环境变量<br>PATH=F:\gradle-3.5\bin</p>
+</li>
+<li><p>3、关闭 cmd</p>
+</li>
+<li><p>4、打开 cmd，输入 gradle -v，查看是否安装成功</p>
+</li>
+<li><p>5、继续使用 ionic cordova build android。</p>
+</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先以管理员运行，然后查看装了哪些</span></span><br><span class="line">ionic cordova platform</span><br><span class="line"><span class="comment"># 安装 android 平台</span></span><br><span class="line">ionic cordova platform add android</span><br><span class="line"><span class="comment"># 如果已经安装了，打包</span></span><br><span class="line">ionic cordova build android</span><br><span class="line"></span><br><span class="line"><span class="comment"># mac下需要获取权限</span></span><br><span class="line">sudo ionic cordova platform</span><br><span class="line">sudo chmod -R 777 04-01</span><br></pre></td></tr></table></figure>
+<p>在 Android Studio 中打开项目</p>
+<p><strong>直接使用 Android Studio 进行连接调试</strong>.</p>
+<p><img src="/images/20192/genymotion13_compressed.png" alt="最终效果："></p>
+<p><strong>打包成 apk 拖入后进行测试</strong>.</p>
+<p>build-&gt;build apk</p>
+<h3 id="4-6-编译项目的方法并在浏览器环境下体验"><a href="#4-6-编译项目的方法并在浏览器环境下体验" class="headerlink" title="4-6 编译项目的方法并在浏览器环境下体验"></a>4-6 编译项目的方法并在浏览器环境下体验</h3><p>后面的开发都在浏览器。</p>
+<h3 id="4-7-编译项目的方法并在微信环境下体验"><a href="#4-7-编译项目的方法并在微信环境下体验" class="headerlink" title="4-7 编译项目的方法并在微信环境下体验"></a>4-7 编译项目的方法并在微信环境下体验</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建</span></span><br><span class="line">ionic cordova platform add browser</span><br><span class="line"><span class="comment"># 浏览器版本的打包</span></span><br><span class="line">ionic cordova build browser</span><br><span class="line"><span class="comment"># 部署到platform/borwser/www文件夹到对应的服务器 ,其实就是一个静态站点的部署过程</span></span><br></pre></td></tr></table></figure>
+<h2 id="第-5-章-项目实战—App-基础布局开发"><a href="#第-5-章-项目实战—App-基础布局开发" class="headerlink" title="第 5 章 项目实战—App 基础布局开发"></a>第 5 章 项目实战—App 基础布局开发</h2><h3 id="5-1-项目布局参考的-App-细节讲解"><a href="#5-1-项目布局参考的-App-细节讲解" class="headerlink" title="5-1 项目布局参考的 App 细节讲解"></a>5-1 项目布局参考的 App 细节讲解</h3><h3 id="5-2-tab-组件布局以及图标选择"><a href="#5-2-tab-组件布局以及图标选择" class="headerlink" title="5-2 tab 组件布局以及图标选择"></a>5-2 tab 组件布局以及图标选择</h3><p>课程思路：开发底部的 tab 并选择正确的图标</p>
+<p><a href="https://ionicons.com/" target="_blank" rel="noopener">https://ionicons.com/</a></p>
+<h3 id="5-3-五个一级基础页面的建立与调试"><a href="#5-3-五个一级基础页面的建立与调试" class="headerlink" title="5-3 五个一级基础页面的建立与调试"></a>5-3 五个一级基础页面的建立与调试</h3><p>课程思路：建立页面的方法、命令。</p>
+<blockquote>
+<p>如果新建组件名字拼错，需要删除文件夹和 app-routing.module.ts 的路由。<strong>并重启项目</strong></p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic g page pages/home</span><br></pre></td></tr></table></figure>
+<p>ionic 官网完整指令：<a href="https://www.angular.cn/cli/generate#component-command" target="_blank" rel="noopener">https://www.angular.cn/cli/generate#component-command</a></p>
+<h3 id="5-4-项目数据源-API-解读与测试工具-Postman"><a href="#5-4-项目数据源-API-解读与测试工具-Postman" class="headerlink" title="5-4 项目数据源 API 解读与测试工具 Postman"></a>5-4 项目数据源 API 解读与测试工具 Postman</h3><p>课程思路：介绍 App 使用的 API，进行演示</p>
+<p><a href="https://imoocqa.gugujiankong.com/api/feeds/get" target="_blank" rel="noopener">https://imoocqa.gugujiankong.com/api/feeds/get</a></p>
+<p>iOS 的 App 对 API 的要求全部都是 HTTPS</p>
+<p>全部需要的接口：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//feed</span><br><span class="line">private apiUrlFeeds=<span class="string">'https://imoocqa.gugujiankong.com/api/feeds/get'</span></span><br><span class="line"></span><br><span class="line">//account</span><br><span class="line">private apiUrlRegister=<span class="string">'https://imoocqa.gugujiankong.com/api/account/</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">等...</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/20192/ionic1-5-1.png" alt="最终效果："></p>
+<h2 id="第-6-章-项目实战—用户登录组件开发"><a href="#第-6-章-项目实战—用户登录组件开发" class="headerlink" title="第 6 章 项目实战—用户登录组件开发"></a>第 6 章 项目实战—用户登录组件开发</h2><h3 id="6-1-用户未登录的页面开发（上）（中间有停顿）"><a href="#6-1-用户未登录的页面开发（上）（中间有停顿）" class="headerlink" title="6-1 用户未登录的页面开发（上）（中间有停顿）"></a>6-1 用户未登录的页面开发（上）（中间有停顿）</h3><p>课程思路：进行用户未登陆时的页面布局开发；</p>
+<p>ionic 官网预设的样式<a href="https://ionicframework.com/docs/layout/css-utilities" target="_blank" rel="noopener">https://ionicframework.com/docs/layout/css-utilities</a><br>可以直接用，用法：class</p>
+<p>修改样式的方法：<a href="https://ionicframework.com/docs/theming/css-variables" target="_blank" rel="noopener">https://ionicframework.com/docs/theming/css-variables</a></p>
+<p>修改主题的方法：<a href="https://ionicframework.com/docs/theming/advanced" target="_blank" rel="noopener">https://ionicframework.com/docs/theming/advanced</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ion-content</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ion-card</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ion-card-header</span> <span class="attr">class</span>=<span class="string">"ion-text-center"</span>&gt;</span></span><br><span class="line">      登陆 知道，体验更多功能</span><br><span class="line">    <span class="tag">&lt;/<span class="name">ion-card-header</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">ion-card-content</span> <span class="attr">class</span>=<span class="string">"ion-text-center"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ion-button</span> <span class="attr">outline</span> <span class="attr">size</span>=<span class="string">"small"</span>&gt;</span>登陆/注册<span class="tag">&lt;/<span class="name">ion-button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ion-card-content</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ion-card</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ion-content</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="6-2-用户未登录的页面开发（下）"><a href="#6-2-用户未登录的页面开发（下）" class="headerlink" title="6-2 用户未登录的页面开发（下）"></a>6-2 用户未登录的页面开发（下）</h3><p>在 theme 下面新建 light.scss，编写日间样式，并在 variables 里面导入：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// variables.scss</span></span><br><span class="line"><span class="comment">// 导入样式</span></span><br><span class="line">@<span class="keyword">import</span> <span class="string">"light"</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>如何修改 ionic 样式</strong>：</p>
+<blockquote>
+<p>官网修改样式的方法（全局和组件）：<a href="https://ionicframework.com/docs/theming/css-variables#setting-values" target="_blank" rel="noopener">https://ionicframework.com/docs/theming/css-variables#setting-values</a><br>官网修改主题的方法：<a href="https://ionicframework.com/docs/theming/advanced" target="_blank" rel="noopener">https://ionicframework.com/docs/theming/advanced</a></p>
+</blockquote>
+<blockquote>
+<p>ionic4 的样式是用 shadow Dom 写的，可以找到对应的样式，然后覆盖.</p>
+</blockquote>
+<p>找到对应样式:</p>
+<p><img src="/images/20192/ionic1-6-1.png" alt="找到对应样式"></p>
+<p>在全局 css 中覆盖:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* light.css */</span></span><br><span class="line"><span class="selector-tag">ion-content</span> &#123;</span><br><span class="line">  <span class="attribute">--background</span>: <span class="number">#e5e6e8</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>效果如下</p>
+<p><img src="/images/20192/ionic1-6-2.png" alt="修改后效果"></p>
+<h3 id="6-3-通用组件之-Rest-模块的建立与逻辑添加"><a href="#6-3-通用组件之-Rest-模块的建立与逻辑添加" class="headerlink" title="6-3 通用组件之 Rest 模块的建立与逻辑添加"></a>6-3 通用组件之 Rest 模块的建立与逻辑添加</h3><p>课程思路:组件的复用、Rest 网络请求的抽象设计。通过代码的封装，会让你觉得项目变得非常简单，并且可维护性高。</p>
+<blockquote>
+<p>前置知识：<a href="https://www.angular.cn/tutorial/toh-pt6#tap-into-the-observable" target="_blank" rel="noopener">https://www.angular.cn/tutorial/toh-pt6#tap-into-the-observable</a>，本章一定要仔细阅读。</p>
+</blockquote>
+<p>ionic4 中新建 service，代替 3 中的 providers</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic generate service servece/rest/rest</span><br></pre></td></tr></table></figure>
+<p>生成注释的插件：Document this</p>
+<p>生成 service,编写代码，以下是部分代码；</p>
+<p><img src="/images/20192/ionic1-6-3.png" alt="部分代码等"></p>
+<h3 id="6-4-用户登录页面布局开发（上）"><a href="#6-4-用户登录页面布局开发（上）" class="headerlink" title="6-4 用户登录页面布局开发（上）"></a>6-4 用户登录页面布局开发（上）</h3><p>ionic 弹出登录页面开发，主要使用 ionic 的 modal 样式：<a href="https://ionicframework.com/docs/api/modal" target="_blank" rel="noopener">https://ionicframework.com/docs/api/modal</a></p>
+<p>新建 login 作为弹出的登录页面，新建之后记得在 app.module.ts 里引入</p>
+<p><img src="/images/20192/ionic1-6-4.png" alt="在app.module.ts里引入"></p>
+<h3 id="6-5-用户登录页面布局开发（下）"><a href="#6-5-用户登录页面布局开发（下）" class="headerlink" title="6-5 用户登录页面布局开发（下）"></a>6-5 用户登录页面布局开发（下）</h3><p>继续开发页面：</p>
+<p><strong>不同设备显示不同样式</strong>。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ion-buttons</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ion-button</span> <span class="attr">color</span>=<span class="string">"secondary"</span> <span class="attr">showWhen</span>=<span class="string">"ios"</span>&gt;</span>取消<span class="tag">&lt;/<span class="name">ion-button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ion-icon</span> <span class="attr">name</span>=<span class="string">"md-close"</span> <span class="attr">showWhen</span>=<span class="string">"android"</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-icon</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ion-buttons</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>ionic3 可以，但是 ionic4 好像暂时隐藏了此功能</p>
+</blockquote>
+<p>可以用<code>ngIf</code>实现，具体请参考<a href="https://stackoverflow.com/questions/53248964/ionic-4-showwhen-hidewhen" target="_blank" rel="noopener">实现方法</a>和<a href="https://github.com/ionic-team/ionic/issues/16214" target="_blank" rel="noopener">git 上的讨论</a></p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component, OnInit&#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Platform &#125; <span class="keyword">from</span> <span class="string">'@ionic/angular'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'update-password'</span>,</span><br><span class="line">  templateUrl: <span class="string">'./update-password.component.html'</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> UpdatePasswordComponent <span class="keyword">implements</span> OnInit &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span></span><br><span class="line"><span class="params">    <span class="keyword">public</span> platform: Platform</span></span><br><span class="line"><span class="params">  </span>) &#123; &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ion-header</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ion-toolbar</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ion-title</span>&gt;</span>Update Password<span class="tag">&lt;/<span class="name">ion-title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ion-buttons</span> <span class="attr">slot</span>=<span class="string">"start"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ion-button</span> (<span class="attr">click</span>)=<span class="string">"dismiss()"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ion-text</span> <span class="attr">color</span>=<span class="string">"primary"</span> *<span class="attr">ngIf</span>=<span class="string">"platform.is('ios')"</span>&gt;</span>Cancel<span class="tag">&lt;/<span class="name">ion-text</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ion-icon</span> <span class="attr">name</span>=<span class="string">"md-close"</span> *<span class="attr">ngIf</span>=<span class="string">"!platform.is('ios')"</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-icon</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">ion-button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ion-buttons</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ion-toolbar</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ion-header</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>继续编写代码，最终效果如下：</p>
+<p><img src="/images/20192/ionic1-6-5.png" alt="继续编写代码，最终效果如下："></p>
+<h3 id="6-6-用户登录逻辑与-API-结合的开发（上）"><a href="#6-6-用户登录逻辑与-API-结合的开发（上）" class="headerlink" title="6-6 用户登录逻辑与 API 结合的开发（上）"></a>6-6 用户登录逻辑与 API 结合的开发（上）</h3><p>课程思路：登录页面的逻辑，包含接入 API 的网络请求以及细节梳理。</p>
+<p><strong>点击返回关闭弹窗</strong>,参考<a href="https://ionicframework.com/docs/api/modal" target="_blank" rel="noopener">官方实例</a>,与 ionic3 方法有所不同。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">constructor</span>(<span class="params"></span></span><br><span class="line"><span class="params">  <span class="keyword">public</span> platform: Platform,</span></span><br><span class="line"><span class="params">  <span class="keyword">public</span> modalController: ModalController</span></span><br><span class="line"><span class="params"></span>) &#123; &#125;</span><br><span class="line"></span><br><span class="line">ngOnInit() &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dismiss() &#123;</span><br><span class="line">  <span class="keyword">this</span>.modalController.dismiss();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>登陆时的 loading 效果</strong>，参考<a href="https://ionicframework.com/docs/api/loading" target="_blank" rel="noopener">官方示例</a></p>
+<p>封装成抽象类并调用：</p>
+<p><img src="/images/20192/ionic1-6-6.png" alt="继续编写代码，最终效果如下："></p>
+<blockquote>
+<p>使用双向绑定时需要在<code>app.module.ts</code>中声明</p>
+</blockquote>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.module.ts</span></span><br><span class="line">..</span><br><span class="line"><span class="keyword">import</span> &#123; FormsModule, ReactiveFormsModule &#125; <span class="keyword">from</span> <span class="string">'@angular/forms'</span>;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  imports: [</span><br><span class="line">    BrowserModule,</span><br><span class="line">    IonicModule.forRoot(),</span><br><span class="line">    FormsModule,</span><br><span class="line">    ReactiveFormsModule,</span><br><span class="line">    AppRoutingModule</span><br><span class="line">  ],</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h3 id="6-7-用户登录逻辑与-API-结合的开发（下）"><a href="#6-7-用户登录逻辑与-API-结合的开发（下）" class="headerlink" title="6-7 用户登录逻辑与 API 结合的开发（下）"></a>6-7 用户登录逻辑与 API 结合的开发（下）</h3><blockquote>
+<p>使用 http 时要全局导入 httpModules</p>
+</blockquote>
+<p>login.page.ts:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component, OnInit &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Platform, ModalController, LoadingController, ToastController &#125; <span class="keyword">from</span> <span class="string">'@ionic/angular'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; BaseUI &#125; <span class="keyword">from</span> <span class="string">'src/app/common/baseui'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; RestService &#125; <span class="keyword">from</span> <span class="string">'../../servece/rest/rest.service'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; load &#125; <span class="keyword">from</span> <span class="string">'@angular/core/src/render3'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="keyword">async</span> &#125; <span class="keyword">from</span> <span class="string">'@angular/core/testing'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'app-login'</span>,</span><br><span class="line">  templateUrl: <span class="string">'./login.page.html'</span>,</span><br><span class="line">  styleUrls: [<span class="string">'./login.page.scss'</span>],</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> LoginPage <span class="keyword">extends</span> BaseUI <span class="keyword">implements</span> OnInit &#123;</span><br><span class="line"></span><br><span class="line">  mobile: <span class="built_in">any</span>;</span><br><span class="line">  password: <span class="built_in">any</span>;</span><br><span class="line">  errorMessage: <span class="built_in">any</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span></span><br><span class="line"><span class="params">    <span class="keyword">public</span> platform: Platform,</span></span><br><span class="line"><span class="params">    <span class="keyword">public</span> modalController: ModalController,</span></span><br><span class="line"><span class="params">    <span class="keyword">public</span> loadingCtrl: LoadingController,</span></span><br><span class="line"><span class="params">    <span class="keyword">public</span> toastCtrl: ToastController,</span></span><br><span class="line"><span class="params">    <span class="keyword">public</span> restService: RestService</span></span><br><span class="line"><span class="params">  </span>) &#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ngOnInit() &#123;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  login() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">super</span>.present(<span class="string">'正在登陆...'</span>, <span class="keyword">this</span>.loadingCtrl);</span><br><span class="line">    <span class="comment">// let loading = super.showLoading(this.loadingCtrl, '登陆中...');</span></span><br><span class="line">    <span class="keyword">this</span>.restService.login(<span class="keyword">this</span>.mobile, <span class="keyword">this</span>.password)</span><br><span class="line">      .subscribe(</span><br><span class="line">        <span class="keyword">async</span> f =&gt; &#123;</span><br><span class="line">          <span class="keyword">const</span> res = <span class="built_in">JSON</span>.parse(f);</span><br><span class="line">          <span class="keyword">if</span> (res[<span class="string">'Status'</span>] === <span class="string">'OK'</span>) &#123;</span><br><span class="line">            <span class="comment">// 成功</span></span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">super</span>.dismiss(<span class="keyword">this</span>.loadingCtrl);</span><br><span class="line">            <span class="keyword">super</span>.showToast(<span class="keyword">this</span>.toastCtrl, res[<span class="string">'StatusContent'</span>])</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        error =&gt; <span class="keyword">this</span>.errorMessage = &lt;<span class="built_in">any</span>&gt;error</span><br><span class="line">      )</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>baseui.ts:</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component &#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; LoadingController, ToastController &#125; <span class="keyword">from</span> <span class="string">"@ionic/angular"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">abstract</span> <span class="keyword">class</span> BaseUI &#123;</span><br><span class="line">  isLoading = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//  *lading加载动画</span></span><br><span class="line">  <span class="keyword">protected</span> <span class="keyword">async</span> showLoading(loadingCtrl: LoadingController, message: <span class="built_in">any</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> loader = <span class="keyword">await</span> loadingCtrl.create(&#123;</span><br><span class="line">      message</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">await</span> loader.present();</span><br><span class="line">    <span class="keyword">return</span> loader;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//  *lading加载动画</span></span><br><span class="line">  <span class="keyword">protected</span> <span class="keyword">async</span> present(message: <span class="built_in">string</span>, loadingCtrl: LoadingController) &#123;</span><br><span class="line">    <span class="keyword">this</span>.isLoading = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">await</span> loadingCtrl</span><br><span class="line">      .create(&#123;</span><br><span class="line">        message</span><br><span class="line">        <span class="comment">// duration: 2000,</span></span><br><span class="line">      &#125;)</span><br><span class="line">      .then(<span class="function"><span class="params">a</span> =&gt;</span> &#123;</span><br><span class="line">        a.present().then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">"presented"</span>);</span><br><span class="line">          <span class="keyword">if</span> (!<span class="keyword">this</span>.isLoading) &#123;</span><br><span class="line">            a.dismiss().then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">"abort presenting"</span>));</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//  *lading取消动画</span></span><br><span class="line">  <span class="keyword">async</span> dismiss(loadingCtrl: LoadingController) &#123;</span><br><span class="line">    <span class="keyword">this</span>.isLoading = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">await</span> loadingCtrl.dismiss().then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">"dismissed"</span>));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//  *toast全局提示</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">protected</span> <span class="keyword">async</span> showToast(toastCtrl: ToastController, message: <span class="built_in">string</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> toast = <span class="keyword">await</span> toastCtrl.create(&#123;</span><br><span class="line">      message,</span><br><span class="line">      duration: <span class="number">2000</span>, <span class="comment">// 默认展示的时长</span></span><br><span class="line">      position: <span class="string">"bottom"</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">await</span> toast.present();</span><br><span class="line">    <span class="keyword">return</span> toast;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>rest.service.ts</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Injectable &#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; HttpClientModule &#125; <span class="keyword">from</span> <span class="string">"@angular/common/http"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; HttpClient, HttpHeaders &#125; <span class="keyword">from</span> <span class="string">"@angular/common/http"</span>;</span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> qs <span class="keyword">from</span> <span class="string">"qs"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Observable, of &#125; <span class="keyword">from</span> <span class="string">"rxjs"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; catchError, map, tap &#125; <span class="keyword">from</span> <span class="string">"rxjs/operators"</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Injectable</span>(&#123;</span><br><span class="line">  providedIn: <span class="string">"root"</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> RestService &#123;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"><span class="keyword">private</span> http: HttpClient</span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  heroes = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> heroesUrl = <span class="string">"api/heroes"</span>; <span class="comment">// URL to web api</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// feed</span></span><br><span class="line">  <span class="keyword">private</span> apiUrlFeeds = <span class="string">"https://imoocqa.gugujiankong.com/api/feeds/get"</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// account</span></span><br><span class="line">  <span class="keyword">private</span> apiUrlRegister =</span><br><span class="line">    <span class="string">"https://imoocqa.gugujiankong.com/api/account/register"</span>;</span><br><span class="line">  <span class="keyword">private</span> apiUrlLogin = <span class="string">"https://imoocqa.gugujiankong.com/api/account/login"</span>;</span><br><span class="line">  <span class="keyword">private</span> apiUrlUserInfo =</span><br><span class="line">    <span class="string">"https://imoocqa.gugujiankong.com/api/account/userinfo"</span>;</span><br><span class="line">  <span class="keyword">private</span> apiUrlUpdateNickName =</span><br><span class="line">    <span class="string">"https://imoocqa.gugujiankong.com/api/account/update"</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// question</span></span><br><span class="line">  <span class="keyword">private</span> apiUrlQuestionSave =</span><br><span class="line">    <span class="string">"https://imoocqa.gugujiankong.com/api/question/save"</span>;</span><br><span class="line">  <span class="keyword">private</span> apiUrlQuestionLIst =</span><br><span class="line">    <span class="string">"https://imoocqa.gugujiankong.com/api/question/list?"</span>;</span><br><span class="line">  <span class="keyword">private</span> apiUrlGetQuestion =</span><br><span class="line">    <span class="string">"https://imoocqa.gugujiankong.com/api/question/get"</span>;</span><br><span class="line">  <span class="keyword">private</span> apiUrlAnswer = <span class="string">"https://imoocqa.gugujiankong.com/api/question/answer"</span>;</span><br><span class="line"></span><br><span class="line">  login(mobile, password): Observable&lt;<span class="built_in">string</span>[]&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.getUrlReturn(</span><br><span class="line">      <span class="keyword">this</span>.apiUrlLogin + <span class="string">"?mobile="</span> + mobile + <span class="string">"&amp;password="</span> + password</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 需要在app.module.ts中引入HttpClientModule,不然会报错</span></span><br><span class="line">  <span class="comment">// 全局获取HTTP请求的方法</span></span><br><span class="line">  <span class="keyword">private</span> getUrlReturn(url: <span class="built_in">string</span>): Observable&lt;<span class="built_in">string</span>[]&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.http.get&lt;<span class="built_in">string</span>[]&gt;(url).pipe(</span><br><span class="line">      <span class="comment">// HttpClient.get 返回响应数据,不常用</span></span><br><span class="line">      <span class="comment">// map(res =&gt; res),</span></span><br><span class="line">      <span class="comment">// 查看 Observable 中的值.这种 tap 回调不会改变这些值本身。</span></span><br><span class="line">      <span class="comment">// 示例：tap(_ =&gt; this.log('get urls yet')),</span></span><br><span class="line">      tap(<span class="keyword">this</span>.extractData),</span><br><span class="line">      <span class="comment">// 错误处理</span></span><br><span class="line">      catchError(<span class="keyword">this</span>.handleError&lt;<span class="built_in">string</span>[]&gt;(<span class="string">"getUrl"</span>, []))</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> extractData(res) &#123;</span><br><span class="line">    <span class="keyword">const</span> data = <span class="built_in">JSON</span>.parse(res) || &#123;&#125;;</span><br><span class="line">    <span class="keyword">return</span> data;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// catchError() 操作符会拦截失败的 Observable。 它把错误对象传给错误处理器，错误处理器会处理这个错误。</span></span><br><span class="line">  <span class="comment">// 下面的 handleError() 方法会报告这个错误，并返回一个无害的结果（安全值），以便应用能正常工作。</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Handle Http operation that failed.</span></span><br><span class="line"><span class="comment">   * Let the app continue.</span></span><br><span class="line"><span class="comment">   * @param operation - name of the operation that failed</span></span><br><span class="line"><span class="comment">   * @param result - optional value to return as the observable result</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">private</span> handleError&lt;T&gt;(operation = <span class="string">"operation"</span>, result?: T) &#123;</span><br><span class="line">    <span class="keyword">return</span> (error: <span class="built_in">any</span>): Observable&lt;T&gt; =&gt; &#123;</span><br><span class="line">      <span class="comment">// <span class="doctag">TODO:</span> send the error to remote logging infrastructure</span></span><br><span class="line">      <span class="built_in">console</span>.error(error); <span class="comment">// log to console instead</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// <span class="doctag">TODO:</span> better job of transforming error for user consumption</span></span><br><span class="line">      <span class="keyword">this</span>.log(<span class="string">`<span class="subst">$&#123;operation&#125;</span> failed: <span class="subst">$&#123;error.message&#125;</span>`</span>);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// Let the app keep running by returning an empty result.</span></span><br><span class="line">      <span class="keyword">return</span> of(result <span class="keyword">as</span> T);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** Log a HeroService message with the MessageService */</span></span><br><span class="line">  <span class="keyword">private</span> log(message: <span class="built_in">string</span>) &#123;</span><br><span class="line">    <span class="comment">// this.messageService.add(`HeroService: $&#123;message&#125;`);</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"错误信息："</span> + message);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试登陆的账号和密码都是<code>1</code>,最终实现效果：</p>
+<p><img src="/images/20192/ionic1-6-7.png" alt="最终实现效果："></p>
+<h3 id="6-8-用户登录后的页面建立与逻辑添加"><a href="#6-8-用户登录后的页面建立与逻辑添加" class="headerlink" title="6-8 用户登录后的页面建立与逻辑添加"></a>6-8 用户登录后的页面建立与逻辑添加</h3><p>课程思路：进行用户登陆后的页面布局开发及逻辑开发；</p>
+<p><strong>用户信息的存储</strong>：<a href="https://ionicframework.com/docs/building/storage" target="_blank" rel="noopener">stroage 文档</a></p>
+<p>阅读文档后发现，需要先安装。<strong>需要详细阅读文档</strong>。</p>
+<p>核心代码：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// more.page.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123; Component, OnInit &#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; ModalController &#125; <span class="keyword">from</span> <span class="string">"@ionic/angular"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; LoginPage &#125; <span class="keyword">from</span> <span class="string">"../login/login.page"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Storage &#125; <span class="keyword">from</span> <span class="string">"@ionic/storage"</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">"app-more"</span>,</span><br><span class="line">  templateUrl: <span class="string">"./more.page.html"</span>,</span><br><span class="line">  styleUrls: [<span class="string">"./more.page.scss"</span>]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> MorePage <span class="keyword">implements</span> OnInit &#123;</span><br><span class="line">  <span class="keyword">public</span> notLogin = <span class="literal">true</span>;</span><br><span class="line">  <span class="keyword">public</span> logined = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span></span><br><span class="line"><span class="params">    <span class="keyword">public</span> modalController: ModalController,</span></span><br><span class="line"><span class="params">    <span class="keyword">private</span> storage: Storage</span></span><br><span class="line"><span class="params">  </span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  ngOnInit() &#123;&#125;</span><br><span class="line"></span><br><span class="line">  ionViewDidEnter() &#123;</span><br><span class="line">    <span class="keyword">this</span>.loadUserPage();</span><br><span class="line">  &#125;</span><br><span class="line">  loadUserPage() &#123;</span><br><span class="line">    <span class="keyword">this</span>.storage.get(<span class="string">"UserId"</span>).then(<span class="function"><span class="params">val</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (val != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.notLogin = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">this</span>.logined = <span class="literal">true</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.notLogin = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">this</span>.logined = <span class="literal">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">async</span> showModal() &#123;</span><br><span class="line">    <span class="keyword">const</span> modal = <span class="keyword">await</span> <span class="keyword">this</span>.modalController.create(&#123;</span><br><span class="line">      component: LoginPage</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">await</span> modal.present();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// login.page.ts</span></span><br><span class="line"><span class="keyword">this</span>.restService.login(<span class="keyword">this</span>.mobile, <span class="keyword">this</span>.password).subscribe(</span><br><span class="line">  <span class="keyword">async</span> f =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> res = <span class="built_in">JSON</span>.parse(f);</span><br><span class="line">    <span class="keyword">if</span> (res[<span class="string">"Status"</span>] === <span class="string">"OK"</span>) &#123;</span><br><span class="line">      <span class="comment">// 处理成功页面的跳转，也可以存储返回的 token</span></span><br><span class="line">      <span class="keyword">this</span>.storage.set(<span class="string">"UserId"</span>, res[<span class="string">"UserId"</span>]);</span><br><span class="line">      <span class="comment">// 成功,关闭“加载中”遮罩，关闭当前的这个弹出层；</span></span><br><span class="line">      <span class="keyword">super</span>.dismiss(<span class="keyword">this</span>.loadingCtrl);</span><br><span class="line">      <span class="keyword">this</span>.modalCtrl.dismiss(&#123;</span><br><span class="line">        dismissed: <span class="literal">true</span></span><br><span class="line">      &#125;);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">super</span>.dismiss(<span class="keyword">this</span>.loadingCtrl);</span><br><span class="line">      <span class="keyword">super</span>.showToast(<span class="keyword">this</span>.toastCtrl, res[<span class="string">"StatusContent"</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  error =&gt; (<span class="keyword">this</span>.errorMessage = &lt;<span class="built_in">any</span>&gt;error)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>完成之后效果：</p>
+<p><img src="/images/20192/ionic1-6-8.png" alt="完成之后效果："></p>
+<h3 id="6-9-通用组件之通用组件的代码整理与注释添加"><a href="#6-9-通用组件之通用组件的代码整理与注释添加" class="headerlink" title="6-9 通用组件之通用组件的代码整理与注释添加"></a>6-9 通用组件之通用组件的代码整理与注释添加</h3><p>课程思路：整理目前的代码，养成良好习惯。</p>
+<h2 id="第-7-章-项目实战—用户注册组件开发"><a href="#第-7-章-项目实战—用户注册组件开发" class="headerlink" title="第 7 章 项目实战—用户注册组件开发"></a>第 7 章 项目实战—用户注册组件开发</h2><h3 id="7-1-用户注册页面的开发与逻辑嵌入"><a href="#7-1-用户注册页面的开发与逻辑嵌入" class="headerlink" title="7-1 用户注册页面的开发与逻辑嵌入"></a>7-1 用户注册页面的开发与逻辑嵌入</h3><p>注册页面使用 <a href="https://ionicframework.com/docs/api/nav" target="_blank" rel="noopener">nav</a></p>
+<p>ionic4 不支持<code>navCtrl</code>的部分方法了，已经改用路由了。</p>
+<h3 id="7-2-用户注册页面与-API-结合的开发"><a href="#7-2-用户注册页面与-API-结合的开发" class="headerlink" title="7-2 用户注册页面与 API 结合的开发"></a>7-2 用户注册页面与 API 结合的开发</h3><h3 id="7-3-用户注册表单验证的增强"><a href="#7-3-用户注册表单验证的增强" class="headerlink" title="7-3 用户注册表单验证的增强"></a>7-3 用户注册表单验证的增强</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- register.page.html --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ion-padding"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ion-button</span></span></span><br><span class="line"><span class="tag">    <span class="attr">class</span>=<span class="string">"ion-text-center"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">expand</span>=<span class="string">"block"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">color</span>=<span class="string">"primary"</span></span></span><br><span class="line"><span class="tag">    (<span class="attr">click</span>)=<span class="string">"doRegister()"</span></span></span><br><span class="line"><span class="tag">    &gt;</span>注册<span class="tag">&lt;/<span class="name">ion-button</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// register.page.ts</span></span><br><span class="line"></span><br><span class="line">  gotoLogin() &#123;</span><br><span class="line">    <span class="comment">// 返回上一层</span></span><br><span class="line">    <span class="keyword">this</span>.navCtrl.pop();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  doRegister() &#123;</span><br><span class="line">    <span class="comment">// 为什么前台不做校验？后端接收这些数据可以作为大数据存储，用户后期判断客户可信度的部分证据/</span></span><br><span class="line">    <span class="comment">// 如果系统发布到线上，如果后期需求突然改变（如新发布了122********的手机号），前端写死的话（新的手机号码无法注册），需要提交套appStore并审核，用户更新后才能适应新的需求。</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 前台验证表单正确定；包括长度，格式，违禁的词语</span></span><br><span class="line">    <span class="comment">// 手机号码验证  ^:开始   $:结束  \d&#123;9&#125;：剩下的数字9位</span></span><br><span class="line">    <span class="keyword">if</span> (!(<span class="regexp">/^1[3456789]\d&#123;9&#125;$/</span>.test(<span class="keyword">this</span>.mobile))) &#123;</span><br><span class="line">      <span class="keyword">super</span>.showToast(<span class="keyword">this</span>.toastCtrl, <span class="string">'您的手机号码格式不正确！'</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.nickname.length &lt; <span class="number">2</span> || <span class="keyword">this</span>.nickname.length &gt; <span class="number">10</span>) &#123;</span><br><span class="line">      <span class="keyword">super</span>.showToast(<span class="keyword">this</span>.toastCtrl, <span class="string">'请输入2到10位的昵称'</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.password.length &lt; <span class="number">6</span> || <span class="keyword">this</span>.password.length &gt; <span class="number">20</span>) &#123;</span><br><span class="line">      <span class="keyword">super</span>.showToast(<span class="keyword">this</span>.toastCtrl, <span class="string">'请输入6到20位的密码'</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.password !== <span class="keyword">this</span>.confirmPassword) &#123;</span><br><span class="line">      <span class="keyword">super</span>.showToast(<span class="keyword">this</span>.toastCtrl, <span class="string">'两次输入的密码不匹配'</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">super</span>.present(<span class="string">'正在注册...'</span>, <span class="keyword">this</span>.loadingCtrl);</span><br><span class="line">      <span class="comment">// let loading = super.showLoading(this.loadingCtrl, '登陆中...');</span></span><br><span class="line">      <span class="keyword">this</span>.restService.register(<span class="keyword">this</span>.mobile, <span class="keyword">this</span>.nickname, <span class="keyword">this</span>.password)</span><br><span class="line">        .subscribe(</span><br><span class="line">          <span class="keyword">async</span> f =&gt; &#123;</span><br><span class="line">            <span class="keyword">const</span> res = <span class="built_in">JSON</span>.parse(f);</span><br><span class="line">            <span class="keyword">if</span> (res[<span class="string">'Status'</span>] === <span class="string">'OK'</span>) &#123;</span><br><span class="line">              <span class="comment">// 成功,显示弹窗；关闭转圈圈的遮罩；返回上一层；</span></span><br><span class="line">              <span class="keyword">super</span>.showToast(<span class="keyword">this</span>.toastCtrl, res[<span class="string">'StatusContent'</span>])</span><br><span class="line">              <span class="keyword">super</span>.dismiss(<span class="keyword">this</span>.loadingCtrl);</span><br><span class="line">              <span class="keyword">this</span>.disMiss();</span><br><span class="line">              <span class="keyword">this</span>.navCtrl.pop();</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              <span class="keyword">super</span>.dismiss(<span class="keyword">this</span>.loadingCtrl);</span><br><span class="line">              <span class="keyword">super</span>.showToast(<span class="keyword">this</span>.toastCtrl, res[<span class="string">'StatusContent'</span>])</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          error =&gt; <span class="keyword">this</span>.errorMessage = error <span class="keyword">as</span> <span class="built_in">any</span></span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  disMiss() &#123;</span><br><span class="line">    <span class="keyword">this</span>.modalCtrl.dismiss(&#123;</span><br><span class="line">      <span class="string">'dismissed'</span>: <span class="literal">true</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// rest.service.ts</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// feed</span></span><br><span class="line">  <span class="keyword">private</span> apiUrlFeeds = <span class="string">'https://imoocqa.gugujiankong.com/api/feeds/get'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// account</span></span><br><span class="line">  <span class="keyword">private</span> apiUrlRegister = <span class="string">'https://imoocqa.gugujiankong.com/api/account/register'</span>;</span><br><span class="line">  <span class="keyword">private</span> apiUrlLogin = <span class="string">'https://imoocqa.gugujiankong.com/api/account/login'</span>;</span><br><span class="line">  <span class="keyword">private</span> apiUrlUserInfo = <span class="string">'https://imoocqa.gugujiankong.com/api/account/userinfo'</span>;</span><br><span class="line">  <span class="keyword">private</span> apiUrlUpdateNickName = <span class="string">'https://imoocqa.gugujiankong.com/api/account/update'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// question</span></span><br><span class="line">  <span class="keyword">private</span> apiUrlQuestionSave = <span class="string">'https://imoocqa.gugujiankong.com/api/question/save'</span>;</span><br><span class="line">  <span class="keyword">private</span> apiUrlQuestionLIst = <span class="string">'https://imoocqa.gugujiankong.com/api/question/list?'</span>;</span><br><span class="line">  <span class="keyword">private</span> apiUrlGetQuestion = <span class="string">'https://imoocqa.gugujiankong.com/api/question/get'</span>;</span><br><span class="line">  <span class="keyword">private</span> apiUrlAnswer = <span class="string">'https://imoocqa.gugujiankong.com/api/question/answer'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 根据用户手机号码和密码进行登陆</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * @param &#123;*&#125; mobile</span></span><br><span class="line"><span class="comment">   * @param &#123;*&#125; password</span></span><br><span class="line"><span class="comment">   * @returns &#123;Observable&lt;string[]&gt;&#125;</span></span><br><span class="line"><span class="comment">   * @memberof RestService</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  login(mobile, password): Observable&lt;<span class="built_in">string</span>&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.getUrlReturn(<span class="keyword">this</span>.apiUrlLogin + <span class="string">'?mobile='</span> + mobile + <span class="string">'&amp;password='</span> + password);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 该课程不涉及安全性方面考虑 ，所以不加密。</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * @param &#123;*&#125; mobile</span></span><br><span class="line"><span class="comment">   * @param &#123;*&#125; nickname</span></span><br><span class="line"><span class="comment">   * @param &#123;*&#125; password</span></span><br><span class="line"><span class="comment">   * @returns &#123;Observable&lt;string&gt;&#125;</span></span><br><span class="line"><span class="comment">   * @memberof RestService</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  register(mobile, nickname, password): Observable&lt;<span class="built_in">string</span>&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.getUrlReturn(<span class="keyword">this</span>.apiUrlRegister + <span class="string">'?mobile='</span> + mobile + <span class="string">'&amp;nickname='</span> + nickname + <span class="string">'&amp;password='</span> + password);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 需要在app.module.ts中引入HttpClientModule,不然会报错</span></span><br><span class="line">  <span class="comment">// 全局获取HTTP请求的方法</span></span><br><span class="line">  <span class="keyword">private</span> getUrlReturn(url: <span class="built_in">string</span>): Observable&lt;<span class="built_in">string</span>&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.http.get&lt;<span class="built_in">string</span>&gt;(url)</span><br><span class="line">      .pipe(</span><br><span class="line">        <span class="comment">// HttpClient.get 返回响应数据,不常用</span></span><br><span class="line">        <span class="comment">// map(res =&gt; res),</span></span><br><span class="line">        <span class="comment">// 查看 Observable 中的值.这种 tap 回调不会改变这些值本身。</span></span><br><span class="line">        <span class="comment">// 示例：tap(_ =&gt; this.log('get urls yet')),</span></span><br><span class="line">        tap(<span class="keyword">this</span>.extractData),</span><br><span class="line">        <span class="comment">// 错误处理</span></span><br><span class="line">        catchError(<span class="keyword">this</span>.handleError&lt;<span class="built_in">string</span>&gt;(<span class="string">'getUrl'</span>, <span class="string">''</span>))</span><br><span class="line">      );</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> extractData(res) &#123;</span><br><span class="line">    <span class="keyword">const</span> data = <span class="built_in">JSON</span>.parse(res) || &#123;&#125;;</span><br><span class="line">    <span class="keyword">return</span> data;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// catchError() 操作符会拦截失败的 Observable。 它把错误对象传给错误处理器，错误处理器会处理这个错误。</span></span><br><span class="line">  <span class="comment">// 下面的 handleError() 方法会报告这个错误，并返回一个无害的结果（安全值），以便应用能正常工作。</span></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Handle Http operation that failed.</span></span><br><span class="line"><span class="comment">   * Let the app continue.</span></span><br><span class="line"><span class="comment">   * @param operation - name of the operation that failed</span></span><br><span class="line"><span class="comment">   * @param result - optional value to return as the observable result</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">private</span> handleError&lt;T&gt;(operation = <span class="string">'operation'</span>, result?: T) &#123;</span><br><span class="line">    <span class="keyword">return</span> (error: <span class="built_in">any</span>): Observable&lt;T&gt; =&gt; &#123;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// <span class="doctag">TODO:</span> send the error to remote logging infrastructure</span></span><br><span class="line">      <span class="built_in">console</span>.error(error); <span class="comment">// log to console instead</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// <span class="doctag">TODO:</span> better job of transforming error for user consumption</span></span><br><span class="line">      <span class="keyword">this</span>.log(<span class="string">`<span class="subst">$&#123;operation&#125;</span> failed: <span class="subst">$&#123;error.message&#125;</span>`</span>);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// Let the app keep running by returning an empty result.</span></span><br><span class="line">      <span class="keyword">return</span> of(result <span class="keyword">as</span> T);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** Log a HeroService message with the MessageService */</span></span><br><span class="line">  <span class="keyword">private</span> log(message: <span class="built_in">string</span>) &#123;</span><br><span class="line">    <span class="comment">// this.messageService.add(`HeroService: $&#123;message&#125;`);</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'错误信息：'</span> + message);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="第-8-章-项目实战—个人信息组件开发"><a href="#第-8-章-项目实战—个人信息组件开发" class="headerlink" title="第 8 章 项目实战—个人信息组件开发"></a>第 8 章 项目实战—个人信息组件开发</h2><h3 id="8-1-用户头像和个人信息布局开发"><a href="#8-1-用户头像和个人信息布局开发" class="headerlink" title="8-1 用户头像和个人信息布局开发"></a>8-1 用户头像和个人信息布局开发</h3>	
+		</div>
+		
+		<div id="current-post-cover" data-scr="../../../../../img/cart_cover.jpg"></div>
+
+		<!-- relate post, comment...-->
+		<div class="investment-container">
+			<div class="investment-header">
+				<div class="investment-title-1">
+					<div class="on">相关文章</div>
+					<div>评论</div>
+					<div>分享</div>
+				</div>
+				<div class="investment-title-2">	            
+					
+	<span>
+		<a id="totop-post-page">返回顶部</a>
+		
+			<a href="../../../28/20192/genymotion-install/" title="Android Studio 中配置 Genymotion 及使用教程" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="../../../24/20192/ztree1/" title="ztree常用技巧" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+				</div>	
+			</div>
+			
+			<div class="investment-content">
+				<div class="investment-content-list">
+					
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2021/04/23/20184/markdown/" title="MD测试语法">
+								MD测试语法			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 23日, 2021				
+							</p>
+							<p class="relate-post-content">
+								主要是 hexo 写博客时常用的语法
+
+一级标题二级标题三级标题四级标题五级标题六级标题Qt 开源社区提供的下载地址
+
+。
+这是一段测试 加粗 _倾斜_Lorem ipsum dolor sit amet, consectetur a...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2021/04/23/20184/markdown/" title="MD测试语法">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="MD测试语法"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2021/04/23/20183/first-month/" title="遇到的问题">
+								遇到的问题			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 23日, 2021				
+							</p>
+							<p class="relate-post-content">
+								记录一下项目中相关的的问题
+
+用CANVAS绘制水印1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2021/04/23/20183/first-month/" title="遇到的问题">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="遇到的问题"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2021/01/13/20211/typescript-1/" title="typescript入门">
+								typescript入门			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								一月 13日, 2021				
+							</p>
+							<p class="relate-post-content">
+								Any 类型、数组和元组、interface 、类型推论 联合类型 类型断言、Class、类和接口、Enum、Generics、类型别名，字面量，交叉类型、声明文件、内置类型
+慕课网视频地址：https://coding.imooc....
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2021/01/13/20211/typescript-1/" title="typescript入门">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="typescript入门"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2021/01/04/20204/problem/" title="其他前端问题（一）">
+								其他前端问题（一）			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								一月 4日, 2021				
+							</p>
+							<p class="relate-post-content">
+								其他前端问题（一）
+ 
+关于async/await、promise和setTimeout执行顺序 1234567891011121314151617181920 async function async1() &#123;	conso...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2021/01/04/20204/problem/" title="其他前端问题（一）">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="其他前端问题（一）"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2020/12/28/20204/webpack-babel-2/" title="webpack-babel-2 构建速度优化、产出代码优化、babel">
+								webpack-babel-2 构建速度优化、产出代码优化、babel			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十二月 28日, 2020				
+							</p>
+							<p class="relate-post-content">
+								构建速度优化、产出代码优化、babel
+
+10-9 webpack优化构建速度-知识点串讲（性能优化）
+热议话题
+优化打包构建速度 - 优化开发体验和效率
+优化产出代码 - 优化产品性能 
+
+一般会让你聊一聊性能优化，可以从上面两个方...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2020/12/28/20204/webpack-babel-2/" title="webpack-babel-2 构建速度优化、产出代码优化、babel">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="webpack-babel-2 构建速度优化、产出代码优化、babel"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2020/12/28/20204/webpack-babel-1/" title="webpack-babel-1  基础配置、高级配置">
+								webpack-babel-1  基础配置、高级配置			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十二月 28日, 2020				
+							</p>
+							<p class="relate-post-content">
+								基础配置、高级配置
+
+1、webpack考点梳理webpack
+
+webpack 已是前端打包构建的不二选择
+前端已经不再是单纯的写页面的了。现在都是一个app，像android项目等。webpack是比较规范的。
+
+
+每日必用，面试...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2020/12/28/20204/webpack-babel-1/" title="webpack-babel-1  基础配置、高级配置">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="webpack-babel-1  基础配置、高级配置"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2020/12/28/20204/vue3-learn/" title="vue3学习">
+								vue3学习			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十二月 28日, 2020				
+							</p>
+							<p class="relate-post-content">
+								vue-cli配置、ref 、reactive、响应式对象、生命周期、watch、compositionAPI、模块化、泛型改造、setup()、Teleprot 、Suspense 、Global API 
+慕课网视频地址：http...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2020/12/28/20204/vue3-learn/" title="vue3学习">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="vue3学习"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2020/12/21/20204/react-theory-2/" title="react原理-2-高级特性">
+								react原理-2-高级特性			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十二月 21日, 2020				
+							</p>
+							<p class="relate-post-content">
+								react原理-2-高级特性
+
+7-13 React函数组件和class组件有何区别 （下面开始讲高级特性）高级特性可以拉开差距，主要包括：
+
+函数组件
+非受控组件
+Portals
+context
+异步组件
+性能优化
+高阶组件 HOC...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2020/12/21/20204/react-theory-2/" title="react原理-2-高级特性">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="react原理-2-高级特性"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2020/12/21/20204/react-theory-1/" title="react原理-1-使用">
+								react原理-1-使用			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十二月 21日, 2020				
+							</p>
+							<p class="relate-post-content">
+								react原理-1-使用
+
+第七章7-1、React使用-考点串讲React vs Vue
+
+React 和 Vue 一样重要，力求两者都会
+React 和 Vue 有很多相通之处，而且正在趋于一致
+React 比 Vue 学习成本高...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2020/12/21/20204/react-theory-1/" title="react原理-1-使用">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="react原理-1-使用"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2020/12/06/20204/vue-theory-3/" title="vue底层-3-题目、vue3">
+								vue底层-3-题目、vue3			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十二月 6日, 2020				
+							</p>
+							<p class="relate-post-content">
+								慕课网视频地址：https://coding.imooc.com/class/419.html
+
+
+第五章、面试真题题目来源：重点内容、网上收集整理、热门知识点
+大约30个题目。
+5.1、v-for为何使用keyv-show和v-if...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2020/12/06/20204/vue-theory-3/" title="vue底层-3-题目、vue3">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="vue底层-3-题目、vue3"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
+	
+</div>	
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-comment">
+
+	
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
+	
+
+</div>
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- show math formula -->
+
+
+
+	 
+	
+<script src="../../../../../plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="../../../../../plugin/fancybox/jquery.fancybox.css">
+
+
+<script src="../../../../../plugin/fancybox/jquery.fancybox.js"></script>
+
+
+<script type="text/javascript">
+	(function gallerySet(){
+		let titleID = $('.article-title a'),
+			imageID = $('.article-content img'),
+			videoID = $('.article-content video');
+		
+		let postTitle = titleID.text() ? titleID.text() : "No post title!";
+		
+		imageID.each(function() {
+			let imgPath = $(this).attr('src'),
+				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
+		});
+		
+		videoID.each(function() {
+			let videoPath = $(this).attr('src');
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+		});
+		
+		//TODO：支持html5 video
+
+		if($('#layout-post').length) {
+			$('[data-fancybox="gallery"]').fancybox({
+				loop: true,
+				buttons: [
+					"zoom",
+					"share",
+					"slideShow",
+					"fullScreen",
+					//"download",
+					"thumbs",
+					"close"
+				],
+				protect: true
+			});
+		}
+	})();
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="../../../../../index.html" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="../../../../../archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="../../../../../categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="../../../../../tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="../../../../../about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="../../../../../gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2018 - 2021, content by chenlilin. All Rights Reserved.
+			
+			
+				<!-- <a href="../../../../../http:/hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="../../../../../https:/github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. -->
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+
+	
+<script src="../../../../../plugin/motto/motto.js"></script>
+
+	
+	<script type="text/javascript">
+		(function motto(){
+			let mottoText = getMingYanContent().split('</br> - </br>'),
+			
+			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
+			
+			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
+			
+			mottoTextContent = mottoTextContent.trim().substring(0, 100);
+		
+			$("#motto-content").html( mottoTextContent);
+			$("#motto-author").html( mottoTextFrom  );
+		})();	
+	</script>	
+
+
+
+<!-- love effect -->
+
+	
+<script src="../../../../../plugin/love/love.js"></script>
+
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+  
+
+	<!--
+	时间：2018-10-3
+	描述：
+		插件名称：hexo-generator-search-zip
+		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
+		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
+-->
+<div class="popup search-popup local-search-popup scrollbar" >
+	<div class="local-search-container">
+		<span class="popup-btn-close">
+      		ESC
+   		</span>
+		<div class="local-search-header">
+			<div class="input-prompt">				
+			</div>
+			<input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+		</div>
+		<div class="local-search-body">
+			<div id="local-search-output"></div>
+		</div>
+		<div class="local-search-footer">
+			<div class="topN-post">				
+				
+								
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="../../../../../plugin/search/ziploader.js"></script>
+<script src="../../../../../js/search.js"></script>
+
+
+<script type="text/javascript">
+	var search_path = 'search.json',
+		zip_Path = '/search.zip',
+		version_Path = '/searchVersion.txt',
+		input_Trigger = 'auto',
+		top_N = '2';
+
+	themeLocalSearch({
+		search_path, 
+		zip_Path, 
+		version_Path, 
+		input_Trigger, 
+		top_N
+	});
+</script>
+
+
+
+<script src="../../../../../plugin/chinese/chinese.js"></script>
+<script src="../../../../../plugin/imagelazyloader/yall.min.js"></script>
+<script src="../../../../../plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="../../../../../plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="../../../../../plugin/resizediv/resizediv.js"></script>
+<script src="../../../../../js/main.js"></script>
+
+	</body>	
+</html>

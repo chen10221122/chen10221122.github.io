@@ -1,0 +1,1010 @@
+
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      从0开始记录angular使用过程中遇到的问题 | 陈立林的个人网站
+    
+  </title>
+  <meta name="author" content="来者可追">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+
+  <!-- css -->
+  
+<link rel="stylesheet" href="../../../../../css/Annie.css">
+
+  
+  <!-- jquery -->
+	
+<script src="../../../../../plugin/jquery/jquery.min.js"></script>
+
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'normal',
+      normalSrc: '../../../../../https:/source.unsplash.com/collection/954550/1920x1080',
+      randomYouMax: 110,
+      randomYouSrc: '../../../../../https:/sariay.github.io/Random-img/',
+	  randomOtherSrc: '../../../../../https:/api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: false
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: false,
+	  appId: 'AU8...',
+	  appKey: '4cU...',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+	<body>
+		<!-- Preloader -->
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">获取中...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			「从0开始记录angular使用过程中遇到的问题」
+		
+	</p>
+
+	
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="../../../../../img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="../../../../../index.html" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="../../../../../archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="../../../../../categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="../../../../../tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="../../../../../about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="../../../../../gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-zhihu"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-sina-weibo "></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-pinterest2"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../http:/github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../../atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+<script src="../../../../../plugin/toc/katelog.min.js"></script>
+
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+		<div class="article-title">
+			
+	<a href="" itemprop="url">
+		从0开始记录angular使用过程中遇到的问题
+	</a>
+
+		</div>
+
+		<div class="article-meta">
+			<span>
+				<i class="icon-calendar1"></i>
+				
+				
+
+
+
+
+	更新于
+
+	<a href="" itemprop="url">
+		<time datetime="2019-05-28T10:57:19.000Z" itemprop="dateUpdated">
+	  		2021-04-23
+	  </time>
+	</a> 
+
+
+
+			</span>
+			<span>
+				
+	<i class="icon-price-tags"></i>
+	
+		<a href="../../../../../tags/angular/" class=" ">
+			angular
+		</a>
+	
+		
+			</span>
+			
+			
+
+
+
+		</div>
+
+		<div class="article-content" id="article-content">
+			<p>从 0 开始记录 angular 使用过程中遇到的问题.</p>
+<a id="more"></a>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ng g component group/containers/page-name --skip-import</span><br></pre></td></tr></table></figure>
+<h2 id="1、node-sass-安装失败-win32-x64-57-binding-node"><a href="#1、node-sass-安装失败-win32-x64-57-binding-node" class="headerlink" title="1、node-sass 安装失败 win32-x64-57_binding.node"></a>1、node-sass 安装失败 win32-x64-57_binding.node</h2><h2 id="2、NG-ZORRO-样式覆盖"><a href="#2、NG-ZORRO-样式覆盖" class="headerlink" title="2、NG-ZORRO 样式覆盖"></a>2、NG-ZORRO 样式覆盖</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component, OnInit, ViewEncapsulation &#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</span><br><span class="line"><span class="comment">// 主要是ViewEncapsulation</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'app-header'</span>,</span><br><span class="line">  templateUrl: <span class="string">'./header.component.html'</span>,</span><br><span class="line">  styleUrls: [<span class="string">'./header.component.scss'</span>],</span><br><span class="line">  host: &#123;</span><br><span class="line">    <span class="string">'class'</span>: <span class="string">'app-header'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  encapsulation: ViewEncapsulation.None,</span><br><span class="line"><span class="comment">//   在这里使用</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="3、ngif-和-ngfor-不能同时使用"><a href="#3、ngif-和-ngfor-不能同时使用" class="headerlink" title="3、ngif 和 ngfor 不能同时使用"></a>3、ngif 和 ngfor 不能同时使用</h2><p>可以用<code>ng-container</code>包起来使用</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ng-container</span> *<span class="attr">ngIf</span>=<span class="string">"objTypeSelected.length"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span></span></span><br><span class="line"><span class="tag">    <span class="attr">class</span>=<span class="string">"select-items"</span></span></span><br><span class="line"><span class="tag">    *<span class="attr">ngFor</span>=<span class="string">"let obj of objTypeSelected"</span></span></span><br><span class="line"><span class="tag">    (<span class="attr">click</span>)=<span class="string">"deleteSelected(obj)"</span></span></span><br><span class="line"><span class="tag">    &gt;</span>&#123;&#123;obj.name&#125;&#125;&amp;nbsp;X<span class="tag">&lt;/<span class="name">span</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ng-container</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="4、单独引入变量后要在-app…-里面全局引入"><a href="#4、单独引入变量后要在-app…-里面全局引入" class="headerlink" title="4、单独引入变量后要在 app…..里面全局引入"></a>4、单独引入变量后要在 app…..里面全局引入</h2><p>比如我在<code>service</code>里引入<code>HttpClient</code>：</p>
+<p><img src="/images/20192/angular-problems4_compressed.png" alt="引入HttpClient"></p>
+<p>就会报错：</p>
+<p><img src="/images/20192/angular-problems5_compressed.png" alt="报错信息"></p>
+<p>需要再次引入:</p>
+<p><img src="/images/20192/angular-problems6_compressed.png" alt="再次引入"></p>
+<h2 id="5、跨域配置"><a href="#5、跨域配置" class="headerlink" title="5、跨域配置"></a>5、跨域配置</h2><ul>
+<li>修改<code>angular.json</code>中的文件</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">"architect":&#123;</span><br><span class="line">  ...</span><br><span class="line">  "serve": &#123;</span><br><span class="line">    "builder": "@angular-devkit/build-angular:dev-server",</span><br><span class="line">    "options": &#123;</span><br><span class="line">      "browserTarget": "rgos-angular:build",</span><br><span class="line">      "proxyConfig": "proxy.conf.js"</span><br><span class="line">    &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在根目录下新建<code>proxy.conf.js</code>文件。配置好后直接<code>ng serve</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// proxy.conf.js</span></span><br><span class="line"><span class="keyword">const</span> PROXY_CONFIG = [</span><br><span class="line">  &#123;</span><br><span class="line">    context: [<span class="string">"/mocks/**"</span>],</span><br><span class="line">    target: <span class="string">"http://localhost:3000"</span>,</span><br><span class="line">    secure: <span class="literal">false</span>,</span><br><span class="line">    pathRewrite: &#123;</span><br><span class="line">      <span class="string">"^/mocks"</span>: <span class="string">"/"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    context: [<span class="string">"/rgos-web/"</span>],</span><br><span class="line">    target: <span class="string">"http://localhost:8098"</span>,</span><br><span class="line">    secure: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = PROXY_CONFIG;</span><br></pre></td></tr></table></figure>
+<h2 id="6、创建-service-发送请求"><a href="#6、创建-service-发送请求" class="headerlink" title="6、创建 service,发送请求"></a>6、创建 service,发送请求</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng g s rgos/services/rgos-force-search/rgos-force-search</span><br></pre></td></tr></table></figure>
+<p>编写代码：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// **.service.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123; Injectable &#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; HttpClient, HttpHeaders &#125; <span class="keyword">from</span> <span class="string">"@angular/common/http"</span>;</span><br><span class="line"><span class="keyword">import</span> qs <span class="keyword">from</span> <span class="string">"qs"</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Injectable</span>(&#123;</span><br><span class="line">  providedIn: <span class="string">"root"</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> RgosForceDetailService &#123;</span><br><span class="line">  <span class="keyword">public</span> httpOptions: <span class="built_in">any</span> = &#123;</span><br><span class="line">    headers: <span class="keyword">new</span> HttpHeaders(&#123;</span><br><span class="line">      <span class="string">"Content-Type"</span>: <span class="string">"application/x-www-form-urlencoded"</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"><span class="keyword">private</span> httpClient: HttpClient</span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 获取搜索树</span></span><br><span class="line">  <span class="keyword">public</span> getDataTableSync(params: <span class="built_in">any</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.httpClient.post(</span><br><span class="line">      <span class="string">"/rgos-web/familyPedigree/dataTableSync.do"</span>,</span><br><span class="line">      qs.stringify(params),</span><br><span class="line">      <span class="keyword">this</span>.httpOptions</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 components 中引入</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; RgosForceService &#125; <span class="keyword">from</span> <span class="string">'../../services/rgos-force/rgos-force.service'</span>;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span></span><br><span class="line"><span class="params">    <span class="keyword">private</span> rgosForceService: RgosForceService,</span></span><br><span class="line"><span class="params">    <span class="keyword">private</span> searchNotifyService: SearchNotifyService</span></span><br><span class="line"><span class="params">  </span>) &#123; &#125;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">getKeyWordSearchList() &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">type</span> = &#123;</span><br><span class="line">      <span class="string">'sortFlag'</span>: <span class="string">'2'</span>,</span><br><span class="line">      <span class="string">'emulateJSON'</span>: <span class="string">'true'</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.rgosForceService.getKeyWordSearchList(<span class="keyword">type</span>).subscribe(</span><br><span class="line">      data =&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (data[<span class="string">'data'</span>]) &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      error =&gt; &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'获取接口调用失败！'</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="7、组件通过-service-传值"><a href="#7、组件通过-service-传值" class="headerlink" title="7、组件通过 service 传值"></a>7、组件通过 service 传值</h2><p>新建 service</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// search-notify.service.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123; Injectable &#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; BehaviorSubject, Observable &#125; <span class="keyword">from</span> <span class="string">"rxjs"</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Injectable</span>(&#123;</span><br><span class="line">  providedIn: <span class="string">"root"</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> SearchNotifyService &#123;</span><br><span class="line">  <span class="keyword">private</span> _searchResult: <span class="built_in">any</span>[] = [];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> seachResultState: BehaviorSubject&lt;<span class="built_in">any</span>&gt; = <span class="keyword">new</span> BehaviorSubject&lt;<span class="built_in">any</span>&gt;(</span><br><span class="line">    <span class="keyword">this</span>._searchResult</span><br><span class="line">  );</span><br><span class="line">  <span class="keyword">public</span> seachResultStateCast$: Observable&lt;</span><br><span class="line">    <span class="built_in">any</span></span><br><span class="line">  &gt; = <span class="keyword">this</span>.seachResultState.asObservable();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">get</span> searchResult(): <span class="built_in">any</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._searchResult;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">set</span> searchResult(value: <span class="built_in">any</span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>._searchResult = value;</span><br><span class="line">    <span class="keyword">this</span>.seachResultState.next(<span class="keyword">this</span>._searchResult);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在一个 ts 里面设置它的值</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// rgos-force.components.ts</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; SearchNotifyService &#125; <span class="keyword">from</span> <span class="string">'../../services/util/search-notify.service'</span>;</span><br><span class="line">...</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span></span><br><span class="line"><span class="params">    <span class="keyword">private</span> rgosForceService: RgosForceService,</span></span><br><span class="line"><span class="params">    <span class="keyword">private</span> searchNotifyService: SearchNotifyService</span></span><br><span class="line"><span class="params">  </span>) &#123; &#125;</span><br><span class="line">...</span><br><span class="line">            <span class="keyword">this</span>.searchNotifyService.searchResult = res.total;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>在另一个 ts 里面获取</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// rgos-force-search.ts</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; Component, OnInit, AfterViewInit &#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; SearchNotifyService &#125; <span class="keyword">from</span> <span class="string">"../../services/util/search-notify.service"</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">"app-rgos-force-seach"</span>,</span><br><span class="line">  templateUrl: <span class="string">"./rgos-force-seach.component.html"</span>,</span><br><span class="line">  styleUrls: [<span class="string">"./rgos-force-seach.component.scss"</span>]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> RgosForceSeachComponent <span class="keyword">implements</span> OnInit, AfterViewInit &#123;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"><span class="keyword">private</span> searchNotifyService: SearchNotifyService</span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  testSearchList = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>];</span><br><span class="line"></span><br><span class="line">  ngOnInit() &#123;&#125;</span><br><span class="line">  ngAfterViewInit() &#123;</span><br><span class="line">    <span class="keyword">this</span>.searchNotifyService.seachResultStateCast$.subscribe(<span class="function"><span class="params">val</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// log(val)</span></span><br><span class="line">      <span class="built_in">console</span>.log(val);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="8、service-传值之后需要销毁方法；"><a href="#8、service-传值之后需要销毁方法；" class="headerlink" title="8、service 传值之后需要销毁方法；"></a>8、service 传值之后需要销毁方法；</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ngAfterViewInit() &#123;</span><br><span class="line">  <span class="comment">// 监听主页搜索框点击</span></span><br><span class="line">  <span class="keyword">this</span>.searchNotifyService.seachResultStateCast$.pipe(</span><br><span class="line">    takeUntil(<span class="keyword">this</span>._destroySubject)</span><br><span class="line">  ).subscribe(<span class="function">(<span class="params">param</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.param = param;</span><br><span class="line">    <span class="keyword">this</span>.param.currentPageNo = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">this</span>.getResultList();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>两个之间互相传递，不能用同一个 serveice</p>
+</blockquote>
+<h2 id="9、VSCode-debugger-的使用"><a href="#9、VSCode-debugger-的使用" class="headerlink" title="9、VSCode debugger 的使用"></a>9、VSCode debugger 的使用</h2><p>很简单，</p>
+<p><img src="/images/20192/angular-problems8_compressed.png" alt="VSCode debugger 的使用"></p>
+<h2 id="10、分页、传参、查询"><a href="#10、分页、传参、查询" class="headerlink" title="10、分页、传参、查询"></a>10、分页、传参、查询</h2><p>样式为<a href="https://ng.ant.design/docs/introduce/zh" target="_blank" rel="noopener">ngZorro</a></p>
+<p>html:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"table-containder table-containder-middle"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tab-header-containder"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">nz-table</span> #<span class="attr">basicTable</span> [<span class="attr">nzData</span>]=<span class="string">"secondListData"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>序号<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>相关对象名称<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span> *<span class="attr">ngFor</span>=<span class="string">"let data of secondListData;let i=index"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"ell"</span> <span class="attr">title</span>=<span class="string">"&#123;&#123;i+1&#125;&#125;"</span>&gt;</span>&#123;&#123;i+1&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"ell"</span> <span class="attr">title</span>=<span class="string">"&#123;&#123;data.tar_name?data.tar_name:'--'&#125;&#125;"</span>&gt;</span></span><br><span class="line">            &#123;&#123;data.tar_name?data.tar_name:'--'&#125;&#125;</span><br><span class="line">          <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">nz-table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> *<span class="attr">ngIf</span>=<span class="string">"tableEmpty"</span> <span class="attr">class</span>=<span class="string">"table-empty"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">nz-row</span> <span class="attr">class</span>=<span class="string">"datafoot"</span> *<span class="attr">ngIf</span>=<span class="string">"pageShow"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"datafoot-left"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"ell datafoot-left-total"</span> <span class="attr">title</span>=<span class="string">"共&#123;&#123;total&#125;&#125;条数据"</span></span></span><br><span class="line"><span class="tag">        &gt;</span>共&#123;&#123;total&#125;&#125;条<span class="tag">&lt;/<span class="name">span</span></span></span><br><span class="line"><span class="tag">      &gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"datafoot-right"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">nz-pagination</span></span></span><br><span class="line"><span class="tag">        [<span class="attr">nzSize</span>]=<span class="string">"'small'"</span></span></span><br><span class="line"><span class="tag">        [<span class="attr">nzPageIndex</span>]=<span class="string">"currentPageNo"</span></span></span><br><span class="line"><span class="tag">        [<span class="attr">nzTotal</span>]=<span class="string">"total"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">nzShowQuickJumper</span></span></span><br><span class="line"><span class="tag">        [<span class="attr">nzItemRender</span>]=<span class="string">"renderItemTemplate"</span></span></span><br><span class="line"><span class="tag">        [<span class="attr">nzPageSize</span>]=<span class="string">"nzPageSize"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">nzShowSizeChanger</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">        (<span class="attr">nzPageIndexChange</span>)=<span class="string">"changeindex($event)"</span></span></span><br><span class="line"><span class="tag">        (<span class="attr">nzPageSizeChange</span>)=<span class="string">"changesize($event)"</span></span></span><br><span class="line"><span class="tag">        [<span class="attr">nzPageSizeOptions</span>]=<span class="string">"sizeOptions"</span></span></span><br><span class="line"><span class="tag">      &gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">nz-pagination</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ng-template</span> #<span class="attr">renderItemTemplate</span> <span class="attr">let-type</span> <span class="attr">let-page</span>=<span class="string">"page"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">nz-button</span> *<span class="attr">ngIf</span>=<span class="string">"type==='pre' "</span>&gt;</span>上一页<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">nz-button</span> *<span class="attr">ngIf</span>=<span class="string">"type==='next' "</span>&gt;</span>下一页<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> *<span class="attr">ngIf</span>=<span class="string">"type==='page' "</span>&gt;</span>&#123;&#123;page&#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">ng-template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>ts:</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">sizeOptions: <span class="built_in">number</span>[] = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">50</span>, <span class="number">100</span>]; <span class="comment">// 分页的快速切换</span></span><br><span class="line">currentPageNo = <span class="number">1</span>; <span class="comment">// 当前页码</span></span><br><span class="line">nzPageSize = <span class="number">20</span>; <span class="comment">// 每页多少条数据</span></span><br><span class="line">total: <span class="built_in">Number</span> = <span class="number">0</span>; <span class="comment">// 表格信息总量</span></span><br><span class="line">tableEmpty = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 点击页码查询</span></span><br><span class="line">changeindex(<span class="built_in">number</span>: <span class="built_in">number</span>) &#123;</span><br><span class="line">  <span class="keyword">this</span>.currentPageNo = <span class="built_in">number</span>;</span><br><span class="line">  <span class="keyword">this</span>.getListData();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 切换每页条数查询</span></span><br><span class="line">changesize(<span class="built_in">number</span>: <span class="built_in">number</span>) &#123;</span><br><span class="line">  <span class="keyword">this</span>.nzPageSize = <span class="built_in">number</span>;</span><br><span class="line">  <span class="keyword">this</span>.currentPageNo = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">this</span>.getListData();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="11、"><a href="#11、" class="headerlink" title="11、"></a>11、</h2><h2 id="12、import-其他样式"><a href="#12、import-其他样式" class="headerlink" title="12、import 其他样式"></a>12、import 其他样式</h2><p>在 angular.json 中添加配置，并新建 scss 文件；</p>
+<p><img src="/images/20192/angular-problems1_compressed.png" alt="在angular.json中添加配置"></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">"stylePreprocessorOptions": &#123;</span><br><span class="line">  "includePaths": [</span><br><span class="line">    "./src",</span><br><span class="line">    <span class="string">"./src/assets/stylings"</span></span><br><span class="line">  ]</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>在文件中引入：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* ***.scss */</span></span><br><span class="line">@<span class="keyword">import</span> <span class="string">"global.scss"</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="13-通过-url-传值；插件；"><a href="#13-通过-url-传值；插件；" class="headerlink" title="13 通过 url 传值；插件；"></a>13 通过 url 传值；插件；</h2><h2 id="14、数组方法、深拷贝-concat-json-parse-…-array"><a href="#14、数组方法、深拷贝-concat-json-parse-…-array" class="headerlink" title="14、数组方法、深拷贝 .concat. json.parse …[array]"></a>14、数组方法、深拷贝 .concat. json.parse …[array]</h2><p>经测试，使用<code>Array.concat</code>的方法和<code>...Array</code>，还是会影响到原始数组；<br>推荐使用<code>JSON.parse(JSON.stringify(Array))</code></p>
+<h2 id="16、angular-兼容-ie9"><a href="#16、angular-兼容-ie9" class="headerlink" title="16、angular 兼容 ie9"></a>16、angular 兼容 ie9</h2><p>使用<code>ie</code>浏览器打开<code>angular</code>项目页面会打不开，这是因为<code>IE</code>不支持<code>ES6</code>里面给<code>Array</code>扩展的<code>for…of</code>循环导致的。</p>
+<p><code>@angular/cli</code>默认在<code>src</code>目录生成了<code>polyfill.ts</code>文件</p>
+<p>打开之后把该取消注释的取消掉</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * This file includes polyfills needed by Angular and is loaded before the app.</span></span><br><span class="line"><span class="comment"> * You can add your own extra polyfills to this file.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * This file is divided into 2 sections:</span></span><br><span class="line"><span class="comment"> *   1. Browser polyfills. These are applied before loading ZoneJS and are sorted by browsers.</span></span><br><span class="line"><span class="comment"> *   2. Application imports. Files imported after ZoneJS that should be loaded before your main</span></span><br><span class="line"><span class="comment"> *      file.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * The current setup is for so-called "evergreen" browsers; the last versions of browsers that</span></span><br><span class="line"><span class="comment"> * automatically update themselves. This includes Safari &gt;= 10, Chrome &gt;= 55 (including Opera),</span></span><br><span class="line"><span class="comment"> * Edge &gt;= 13 on the desktop, and iOS 10 and Chrome on mobile.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * Learn more in https://angular.io/guide/browser-support</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/***************************************************************************************************</span></span><br><span class="line"><span class="comment"> * BROWSER POLYFILLS</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/** IE9, IE10, IE11, and Chrome &lt;55 requires all of the following polyfills.</span></span><br><span class="line"><span class="comment"> *  This also includes Android Emulators with older versions of Chrome and Google Search/Googlebot</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"core-js/es6/symbol"</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">"core-js/es6/object"</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">"core-js/es6/function"</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">"core-js/es6/parse-int"</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">"core-js/es6/parse-float"</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">"core-js/es6/number"</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">"core-js/es6/math"</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">"core-js/es6/string"</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">"core-js/es6/date"</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">"core-js/es6/array"</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">"core-js/es6/regexp"</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">"core-js/es6/map"</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">"core-js/es6/weak-map"</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">"core-js/es6/set"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** IE10 and IE11 requires the following for NgClass support on SVG elements */</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"classlist.js"</span>; <span class="comment">// Run `npm install --save classlist.js`.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/** IE10 and IE11 requires the following for the Reflect API. */</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"core-js/es6/reflect"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Web Animations `@angular/platform-browser/animations`</span></span><br><span class="line"><span class="comment"> * Only required if AnimationBuilder is used within the application and using IE/Edge or Safari.</span></span><br><span class="line"><span class="comment"> * Standard animation support in Angular DOES NOT require any polyfills (as of Angular 6.0).</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"web-animations-js"</span>; <span class="comment">// Run `npm install --save web-animations-js`.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * By default, zone.js will patch all possible macroTask and DomEvents</span></span><br><span class="line"><span class="comment"> * user can disable parts of macroTask/DomEvents patch by setting following flags</span></span><br><span class="line"><span class="comment"> * because those flags need to be set before `zone.js` being loaded, and webpack</span></span><br><span class="line"><span class="comment"> * will put import in the top of bundle, so user need to create a separate file</span></span><br><span class="line"><span class="comment"> * in this directory (for example: zone-flags.ts), and put the following flags</span></span><br><span class="line"><span class="comment"> * into that file, and then add the following code before importing zone.js.</span></span><br><span class="line"><span class="comment"> * import './zone-flags.ts';</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * The flags allowed in zone-flags.ts are listed here.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * The following flags will work for all browsers.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * (window as any).__Zone_disable_requestAnimationFrame = true; // disable patch requestAnimationFrame</span></span><br><span class="line"><span class="comment"> * (window as any).__Zone_disable_on_property = true; // disable patch onProperty such as onclick</span></span><br><span class="line"><span class="comment"> * (window as any).__zone_symbol__BLACK_LISTED_EVENTS = ['scroll', 'mousemove']; // disable patch specified eventNames</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *  in IE/Edge developer tools, the addEventListener will also be wrapped by zone.js</span></span><br><span class="line"><span class="comment"> *  with the following flag, it will bypass `zone.js` patch for IE/Edge</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *  (window as any).__Zone_enable_cross_context_check = true;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/***************************************************************************************************</span></span><br><span class="line"><span class="comment"> * Zone JS is required by default for Angular itself.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"zone.js/dist/zone"</span>; <span class="comment">// Included with Angular CLI.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/***************************************************************************************************</span></span><br><span class="line"><span class="comment"> * APPLICATION IMPORTS</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<p>注意还有两个需要<code>install</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install --save classlist.js</span><br><span class="line">npm install --save web-animations-js</span><br></pre></td></tr></table></figure>
+<p>然后安装之后<code>ng serve</code>就可以啦</p>
+<h2 id="17、事件冒泡"><a href="#17、事件冒泡" class="headerlink" title="17、事件冒泡"></a>17、事件冒泡</h2><h2 id="18、路由"><a href="#18、路由" class="headerlink" title="18、路由"></a>18、路由</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ActivatedRoute, Router, NavigationEnd, NavigationStart &#125; <span class="keyword">from</span> <span class="string">'@angular/router'</span>;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span></span><br><span class="line"><span class="params">    <span class="keyword">private</span> activateInfo: ActivatedRoute,</span></span><br><span class="line"><span class="params">  </span>) &#123;</span><br><span class="line">    <span class="comment">// 监听路由变化</span></span><br><span class="line">    router.events.subscribe(<span class="function"><span class="params">event</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (event <span class="keyword">instanceof</span> NavigationEnd) &#123;</span><br><span class="line">        <span class="keyword">if</span> (event.url.indexOf(<span class="string">'search'</span>) !== <span class="number">-1</span>) &#123;</span><br><span class="line">          <span class="keyword">this</span>.filtrateShow = <span class="literal">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">this</span>.filtrateShow = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 监听路由变化</span></span><br><span class="line">    <span class="keyword">this</span>.router.events</span><br><span class="line">      .filter(<span class="function">(<span class="params">event</span>) =&gt;</span> event <span class="keyword">instanceof</span> NavigationEnd)</span><br><span class="line">      .subscribe(<span class="function">(<span class="params">event: NavigationEnd</span>) =&gt;</span> &#123;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//传参</span></span><br><span class="line">    <span class="keyword">this</span>.router.navigate([<span class="string">'/rgos/rgos-force/detail'</span>], &#123;</span><br><span class="line">      queryParams: &#123;</span><br><span class="line">        <span class="string">'code'</span>: code,</span><br><span class="line">        <span class="string">'id'</span>:id</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取url中的参数</span></span><br><span class="line">    <span class="keyword">this</span>.activatedRoute.queryParams.subscribe(<span class="function">(<span class="params">params: Params</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="19、管道"><a href="#19、管道" class="headerlink" title="19、管道"></a>19、管道</h2><p>关键字标红的时候，用到了。如下。</p>
+<p>处理返回结果：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ts文件</span></span><br><span class="line">e.newName = e.name.replace(</span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="keyword">this</span>.param.searchKey, <span class="string">"g"</span>),</span><br><span class="line">  <span class="string">'&lt;span style="color:#ff7e00"&gt;'</span> + <span class="keyword">this</span>.param.key + <span class="string">"&lt;/span&gt;"</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>在模板中渲染。渲染到时候 angular 不会处理 style、class 等属性，故需要用管道</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- html文件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span></span></span><br><span class="line"><span class="tag">  <span class="attr">class</span>=<span class="string">"ell row-1-name"</span></span></span><br><span class="line"><span class="tag">  (<span class="attr">click</span>)=<span class="string">"DetailClick(item)"</span></span></span><br><span class="line"><span class="tag">  [<span class="attr">innerHTML</span>]=<span class="string">"item.newName | rgosForceSearch:item.key"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/20192/angular-problems9_compressed.png" alt="管道"></p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">constructor</span>(<span class="params"><span class="keyword">private</span> sanitized: DomSanitizer</span>) &#123; &#125;</span><br><span class="line">transform(name, key): <span class="built_in">any</span> &#123;<span class="comment">// name:输入值 key:参数</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.sanitized.bypassSecurityTrustHtml(name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+	
+		</div>
+		
+		<div id="current-post-cover" data-scr="../../../../../img/cart_cover.jpg"></div>
+
+		<!-- relate post, comment...-->
+		<div class="investment-container">
+			<div class="investment-header">
+				<div class="investment-title-1">
+					<div class="on">相关文章</div>
+					<div>评论</div>
+					<div>分享</div>
+				</div>
+				<div class="investment-title-2">	            
+					
+	<span>
+		<a id="totop-post-page">返回顶部</a>
+		
+			<a href="../../../../06/24/20192/ztree1/" title="ztree常用技巧" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="../../../16/20192/angular1/" title="Angular4.0股票管理网站" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+				</div>	
+			</div>
+			
+			<div class="investment-content">
+				<div class="investment-content-list">
+					
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../10/08/20194/wechat-app-issue2/" title="微信小程序相关问题汇总(二)">
+								微信小程序相关问题汇总(二)			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十月 8日, 2019				
+							</p>
+							<p class="relate-post-content">
+								汇总微信小程序相关问题
+
+一、Taro的本身生命周期生命周期componentWillMount在微信小程序中这一生命周期方法对应页面的onLoad或入口文件app中的onLaunchcomponentDidMount在微信小程序中这...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../10/08/20194/wechat-app-issue2/" title="微信小程序相关问题汇总(二)">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="微信小程序相关问题汇总(二)"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../09/12/20194/wechat-app-issue/" title="微信小程序相关问题汇总(一)">
+								微信小程序相关问题汇总(一)			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								九月 12日, 2019				
+							</p>
+							<p class="relate-post-content">
+								汇总微信小程序相关问题
+
+一、地图加号放大减号缩小12345678910111213141516171819setScale(e) &#123;        let scale = this.state.scale;        ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../09/12/20194/wechat-app-issue/" title="微信小程序相关问题汇总(一)">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="微信小程序相关问题汇总(一)"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../06/24/20192/ztree1/" title="ztree常用技巧">
+								ztree常用技巧			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 24日, 2019				
+							</p>
+							<p class="relate-post-content">
+								ztree 常用技巧
+
+涉及的功能：点击请求，默认选中，单一路径展开
+异步加载123456789101112131415161718192021222324252627282930313233343536373839404142434...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../06/24/20192/ztree1/" title="ztree常用技巧">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="ztree常用技巧"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../04/17/20192/jsbase/" title="javascript基础知识">
+								javascript基础知识			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 17日, 2019				
+							</p>
+							<p class="relate-post-content">
+								javascript基础知识
+一、js对象设置成员对象12person.age = 45person['name']['last'] = 'Cratchit'
+
+点表示法只能接受字面量的成员的名字，不接受变量作为名字
+
+123var ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../04/17/20192/jsbase/" title="javascript基础知识">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="javascript基础知识"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../04/11/20192/css-core-concepts/" title="CSS核心概念">
+								CSS核心概念			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 11日, 2019				
+							</p>
+							<p class="relate-post-content">
+								本主要内容是介绍CSS一些主要概念，并通过代码来演示具体的使用用例，然后提供学习指南链接供课后自学。适合：Web开发新手、具有一定的CSS基础的Web开发对象。
+1、Web标准概述
+
+结构、表现和行为分别对应于3种非常常用的技术，即 ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../04/11/20192/css-core-concepts/" title="CSS核心概念">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="CSS核心概念"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../04/10/20192/web-semantic/" title="web语义化">
+								web语义化			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 10日, 2019				
+							</p>
+							<p class="relate-post-content">
+								ss web语义化
+一、什么是Web语义化
+Web语义化是指用合理HTML标记以及其特有的属性去格式化文档内容。通俗地讲,就是对数据和信息进行处理,使得机器可以理解。
+
+就是不要全都用div+span撸完整个网页，那么多标签偏偏都用这...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../04/10/20192/web-semantic/" title="web语义化">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="web语义化"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../04/10/20192/js-core-concept/" title="javascript核心概念">
+								javascript核心概念			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 10日, 2019				
+							</p>
+							<p class="relate-post-content">
+								将JavaScript语言中的一些重要和难以理解的概念进行了罗列基于原型编程、多范式的动态脚本语言支持面向对象、命令式和声明式风格
+https://mp.weixin.qq.com/s/I7A1iC8Et6uOGZ234DsTlA
+
+...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../04/10/20192/js-core-concept/" title="javascript核心概念">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="javascript核心概念"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../03/07/20191/git-error/" title="git报错解决">
+								git报错解决			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 7日, 2019				
+							</p>
+							<p class="relate-post-content">
+								记录 git 报错信息、原因、解决方法
+
+1、error: failed to push some refs to
+错误信息：
+
+12345error: failed to push some refs to 'git@gitee.c...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../03/07/20191/git-error/" title="git报错解决">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="git报错解决"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../02/19/20191/mooc-vue-start/" title="慕课网vue2.5入门 学习笔记">
+								慕课网vue2.5入门 学习笔记			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								二月 19日, 2019				
+							</p>
+							<p class="relate-post-content">
+								慕课网学习笔记；视频地址demo地址
+
+一、Vue 基础语法模板、实例、挂载点数据、事件、方法
+指令 :
+
+1234567&#123;&#123;&#125;&#125;v-textv-htmlcontent
+
+v-on:click ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../02/19/20191/mooc-vue-start/" title="慕课网vue2.5入门 学习笔记">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="慕课网vue2.5入门 学习笔记"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2018/12/14/20184/httpcache/" title="http缓存详解">
+								http缓存详解			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十二月 14日, 2018				
+							</p>
+							<p class="relate-post-content">
+								浏览器是如何知道使用缓存的，其实这都是通过http中，浏览器将最后修改时间发送请求给web服务器，web服务器收到请求后跟服务器上的文档最后修改的时间对比，如果web服务器上最新文档修改时间小于或者等于浏览器发送过来的，则发送304给...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2018/12/14/20184/httpcache/" title="http缓存详解">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="http缓存详解"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
+	
+</div>	
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-comment">
+
+	
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
+	
+
+</div>
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- show math formula -->
+
+
+
+	 
+	
+<script src="../../../../../plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="../../../../../plugin/fancybox/jquery.fancybox.css">
+
+
+<script src="../../../../../plugin/fancybox/jquery.fancybox.js"></script>
+
+
+<script type="text/javascript">
+	(function gallerySet(){
+		let titleID = $('.article-title a'),
+			imageID = $('.article-content img'),
+			videoID = $('.article-content video');
+		
+		let postTitle = titleID.text() ? titleID.text() : "No post title!";
+		
+		imageID.each(function() {
+			let imgPath = $(this).attr('src'),
+				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
+		});
+		
+		videoID.each(function() {
+			let videoPath = $(this).attr('src');
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+		});
+		
+		//TODO：支持html5 video
+
+		if($('#layout-post').length) {
+			$('[data-fancybox="gallery"]').fancybox({
+				loop: true,
+				buttons: [
+					"zoom",
+					"share",
+					"slideShow",
+					"fullScreen",
+					//"download",
+					"thumbs",
+					"close"
+				],
+				protect: true
+			});
+		}
+	})();
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="../../../../../index.html" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="../../../../../archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="../../../../../categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="../../../../../tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="../../../../../about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="../../../../../gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2018 - 2021, content by chenlilin. All Rights Reserved.
+			
+			
+				<!-- <a href="../../../../../http:/hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="../../../../../https:/github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. -->
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+
+	
+<script src="../../../../../plugin/motto/motto.js"></script>
+
+	
+	<script type="text/javascript">
+		(function motto(){
+			let mottoText = getMingYanContent().split('</br> - </br>'),
+			
+			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
+			
+			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
+			
+			mottoTextContent = mottoTextContent.trim().substring(0, 100);
+		
+			$("#motto-content").html( mottoTextContent);
+			$("#motto-author").html( mottoTextFrom  );
+		})();	
+	</script>	
+
+
+
+<!-- love effect -->
+
+	
+<script src="../../../../../plugin/love/love.js"></script>
+
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+  
+
+	<!--
+	时间：2018-10-3
+	描述：
+		插件名称：hexo-generator-search-zip
+		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
+		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
+-->
+<div class="popup search-popup local-search-popup scrollbar" >
+	<div class="local-search-container">
+		<span class="popup-btn-close">
+      		ESC
+   		</span>
+		<div class="local-search-header">
+			<div class="input-prompt">				
+			</div>
+			<input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+		</div>
+		<div class="local-search-body">
+			<div id="local-search-output"></div>
+		</div>
+		<div class="local-search-footer">
+			<div class="topN-post">				
+				
+								
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="../../../../../plugin/search/ziploader.js"></script>
+<script src="../../../../../js/search.js"></script>
+
+
+<script type="text/javascript">
+	var search_path = 'search.json',
+		zip_Path = '/search.zip',
+		version_Path = '/searchVersion.txt',
+		input_Trigger = 'auto',
+		top_N = '2';
+
+	themeLocalSearch({
+		search_path, 
+		zip_Path, 
+		version_Path, 
+		input_Trigger, 
+		top_N
+	});
+</script>
+
+
+
+<script src="../../../../../plugin/chinese/chinese.js"></script>
+<script src="../../../../../plugin/imagelazyloader/yall.min.js"></script>
+<script src="../../../../../plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="../../../../../plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="../../../../../plugin/resizediv/resizediv.js"></script>
+<script src="../../../../../js/main.js"></script>
+
+	</body>	
+</html>
