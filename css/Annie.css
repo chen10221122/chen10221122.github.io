@@ -3096,6 +3096,8 @@ blockquote footer cite:before {
   height: 50px;
   background-color: #fff;
   border-bottom: 1px solid #f5f5f5;
+  background: unset;
+  border-bottom: none;
   -webkit-transition: top 0.25s ease 0.5s;
   transition: top 0.25s ease 0.5s;
   z-index: 200;

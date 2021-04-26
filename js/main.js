@@ -57,7 +57,7 @@ jQuery(document).ready(function ($) {
 				break;
 			case 'normal':
 				{
-					curImgSrc = normalSrc;
+					curImgSrc = 'https://source.unsplash.com/collection/954550/1920x1080';
 				}
 				break;
 			case 'post':
@@ -732,4 +732,4 @@ jQuery(document).ready(function ($) {
 	})();
 });
 
-console.log("%c Github %c", "background: #222222; color: #ffffff", " ", "https://github.com/Sariay/hexo-theme-Annie");
+// console.log("%c Github %c", "background: #222222; color: #ffffff", " ", "https://github.com/Sariay/hexo-theme-Annie");
