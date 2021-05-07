@@ -9,7 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      其他前端问题（一） | 陈立林的个人网站
+      微信小程序问题记录 | 陈立林的个人网站
     
   </title>
   <meta name="author" content="来者可追">
@@ -85,7 +85,7 @@
 	<!-- Page title -->
 	<p>
 		
-			「其他前端问题（一）」
+			「微信小程序问题记录」
 		
 	</p>
 
@@ -115,6 +115,11 @@
 	
 		<li class="menu-archive">
 			<a href="../../../../../archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="../../../../../tags" class="menu-item-tags" target="_blank">标签</a>
 		</li>
 		
 	
@@ -222,7 +227,7 @@
 		<div class="article-title">
 			
 	<a href="" itemprop="url">
-		其他前端问题（一）
+		微信小程序问题记录
 	</a>
 
 		</div>
@@ -239,8 +244,8 @@
 	更新于
 
 	<a href="" itemprop="url">
-		<time datetime="2021-01-04T03:35:38.000Z" itemprop="dateUpdated">
-	  		2021-04-26
+		<time datetime="2021-04-27T03:35:38.000Z" itemprop="dateUpdated">
+	  		2021-05-07
 	  </time>
 	</a> 
 
@@ -251,8 +256,8 @@
 				
 	<i class="icon-price-tags"></i>
 	
-		<a href="../../../../../tags/javascript/" class=" ">
-			javascript
+		<a href="../../../../../tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class=" ">
+			微信小程序
 		</a>
 	
 		
@@ -265,11 +270,12 @@
 		</div>
 
 		<div class="article-content" id="article-content" >
-			<p>其他前端问题（一）</p>
+			<p>微信小程序使用图表</p>
  <a id="more"></a>
-<h2 id="关于async-await、promise和setTimeout执行顺序"><a href="#关于async-await、promise和setTimeout执行顺序" class="headerlink" title="关于async/await、promise和setTimeout执行顺序"></a>关于async/await、promise和setTimeout执行顺序</h2> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">async1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'async1 start'</span>);</span><br><span class="line">	<span class="keyword">await</span> async2();</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'asnyc1 end'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">async2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'async2'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script start'</span>);</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'setTimeOut'</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line">async1();</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">reslove</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'promise1'</span>);</span><br><span class="line">	reslove();</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'promise2'</span>);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script end'</span>);</span><br></pre></td></tr></table></figure>
-<p>执行结果：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">script start</span><br><span class="line">async1 start</span><br><span class="line">async2</span><br><span class="line">promise1</span><br><span class="line">script end</span><br><span class="line">asnyc1 end</span><br><span class="line">promise2</span><br><span class="line">setTimeOut</span><br></pre></td></tr></table></figure>
+<h2 id="使用Echarts"><a href="#使用Echarts" class="headerlink" title="使用Echarts"></a>使用Echarts</h2><p>比较常用的是 echarts ，配置项丰富，也可以使用阿里的。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">hidden</span>=<span class="string">"&#123;&#123;chartToImgShow&#125;&#125;"</span> <span class="attr">class</span>=<span class="string">"area1-card5-chart "</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ec-canvas</span></span></span><br><span class="line"><span class="tag">    <span class="attr">class</span>=<span class="string">"area1-card5-chart-area"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">id</span>=<span class="string">"mychartDomBar"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">canvas-id</span>=<span class="string">"mychartDomBar"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">force-use-old-canvas</span>=<span class="string">"&#123;&#123;useOldCanvas&#125;&#125;"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">ec</span>=<span class="string">"&#123;&#123; echartsPie &#125;&#125;"</span></span></span><br><span class="line"><span class="tag">  &gt;</span><span class="tag">&lt;/<span class="name">ec-canvas</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">hidden</span>=<span class="string">"&#123;&#123;!chartToImgShow&#125;&#125;"</span> <span class="attr">class</span>=<span class="string">"area1-card5-chart "</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">image</span> <span class="attr">src</span>=<span class="string">"&#123;&#123;mychartBarImageUrl&#125;&#125;"</span> <span class="attr">class</span>=<span class="string">"chart-img chart-img1"</span> <span class="attr">style</span>=<span class="string">""</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用旧版本canvan (发布时需使用新版)</span></span><br><span class="line"><span class="comment">// 开发环境和真机调试时，使用新版会出现层级问题或报错，发布后没问题</span></span><br><span class="line"><span class="comment">// 点击tab快速定位时还是会有层级问题。可以定位的时候 hide 图表 show 图片，定位之后复原</span></span><br><span class="line">useOldCanvas: <span class="literal">false</span>,</span><br><span class="line"><span class="comment">// 图表是否转为图片 （第二种处理层级问题的方法。)(第三种：使用cover-view，但滑动时会抖动）</span></span><br><span class="line">chartToImgShow: <span class="literal">false</span>,</span><br><span class="line"><span class="comment">// 饼图 主营构成图片</span></span><br><span class="line">mychartBarImageUrl: <span class="string">''</span>,</span><br><span class="line">   <span class="comment">// 公司速览 -饼图</span></span><br><span class="line">echartsPie: &#123;</span><br><span class="line">  lazyLoad: <span class="literal">true</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化图表</span></span><br><span class="line"><span class="keyword">let</span> pieSeriesData = [</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">"公益性"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">"准公益性"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">"经营性"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">"其他"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">......</span><br><span class="line"></span><br><span class="line">chartPieoption.series[<span class="number">0</span>].data = pieSeriesData;</span><br><span class="line"><span class="keyword">this</span>.selectComponent(<span class="string">"#mychartDomBar"</span>).init(<span class="function">(<span class="params">canvas, width, height, dpr</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> pieChart = echarts.init(canvas, <span class="literal">null</span>, &#123;</span><br><span class="line">    width: width,</span><br><span class="line">    height: height,</span><br><span class="line">    devicePixelRatio: dpr, <span class="comment">//防止真机模糊</span></span><br><span class="line">  &#125;);</span><br><span class="line">  pieChart.setOption(chartPieoption);</span><br><span class="line">  <span class="keyword">return</span> pieChart;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 转为图片，解决层级问题</span></span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> chartIdInfo = &#123;</span><br><span class="line">    id: <span class="string">"mychartDomBar"</span>,</span><br><span class="line">    height: <span class="number">231</span>,</span><br><span class="line">    imgId: <span class="string">"mychartBarImageUrl"</span>,</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">this</span>.handleCanvarToImg(chartIdInfo);</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
 	
 		</div>
 		
@@ -288,12 +294,12 @@
 	<span>
 		<a id="totop-post-page">返回顶部</a>
 		
-			<a href="../../../13/20211/typescript-1/" title="typescript入门" rel="prev">
+			<a href="../../../28/20212/react-jira-1/" title="慕课网 React17+React Hook+TS4 （一）" rel="prev">
 				&laquo;上一篇
 			</a>
 		
 		
-			<a href="../../../../../2020/12/28/20204/webpack-babel-2/" title="webpack-babel-2 构建速度优化、产出代码优化、babel" rel="next">
+			<a href="../../../../01/13/20211/typescript-1/" title="typescript入门" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -310,285 +316,9 @@
 
 <div class="relate-post">
 	
-		<ul>
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="../../../13/20211/typescript-1/" title="typescript入门">
-								typescript入门			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								一月 13日, 2021				
-							</p>
-							<p class="relate-post-content">
-								Any 类型、数组和元组、interface 、类型推论 联合类型 类型断言、Class、类和接口、Enum、Generics、类型别名，字面量，交叉类型、声明文件、内置类型
-慕课网视频地址：https://coding.imooc....
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="../../../13/20211/typescript-1/" title="typescript入门">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="typescript入门"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="../../../../../2020/12/28/20204/webpack-babel-2/" title="webpack-babel-2 构建速度优化、产出代码优化、babel">
-								webpack-babel-2 构建速度优化、产出代码优化、babel			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十二月 28日, 2020				
-							</p>
-							<p class="relate-post-content">
-								构建速度优化、产出代码优化、babel
-
-10-9 webpack优化构建速度-知识点串讲（性能优化）
-热议话题
-优化打包构建速度 - 优化开发体验和效率
-优化产出代码 - 优化产品性能 
-
-一般会让你聊一聊性能优化，可以从上面两个方...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="../../../../../2020/12/28/20204/webpack-babel-2/" title="webpack-babel-2 构建速度优化、产出代码优化、babel">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="webpack-babel-2 构建速度优化、产出代码优化、babel"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="../../../../../2020/12/28/20204/webpack-babel-1/" title="webpack-babel-1  基础配置、高级配置">
-								webpack-babel-1  基础配置、高级配置			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十二月 28日, 2020				
-							</p>
-							<p class="relate-post-content">
-								基础配置、高级配置
-
-1、webpack考点梳理webpack
-
-webpack 已是前端打包构建的不二选择
-前端已经不再是单纯的写页面的了。现在都是一个app，像android项目等。webpack是比较规范的。
-
-
-每日必用，面试...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="../../../../../2020/12/28/20204/webpack-babel-1/" title="webpack-babel-1  基础配置、高级配置">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="webpack-babel-1  基础配置、高级配置"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="../../../../../2020/12/28/20204/vue3-learn/" title="vue3学习">
-								vue3学习			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十二月 28日, 2020				
-							</p>
-							<p class="relate-post-content">
-								vue-cli配置、ref 、reactive、响应式对象、生命周期、watch、compositionAPI、模块化、泛型改造、setup()、Teleprot 、Suspense 、Global API 
-慕课网视频地址：http...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="../../../../../2020/12/28/20204/vue3-learn/" title="vue3学习">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="vue3学习"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="../../../../../2020/12/21/20204/react-theory-2/" title="react原理-2-高级特性">
-								react原理-2-高级特性			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十二月 21日, 2020				
-							</p>
-							<p class="relate-post-content">
-								react原理-2-高级特性
-
-7-13 React函数组件和class组件有何区别 （下面开始讲高级特性）高级特性可以拉开差距，主要包括：
-
-函数组件
-非受控组件
-Portals
-context
-异步组件
-性能优化
-高阶组件 HOC...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="../../../../../2020/12/21/20204/react-theory-2/" title="react原理-2-高级特性">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="react原理-2-高级特性"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="../../../../../2020/12/21/20204/react-theory-1/" title="react原理-1-使用">
-								react原理-1-使用			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十二月 21日, 2020				
-							</p>
-							<p class="relate-post-content">
-								react原理-1-使用
-
-第七章7-1、React使用-考点串讲React vs Vue
-
-React 和 Vue 一样重要，力求两者都会
-React 和 Vue 有很多相通之处，而且正在趋于一致
-React 比 Vue 学习成本高...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="../../../../../2020/12/21/20204/react-theory-1/" title="react原理-1-使用">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="react原理-1-使用"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="../../../../../2020/12/06/20204/vue-theory-3/" title="vue底层-3-题目、vue3">
-								vue底层-3-题目、vue3			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十二月 6日, 2020				
-							</p>
-							<p class="relate-post-content">
-								慕课网视频地址：https://coding.imooc.com/class/419.html
-
-
-第五章、面试真题题目来源：重点内容、网上收集整理、热门知识点
-大约30个题目。
-5.1、v-for为何使用keyv-show和v-if...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="../../../../../2020/12/06/20204/vue-theory-3/" title="vue底层-3-题目、vue3">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="vue底层-3-题目、vue3"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="../../../../../2020/12/06/20204/vue-theory-2/" title="vue底层-2-原理">
-								vue底层-2-原理			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十二月 6日, 2020				
-							</p>
-							<p class="relate-post-content">
-								vue原理   慕课网视频地址：https://coding.imooc.com/class/419.html
-
-
-第四章、Vue原理（大厂必考）4-1、vue原理原理不等于源码，源码很枯燥，原理很有意思。
-面试为何考察原理？又用不到...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="../../../../../2020/12/06/20204/vue-theory-2/" title="vue底层-2-原理">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="vue底层-2-原理"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="../../../../../2020/12/06/20204/vue-theory-1/" title="vue底层-1-使用">
-								vue底层-1-使用			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十二月 6日, 2020				
-							</p>
-							<p class="relate-post-content">
-								慕课网视频地址：https://coding.imooc.com/class/419.html
-
-
-第二章、课程介绍2-1、先看几个面试题vue面试题
-
-v-show和v-if 的区别
-为何v-for中要用key
-描述vue组件生命周...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="../../../../../2020/12/06/20204/vue-theory-1/" title="vue底层-1-使用">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="vue底层-1-使用"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="../../../../../2020/11/19/20204/js-base-3/" title="web基础-3-总结、题目">
-								web基础-3-总结、题目			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 19日, 2020				
-							</p>
-							<p class="relate-post-content">
-								总结、视频中的面试题、网络上的面试题、其他
-慕课网视频地址：https://coding.imooc.com/class/400.html
-
-第十三章、课程总结。13-1、课程总结知识点
-题目
-13-2、面试技巧关于简历
-
-简洁明了，...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="../../../../../2020/11/19/20204/js-base-3/" title="web基础-3-总结、题目">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="web基础-3-总结、题目"/>
-							</a>
-						</div>
-					</li>												
-			
-		</ul>
+		<div class="config-info">
+			Please check the parameter of <b>post_relate</b> in config.yml of hexo-theme-Annie! You should make sure that <b>postsEnable is true</b> and the number of site posts greater than 1.
+		</div>	
 	
 </div>	
 				</div>
@@ -771,6 +501,11 @@ v-show和v-if 的区别
 	
 		<li class="menu-archive">
 			<a href="../../../../../archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="../../../../../tags" class="menu-item-tags" target="_blank">标签</a>
 		</li>
 		
 	
