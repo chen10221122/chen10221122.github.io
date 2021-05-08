@@ -1,4 +1,3 @@
-
 jQuery(document).ready(function ($) {
 
 	"use strict";
@@ -8,19 +7,19 @@ jQuery(document).ready(function ($) {
 	 * loadAnimation: The animation of loading for 'fun Annie_LoadPost()' & 'fun Annie_QueryPostsByTag()'.
 	 */
 	const ANNIE = {
-		scrollLimitG        : 500,
-		scrollSpeedG        : 500,
-		delayTimeG          : 500,
-		headerH             : $('header').outerHeight(),
-		postContentH        : $('#article-content').outerHeight(),
-		mainH               : $('main').outerHeight(),
+		scrollLimitG: 500,
+		scrollSpeedG: 500,
+		delayTimeG: 500,
+		headerH: $('header').outerHeight(),
+		postContentH: $('#article-content').outerHeight(),
+		mainH: $('main').outerHeight(),
 		investmentContainerH: $('.investment-container').outerHeight(),
-		postPageId          : '.layout-post',
-		postCoverId         : '#current-post-cover',
-		postTocId           : '#catelog-list',
-		paginationId        : '#pagination a',
-		paginationContainer : '#layout-cart, #layout-pure',
-		loadAnimation       : '<div class = "transition"><div class = "three-bounce1"> </div> <div class = "three-bounce2"> </div> <div class = "three-bounce3"> </div> </div> '
+		postPageId: '.layout-post',
+		postCoverId: '#current-post-cover',
+		postTocId: '#catelog-list',
+		paginationId: '#pagination a',
+		paginationContainer: '#layout-cart, #layout-pure',
+		loadAnimation: '<div class = "transition"><div class = "three-bounce1"> </div> <div class = "three-bounce2"> </div> <div class = "three-bounce3"> </div> </div> '
 	};
 
 	/**
@@ -32,7 +31,7 @@ jQuery(document).ready(function ($) {
 		let mode = CONFIG_BGIMAGE.mode,
 			curImgSrc = ' ',
 			randomNum = 0,
-			randomYouMax = CONFIG_BGIMAGE.randomYouMax,			
+			randomYouMax = CONFIG_BGIMAGE.randomYouMax,
 			normalSrc = CONFIG_BGIMAGE.normalSrc,
 			randomYouSrc = CONFIG_BGIMAGE.randomYouSrc,
 			randomOtherSrc = CONFIG_BGIMAGE.randomOtherSrc;
@@ -44,35 +43,30 @@ jQuery(document).ready(function ($) {
 		}
 
 		switch (mode) {
-			case 'random_you':
-				{
-					randomNum = Math.floor(Math.random() * (randomYouMax - 1) + 1);
-					curImgSrc = randomYouSrc + randomNum + '.jpg';
-				}
-				break;
-			case 'random_other':
-				{
-					curImgSrc = randomOtherSrc;
-				}
-				break;
-			case 'normal':
-				{
-					curImgSrc = 'https://source.unsplash.com/collection/954550/1920x1080';
-				}
-				break;
-			case 'post':
-				{
-					curImgSrc = $(postCoverId).attr('data-scr');
-				}
-				break;
-			default:
-				{
-					//Api: https://api.berryapi.net/docs.html
-					curImgSrc = 'https://api.berryapi.net/?service=App.Bing.Images&day=-0';
-				}
-				break;
+			case 'random_you': {
+				randomNum = Math.floor(Math.random() * (randomYouMax - 1) + 1);
+				curImgSrc = randomYouSrc + randomNum + '.jpg';
+			}
+			break;
+		case 'random_other': {
+			curImgSrc = randomOtherSrc;
 		}
-		
+		break;
+		case 'normal': {
+			curImgSrc = 'https://source.unsplash.com/collection/954550/1920x1080';
+		}
+		break;
+		case 'post': {
+			curImgSrc = $(postCoverId).attr('data-scr');
+		}
+		break;
+		default: {
+			//Api: https://api.berryapi.net/docs.html
+			curImgSrc = 'https://api.berryapi.net/?service=App.Bing.Images&day=-0';
+		}
+		break;
+		}
+
 		/**
 		 * To set the background of the header.
 		 *
@@ -83,43 +77,43 @@ jQuery(document).ready(function ($) {
 			let backgroundImg = 'url(' + imgSrc + ')';
 			$('header').css('background-image', backgroundImg);
 		}
-		
+
 		Annie_SetBg(curImgSrc);
 
 		/**
 		 * To set & then remove the mask layer for html page!
 		 *
 		 * @method   Annie_Transition
-		 */		
+		 */
 		const PRELOADER = {
-			delayTime:　ANNIE.delayTimeG,
+			delayTime: ANNIE.delayTimeG,
 			scrollSpeed: ANNIE.scrollSpeedG || 'normal',
-			removePreloaderMask: function(){
-				if($('#preloader').length){
+			removePreloaderMask: function () {
+				if ($('#preloader').length) {
 					$('#preloader').delay(this.delayTime).fadeOut('slow');
 				}
 			},
-			removeHtmlHidden: function(){
+			removeHtmlHidden: function () {
 				$('html').removeClass('html-loading');
 			},
-			Scroll: function(scrollHeight){
-				let scrollSpeed = this.scrollSpeed;			
-				
+			Scroll: function (scrollHeight) {
+				let scrollSpeed = this.scrollSpeed;
+
 				if ($(postPageId).length) {
-			
-				} else{
+
+				} else {
 					//Other pages
 					scrollSpeed = 'normal';
 				}
-					
-				$('html, body').delay( this.delayTime / 2 ).animate({
+
+				$('html, body').delay(this.delayTime / 2).animate({
 					scrollTop: scrollHeight
-				}, scrollSpeed, 'linear');				
+				}, scrollSpeed, 'linear');
 			},
-			setCookie: function(cName, cValue){
+			setCookie: function (cName, cValue) {
 				document.cookie = cName + "=" + escape(cValue) + ";";
 			},
-			getCookie: function(cName){
+			getCookie: function (cName) {
 				let aCookie = document.cookie.split("; ");
 				for (let i = 0; i < aCookie.length; i++) {
 					let aCrumb = aCookie[i].split("=");
@@ -128,82 +122,84 @@ jQuery(document).ready(function ($) {
 				}
 				return 0;
 			},
-			browserRefresh: function(){
+			browserRefresh: function () {
 				// Api: https://developer.mozilla.org/zh-CN/docs/Web/API/Navigation_timing_API
 				if (window.performance.navigation.type == 1) {
 					return true;
 				} else {
-					return false;															
+					return false;
 				}
 			}
 		}
-		
+
 		let currentScrollHeight = 0,
 			currentScrollTop = 0,
 			browserRefreshStatus = PRELOADER.browserRefresh();
-			
-		$(window).scroll(function () {		
-			currentScrollTop = $(document).scrollTop();		
-			PRELOADER.setCookie('currentScrollTop', currentScrollTop);		
+
+		$(window).scroll(function () {
+			currentScrollTop = $(document).scrollTop();
+			PRELOADER.setCookie('currentScrollTop', currentScrollTop);
 		}).trigger('scroll');
-		
-		function singlePageScroll(){
+
+		function singlePageScroll() {
 			if (browserRefreshStatus) {
 				currentScrollHeight = currentScrollTop || PRELOADER.getCookie('currentScrollTop');
 				console.info("This page is reloaded");
 			} else {
-				currentScrollHeight = ANNIE.headerH + 2;															
+				currentScrollHeight = ANNIE.headerH + 2;
 			}
-			PRELOADER.Scroll(currentScrollHeight);				
-		}
-		
-		function otherPageScroll(){
-			if (browserRefreshStatus) {
-				currentScrollHeight = currentScrollTop || PRELOADER.getCookie('currentScrollTop');
-			
-				PRELOADER.Scroll(currentScrollHeight);		
-				console.info("This page is reloaded");
-			} 
+			PRELOADER.Scroll(currentScrollHeight);
 		}
 
-		function globalScroll(){
+		function otherPageScroll() {
+			if (browserRefreshStatus) {
+				currentScrollHeight = currentScrollTop || PRELOADER.getCookie('currentScrollTop');
+
+				PRELOADER.Scroll(currentScrollHeight);
+				console.info("This page is reloaded");
+			}
+		}
+
+		function globalScroll() {
 			PRELOADER.removePreloaderMask();
 			PRELOADER.removeHtmlHidden();
 			if ($(postPageId).length) {
 				singlePageScroll();
-			} else{
+			} else {
 				//Other pages
 				otherPageScroll();
-			}			
+			}
 		}
-		
-		if(CONFIG_BGIMAGE.preloaderEnable && CONFIG_BGIMAGE.preloaderEnable != null){// 不设置预加载
+
+		if (CONFIG_BGIMAGE.preloaderEnable && CONFIG_BGIMAGE.preloaderEnable != null) { // 不设置预加载
 			// 10s以后
 			let stop = setTimeout(function () {
 				function timeoutCalled() {
-					PRELOADER.removePreloaderMask();		
+					PRELOADER.removePreloaderMask();
 					PRELOADER.removeHtmlHidden();
 					singlePageScroll();
 					console.log('timeout');
 				}
 				return timeoutCalled();
 			}, ANNIE.delayTimeG * 20); // delayTime = ANNIE.delayTimeG * 20 = 10s
-			
+
 			// 10s以前, The background iamge of header is already loaded.
 			/**
 			 * We use "https://github.com/desandro/imagesloaded plugin" to check img.load status!
 			 * PLUGIN: plugin/imageloaded/imagesloaded.pkgd.min.js
 			 */
-			$("header").imagesLoaded({ background: true }, function () {
+			$("header").imagesLoaded({
+				background: true
+			}, function () {
 				if (stop) {
-					clearTimeout(stop);	
-								
+					clearTimeout(stop);
+
 					globalScroll();
 				}
 			});
-		} else {// 设置预加载
+		} else { // 设置预加载
 			globalScroll();
-		}	
+		}
 	};
 
 	/**
@@ -338,12 +334,13 @@ jQuery(document).ready(function ($) {
 	const Annie_Toc = function () {
 		let scrollSpeed = ANNIE.scrollSpeedG,
 			upperLimit1 = ANNIE.headerH,
-			upperLimit2 = ANNIE.mainH ;
-			// upperLimit2 = ANNIE.mainH - ANNIE.investmentContainerH;
+			upperLimit2 = ANNIE.mainH;
+		// upperLimit2 = ANNIE.mainH - ANNIE.investmentContainerH;
 		let tocSwitchButton = ".switch-button",
 			delayTime = ANNIE.delayTimeG,
 			postTocId = ANNIE.postTocId,
 			postPageId = ANNIE.postPageId;
+
 		function fixedAndShowTocId() {
 			$(window).scroll(function () {
 				let scrollTop = $(document).scrollTop();
@@ -366,7 +363,7 @@ jQuery(document).ready(function ($) {
 				linkActiveClass: 'k-catelog-link-active',
 				selector: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
 				supplyTop: 20,
-				active: function (el) { }
+				active: function (el) {}
 			});
 			//TODO: 添加目录标题、层级标题
 		}
@@ -437,14 +434,14 @@ jQuery(document).ready(function ($) {
 				$(toTop).stop().fadeTo(delayTime, 0);
 			}
 		});
-		
-		function anchor(element, height, speed){
+
+		function anchor(element, height, speed) {
 			$(element).click(function () {
 				$('html, body').animate({
 					scrollTop: height
 				}, speed);
 				return false;
-			});			
+			});
 		}
 		anchor(toTop, 0, scrollSpeed);
 		anchor(toTop2, 0, scrollSpeed);
@@ -457,7 +454,7 @@ jQuery(document).ready(function ($) {
 	 * @method   Annie_Archive
 	 */
 	const Annie_Archive = function () {
-		
+
 		function getZodiac(year) {
 			let zodiac = 'rat';
 
@@ -546,7 +543,7 @@ jQuery(document).ready(function ($) {
 			leancloudCount = CONFIG_LEACLOUD_COUNT.enable || false;
 		const loaderTitle = $(paginationId).attr('data-title'),
 			loaderStatus = $(paginationId).attr('data-status');
-				
+
 		$('body').on('click', paginationId, function () {
 			let thisUrl = $(this).attr("href");
 			$(paginationId).text(" ").append(loadAnimation);
@@ -558,7 +555,7 @@ jQuery(document).ready(function ($) {
 				timeout: delayTime * 20, //10s
 				error: function (event, xhr, options) {
 
-					$(paginationId).attr("href", thisUrl).empty().text( loaderTitle );
+					$(paginationId).attr("href", thisUrl).empty().text(loaderTitle);
 
 					alert("Error requesting " + options.url + ":  " + xhr.status + ",  " + xhr.statusText);
 
@@ -570,12 +567,12 @@ jQuery(document).ready(function ($) {
 
 					$(paginationContainer).append(result.fadeIn(delayTime).addClass('animation-zoom'));
 
-					if ( leancloudCount ) {
+					if (leancloudCount) {
 						//FIX: ajax bug
 						annieShowData(initCounter, initPost);
 					}
 
-					$(paginationId).empty().text( loaderTitle );
+					$(paginationId).empty().text(loaderTitle);
 
 					if (newhref != undefined) {
 						$(paginationId).attr("href", newhref);
