@@ -334,7 +334,7 @@ jQuery(document).ready(function ($) {
 	const Annie_Toc = function () {
 		let scrollSpeed = ANNIE.scrollSpeedG,
 			upperLimit1 = ANNIE.headerH,
-			upperLimit2 = ANNIE.mainH;
+			upperLimit2 = $('main').outerHeight()-240;
 		// upperLimit2 = ANNIE.mainH - ANNIE.investmentContainerH;
 		let tocSwitchButton = ".switch-button",
 			delayTime = ANNIE.delayTimeG,
