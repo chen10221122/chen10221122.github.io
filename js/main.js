@@ -334,7 +334,7 @@ jQuery(document).ready(function ($) {
 	const Annie_Toc = function () {
 		let scrollSpeed = ANNIE.scrollSpeedG,
 			upperLimit1 = ANNIE.headerH,
-			upperLimit2 = ANNIE.headerH + $('main').outerHeight() - 240;
+			upperLimit2 = $('main').outerHeight();
 		// upperLimit2 = ANNIE.mainH - ANNIE.investmentContainerH;
 		let tocSwitchButton = ".switch-button",
 			delayTime = ANNIE.delayTimeG,
@@ -345,7 +345,7 @@ jQuery(document).ready(function ($) {
 			$(window).scroll(function () {
 				let scrollTop = $(document).scrollTop();
 
-				if ((scrollTop >= upperLimit1) && (scrollTop < $('main').outerHeight() - 240)) {
+				if ((scrollTop >= upperLimit1) && (scrollTop < $('main').outerHeight())) {
 					//屏幕宽度<= 1024px时应隐藏
 					$(postTocId).css('position', 'fixed').show().fadeIn(delayTime);
 
