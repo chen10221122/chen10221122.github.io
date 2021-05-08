@@ -312,7 +312,7 @@ jQuery(document).ready(function ($) {
 			}
 
 			//Current post or page title
-			if (scrollTop >= headerH + 300) {
+			if (scrollTop >= headerH + 0) {
 				$('#progress-bar').show();
 				$('#progress-percentage').show();
 				$('.toc-switch').show();
@@ -338,12 +338,12 @@ jQuery(document).ready(function ($) {
 	const Annie_Toc = function () {
 		let scrollSpeed = ANNIE.scrollSpeedG,
 			upperLimit1 = ANNIE.headerH,
-			upperLimit2 = ANNIE.mainH - ANNIE.investmentContainerH;
+			upperLimit2 = ANNIE.mainH ;
+			// upperLimit2 = ANNIE.mainH - ANNIE.investmentContainerH;
 		let tocSwitchButton = ".switch-button",
 			delayTime = ANNIE.delayTimeG,
 			postTocId = ANNIE.postTocId,
 			postPageId = ANNIE.postPageId;
-
 		function fixedAndShowTocId() {
 			$(window).scroll(function () {
 				let scrollTop = $(document).scrollTop();
