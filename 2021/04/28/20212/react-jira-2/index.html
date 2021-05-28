@@ -245,7 +245,7 @@
 
 	<a href="" itemprop="url">
 		<time datetime="2021-04-28T10:45:14.000Z" itemprop="dateUpdated">
-	  		2021-05-26
+	  		2021-05-28
 	  </time>
 	</a> 
 
@@ -272,7 +272,7 @@
 		<div class="article-content" id="article-content" >
 			<p>第二章：《基于实例的 React16 傻瓜课程》。第三章：《神奇的 React 配合 typescript》</p>
 <p>慕课网视频地址：<a href="https://coding.imooc.com/class/chapter/449.html" target="_blank" rel="noopener">https://coding.imooc.com/class/chapter/449.html</a></p>
-<a id="more"></a>
+<p>more</p>
 <h1 id="第二章-基于实例的-React16-傻瓜课程"><a href="#第二章-基于实例的-React16-傻瓜课程" class="headerlink" title="第二章 基于实例的 React16 傻瓜课程"></a>第二章 基于实例的 React16 傻瓜课程</h1><hr>
 <p>免费课程，慕课网地址：<a href="https://www.imooc.com/learn/1045" target="_blank" rel="noopener">https://www.imooc.com/learn/1045</a></p>
 <h2 id="2-1、进入-React-的世界"><a href="#2-1、进入-React-的世界" class="headerlink" title="2-1、进入 React 的世界"></a>2-1、进入 React 的世界</h2><p><strong>简介</strong></p>
@@ -298,7 +298,7 @@
 <li>组件像一个函数，接受特定的输入(<code>props</code>)，产出特定的输出 (<code>React elements</code>)</li>
 <li><code>V = f(props)</code></li>
 </ul>
-<!-- 下面我们写一个简单的名片示例： -->
+<p>下面我们写一个简单的名片示例：</p>
 <p><img src="/images/20212/react-ts-02.png" alt="ReactElement"></p>
 <p>新建一个 NameCard 组件</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React form <span class="string">'react'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 组件的函数写法：</span></span><br><span class="line"><span class="keyword">const</span> NameCard= <span class="function">(<span class="params">props</span>) =&gt;</span>&#123;</span><br><span class="line">    render()&#123;</span><br><span class="line">    <span class="keyword">const</span> &#123;name,number,isHuman,tags&#125;=props</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;h4&gt;&#123;name&#125;&lt;<span class="regexp">/h4&gt;</span></span><br><span class="line"><span class="regexp">            &lt;ul&gt;</span></span><br><span class="line"><span class="regexp">                &lt;li&gt;电话：&#123;number&#125;&lt;li&gt;</span></span><br><span class="line"><span class="regexp">                &lt;li&gt;&#123;isHuman ? '人类' : '外星生物'&#125;&lt;li&gt;</span></span><br><span class="line"><span class="regexp">                &lt;hr/</span>&gt;</span><br><span class="line">                &lt;p&gt;</span><br><span class="line">                    &#123;</span><br><span class="line">                        tap.map(<span class="function">(<span class="params">tap,index</span>)=&gt;</span>&#123;</span><br><span class="line">                            &lt;span key=&#123;index&#125;&gt;&#123;tag&#125;&lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">                        &#125;)</span></span><br><span class="line"><span class="regexp">                    &#125;</span></span><br><span class="line"><span class="regexp">                &lt;/</span>p&gt;</span><br><span class="line">            &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>div&gt;</span><br><span class="line">    )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> NameCard</span><br></pre></td></tr></table></figure>
@@ -370,78 +370,71 @@
 <blockquote>
 <p>本节使用的就是 React 提供的 useState Hook ，或者叫 state Hook ，他可以在函数组件上添加内部 state</p>
 </blockquote>
-<h2 id="3-6、useEffect-第一部分-初出茅庐"><a href="#3-6、useEffect-第一部分-初出茅庐" class="headerlink" title="3-6、useEffect 第一部分-初出茅庐"></a>3-6、useEffect 第一部分-初出茅庐</h2><p>纯函数：输入确定，输入就确定；若函数有副作用(side effec)：</p>
+<h2 id="3-6、useEffect-第一部分-初出茅庐"><a href="#3-6、useEffect-第一部分-初出茅庐" class="headerlink" title="3-6、useEffect 第一部分-初出茅庐"></a>3-6、useEffect 第一部分-初出茅庐</h2><p>纯函数：输入确定，输入就确定；若函数有副作用<code>(side effec)</code>：</p>
 <ul>
 <li>无需清除的 <code>Effect</code>：如发送网络请求、手动变更 DOM、记录日志等，因为我们在执行完操作后可以忽略他们</li>
 <li>代码时间：使用 <code>useEffect</code> 使用 <code>DOM</code> 完成标题更新</li>
 </ul>
 <p>在 class 中怎样实现？我们希望在组件加载和更新的时候有同样的操作，也就是在渲染之后执行，我们需要在两个地方调用</p>
 <p><img src="/images/20212/react-ts-10.png" alt="在 class 中实现"></p>
-<hr>
 <p><strong> 用 <code>useEffect</code> 实现：</strong></p>
 <p><img src="/images/20212/react-ts-11.png" alt="useEffect"></p>
 <p><code>useEffect</code> 有两个参数，第一个参数是 <code>React.EffectCallback</code> ，第二个 <code>deps</code> 是可选的 <code>。EffectCallback</code> 是一个 <code>function</code> ,可返回 <code>void</code> 或 <code>undefined</code></p>
-<blockquote class="colorquote info"><p>useEffect 接受一个函数，告诉组件在渲染后执行哪些操作；React 会保存传递的函数，并且在执行 DOM 更新后调用它。 <code>useEffect</code> 会在每次渲染之后都执行。 </p></blockquote>
-
+<blockquote>
+<p>Hook 是一个特殊的函数，可以让你再函数组件中勾住 React 特性，他的名字通常由 use 开始，例如 useState 就允许在函数组件中添加 State Hook ，</p>
+</blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"document title effect is running"</span>);</span><br><span class="line">  <span class="built_in">document</span>.title = <span class="string">`点击了<span class="subst">$&#123;like&#125;</span>次`</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-## 3-7、useEffect 第二部分-有始有终
-
-上节讲了不需要清除的副作用，还有些副作用是需要清除的，
-
-- 需要清除的 `Effect`：如添加 DOM 事件等
-- 代码时间：使用 `useEffect` 完成一个鼠标跟踪器。原理就是添加事件，更新`state`到当前值
-
-在 class 中实现：
-
-![在 class 中实现](/images/20212/react-ts-12.png)
-
----
-
-** 用 `useEffect` 实现：** 我们新建一个 `MouseTracker.tsx` 文件，
-
+<h2 id="3-7、useEffect-第二部分-有始有终"><a href="#3-7、useEffect-第二部分-有始有终" class="headerlink" title="3-7、useEffect 第二部分-有始有终"></a>3-7、useEffect 第二部分-有始有终</h2><p>上节讲了不需要清除的副作用，还有些副作用是需要清除的，</p>
+<ul>
+<li>需要清除的 <code>Effect</code>：如添加 DOM 事件等</li>
+<li>代码时间：使用 <code>useEffect</code> 完成一个鼠标跟踪器。原理就是添加事件，更新<code>state</code>到当前值</li>
+</ul>
+<p>在 class 中实现：</p>
+<p><img src="/images/20212/react-ts-12.png" alt="在 class 中实现"></p>
+<hr>
+<p><strong> 用 <code>useEffect</code> 实现：</strong> 我们新建一个 <code>MouseTracker.tsx</code> 文件，</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState, useEffect &#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> MouseTracker: React.FC = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 记录鼠标位置</span></span><br><span class="line">  <span class="keyword">const</span> [positions, setPositions] = useState(&#123; <span class="attr">x</span>: <span class="number">0</span>, <span class="attr">y</span>: <span class="number">0</span> &#125;);</span><br><span class="line"></span><br><span class="line">  useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"add effect"</span>, positions.x);</span><br><span class="line">    <span class="comment">// 在同一个地方执行和清除</span></span><br><span class="line">    <span class="keyword">const</span> updateMouse = <span class="function">(<span class="params">e: MouseEvent</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"inner"</span>);</span><br><span class="line">      setPositions(&#123; <span class="attr">x</span>: e.clientX, <span class="attr">y</span>: e.clientY &#125;);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">"click"</span>, updateMouse);</span><br><span class="line">    <span class="comment">// useEffect可以返回一个函数，做清除的工作</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"remove effect"</span>, positions.x);</span><br><span class="line">      <span class="built_in">document</span>.removeEventListener(<span class="string">"click"</span>, updateMouse);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;, []);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"before render"</span>, positions.x);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;p&gt;</span><br><span class="line">      X: &#123;positions.x&#125;, <span class="attr">Y</span> : &#123;positions.y&#125;</span><br><span class="line">    &lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default MouseTracker;</span></span><br></pre></td></tr></table></figure>
-
-..`React` 会在组件卸载的时候执行清除操作，会在执行当前 `Effect` 时对上一个 `Effect` 进行清除：
-
-![执行当前 Effect 时对上一个 Effect进行清除](/images/20212/react-ts-13.png)
-
-## 3-8、useEffect 第三部分-控制运行
-
-若两次重复渲染之间没有变化，可以通知 `React` 跳过对 `Effect` 的调用，
-
-- 代码时间：控制 `useEffect` 的执行。
-- 代码时间：修改前面两个例子的代码
-
-useEffect 第二个参数是数组，数组包含任意多的项，当数组中任意一项发生变化时，就会重新跑 Effect。若只想运行一次，可以传递空数组 `[]`.
-
-![useEffect 第二个参数是数组](/images/20212/react-ts-14.png)。
-
-下面修改一下 `LikeButton` 按钮，我们希望只有 `like` 值变化的时候，才会更新 `Effect` ：
-
+<p>..<code>React</code> 会在组件卸载的时候执行清除操作，会在执行当前 <code>Effect</code> 时对上一个 <code>Effect</code> 进行清除：</p>
+<p><img src="/images/20212/react-ts-13.png" alt="执行当前 Effect 时对上一个 Effect进行清除"></p>
+<h2 id="3-8、useEffect-第三部分-控制运行"><a href="#3-8、useEffect-第三部分-控制运行" class="headerlink" title="3-8、useEffect 第三部分-控制运行"></a>3-8、useEffect 第三部分-控制运行</h2><p>若两次重复渲染之间没有变化，可以通知 <code>React</code> 跳过对 <code>Effect</code> 的调用，</p>
+<ul>
+<li>代码时间：控制 <code>useEffect</code> 的执行。</li>
+<li>代码时间：修改前面两个例子的代码</li>
+</ul>
+<p>useEffect 第二个参数是数组，数组包含任意多的项，当数组中任意一项发生变化时，就会重新跑 Effect。若只想运行一次，可以传递空数组 <code>[]</code>.</p>
+<p><img src="/images/20212/react-ts-14.png" alt="useEffect 第二个参数是数组">。</p>
+<p>下面修改一下 <code>LikeButton</code> 按钮，我们希望只有 <code>like</code> 值变化的时候，才会更新 <code>Effect</code> ：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"document title effect is running"</span>);</span><br><span class="line">  <span class="built_in">document</span>.title = <span class="string">`点击了<span class="subst">$&#123;like&#125;</span>次`</span>;</span><br><span class="line">&#125;, [like]);</span><br></pre></td></tr></table></figure>
-
-> Effect 的清除机制避免了 componentDidUpdate 和 componentWillUnMount 中的重复，同时让相关代码关系更紧密。
-
-## 3-9、自定义 Hook-重构 MouseTracker
-
-> 可以使用 Hook 从组件中提取逻辑状态，使得这些逻辑可以单独测试并复用，共享 `Hook` 也更便捷
-
-目前有两种主要的方式来共享组建逻辑：`Rander Porps` 和 高阶组件 `HOC` 。
-
-- 将组建逻辑提取到可重用的函数中
-- 代码时间：使用自定义 `Hook` 抽象鼠标跟踪器
-
-我们新建 `src/hooks/useMousePosition.tsx` ，再把 `MouseTracker.tsx` 中内容复制过来改一下：
-
-![src/hooks/useMousePosition.tsx](/images/20212/react-ts-15.png)
-
-自定义一个 `Hook` 函数，使用 `use` 开头。
-
+<blockquote>
+<p>Effect 的清除机制避免了 componentDidUpdate 和 componentWillUnMount 中的重复，同时让相关代码关系更紧密。</p>
+</blockquote>
+<h2 id="3-9、自定义-Hook-重构-MouseTracker"><a href="#3-9、自定义-Hook-重构-MouseTracker" class="headerlink" title="3-9、自定义 Hook-重构 MouseTracker"></a>3-9、自定义 Hook-重构 MouseTracker</h2><blockquote>
+<p>可以使用 Hook 从组件中提取逻辑状态，使得这些逻辑可以单独测试并复用，共享 <code>Hook</code> 也更便捷</p>
+</blockquote>
+<p>目前有两种主要的方式来共享组建逻辑：<code>Rander Porps</code> 和 高阶组件 <code>HOC</code> 。</p>
+<ul>
+<li>将组建逻辑提取到可重用的函数中</li>
+<li>代码时间：使用自定义 <code>Hook</code> 抽象鼠标跟踪器</li>
+</ul>
+<p>我们新建 <code>src/hooks/useMousePosition.tsx</code> ，再把 <code>MouseTracker.tsx</code> 中内容复制过来改一下：</p>
+<p><img src="/images/20212/react-ts-15.png" alt="src/hooks/useMousePosition.tsx"></p>
+<p>自定义一个 <code>Hook</code> 函数，使用 <code>use</code> 开头。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState, useEffect &#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> useMousePosition = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [positions, setPositions] = useState(&#123; <span class="attr">x</span>: <span class="number">0</span>, <span class="attr">y</span>: <span class="number">0</span> &#125;);</span><br><span class="line">  useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"add effect"</span>, positions.x);</span><br><span class="line">    <span class="keyword">const</span> updateMouse = <span class="function">(<span class="params">e: MouseEvent</span>) =&gt;</span> &#123;</span><br><span class="line">      setPositions(&#123; <span class="attr">x</span>: e.clientX, <span class="attr">y</span>: e.clientY &#125;);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">"mousemove"</span>, updateMouse);</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"remove effect"</span>, positions.x);</span><br><span class="line">      <span class="built_in">document</span>.removeEventListener(<span class="string">"mousemove"</span>, updateMouse);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;, []);</span><br><span class="line">  <span class="keyword">return</span> positions;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> useMousePosition;</span><br></pre></td></tr></table></figure>
-
 <blockquote class="colorquote warning"><ul><li>自定义 <code>Hook</code> 必须使用 <code>use</code> 开头，否则无法判断某个函数，是否包含对其内部的 <code>Hook</code> 调用。</li><li>两个组件中使用相同 <code>state</code> 不会共享。 <code>state</code> 无副作用</li></ul></blockquote>
-<h2 id="3-10、自定义-Hook-第二部分-HOC-的劣势"><a href="#3-10、自定义-Hook-第二部分-HOC-的劣势" class="headerlink" title="3-10、自定义 Hook 第二部分-HOC 的劣势"></a>3-10、自定义 Hook 第二部分-HOC 的劣势</h2><h2 id="3-11、自定义-hook-第三部分-正确的方式完成-URLLoader"><a href="#3-11、自定义-hook-第三部分-正确的方式完成-URLLoader" class="headerlink" title="3-11、自定义 hook 第三部分-正确的方式完成 URLLoader"></a>3-11、自定义 hook 第三部分-正确的方式完成 URLLoader</h2><h2 id="3-12、useRef-state-遇到的难题"><a href="#3-12、useRef-state-遇到的难题" class="headerlink" title="3-12、useRef-state 遇到的难题"></a>3-12、useRef-state 遇到的难题</h2><h2 id="3-13、useRef-多次渲染之间的纽带"><a href="#3-13、useRef-多次渲染之间的纽带" class="headerlink" title="3-13、useRef-多次渲染之间的纽带"></a>3-13、useRef-多次渲染之间的纽带</h2><h2 id="3-14、useContext-解决多层传递属性的灵丹妙药"><a href="#3-14、useContext-解决多层传递属性的灵丹妙药" class="headerlink" title="3-14、useContext-解决多层传递属性的灵丹妙药"></a>3-14、useContext-解决多层传递属性的灵丹妙药</h2><h2 id="3-15、hook-规则和其他-hook"><a href="#3-15、hook-规则和其他-hook" class="headerlink" title="3-15、hook 规则和其他 hook"></a>3-15、hook 规则和其他 hook</h2>	
+<h2 id="3-10、自定义-Hook-第二部分-HOC-的劣势"><a href="#3-10、自定义-Hook-第二部分-HOC-的劣势" class="headerlink" title="3-10、自定义 Hook 第二部分-HOC 的劣势"></a>3-10、自定义 Hook 第二部分-HOC 的劣势</h2><p>HOC - Higher order component ，高阶组件。</p>
+<ul>
+<li>高阶组件就是一个函数，接受一个组件作为参数，返回一个新的组件，如下面的 loading 组件:</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// high order component</span></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line"></span><br><span class="line">interface ILoaderState &#123;</span><br><span class="line">  data: any,</span><br><span class="line">  isLoading: boolean</span><br><span class="line">&#125;</span><br><span class="line">interface ILoaderProps &#123;</span><br><span class="line">  data: any,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> withLoader = &lt;P extends ILoaderState&gt;(WrappedComponent: React.ComponentType&lt;P&gt;, url: string) =&gt; &#123;</span><br><span class="line">  return class LoaderComponent extends React.Component&lt;Partial&lt;ILoaderProps&gt;, ILoaderState&gt; &#123;</span><br><span class="line">    constructor(props: any) &#123;</span><br><span class="line">      super(props)</span><br><span class="line">      this.state = &#123;</span><br><span class="line">        data: null,</span><br><span class="line">        isLoading: false</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    componentDidMount() &#123;</span><br><span class="line">      this.setState(&#123;</span><br><span class="line">        isLoading: true,</span><br><span class="line">      &#125;)</span><br><span class="line">      axios.get(url).then(result =&gt; &#123;</span><br><span class="line">        this.setState(&#123;</span><br><span class="line">          data: result.data,</span><br><span class="line">          isLoading: false</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">      const &#123; data, isLoading &#125; = this.state</span><br><span class="line">      return (</span><br><span class="line">        &lt;&gt;</span><br><span class="line">          &#123; (isLoading || !data) ? &lt;p&gt;data is loading&lt;/p&gt; :</span><br><span class="line">            &lt;WrappedComponent &#123;...this.props as P&#125; data=&#123;data&#125; /&gt;</span><br><span class="line">          &#125;</span><br><span class="line">        &lt;/&gt;</span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default withLoader</span><br></pre></td></tr></table></figure>
+<p><strong>弊端：</strong></p>
+<ul>
+<li>逻辑代码，也必须添加节点，如loading</li>
+<li>代码难以理解</li>
+<li>被包裹的组件 data 来源不明确</li>
+</ul>
+<h2 id="3-11、自定义-hook-第三部分-正确的方式完成-URLLoader"><a href="#3-11、自定义-hook-第三部分-正确的方式完成-URLLoader" class="headerlink" title="3-11、自定义 hook 第三部分-正确的方式完成 URLLoader"></a>3-11、自定义 hook 第三部分-正确的方式完成 URLLoader</h2><p>新建 hook 文件，</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useState, useEffect &#125; <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> useURLLoader = <span class="function">(<span class="params">url: string, deps: any[] = []</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [data, setData] = useState&lt;any&gt;(<span class="literal">null</span>)</span><br><span class="line">  <span class="keyword">const</span> [loading, setLoading] = useState(<span class="literal">false</span>)</span><br><span class="line">  useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    setLoading(<span class="literal">true</span>)</span><br><span class="line">    axios.get(url).then(<span class="function"><span class="params">result</span> =&gt;</span> &#123;</span><br><span class="line">      setData(result.data)</span><br><span class="line">      setLoading(<span class="literal">false</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;, deps)</span><br><span class="line">  <span class="keyword">return</span> [data, loading]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> useURLLoader</span><br></pre></td></tr></table></figure>
+<h2 id="3-12、useRef-state-遇到的难题"><a href="#3-12、useRef-state-遇到的难题" class="headerlink" title="3-12、useRef-state 遇到的难题"></a>3-12、useRef-state 遇到的难题</h2><h2 id="3-13、useRef-多次渲染之间的纽带"><a href="#3-13、useRef-多次渲染之间的纽带" class="headerlink" title="3-13、useRef-多次渲染之间的纽带"></a>3-13、useRef-多次渲染之间的纽带</h2><h2 id="3-14、useContext-解决多层传递属性的灵丹妙药"><a href="#3-14、useContext-解决多层传递属性的灵丹妙药" class="headerlink" title="3-14、useContext-解决多层传递属性的灵丹妙药"></a>3-14、useContext-解决多层传递属性的灵丹妙药</h2><h2 id="3-15、hook-规则和其他-hook"><a href="#3-15、hook-规则和其他-hook" class="headerlink" title="3-15、hook 规则和其他 hook"></a>3-15、hook 规则和其他 hook</h2>	
 		</div>
 		
 		<div id="current-post-cover" data-scr="../../../../../images/cover/react-lifecycels.png"></div>
@@ -460,7 +453,7 @@ useEffect 第二个参数是数组，数组包含任意多的项，当数组中�
 		<a id="totop-post-page">返回顶部</a>
 		
 		
-			<a href="../../20211/typescript-1/" title="慕课网 React Hook+TS4 （一）" rel="next">
+			<a href="../../20211/react-jira-1/" title="慕课网 React Hook+TS4 （一）" rel="next">
 				下一篇&raquo;
 			</a>
 			
