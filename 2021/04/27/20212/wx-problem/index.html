@@ -245,7 +245,7 @@
 
 	<a href="" itemprop="url">
 		<time datetime="2021-04-27T03:35:38.000Z" itemprop="dateUpdated">
-	  		2021-05-24
+	  		2021-09-13
 	  </time>
 	</a> 
 
@@ -290,6 +290,11 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mydata = <span class="string">"2017-01-01 11:00:00"</span>;</span><br><span class="line">mydata = data.replace(<span class="regexp">/-/g</span>, <span class="string">"/"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"返回时间："</span> + mydata);</span><br><span class="line"><span class="keyword">var</span> time = <span class="built_in">Date</span>.parse(<span class="keyword">new</span> <span class="built_in">Date</span>(mydata)) / <span class="number">1000</span>;</span><br></pre></td></tr></table></figure>
 <h2 id="5、分包"><a href="#5、分包" class="headerlink" title="5、分包"></a>5、分包</h2><p>配置一下就可以了</p>
 <p>官网：<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/subpackages.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/framework/subpackages.html</a></p>
+<p><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/subpackages/independent.html" target="_blank" rel="noopener">独立分包</a> 和普通分包有区别之处，注意按需使用</p>
+<p>相关链接：</p>
+<ul>
+<li><a href="https://developers.weixin.qq.com/community/develop/doc/000ca495a3cdf89b6d4b2d78c5b000?_at=1627899158537" target="_blank" rel="noopener">小程序分包之后直接进入分包页面会先加载主包吗？</a></li>
+</ul>
 <h2 id="6、小程序弹窗-使用-catchtouchmove-的问题"><a href="#6、小程序弹窗-使用-catchtouchmove-的问题" class="headerlink" title="6、小程序弹窗 使用 catchtouchmove 的问题"></a>6、小程序弹窗 使用 catchtouchmove 的问题</h2><p>使用 fixed 定位之后，滑动弹出的视图，发现根页面 page 也跟着滑动，事件会穿透</p>
 <p>解决：</p>
 <ol>
@@ -303,6 +308,47 @@
 </li>
 </ol>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span></span></span><br><span class="line"><span class="tag">  <span class="attr">class</span>=<span class="string">"filterContainer"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">hidden</span>=<span class="string">"&#123;&#123;!topTabBarIsOpen&#125;&#125;"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">bindtap</span>=<span class="string">"filterViewTapAction"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">catchtouchmove</span>=<span class="string">"filterViewMove"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">scroll-view</span> <span class="attr">scroll-y</span> <span class="attr">class</span>=<span class="string">"filterDataView"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">"filterItemBg"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">wx:for</span>=<span class="string">"&#123;&#123;showList&#125;&#125;"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">wx:key</span>=<span class="string">"title"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">data-selectdata</span>=<span class="string">"&#123;&#123;item&#125;&#125;"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">data-selectindex</span>=<span class="string">"&#123;&#123;index&#125;&#125;"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">catchtap</span>=<span class="string">"itemSelectedAction"</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">text</span></span></span><br><span class="line"><span class="tag">        <span class="attr">class</span>=<span class="string">"&#123;&#123;showListSelectIndex == index ? 'itemSelected' : 'itemNormal'&#125;&#125;"</span></span></span><br><span class="line"><span class="tag">        &gt;</span>&#123;&#123;item.name&#125;&#125;<span class="tag">&lt;/<span class="name">text</span></span></span><br><span class="line"><span class="tag">      &gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">scroll-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="7、跳转到小程序"><a href="#7、跳转到小程序" class="headerlink" title="7、跳转到小程序"></a>7、跳转到小程序</h2><ol>
+<li>微信内 H5 跳转：</li>
+</ol>
+<ul>
+<li><a href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_Open_Tag.html#21" target="_blank" rel="noopener">https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_Open_Tag.html#21</a> 。</li>
+</ul>
+<blockquote>
+<p>已认证的服务号，服务号绑定“JS接口安全域名”下的网页可使用此标签跳转任意合法合规的小程序。<br>已认证的非个人主体的小程序，使用小程序云开发的静态网站托管绑定的域名下的网页，可以使用此标签跳转任意合法合规的小程序。</p>
+</blockquote>
+<ol start="2">
+<li>其他 H5 跳转，可以使用 URL Scheme</li>
+</ol>
+<ul>
+<li><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/url-scheme.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/url-scheme.html</a></li>
+</ul>
+<ol>
+<li>微信分享小程序类型消息，点击唤醒小程序</li>
+</ol>
+<ul>
+<li><a href="https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Share_and_Favorites/Android.html#WXMediaMessage%20%EF%BC%88%E5%BE%AE%E4%BF%A1%E5%AA%92%E4%BD%93%E6%B6%88%E6%81%AF%E5%86%85%E5%AE%B9%EF%BC%89%E8%AF%B4%E6%98%8E" target="_blank" rel="noopener">https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Share_and_Favorites/Android.html#WXMediaMessage%20%EF%BC%88%E5%BE%AE%E4%BF%A1%E5%AA%92%E4%BD%93%E6%B6%88%E6%81%AF%E5%86%85%E5%AE%B9%EF%BC%89%E8%AF%B4%E6%98%8E</a></li>
+</ul>
+<ol start="4">
+<li>小程序打开 APP</li>
+<li><a href="https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Launching_a_Mini_Program/Launching_a_Mini_Program.html" target="_blank" rel="noopener">APP 打开小程序</a> ，该方法为原生方法，除此之外也可以内嵌 H5 页面，再使用 URL Scheme 打开小程序，同时原生需要处理 URL</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">open-type</span>=<span class="string">"launchApp"</span> <span class="attr">app-parameter</span>=<span class="string">"wechat"</span> <span class="attr">binderror</span>=<span class="string">"launchAppError"</span>&gt;</span>打开APP<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>相关链接：</p>
+<ul>
+<li><a href="https://blog.csdn.net/yechaoa/article/details/83821256" target="_blank" rel="noopener">Android APP拉起小程序、分享小程序、小程序打开APP</a></li>
+<li><a href="https://www.cnblogs.com/yinyoupoet/p/13287532.html" target="_blank" rel="noopener">安卓app的webView加载网页后出现ERR_UNKNOWN_URL_SCHEME</a> : webView 只能识别 http:// 或 https:// 开头的 url，对于自定义 scheme 的 url 单独处理即可</li>
+<li><a href="https://blog.csdn.net/hlc162181/article/details/113502356" target="_blank" rel="noopener">微信小程序–云开发静态网站h5跳小程序</a></li>
+</ul>
+<h2 id="8、input输入框在移动端点击很多次才能聚焦，或双击才能聚焦"><a href="#8、input输入框在移动端点击很多次才能聚焦，或双击才能聚焦" class="headerlink" title="8、input输入框在移动端点击很多次才能聚焦，或双击才能聚焦"></a>8、input输入框在移动端点击很多次才能聚焦，或双击才能聚焦</h2><p>给input的外层元素，添加点击事件，在点击事件中，使用nextTick，在其中执行对应input的focus方法。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span> @<span class="attr">click.stop.prevent</span>=<span class="string">"inputPaentClick('input1')"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">ref</span>=<span class="string">"input1"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">inputPaentClick(refName) &#123;</span><br><span class="line">  <span class="keyword">this</span>.$nextTick(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.$refs[refName] &amp;&amp; <span class="keyword">this</span>.$refs[refName].focus();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>9、微信小程序默认字体大小和样式</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">page</span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="attribute">font-family</span>:Monospaced Number,Chinese Quote,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif<span class="meta">!important</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://developers.weixin.qq.com/community/develop/doc/000844258447c8fb19b8fbeab55c00" target="_blank" rel="noopener">https://developers.weixin.qq.com/community/develop/doc/000844258447c8fb19b8fbeab55c00</a></li>
+</ul>
+<h2 id="10、H5页面拉起第三方App"><a href="#10、H5页面拉起第三方App" class="headerlink" title="10、H5页面拉起第三方App"></a>10、<a href="https://blog.csdn.net/weixin_34377919/article/details/88036036" target="_blank" rel="noopener">H5页面拉起第三方App</a></h2><h2 id="11、微信小程序–实现横向导航滚动"><a href="#11、微信小程序–实现横向导航滚动" class="headerlink" title="11、微信小程序–实现横向导航滚动"></a>11、<a href="https://blog.csdn.net/brokenkay/article/details/96871720" target="_blank" rel="noopener">微信小程序–实现横向导航滚动</a></h2><p>可以按照这个思路，结合自己的项目进行修改</p>
 	
 		</div>
 		
@@ -343,9 +389,269 @@
 
 <div class="relate-post">
 	
-		<div class="config-info">
-			Please check the parameter of <b>post_relate</b> in config.yml of hexo-theme-Annie! You should make sure that <b>postsEnable is true</b> and the number of site posts greater than 1.
-		</div>	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2020/03/18/20201/uniapp1/" title="uniapp遇到的问题">
+								uniapp遇到的问题			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 18日, 2020				
+							</p>
+							<p class="relate-post-content">
+								uniapp遇到的问题。uniapp虽然使用vue编写，但是还有不少不同的地方，需要详细阅读官网。
+
+运行报错uniapp真机运行报错问题：
+1request:fail abort
+解决方法：
+
+ip从localhost换成本机的ip...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2020/03/18/20201/uniapp1/" title="uniapp遇到的问题">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="uniapp遇到的问题"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2019/11/13/20194/echarts-map/" title="echarts 绘制地图">
+								echarts 绘制地图			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 13日, 2019				
+							</p>
+							<p class="relate-post-content">
+								Echarts提供了全国省市县的json文件，但是无法精确到区、县级一下的区域，本文讲如何自己画地图。
+
+比如最近这个项目需要长春市朝阳区各个街道的区域图。
+
+在官方文档API中，echarts 有一个registerMap(mapN...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2019/11/13/20194/echarts-map/" title="echarts 绘制地图">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="echarts 绘制地图"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2019/08/02/20193/js-dorp/" title="javascript拖拽事件">
+								javascript拖拽事件			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								八月 2日, 2019				
+							</p>
+							<p class="relate-post-content">
+								需求：点击 div 拖拽到指定位置，鼠标松开后回到原位。
+
+12345678910111213&lt;!-- html --&gt;&lt;div  class="qyflfj"  (mousedown)="rightChartsMo...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2019/08/02/20193/js-dorp/" title="javascript拖拽事件">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="javascript拖拽事件"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2019/07/26/20193/pdfjs/" title="pdfjs的使用">
+								pdfjs的使用			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 26日, 2019				
+							</p>
+							<p class="relate-post-content">
+								pdf.js 可以实现在 html 下直接浏览 pdf 文档,而不是使用浏览器自带的阅读器
+
+https://github.com/mozilla/pdf.js
+最近项目需要做禁止下载 pdf 的功能，然而浏览器自带的预览功能都可以下...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2019/07/26/20193/pdfjs/" title="pdfjs的使用">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="pdfjs的使用"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2019/07/25/20193/angular-animations/" title="angular中动画的使用简介">
+								angular中动画的使用简介			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 25日, 2019				
+							</p>
+							<p class="relate-post-content">
+								angular animations 的使用，详见官方文档
+
+快速上手
+1、启用动画模块
+
+123456789101112// src/app/app.module.tsimport &#123; NgModule &#125; fr...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2019/07/25/20193/angular-animations/" title="angular中动画的使用简介">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="angular中动画的使用简介"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2019/07/24/20193/echarts02/" title="echarts中geo(地理坐标系组件)的使用">
+								echarts中geo(地理坐标系组件)的使用			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 24日, 2019				
+							</p>
+							<p class="relate-post-content">
+								angular 项目中的。
+
+一、示例官方社区中有很多示例，可以在这里寻找
+这位网友提供了所有省市县的 Json 文件
+二、代码配置
+默认情况下，map series 会自己生成内部专用的 geo 组件。但是也可以用这个 geoInd...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2019/07/24/20193/echarts02/" title="echarts中geo(地理坐标系组件)的使用">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="echarts中geo(地理坐标系组件)的使用"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2019/07/18/20193/phone-meta/" title="手机端meta分别是什么意思">
+								手机端meta分别是什么意思			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 18日, 2019				
+							</p>
+							<p class="relate-post-content">
+								手机端 meta 分别是什么意思
+
+meta 指元素可提供有关页面的元信息（meta-information），比如针对搜索引擎和更新频度的描述和关键词。 标签位于文档的头部，不包含任何内容。 标签的属性定义了与
+文档相关联的名称/值...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2019/07/18/20193/phone-meta/" title="手机端meta分别是什么意思">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="手机端meta分别是什么意思"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2019/07/08/20193/ionic-build-error/" title="ionic cordova build 报错解决 （ionic 4.3.0 Cordova 9.0.0）">
+								ionic cordova build 报错解决 （ionic 4.3.0 Cordova 9.0.0）			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 8日, 2019				
+							</p>
+							<p class="relate-post-content">
+								昨天更新了 ionic 和 cordova，发现编译的时候又出问题了。问题原因好像是新版本的 cordova 需要使用 gradle。遂记录下来，以便下次遇到时查阅。
+
+下面是当前配置和build成功后的图片
+123456789101...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2019/07/08/20193/ionic-build-error/" title="ionic cordova build 报错解决 （ionic 4.3.0 Cordova 9.0.0）">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="ionic cordova build 报错解决 （ionic 4.3.0 Cordova 9.0.0）"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2019/07/04/20193/node-sass-install-failed/" title="node-sass安装失败的n中解决方法">
+								node-sass安装失败的n中解决方法			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 4日, 2019				
+							</p>
+							<p class="relate-post-content">
+								node-sass 安装时有时会出现各种问题，本文介绍我自己遇到的问题和可行的解决方法。
+
+解决方案 1、切换淘宝镜像1 卸载 node-sass
+1npm uninstall node-sass
+2 安装 node-sass
+1np...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2019/07/04/20193/node-sass-install-failed/" title="node-sass安装失败的n中解决方法">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="node-sass安装失败的n中解决方法"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../../2019/04/24/20192/typescript1/" title="typescript快速入门">
+								typescript快速入门			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 24日, 2019				
+							</p>
+							<p class="relate-post-content">
+								5分钟学会typescript
+视频地址：https://www.imooc.com/video/13525
+想什么呢，怎么可能只要5分钟
+TypeScript简介微软开发  、 JavaScript的超集   、 遵循ES6
+本质上...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../../2019/04/24/20192/typescript1/" title="typescript快速入门">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="typescript快速入门"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
 	
 </div>	
 				</div>
